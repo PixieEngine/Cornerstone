@@ -1,3 +1,5 @@
+test = "true"
+ 
 Color = (I) ->
   I ||= {}
 
