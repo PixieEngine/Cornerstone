@@ -1,4 +1,6 @@
-Color = (I) ->
+hey = "Grue!"
+ 
+ Color = (I) ->
   I ||= {}
 
   $.reverseMerge I,
