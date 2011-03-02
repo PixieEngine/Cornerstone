@@ -1,3 +1,5 @@
+test = "YO YO YO!"
+ 
 Color = (I) ->
   I ||= {}
 
