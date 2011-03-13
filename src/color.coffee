@@ -1,4 +1,4 @@
-Color = (->
+(->
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d\.?\d*)?\)$/
 
   parseColor = (colorString) ->
@@ -11,7 +11,7 @@ Color = (->
         toHex(bits[3])
       ].join('').toUpperCase()
 
-  return (color) ->
+  window.Color = (color) ->
     parsedColor = null
 
     if color[0] != "#"
