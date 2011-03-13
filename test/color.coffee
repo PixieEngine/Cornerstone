@@ -7,6 +7,6 @@ test "Color default should be black", ->
 
 test "Color should parse rgb", ->
   color = Color('rgb(34, 56, 74)')
-  equals color.channels.r, 34, 'red channel equals input red value'
-  equals color.channels.g, 56, 'green channel equals input green value'
-  equals color.channels.b, 74, 'blue channel equals input blue value'
+  equals color.channels.r, 34, 'red channel should equal input red value'
+  equals color.channels.g, 56, 'green channel should equal input green value'
+  equals color.channels.b, 74, 'blue channel should equal input blue value'
