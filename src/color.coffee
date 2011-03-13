@@ -24,7 +24,7 @@
     if color[0] != "#"
       parsedColor = "#" + (parseColor(color) || "FFFFFF")
     else
-      parsedColor = color
+      parsedColor = parseColor(color)
       
     alpha = parsedColor[4]
 
