@@ -6,9 +6,7 @@
 
     s = '0' + s if s.length == 1 
  
-  parseColor = (colorString) ->
-    return [0, 0, 0, 0] if !colorString || colorString == 'transparent'
-
+  parseRGB = (colorString) ->
     bits = rgbParser.exec(colorString)
     return [
       bits[1]
