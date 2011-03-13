@@ -5,4 +5,8 @@ test "String#parse", ->
 
   equals '{"val": "a string"}'.parse().val, "a string", "even parsing objects works"
   
-  
+test "String#constantize", ->  
+  equals "String".constantize(), String, "look up a constant"
+  equals "Math".constantize(), Math, "look up a constant"
+  equals "Number".constantize(), Number, "look up a constant"
+
