@@ -25,12 +25,14 @@
       parsedColor = "#" + (parseColor(color) || "FFFFFF")
     else
       parsedColor = color
+      
+    alpha = parsedColor[4]
 
     channels =
       r: parseInt(parsedColor[1])
       g: parseInt(parsedColor[2])
       b: parseInt(parsedColor[3])
-      a: parseFloat(parsedColor[4]) || 1
+      a: if alpha? then parseFloat(alpha) || 1
 
     self =
       channels: channels
