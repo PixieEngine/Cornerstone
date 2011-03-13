@@ -5,11 +5,11 @@
     false if !colorString || colorString == 'transparent'
 
     bits = rgbParser.exec(colorString)
-      return [
-        toHex(bits[1])
-        toHex(bits[2])
-        toHex(bits[3])
-      ].join('').toUpperCase()
+    return [
+      toHex(bits[1])
+      toHex(bits[2])
+      toHex(bits[3])
+    ].join('').toUpperCase()
 
   window.Color = (color) ->
     parsedColor = null
