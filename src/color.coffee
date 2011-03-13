@@ -4,7 +4,7 @@
   parseColor = (colorString) ->
     false if !colorString || colorString == 'transparent'
 
-    bits = rgbParser.exec(color)
+    bits = rgbParser.exec(colorString)
       return [
         toHex(bits[1])
         toHex(bits[2])
