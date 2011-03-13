@@ -9,9 +9,9 @@ test "Color default should be black", ->
  
 test "Color should parse rgb", ->
   color = Color('rgb(34, 56, 74)')
-  equals color.channels.r, 34, 'red channel should equal input red value'
-  equals color.channels.g, 56, 'green channel should equal input green value'
-  equals color.channels.b, 74, 'blue channel should equal input blue value'
+  equals color.r, 34, 'red channel should equal input red value'
+  equals color.g, 56, 'green channel should equal input green value'
+  equals color.b, 74, 'blue channel should equal input blue value'
 
 ### 
 test "Color should parse hex starting with #", ->
