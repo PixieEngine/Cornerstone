@@ -1,6 +1,11 @@
 (->
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d\.?\d*)?\)$/
 
+  toHex = (bits) ->
+    s = parseInt(bits).toString(16)
+
+    s = '0' + s if s.length == 1 
+ 
   parseColor = (colorString) ->
     false if !colorString || colorString == 'transparent'
 
@@ -35,11 +40,6 @@
           other.channels.g == channels.g &&
           other.channels.b == channels.b &&
           other.channels.a = channels.a
-
-      toHex: (bits) ->
-        s = parseInt(bits).toString(16)
-
-        s = '0' + s if s.length == 1
 
       rgba: ->
         return "rgba(#{channels.r}, #{channels.g}, #{channels.b}, #{channels.a})"
