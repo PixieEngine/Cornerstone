@@ -37,6 +37,10 @@
 
     self =
       channels: channels
+      r: channels[0]
+      g: channels[1]
+      b: channels[2]
+      a: channels[3]
 
       equals: (other) ->
         return other.channels.r == channels.r &&
