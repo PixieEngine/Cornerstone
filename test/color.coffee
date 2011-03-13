@@ -1,4 +1,4 @@
-test "Color default color is black", ->
+test "Color default should be black", ->
   color = Color()
   equals color.channels.r, 0, "default red channel is 0"
   equals color.channels.g, 0, "default green channel is 0"
