@@ -32,7 +32,7 @@
       r: parseInt(parsedColor[1])
       g: parseInt(parsedColor[2])
       b: parseInt(parsedColor[3])
-      a: if alpha? then parseFloat(alpha) || 1
+      a: if alpha? then parseFloat(alpha) else 1
 
     self =
       channels: channels
