@@ -37,10 +37,33 @@
 
     self =
       channels: channels
-      r: channels[0]
-      g: channels[1]
-      b: channels[2]
-      a: channels[3]
+      r: (val) ->
+        if val?
+          channels[0] = val
+          return self
+        else
+          channels[0]
+        
+      g: (val) ->
+        if val?
+          channels[1] = val
+          return self
+        else
+          channels[1]
+          
+      b: (val) ->
+        if val?
+          channels[2] = val
+          return self
+        else
+          channels[2]
+          
+      a: (val) ->
+        if val?
+          channels[3] = val
+          return self
+        else
+          channels[3]
 
       equals: (other) ->
         return other.r == self.r &&
