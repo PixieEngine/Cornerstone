@@ -14,7 +14,7 @@
       bits[1]
       bits[2]
       bits[3]
-      bits[4] || 0
+      bits[4] || 1
     ]
 
   window.Color = (color) ->
