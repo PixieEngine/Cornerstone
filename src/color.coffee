@@ -18,7 +18,7 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
-    parsedColor = parseColor(color)
+    parsedColor = parseRGB(color)
       
     alpha = parsedColor[3]
 
