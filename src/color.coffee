@@ -7,7 +7,7 @@
     s = '0' + s if s.length == 1 
  
   parseColor = (colorString) ->
-    false if !colorString || colorString == 'transparent'
+    return [0, 0, 0, 0] if !colorString || colorString == 'transparent'
 
     bits = rgbParser.exec(colorString)
     return [
@@ -21,7 +21,7 @@
     
     parsedColor = parseColor(color)
       
-    alpha = parsedColor[4]
+    alpha = parsedColor[3]
 
     channels = [
       parseInt(parsedColor[0]) 
