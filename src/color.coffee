@@ -22,7 +22,7 @@
     parsedColor = null
 
     if color[0] != "#"
-      parsedColor = "#" + (parseColor(color) || "FFFFFF")
+      parsedColor = "#" + (arrayToHex(parseColor(color)) || "FFFFFF")
     else
       parsedColor = parseColor(color)
       
