@@ -29,8 +29,7 @@
       channels: channels
 
       equals: (other) ->
-        return
-          other.channels.r == channels.r &&
+        return other.channels.r == channels.r &&
           other.channels.g == channels.g &&
           other.channels.b == channels.b &&
           other.channels.a = channels.a
