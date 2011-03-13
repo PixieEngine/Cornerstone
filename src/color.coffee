@@ -45,7 +45,7 @@
           other.channels.a = channels.a
 
       rgba: ->
-        return "rgba(#{channels.r}, #{channels.g}, #{channels.b}, #{channels.a})"
+        return "rgba(#{channels[0]}, #{channels[1]}, #{channels[2]}, #{channels[3]})"
 
       toString: ->
         return (if channels.a == 1 then toHex([channels.r, channels.g, channels.b]) else self.rgba())
