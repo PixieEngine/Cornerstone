@@ -43,10 +43,10 @@
       a: channels[3]
 
       equals: (other) ->
-        return other.channels.r == channels.r &&
-          other.channels.g == channels.g &&
-          other.channels.b == channels.b &&
-          other.channels.a = channels.a
+        return other.r == self.r &&
+          other.g == self.g &&
+          other.b == self.b &&
+          other.a = self.a
 
       rgba: ->
         return "rgba(#{self.r}, #{self.g}, #{self.b}, #{self.a})"
