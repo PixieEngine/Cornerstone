@@ -19,12 +19,7 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
-    parsedColor = null
-
-    if color[0] != "#"
-      parsedColor = "#" + (arrayToHex(parseColor(color)) || "FFFFFF")
-    else
-      parsedColor = parseColor(color)
+    parsedColor = parseColor(color)
       
     alpha = parsedColor[4]
 
