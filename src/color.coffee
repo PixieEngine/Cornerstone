@@ -24,9 +24,9 @@
     alpha = parsedColor[4]
 
     channels = [
-      parseInt(parsedColor[1]) 
+      parseInt(parsedColor[0]) 
+      parseInt(parsedColor[1])
       parseInt(parsedColor[2])
-      parseInt(parsedColor[3])
       if alpha? then parseFloat(alpha) else 0.0
     ]
 
