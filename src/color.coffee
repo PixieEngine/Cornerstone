@@ -45,7 +45,7 @@
         return "rgba(#{channels.r}, #{channels.g}, #{channels.b}, #{channels.a})"
 
       toString: ->
-        return (if channels.a == 1 then self.toHex() else self.rgba())
+        return (if channels.a == 1 then toHex([channels.r, channels.g, channels.b]) else self.rgba())
 
     return self
 )()
