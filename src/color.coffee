@@ -28,11 +28,12 @@
       
     alpha = parsedColor[4]
 
-    channels =
-      r: parseInt(parsedColor[1])
-      g: parseInt(parsedColor[2])
-      b: parseInt(parsedColor[3])
-      a: if alpha? then parseFloat(alpha) else 0.0
+    channels = [
+      parseInt(parsedColor[1]) 
+      parseInt(parsedColor[2])
+      parseInt(parsedColor[3])
+      if alpha? then parseFloat(alpha) else 0.0
+    ]
 
     self =
       channels: channels
