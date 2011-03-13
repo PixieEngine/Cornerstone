@@ -20,12 +20,10 @@
       parsedColor = color
 
     channels =
-      color = parseColor(color)
-
-      r: parseInt(color[1])
-      g: parseInt(color[2])
-      b: parseInt(color[3])
-      a: parseFloat(color[4]) || 1
+      r: parseInt(parsedColor[1])
+      g: parseInt(parsedColor[2])
+      b: parseInt(parsedColor[3])
+      a: parseFloat(parsedColor[4]) || 1
 
     self =
       channels: channels
