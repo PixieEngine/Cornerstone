@@ -12,7 +12,7 @@
     ].join('').toUpperCase()
 
   window.Color = (color) ->
-    color ||= 'rgba(0, 0, 0, 0)'
+    color ||= "rgba(0, 0, 0, 0)"
     
     parsedColor = null
 
