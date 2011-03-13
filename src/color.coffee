@@ -14,7 +14,7 @@
       toHex(bits[1])
       toHex(bits[2])
       toHex(bits[3])
-    ].join('').toUpperCase()
+    ]
 
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
