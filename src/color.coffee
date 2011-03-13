@@ -11,9 +11,9 @@
 
     bits = rgbParser.exec(colorString)
     return [
-      toHex(bits[1])
-      toHex(bits[2])
-      toHex(bits[3])
+      bits[1]
+      bits[2]
+      bits[3]
     ]
 
   window.Color = (color) ->
