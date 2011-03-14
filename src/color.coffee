@@ -86,11 +86,9 @@
           other.b() == self.b() &&
           other.a() = self.a()
 
-      rgba: ->
-        return "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{a()})"
+      rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
-      toString: ->
-        return self.rgba()
+      toString: -> self.rgba()
 
     return self
     
