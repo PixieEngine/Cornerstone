@@ -84,7 +84,7 @@
         return "rgba(#{self.r}, #{self.g}, #{self.b}, #{self.a})"
 
       toString: ->
-        return (if self.a == 1 then toHex([self.r, self.g, self.b]) else self.rgba())
+        return self.rgba()
 
     return self
     
