@@ -11,7 +11,14 @@
     s = parseInt(bits).toString(16)
 
     s = '0' + s if s.length == 1 
- 
+
+  parseHex = (hexString) ->
+    if hexString[0] = '#'
+      case hexString.length
+        when 3 then #something
+        when 4 then #something
+        when 6 then #something
+       
   parseRGB = (colorString) ->
     bits = rgbParser.exec(colorString)
     return [
@@ -20,7 +27,7 @@
       bits[3]
       if bits[4]? then bits[4] else 1
     ]
-
+    
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
