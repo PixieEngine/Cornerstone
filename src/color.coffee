@@ -45,7 +45,12 @@
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)] 
     else if color.length > 2 && Object.prototype.toString.call(color) == '[object Array]' 
       alpha = if color[3]? then color[3] else 1
-      parsedColor = [parseInt(color[0]), parseInt(color[1]), parseInt(color[2]), parseFloat(alpha)]
+      parsedColor = [
+        parseInt(color[0]), 
+        parseInt(color[1]), 
+        parseInt(color[2]), 
+        parseFloat(alpha)
+      ]
     else
       parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
    
