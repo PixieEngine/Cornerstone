@@ -27,17 +27,17 @@ test "Color should parse rgba without leading 0 on alpha value", ->
 
 test "Color should parse length 8 hex string", -> 
   color = Color('ae56f03a')
-  equals color.r(), 255 
-  equals color.g(), 255
-  equals color.b(), 255 
-  equals color.a(), 
+  equals color.r(), 174 
+  equals color.g(), 86
+  equals color.b(), 240 
+  equals color.a(), 58 / 255.0
  
 test "Color should parse length 8 hex string with leading #", ->
-  color = Color('#ffffff')
-  equals color.r(), 255
-  equals color.g(), 255
-  equals color.b(), 255 
-  equals color.a(), 1.0
+  color = Color('#001f34bb')
+  equals color.r(), 0
+  equals color.g(), 31
+  equals color.b(), 52 
+  equals color.a(), 187 / 255.0
  
 test "Color should parse length 6 hex string", -> 
   color = Color('ffffff')
