@@ -43,7 +43,7 @@
     
     parsedColor = null
     
-    parsedColor = parseHex(color) || parseRGB(color) || lookup[color]
+    parsedColor = lookup[color] || parseHex(color) || parseRGB(color)
       
     alpha = parsedColor[3]
 

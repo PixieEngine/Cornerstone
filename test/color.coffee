@@ -31,7 +31,13 @@ test "Color should parse hex", ->
   equals color.b(), 255, 'blue channel should equal numeric equivalent of ff'
 
   color = Color('ffffff')
-  equals color.r(), 255, 'red channel should equal numeric equivalent of ff'
-  equals color.g(), 255, 'green channel should equal numeric equivalent of ff'
-  equals color.b(), 255, 'blue channel should equal numeric equivalent of ff'
+  equals color.r(), 255 
+  equals color.g(), 255
+  equals color.b(), 255
+  
+test "Color should know what Fuzzy Wuzzy Brown is", ->
+  color = Color("Fuzzy Wuzzy Brown")
+  equals color.r(), 10
+  equals color.g(), 40
+  equals color.b(), 69
 
