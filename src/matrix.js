@@ -70,6 +70,21 @@
       },
       magnitude: function() {
         return Point.distance(Point(0, 0), this);
+      },
+      dot: function(other) {
+        return this.x * other.x + this.y * other.y;
+      },
+      cross: function(other) {
+        return this.x * other.y - other.x * this.y;
+      },
+      norm: function() {
+        return this.scale(1.0/this.length());
+      },
+      length: function() {
+        return Math.sqrt(this.dot(this));
+      },
+      distance: function(other) {
+        return Point.distance(this, other);
       }
     }
   }
