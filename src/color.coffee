@@ -44,7 +44,7 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
-    parsedColor = lookup[color] || parseHex(color) || parseRGB(color)
+    parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
    
     return unless parsedColor   
     
