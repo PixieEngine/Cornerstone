@@ -18,13 +18,15 @@
           parseInt(hexString.substr(2, 1), 16) * 0x11
           if hexString.substr(3, 1).length then (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0
         ]
-      else
+      when 6, 8
         return [
           parseInt(hexString.substr(0, 2), 16)
           parseInt(hexString.substr(2, 2), 16)
           parseInt(hexString.substr(4, 2), 16)  
           if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2), 16) / 255.0 else 1.0
         ]
+      else
+        undefined
        
   parseRGB = (colorString) ->
     return unless bits = rgbParser.exec(colorString) 
