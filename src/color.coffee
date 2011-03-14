@@ -18,7 +18,13 @@
     case hexString.length
       when 3 then #something
       when 4 then #something
-      when 6 then #something
+      when 6
+        bits = rgbParser.exec(hexString)
+        return [
+          bits[1]
+          bits[2]
+          
+        ]
       when 8 then #something
        
   parseRGB = (colorString) ->
