@@ -108,3 +108,10 @@ test "Color should equal colors with the same rbga values", ->
   alpha1 = Color(51, 51, 51, 1)
   alpha2 = Color('rgba(51, 51, 51, 1)')
   alpha3 = Color('#333333ff')
+  alpha4 = Color('#333f')
+  alpha5 = Color([51,51,51,1])
+  
+  ok(alpha1.equals(alpha2))
+  ok(alpha1.equals(alpha3))
+  ok(alpha1.equals(alpha4))
+  ok(alpha1.equals(alpha5))
