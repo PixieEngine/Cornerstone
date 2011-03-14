@@ -59,12 +59,39 @@
       add: function(other) {
         return Point(this.x + other.x, this.y + other.y);
       },
+      /**
+       * Subtracts a point to this one and returns the new point.
+       * @name subtract
+       * @methodOf Point#
+       *
+       * @param {Point} other The point to subtract from this point.
+       * @returns A new point, this - other.
+       * @type Point
+       */
       subtract: function(other) {
         return Point(this.x - other.x, this.y - other.y);
       },
+      /**
+       * Scale this Point (Vector) by a constant amount.
+       * @name scale
+       * @methodOf Point#
+       *
+       * @param {Number} scalar The amount to scale this point by.
+       * @returns A new point, this * scalar.
+       * @type Point
+       */
       scale: function(scalar) {
         return Point(this.x * scalar, this.y * scalar);
       },
+      /**
+       * Determine whether this point is equal to another point.
+       * @name equal
+       * @methodOf Point#
+       *
+       * @param {Point} other The point to check for equality.
+       * @returns True if the other point has the same x, y coordinates, false otherwise.
+       * @type Point
+       */
       equal: function(other) {
         return this.x === other.x && this.y === other.y;
       },
