@@ -1601,10 +1601,7 @@ names.each (element) ->
     
     parsedColor = null
     
-    if lookup[color.toLowerCase().replace(/ /g, "")]
-      parsedColor = Color(lookup[color.toLowerCase().replace(/ /g, "")])
-    else
-      parsedColor = parseRGB(color)
+    parsedColor = parseRGB(color)
       
     alpha = parsedColor[3]
 
