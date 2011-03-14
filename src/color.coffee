@@ -1671,5 +1671,7 @@
   ]
   
   names.each (element) ->
-    lookup[element[1].toLowerCase().replace(/ /g, "")] = parseHex(element[0])   
+    lookup[element[1].toLowerCase().replace(/ /g, "")] = parseHex(element[0]) 
+  
+  console.log lookup  
 )()
