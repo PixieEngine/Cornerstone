@@ -103,6 +103,21 @@ test "Color should parse first argument array, second argument alpha", ->
   equals color.b(), 43
   equals color.a(), 0.4
   
+test "Color should parse first argument string, second argument alpha", ->
+  hexColor = Color("#1084ce", 0.5)
+  rgbColor = Color("rgb(3, 90, 210)", 0.3)
+  equals hexColor.r(), 16
+  equals hexColor.g(), 132
+  equals hexColor.b(), 206
+  equals hexColor.a(), 0.5
+  
+  equals rgbColor.r(), 3
+  equals rgbColor.g(), 90
+  equals rgbColor.b(), 210
+  equals rgbColor.a(), 0.3
+  
+  
+  
 test "Color should equal colors with the same rbga values", ->
   color1 = Color(4, 20, 100)
   color2 = Color('rgb(4, 20, 100)')
