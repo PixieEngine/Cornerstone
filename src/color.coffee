@@ -42,7 +42,7 @@
     
     if arguments.length == 2
       if argments[0].length == 3
-        parsedColor = [parseInt(argments[0]), parseInt(argments[1]), parseInt(argments[2]), parseFloat(arguments[1])]
+        parsedColor = [parseInt(argments[0][0]), parseInt(argments[0][1]), parseInt(argments[0][2]), parseFloat(arguments[1])]
     if arguments.length > 2
       alpha = if arguments[3]? then arguments[3] else 1
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)] 
