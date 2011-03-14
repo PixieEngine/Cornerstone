@@ -19,7 +19,6 @@ test "Color should parse rgba", ->
   equals color.a(), 0.45, 'alpha channel should equal input alpha value'
  
 test "Color should parse hex starting with #", ->
-  debugger
   color = Color('#ffffff')
   equals color.r(), 255, 'red channel should equal numeric equivalent of ff'
   equals color.g(), 255, 'green channel should equal numeric equivalent of ff'
