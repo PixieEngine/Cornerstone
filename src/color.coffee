@@ -1571,8 +1571,9 @@ names = [
 ] 
  
 names.each (element) ->
-  debugger
   lookup[element[1].toLowerCase().replace(/ /g, "")] = Color(element[0]) 
+
+log lookup
  
 ###
   check for named colors in a hash table
