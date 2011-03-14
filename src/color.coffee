@@ -7,11 +7,6 @@
 (->
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d\.?\d*)?\)$/
 
-  toHex = (bits) ->
-    s = parseInt(bits).toString(16)
-
-    s = '0' + s if s.length == 1 
-
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
             
