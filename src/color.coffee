@@ -16,7 +16,7 @@
     hexString = hexString.replace(/#/, '')
             
     switch hexString.length
-      when 3, 4 then function() {}
+      when 3, 4 then
       else
         return [
           parseInt(hexString.substr(0, 2), 16)
