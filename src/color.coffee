@@ -1570,8 +1570,7 @@ names = [
   ["FFFFFF", "White"]
 ] 
  
-names.each (i, element) ->
-  debugger
+names.each (element) ->
   lookup[element[1].toLowerCase().replace(/ /g, "")] = Color(element[0]) 
  
 ###
