@@ -88,13 +88,13 @@
           channels[3]
 
       equals: (other) ->
-        return other.r == self.r &&
-          other.g == self.g &&
-          other.b == self.b &&
-          other.a = self.a
+        return other.r() == self.r() &&
+          other.g() == self.g() &&
+          other.b() == self.b() &&
+          other.a() = self.a()
 
       rgba: ->
-        return "rgba(#{self.r}, #{self.g}, #{self.b}, #{self.a})"
+        return "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
       toString: ->
         return self.rgba()
