@@ -1677,5 +1677,5 @@
     lookup[normalizeKey(element[1])] = parseHex(element[0]) 
     
   color = Color('rgba(34,54,32,1)')
-  console.log color
+  console.log color.toString()
 )()
