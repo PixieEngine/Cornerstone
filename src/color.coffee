@@ -18,14 +18,17 @@
     switch hexString.length
       when 3, 4 then
         return [
-          parseInt(hexString.substr(0, 1), 16) * 0x11 
+          parseInt(hexString.substr(0, 1), 16) * 0x11
+          parseInt(hexString.substr(1, 1), 16) * 0x11
+          parseInt(hexString.substr(2, 1), 16) * 0x11
+          if hexString.substr(3, 1).length then (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0)
         ]
       else
         return [
           parseInt(hexString.substr(0, 2), 16)
           parseInt(hexString.substr(2, 2), 16)
           parseInt(hexString.substr(4, 2), 16)  
-          if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2) / 255.0) else 1.0
+          if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2), 16) / 255.0 else 1.0
         ]
        
   parseRGB = (colorString) ->
