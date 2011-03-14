@@ -41,8 +41,8 @@
     parsedColor = null
     
     if color.length > 2 && Object.prototype.toString.call(color) == '[object Array]' 
-      alpha = if arguments[3]? then arguments[3] else 1
-      parsedColor = [arguments[0], arguments[1], arguments[2], alpha]
+      alpha = if arguments[3]? then color[3] else 1
+      parsedColor = [color[0], color[1], color[2], alpha]
     else
       parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
    
