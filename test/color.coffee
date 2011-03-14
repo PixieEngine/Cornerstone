@@ -116,8 +116,6 @@ test "Color should parse first argument string, second argument alpha", ->
   equals rgbColor.b(), 210
   equals rgbColor.a(), 0.3
   
-  
-  
 test "Color should equal colors with the same rbga values", ->
   color1 = Color(4, 20, 100)
   color2 = Color('rgb(4, 20, 100)')
