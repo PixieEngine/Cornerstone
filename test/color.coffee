@@ -37,7 +37,7 @@ test "Color should parse hex", ->
   
 test "Color should know what Fuzzy Wuzzy Brown is", ->
   color = Color("Fuzzy Wuzzy Brown")
-  equals color.r(), 10
-  equals color.g(), 40
-  equals color.b(), 69
+  equals color.r(), 196
+  equals color.g(), 86
+  equals color.b(), 85
 
