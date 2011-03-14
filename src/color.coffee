@@ -18,13 +18,13 @@
     bits = rgbParser.exec(hexString)
     
     switch hexString.length
-      when 3, 4 then #something
+      when 3, 4 then function() {}
       else
         return [
           parseInt(hexString.substr(0, 2), 16)
           parseInt(hexString.substr(2, 2), 16)
           parseInt(hexString.substr(4, 2), 16)  
-          if bits[4]? then bits[4] else 1.0
+          if hexString.substr(6, 2).length? then parseInt(hexString.substr(6, 2) / 255.0) else 1.0
         ]
        
   parseRGB = (colorString) ->
