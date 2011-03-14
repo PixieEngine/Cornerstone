@@ -41,7 +41,7 @@
     
     parsedColor = null
     
-    parsedColor = parseHex(color) || parseRGB(color)
+    parsedColor =  parseRGB(color) || parseHex(color)
       
     alpha = parsedColor[3]
 
