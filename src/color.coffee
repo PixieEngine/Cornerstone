@@ -14,19 +14,18 @@
 
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
+        
+    bits = rgbParser.exec(hexString)
     
-    case hexString.length
-      when 3 then #something
-      when 4 then #something
-      when 6
-        bits = rgbParser.exec(hexString)
+    switch hexString.length
+      when 3, 4 then #something
+      else
         return [
-          bits[1]
-          bits[2]
-          bits[3]  
-          1.0
+          parseInt(hexString.substr(0, 2), 16)
+          parseInt(hexString.substr(2, 2), 16)
+          parseInt(hexString.substr(4, 2), 16)  
+          if bits[4]? then bits[4] else 1.0
         ]
-      when 8 then #something
        
   parseRGB = (colorString) ->
     bits = rgbParser.exec(colorString)
@@ -34,7 +33,7 @@
       bits[1]
       bits[2]
       bits[3]
-      if bits[4]? then bits[4] else 1
+      if bits[4]? then bits[4] else 1.0
     ]
     
   window.Color = (color) ->
