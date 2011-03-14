@@ -36,7 +36,6 @@ test "Core#attrAccessor", ->
   equal o.test("new_val"), o
   equal o.test(), "new_val"
 
-
 test "Core#attrReader", ->
   o = Core
     test: "my_val"
