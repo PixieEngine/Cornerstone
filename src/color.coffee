@@ -21,7 +21,7 @@
           parseInt(hexString.substr(0, 1), 16) * 0x11
           parseInt(hexString.substr(1, 1), 16) * 0x11
           parseInt(hexString.substr(2, 1), 16) * 0x11
-          if hexString.substr(3, 1).length then (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0)
+          if hexString.substr(3, 1).length then (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0
         ]
       else
         return [
