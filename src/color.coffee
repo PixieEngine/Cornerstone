@@ -66,6 +66,9 @@
     ]
 
     self =
+      channels: ->
+        channels.copy()
+        
       r: (val) ->
         if val?
           channels[0] = val
