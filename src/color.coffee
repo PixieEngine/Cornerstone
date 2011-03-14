@@ -28,6 +28,7 @@
        
   parseRGB = (colorString) ->
     return unless bits = rgbParser.exec(colorString) 
+    
     return [
       parseInt(bits[1])
       parseInt(bits[2])
