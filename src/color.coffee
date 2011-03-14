@@ -41,10 +41,12 @@
     parsedColor = null
     
     if arguments.length == 2
-      if Object.prototype.toString.call(arguments[0]) == '[object Array]' 
-        parsedColor = [parseInt(arguments[0][0]), parseInt(arguments[0][1]), parseInt(arguments[0][2]), parseFloat(arguments[1])]
-      else if Object.prototype.toString.call(arguments[0]) != '[object Array]'
-        parsedColor = [lookup[normalizeKey(arguments[0])] || parseHex(arguments[0]) || parseRGB(arguments[0], arguments[1]] 
+      c = arguments[0]
+      a = arguments[1]
+      if Object.prototype.toString.call(c) == '[object Array]' 
+        parsedColor = [parseInt(c[0]), parseInt(c[1]), parseInt(c[2]), parseFloat(a)]
+      else if Object.prototype.toString.call(c) != '[object Array]'
+        parsedColor = [lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c), a] 
     else if arguments.length > 2
       alpha = if arguments[3]? then arguments[3] else 1
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)] 
