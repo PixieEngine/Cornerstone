@@ -1674,8 +1674,5 @@
   ]
   
   names.each (element) ->
-    lookup[normalizeKey(element[1])] = parseHex(element[0]) 
-    
-  color = Color('rgba(34,54,32,1)')
-  console.log color.rgba()
+    lookup[normalizeKey(element[1])] = parseHex(element[0])
 )()
