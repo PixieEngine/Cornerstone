@@ -51,6 +51,20 @@ test "Color should parse length 6 hex string with leading #", ->
   equals color.g(), 255
   equals color.b(), 255
 
+test "Color should parse length 4 hex string", ->   
+  color = Color('b8f0')
+  equals color.r(), 187
+  equals color.g(), 255
+  equals color.b(), 68
+  equals color.a(), 0.0
+ 
+test "Color should parse length 4 hex string with leading #", ->  
+  color = Color('#ab87')
+  equals color.r(), 170
+  equals color.g(), 187
+  equals color.b(), 136
+  equals color.a(), 119 / 255.0 
+ 
 test "Color should parse length 3 hex string", ->   
   color = Color('a94')
   equals color.r(), 170
