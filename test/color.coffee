@@ -15,7 +15,7 @@ test "Color should parse rgba", ->
   color = Color('rgb(4, 66, 134, 0.45)')
   equals color.r(), 4, 'red channel should equal input red value'
   equals color.g(), 66, 'green channel should equal input green value'
-  equals color.g(), 134, 'blue channel should equal input blue value'
+  equals color.b(), 134, 'blue channel should equal input blue value'
   equals color.a(), 0.45, 'alpha channel should equal input alpha value'
  
 ### 
