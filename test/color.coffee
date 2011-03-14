@@ -98,8 +98,13 @@ test "Color should create from 3 or 4 numbers", ->
   
 test "Color should equal colors with the same rbga values", ->
   color1 = Color(4, 20, 100)
-  color2 = Color('rgba(4, 20, 100)')
+  color2 = Color('rgb(4, 20, 100)')
   color3 = Color('#041464')
   color4 = Color([4, 20, 100])
   ok(color1.equals(color2))
   ok(color1.equals(color3))
+  ok(color1.equals(color4))
+  
+  alpha1 = Color(51, 51, 51, 1)
+  alpha2 = Color('rgba(51, 51, 51, 1)')
+  alpha3 = Color('#333333ff')
