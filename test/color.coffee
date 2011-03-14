@@ -18,6 +18,7 @@ test "Color should parse rgba", ->
   equals color.b(), 134
   equals color.a(), 0.45
 
+test "Color should parse rgba without leading 0 on alpha value", -> 
   color = Color('rgb(4, 66, 134, .33)')
   equals color.r(), 4
   equals color.g(), 66
