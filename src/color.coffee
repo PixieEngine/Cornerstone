@@ -40,7 +40,8 @@
     
     parsedColor = null
     
-    if color.length > 2 && Object.prototype.toString.call(color) == '[object Array]' 
+    if arguments.length > 2
+    else if color.length > 2 && Object.prototype.toString.call(color) == '[object Array]' 
       alpha = if color[3]? then color[3] else 1
       parsedColor = [color[0], color[1], color[2], alpha]
     else
