@@ -1,6 +1,6 @@
 lookup = {}
 
-names.each (element, i) ->
+names.each (i, element) ->
   lookup[element[1].toLowerCase().replace(/ /g, "")] = Color(element[0]) 
  
 ###
