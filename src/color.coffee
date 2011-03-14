@@ -5,7 +5,7 @@
 ###
  
 (->
-  rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d\?.?\d*)?\)$/
+  rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d\.?\d*)?\)$/
 
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
