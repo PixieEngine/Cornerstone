@@ -1655,4 +1655,6 @@
   
   names.each (element) ->
     lookup[element[1].toLowerCase().replace(/ /g, "")] = element[0]   
+    
+  console.log lookup
 )()
