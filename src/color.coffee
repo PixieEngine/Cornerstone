@@ -1573,8 +1573,6 @@ names = [
 names.each (element) ->
   lookup[element[1].toLowerCase().replace(/ /g, "")] = element[0] 
 
-console.log lookup
- 
 ###
   check for named colors in a hash table
   check for /\#?[0-9a-f]+/i give to hex parser (hex parser chex for length 3, 4, 6, 8. 4 and 8 are rgba in hex form)
@@ -1604,7 +1602,7 @@ console.log lookup
     parsedColor = null
     
     if lookup[color.toLowerCase().replace(/ /g, "")]
-      parsedColor = lookup[color.toLowerCase().replace(/ /g, "")]
+      parsedColor = Color(lookup[color.toLowerCase().replace(/ /g, "")])
     else
       parsedColor = parseRGB(color)
       
