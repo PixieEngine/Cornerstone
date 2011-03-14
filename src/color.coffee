@@ -1573,7 +1573,7 @@ names = [
 names.each (element) ->
   lookup[element[1].toLowerCase().replace(/ /g, "")] = element[0] 
 
-log lookup
+console.log lookup
  
 ###
   check for named colors in a hash table
