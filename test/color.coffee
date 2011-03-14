@@ -18,13 +18,13 @@ test "Color should parse rgba", ->
   equals color.b(), 134, 'blue channel should equal input blue value'
   equals color.a(), 0.45, 'alpha channel should equal input alpha value'
 
-  color = Color('rgb(4, 66, 134, .45)')
+  color = Color('rgb(4, 66, 134, .33)')
   equals color.r(), 4, 'red channel should equal input red value'
   equals color.g(), 66, 'green channel should equal input green value'
   equals color.b(), 134, 'blue channel should equal input blue value'
-  equals color.a(), 0.45, 'alpha channel should equal input alpha value' 
+  equals color.a(), 0.33, 'alpha channel should equal input alpha value' 
  
-test "Color should parse hex starting with #", ->
+test "Color should parse hex", ->
   color = Color('#ffffff')
   equals color.r(), 255, 'red channel should equal numeric equivalent of ff'
   equals color.g(), 255, 'green channel should equal numeric equivalent of ff'
