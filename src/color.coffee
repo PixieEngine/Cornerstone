@@ -41,10 +41,10 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
-    parsedColor = null
-    
     parsedColor = lookup[color] || parseHex(color) || parseRGB(color)
-      
+   
+    return unless parsedColor   
+    
     alpha = parsedColor[3]
 
     channels = [
