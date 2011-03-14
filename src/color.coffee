@@ -13,6 +13,8 @@
     s = '0' + s if s.length == 1 
 
   parseHex = (hexString) ->
+    hexString = hexString.replace(/#/, '')
+    
     if hexString[0] = '#'
       case hexString.length
         when 3 then #something
