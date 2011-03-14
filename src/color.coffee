@@ -38,6 +38,9 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
+    if arguments.length > 2
+      parsedColor = []
+    
     parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
    
     return unless parsedColor   
