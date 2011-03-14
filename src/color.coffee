@@ -16,7 +16,7 @@
     hexString = hexString.replace(/#/, '')
             
     switch hexString.length
-      when 3, 4 then
+      when 3, 4
         return [
           parseInt(hexString.substr(0, 1), 16) * 0x11
           parseInt(hexString.substr(1, 1), 16) * 0x11
