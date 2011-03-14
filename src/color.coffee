@@ -1,9 +1,3 @@
-###
-  check for named colors in a hash table
-  check for 3,4,6,8 hex
-  check for rgba
-###
- 
 (->
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d?\.?\d*)?\)$/
 
@@ -58,7 +52,6 @@
     ]
 
     self =
-      channels: channels
       r: (val) ->
         if val?
           channels[0] = val
@@ -94,7 +87,7 @@
           other.a() = self.a()
 
       rgba: ->
-        return "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
+        return "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{a()})"
 
       toString: ->
         return self.rgba()
