@@ -36,17 +36,19 @@ test "Color should parse length 6 hex string with leading #", ->
   equals color.r(), 255
   equals color.g(), 255
   equals color.b(), 255
-  
-  color = Color('#3ef')
-  equals color.r(), 51
-  equals color.g(), 238
-  equals color.b(), 255
-  
+
+test "Color should parse length 3 hex string", ->   
   color = Color('a94')
   equals color.r(), 170
   equals color.g(), 153
   equals color.b(), 68
  
+test "Color should parse length 3 hex string with leading #", ->  
+  color = Color('#3ef')
+  equals color.r(), 51
+  equals color.g(), 238
+  equals color.b(), 255
+  
 test "Color should know what Fuzzy Wuzzy Brown is", ->
   color = Color("Fuzzy Wuzzy Brown")
   equals color.r(), 196
