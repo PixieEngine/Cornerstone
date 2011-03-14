@@ -84,7 +84,7 @@ test "Color should know what Fuzzy Wuzzy Brown is", ->
   equals color.b(), 85
 
 test "Color should parse arrays", ->
-  color = Color("Fuzzy Wuzzy Brown")
+  color = Color([1, 24, 101])
   equals color.r(), 196
   equals color.g(), 86
   equals color.b(), 85 
