@@ -24,6 +24,7 @@
           bits[1]
           bits[2]
           bits[3]  
+          1.0
         ]
       when 8 then #something
        
