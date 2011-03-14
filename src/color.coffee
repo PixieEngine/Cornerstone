@@ -29,6 +29,8 @@ names.each (i, element) ->
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
+    parsedColor = null
+    
     if lookup[color.toLowerCase().replace(/ /g, "")]
       parsedColor = lookup[color.toLowerCase().replace(/ /g, "")]
     else
