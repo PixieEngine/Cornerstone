@@ -89,7 +89,7 @@ test "Color should parse arrays", ->
   equals color.g(), 24
   equals color.b(), 101 
   
-test "Color should create from 3 or 4 numbers", ->
+test "Color parse 3 or 4 number arguments", ->
   color = Color(4, 34, 102, 0.4)
   equals color.r(), 4
   equals color.g(), 34
