@@ -14,7 +14,7 @@ Core = (I) ->
 
   self = {
     ###
-    Generates a public jQuery style getter/setter method for each 
+    Generates a public jQuery style getter / setter method for each 
     String argument.
     
     @name attrAccessor
