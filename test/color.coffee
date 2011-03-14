@@ -96,6 +96,13 @@ test "Color parse 3 or 4 number arguments", ->
   equals color.b(), 102
   equals color.a(), 0.4
   
+test "Color should parse first argument array, second argument alpha", ->
+  color = Color([4, 200, 43], 0.4)
+  equals color.r(), 4
+  equals color.g(), 200
+  equals color.b(), 43
+  equals color.a(), 0.4
+  
 test "Color should equal colors with the same rbga values", ->
   color1 = Color(4, 20, 100)
   color2 = Color('rgb(4, 20, 100)')
@@ -115,7 +122,7 @@ test "Color should equal colors with the same rbga values", ->
   ok(alpha1.equals(alpha3))
   ok(alpha1.equals(alpha4))
   ok(alpha1.equals(alpha5))
-  
+    
 test "Color should output proper toString", ->
   color = Color(5, 25, 125, 0.73)
   equals color.toString(), "rgba(5, 25, 125, 0.73)"
