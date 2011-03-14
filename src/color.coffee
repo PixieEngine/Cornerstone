@@ -38,6 +38,9 @@
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
     
+  normalizeKey = (key) ->
+    key.toLowerCase().replace(/ /g, "")
+    
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
@@ -1671,7 +1674,5 @@
   ]
   
   names.each (element) ->
-    lookup[element[1].toLowerCase().replace(/ /g, "")] = parseHex(element[0]) 
-  
-  console.log lookup  
+    lookup[normalize(element[1])] = parseHex(element[0]) 
 )()
