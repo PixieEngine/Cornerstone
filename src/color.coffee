@@ -39,7 +39,8 @@
     color ||= "rgba(0, 0, 0, 0)"
     
     if arguments.length > 2
-      parsedColor = []
+      alpha = if arguments[2]? then arguments[2] else 1
+      parsedColor = [arguments[0], arguments[1], arguments[2], alpha]
     
     parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
    
