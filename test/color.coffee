@@ -83,3 +83,8 @@ test "Color should know what Fuzzy Wuzzy Brown is", ->
   equals color.g(), 86
   equals color.b(), 85
 
+test "Color should parse arrays", ->
+  color = Color("Fuzzy Wuzzy Brown")
+  equals color.r(), 196
+  equals color.g(), 86
+  equals color.b(), 85 
