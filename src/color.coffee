@@ -29,10 +29,10 @@
   parseRGB = (colorString) ->
     bits = rgbParser.exec(colorString)
     return [
-      bits[1]
-      bits[2]
-      bits[3]
-      if bits[4]? then bits[4] else 1.0
+      parseInt(bits[1])
+      parseInt(bits[2])
+      parseInt(bits[3])
+      if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
     
   window.Color = (color) ->
@@ -45,9 +45,9 @@
     alpha = parsedColor[3]
 
     channels = [
-      parseInt(parsedColor[0]) 
-      parseInt(parsedColor[1])
-      parseInt(parsedColor[2])
+      parsedColor[0] 
+      parsedColor[1]
+      parsedColor[2]
       if alpha? then parseFloat(alpha) else 0.0
     ]
 
