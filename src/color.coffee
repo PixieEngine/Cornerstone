@@ -1571,6 +1571,7 @@ names = [
 ] 
  
 names.each (element) ->
+  debugger
   lookup[element[1].toLowerCase().replace(/ /g, "")] = Color(element[0]) 
  
 ###
