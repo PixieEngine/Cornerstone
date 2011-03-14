@@ -14,9 +14,7 @@
 
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
-        
-    bits = rgbParser.exec(hexString)
-    
+            
     switch hexString.length
       when 3, 4 then function() {}
       else
