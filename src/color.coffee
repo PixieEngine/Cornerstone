@@ -1571,7 +1571,7 @@ names = [
 ] 
  
 names.each (element) ->
-  lookup[element[1].toLowerCase().replace(/ /g, "")] = Color(element[0]) 
+  lookup[element[1].toLowerCase().replace(/ /g, "")] = element[0] 
 
 log lookup
  
