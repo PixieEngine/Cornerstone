@@ -18,7 +18,7 @@
     switch hexString.length
       when 3, 4 then
         return [
-          
+          parseInt(hexString.substr(0, 1), 16) * 0x11 
         ]
       else
         return [
