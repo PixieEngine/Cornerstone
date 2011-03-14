@@ -24,7 +24,7 @@
           parseInt(hexString.substr(0, 2), 16)
           parseInt(hexString.substr(2, 2), 16)
           parseInt(hexString.substr(4, 2), 16)  
-          if hexString.substr(6, 2).length? then parseInt(hexString.substr(6, 2) / 255.0) else 1.0
+          if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2) / 255.0) else 1.0
         ]
        
   parseRGB = (colorString) ->
