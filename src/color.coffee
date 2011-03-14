@@ -84,7 +84,7 @@
         return other.r() == self.r() &&
           other.g() == self.g() &&
           other.b() == self.b() &&
-          other.a() = self.a()
+          other.a() == self.a()
 
       rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
