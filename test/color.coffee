@@ -115,3 +115,7 @@ test "Color should equal colors with the same rbga values", ->
   ok(alpha1.equals(alpha3))
   ok(alpha1.equals(alpha4))
   ok(alpha1.equals(alpha5))
+  
+test "Color should output proper toString", ->
+  color = Color(5, 25, 125, 0.73)
+  equals, color.toString(), "rgba(5, 25, 125, 0.73)"
