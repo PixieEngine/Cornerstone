@@ -15,11 +15,11 @@
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
     
-    if hexString[0] = '#'
-      case hexString.length
-        when 3 then #something
-        when 4 then #something
-        when 6 then #something
+    case hexString.length
+      when 3 then #something
+      when 4 then #something
+      when 6 then #something
+      when 8 then #something
        
   parseRGB = (colorString) ->
     bits = rgbParser.exec(colorString)
