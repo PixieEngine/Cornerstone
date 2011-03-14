@@ -1674,5 +1674,5 @@
   ]
   
   names.each (element) ->
-    lookup[normalize(element[1])] = parseHex(element[0]) 
+    lookup[normalizeKey(element[1])] = parseHex(element[0]) 
 )()
