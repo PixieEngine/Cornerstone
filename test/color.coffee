@@ -54,7 +54,7 @@ test "Color should parse length 6 hex string with leading #", ->
 test "Color should parse length 4 hex string", ->   
   color = Color('b8f0')
   equals color.r(), 187
-  equals color.g(), 68
+  equals color.g(), 136
   equals color.b(), 255
   equals color.a(), 0.0
  
