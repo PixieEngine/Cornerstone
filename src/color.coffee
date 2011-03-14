@@ -1,7 +1,7 @@
 ###
   check for named colors in a hash table
-  check for /\#?[0-9a-f]+/i give to hex parser (hex parser chex for length 3, 4, 6, 8. 4 and 8 are rgba in hex form)
-  give to rgba parser  
+  check for 3,4,6,8 hex
+  check for rgba
 ###
  
 (->
