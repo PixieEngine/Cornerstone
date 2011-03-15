@@ -186,3 +186,6 @@ Number.prototype.d = function(sides) {
   return sum;
 };
 
+/** The mathematical circle constant of 1 turn. */
+Math.TAU = 2 * Math.PI;
+
