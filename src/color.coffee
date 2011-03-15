@@ -3,7 +3,7 @@
 
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
-            
+
     switch hexString.length
       when 3, 4
         return [
@@ -16,58 +16,58 @@
         return [
           parseInt(hexString.substr(0, 2), 16)
           parseInt(hexString.substr(2, 2), 16)
-          parseInt(hexString.substr(4, 2), 16)  
+          parseInt(hexString.substr(4, 2), 16)
           if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2), 16) / 255.0 else 1.0
         ]
       else
         undefined
-       
+
   parseRGB = (colorString) ->
-    return unless bits = rgbParser.exec(colorString) 
-    
+    return unless bits = rgbParser.exec(colorString)
+
     return [
       parseInt(bits[1])
       parseInt(bits[2])
       parseInt(bits[3])
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
-    
+
   normalizeKey = (key) ->
-    key.toLowerCase().replace(/ /g, "")
-    
+    key.toString().toLowerCase().split(' ').join('')
+
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
-    
+
     parsedColor = null
-    
-    if arguments.length == 2
+
+    if arguments.length == 1 && Object.prototype.toString.call(arguments[0]) == '[object Array]'
+      alpha = if arguments[0][3]? then arguments[0][3] else 1
+      parsedColor = [
+        parseInt(arguments[0][0]),
+        parseInt(arguments[0][1]),
+        parseInt(arguments[0][2]),
+        parseFloat(alpha)
+      ]
+    else if arguments.length == 2
       c = arguments[0]
       a = arguments[1]
-      if Object.prototype.toString.call(c) == '[object Array]' 
+      if Object.prototype.toString.call(c) == '[object Array]'
         parsedColor = [parseInt(c[0]), parseInt(c[1]), parseInt(c[2]), parseFloat(a)]
       else if Object.prototype.toString.call(c) != '[object Array]'
-        parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
+        parsedColor = lookup[normalizeKey(c.toString())] || parseHex(c.toString()) || parseRGB(c.toString())
         parsedColor[3] = a
     else if arguments.length > 2
       alpha = if arguments[3]? then arguments[3] else 1
-      parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)] 
-    else if color.length > 2 && Object.prototype.toString.call(color) == '[object Array]' 
-      alpha = if color[3]? then color[3] else 1
-      parsedColor = [
-        parseInt(color[0]), 
-        parseInt(color[1]), 
-        parseInt(color[2]), 
-        parseFloat(alpha)
-      ]
+      parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
     else
-      parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
-   
-    return unless parsedColor   
-    
+      parsedColor = lookup[normalizeKey(color.toString())] || parseHex(color.toString()) || parseRGB(color.toString())
+
+    return unless parsedColor
+
     alpha = parsedColor[3]
 
     channels = [
-      parsedColor[0] 
+      parsedColor[0]
       parsedColor[1]
       parsedColor[2]
       if alpha? then parseFloat(alpha) else 0.0
@@ -76,28 +76,28 @@
     self =
       channels: ->
         channels.copy()
-        
+
       r: (val) ->
         if val?
           channels[0] = val
           return self
         else
           channels[0]
-        
+
       g: (val) ->
         if val?
           channels[1] = val
           return self
         else
           channels[1]
-          
+
       b: (val) ->
         if val?
           channels[2] = val
           return self
         else
           channels[2]
-          
+
       a: (val) ->
         if val?
           channels[3] = val
@@ -116,9 +116,9 @@
       toString: -> self.rgba()
 
     return self
-    
+
   lookup = {}
-  
+
   names = [
     ["000000", "Black"]
     ["000080", "Navy Blue"]
@@ -1688,7 +1688,7 @@
     ["FFFFF0", "Ivory"]
     ["FFFFFF", "White"]
   ]
-  
+
   names.each (element) ->
     lookup[normalizeKey(element[1])] = parseHex(element[0])
 )()
