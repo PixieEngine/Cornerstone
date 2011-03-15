@@ -32,9 +32,10 @@
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
     
-  normalizeKey = (key) ->
+  normalizeKey = `function(key) {
     key.toLowerCase().replace(/ /g, "")
-    
+  }`  
+     
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
     
