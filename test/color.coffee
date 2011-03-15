@@ -40,10 +40,10 @@ test "Color should parse length 8 hex string with leading #", ->
   equals color.a(), 187 / 255.0
  
 test "Color should parse length 6 hex string", -> 
-  color = Color('ffffff')
-  equals color.r(), 255 
-  equals color.g(), 255
-  equals color.b(), 255 
+  color = Color('1084ce')
+  equals color.r(), 16 
+  equals color.g(), 132
+  equals color.b(), 206 
  
 test "Color should parse length 6 hex string with leading #", ->
   color = Color('#ffffff')
