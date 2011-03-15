@@ -1,4 +1,4 @@
 test "Mouse", ->
-  #TODO
+  #TODO Real tests
   ok(true)
   
