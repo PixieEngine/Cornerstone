@@ -46,10 +46,10 @@ test "Color should parse length 6 hex string", ->
   equals color.b(), 206 
  
 test "Color should parse length 6 hex string with leading #", ->
-  color = Color('#ffffff')
-  equals color.r(), 255
-  equals color.g(), 255
-  equals color.b(), 255
+  color = Color('#dfef12')
+  equals color.r(), 223
+  equals color.g(), 239
+  equals color.b(), 18
 
 test "Color should parse length 4 hex string", ->   
   color = Color('b8f0')
