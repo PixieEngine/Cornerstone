@@ -32,7 +32,7 @@
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
     
-  normalizeKey = `function(key) {
+  `function normalizeKey(key) {
     key.toLowerCase().replace(/ /g, "")
   }`  
      
