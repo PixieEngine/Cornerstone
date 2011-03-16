@@ -1,8 +1,11 @@
-window.Random =
-  angle: ->
-    rand() * Math.TAU
-  often: ->
-    return rand(3)
-  sometimes: ->
-    !rand(3)
+( ($) ->
+  window.Random = $.extend window.Random,
+    angle: ->
+      rand() * Math.TAU
+    often: ->
+      return rand(3)
+    sometimes: ->
+      !rand(3)
+
+)(jQuery)
 
