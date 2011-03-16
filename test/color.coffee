@@ -139,3 +139,7 @@ test "Color should equal colors with the same rbga values", ->
 test "Color should output proper toString", ->
   color = Color(5, 25, 125, 0.73)
   equals color.toString(), "rgba(5, 25, 125, 0.73)"
+  
+test "Color should output proper toHex", ->
+  color = Color(255, 255, 255)
+  equals color.toHex(), "#ffffff"
