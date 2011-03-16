@@ -12,7 +12,9 @@ methods.
 Core = (I) ->
   I ||= {}
 
-  self = {
+  self =
+    I: I
+
     ###
     Generates a public jQuery style getter / setter method for each 
     String argument.
@@ -66,5 +68,8 @@ Core = (I) ->
           self[name] = self[name].withAfter(fn)
           
       return self
-  }
+
+    # Includes a module
+    include: (Module) ->
+      self.extend Module(I, self)
 
