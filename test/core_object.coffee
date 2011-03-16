@@ -46,3 +46,17 @@ test "Core#attrReader", ->
   equal o.test("new_val"), "my_val"
   equal o.test(), "my_val"
 
+test "Core#include", ->
+  o = Core
+    test: "my_val"
+    
+  M = (I, self) ->
+    self.attrReader "test"
+    
+    test2: "cool"
+    
+  o.include M
+  
+  equal o.test(), "my_val"
+  equal o.test2, "cool"
+
