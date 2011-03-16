@@ -77,3 +77,12 @@ test("Array#eachSlice", function() {
     equals(array[1] % 2, 0);
   });
 });
+
+test("Array#without", function() {
+  var array = [1, 2, 3, 4];
+  
+  var excluded = array.without([2, 4]);
+  
+  equals(excluded[0], 1);
+  equals(excluded[1], 3);
+});

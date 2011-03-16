@@ -62,6 +62,17 @@ Array.prototype.remove = function(object) {
 };
 
 /**
+* Returns true if the element is present in the array.
+*
+* @param {Object} element The element to check if present.
+* @returns true if the element is in the array, false otherwise.
+* @type Boolean
+*/
+Array.prototype.include = function(element) {
+  return this.indexOf(element) != -1;
+};
+
+/**
  * Call the given iterator once for each element in the array,
  * passing in the element as the first argument, the index of 
  * the element as the second argument, and this array as the
@@ -182,6 +193,20 @@ Array.prototype.partition = function(iterator, context) {
  */
 Array.prototype.select = function(iterator, context) {
   return this.partition(iterator, context)[0];
+};
+
+/**
+ * Return the group of elements that are not in the passed in set.
+ * 
+ * @param {Array} values List of elements to exclude.
+ *
+ * @type Array
+ * @returns An array containing the elements that are not passed in.
+ */
+Array.prototype.without = function(values) {
+  return this.reject(function(element) {
+    return values.include(element);
+  });
 };
 
 /**
