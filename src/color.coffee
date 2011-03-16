@@ -39,7 +39,7 @@
     color ||= "rgba(0, 0, 0, 0)"
 
     # HAX: checking to see if we are passing in an instance of Color
-    return if color.channels
+    return Color(color.channels()) if color.channels
 
     parsedColor = null
 
