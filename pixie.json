@@ -1,0 +1,10 @@
+{
+  "author": "STRd6",
+  "main": null,
+  "name": "corelib",
+  "directories": {
+    "lib": "lib",
+    "source": "src",
+    "test": "test"
+  }
+}
