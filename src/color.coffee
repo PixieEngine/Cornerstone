@@ -36,10 +36,8 @@
     key.toString().toLowerCase().split(' ').join('')
 
   window.Color = (color) ->
-    color ||= "rgba(0, 0, 0, 0)"
-
     # HAX: checking to see if we are passing in an instance of Color
-    return Color(color.channels()) if color.channels
+    return Color(arguments[0].channels()) if arguments[0].channels
 
     parsedColor = null
 
@@ -63,7 +61,7 @@
       alpha = if arguments[3]? then arguments[3] else 1
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
     else
-      parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
+      parsedColor = lookup[normalizeKey(arguments[0])] || parseHex(arguments[0]) || parseRGB(arguments[0])
 
     return unless parsedColor
 
