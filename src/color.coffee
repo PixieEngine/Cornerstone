@@ -63,7 +63,7 @@
     else
       parsedColor = lookup[normalizeKey(arguments[0])] || parseHex(arguments[0]) || parseRGB(arguments[0])
 
-    return unless parsedColor
+    return channels = [0, 0, 0, 0] unless parsedColor
 
     alpha = parsedColor[3]
 
