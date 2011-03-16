@@ -172,7 +172,7 @@
     equals(result.x, p1.x * scalar);
     equals(result.y, p1.y * scalar);
   });
-
+  
   test("Point#equal", function() {
     ok(Point(7, 8).equal(Point(7, 8)));
   });
@@ -180,4 +180,12 @@
   test("Point#magnitude", function() {
     equals(Point(3, 4).magnitude(), 5);
   });
+  
+  test("Point.fromAngle", function() {
+    var p = Point.fromAngle(Math.TAU / 4);
+    
+    equalEnough(p.x, 0, TOLERANCE);
+    equals(p.y, 1);
+  });
 }());
+
