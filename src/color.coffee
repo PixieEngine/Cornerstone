@@ -41,6 +41,8 @@
 
     parsedColor = null
 
+    if arguments.length == 0
+      parsedColor = [0, 0, 0, 0]
     if arguments.length == 1 && Object.prototype.toString.call(arguments[0]) == '[object Array]'
       alpha = if arguments[0][3]? then arguments[0][3] else 1
       parsedColor = [
@@ -63,7 +65,7 @@
     else
       parsedColor = lookup[normalizeKey(arguments[0])] || parseHex(arguments[0]) || parseRGB(arguments[0])
 
-    channels = [0, 0, 0, 0] unless parsedColor
+    return unless parsedColor
 
     alpha = parsedColor[3]
 
