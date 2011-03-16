@@ -141,5 +141,7 @@ test "Color should output proper toString", ->
   equals color.toString(), "rgba(5, 25, 125, 0.73)"
   
 test "Color should output proper toHex", ->
-  color = Color(255, 255, 255)
-  equals color.toHex(), "#ffffff"
+  white = Color(255, 255, 255)
+  black = Color(0, 0, 0)
+  equals white.toHex(), "#ffffff"
+  equals black.toHex(), "#000000"
