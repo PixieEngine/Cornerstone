@@ -1674,15 +1674,6 @@ function rand(n) {
   }
 }
 ;
-var Random = {
-  often: function(fn) {
-    return rand(3);
-  },
-  
-  sometimes: function() {
-    return !rand(3);
-  }
-};
 
 ;
 String.prototype.constantize = function() {
@@ -1698,5 +1689,16 @@ String.prototype.parse = function() {
     return JSON.parse(this);
   } catch (e) {
     return this;
+  }
+};;
+window.Random = {
+  angle: function() {
+    return rand() * Math.TAU;
+  },
+  often: function() {
+    return rand(3);
+  },
+  sometimes: function() {
+    return !rand(3);
   }
 };;
