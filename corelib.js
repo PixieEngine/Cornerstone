@@ -1691,14 +1691,16 @@ String.prototype.parse = function() {
     return this;
   }
 };;
-window.Random = {
-  angle: function() {
-    return rand() * Math.TAU;
-  },
-  often: function() {
-    return rand(3);
-  },
-  sometimes: function() {
-    return !rand(3);
-  }
-};;
+(function($) {
+  return (window.Random = $.extend(window.Random, {
+    angle: function() {
+      return rand() * Math.TAU;
+    },
+    often: function() {
+      return rand(3);
+    },
+    sometimes: function() {
+      return !rand(3);
+    }
+  }));
+})(jQuery);;
