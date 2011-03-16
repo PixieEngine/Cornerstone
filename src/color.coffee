@@ -37,7 +37,7 @@
 
   window.Color = (color) ->
     # HAX: checking to see if we are passing in an instance of Color
-    return Color(arguments[0].channels()) if arguments[0].channels
+    return Color(arguments[0].channels()) if arguments[0]?.channels
 
     parsedColor = null
 
