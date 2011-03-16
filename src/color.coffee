@@ -38,6 +38,9 @@
   window.Color = (color) ->
     color ||= "rgba(0, 0, 0, 0)"
 
+    # HAX: checking to see if we are passing in an instance of Color
+    return if color.channels
+
     parsedColor = null
 
     if arguments.length == 1 && Object.prototype.toString.call(arguments[0]) == '[object Array]'
@@ -54,13 +57,13 @@
       if Object.prototype.toString.call(c) == '[object Array]'
         parsedColor = [parseInt(c[0]), parseInt(c[1]), parseInt(c[2]), parseFloat(a)]
       else if Object.prototype.toString.call(c) != '[object Array]'
-        parsedColor = lookup[normalizeKey(c.toString())] || parseHex(c.toString()) || parseRGB(c.toString())
+        parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
         parsedColor[3] = a
     else if arguments.length > 2
       alpha = if arguments[3]? then arguments[3] else 1
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
     else
-      parsedColor = lookup[normalizeKey(color.toString())] || parseHex(color.toString()) || parseRGB(color.toString())
+      parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
 
     return unless parsedColor
 
