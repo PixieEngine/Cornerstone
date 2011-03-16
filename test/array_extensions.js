@@ -86,3 +86,15 @@ test("Array#without", function() {
   equals(excluded[0], 1);
   equals(excluded[1], 3);
 });
+
+test("Array#clear", function() {
+  var array = [1, 2, 3, 4];
+
+  equals(array.length, 4);
+  equals(array[0], 1);
+  
+  array.clear();
+    
+  equals(array.length, 0);
+  equals(array[0], undefined);
+});

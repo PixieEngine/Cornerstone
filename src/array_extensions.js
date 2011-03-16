@@ -10,6 +10,17 @@ Array.prototype.copy = function() {
 };
 
 /**
+* Empties the array of it's contents. It is modified in place.
+*
+* @type Array
+* @returns this, now emptied.
+*/
+Array.prototype.clear = function() {
+  this.length = 0;
+  return this;
+};
+
+/**
 * Invoke the named method on each element in the array
 * and return a new array containing the results of the invocation.
 *
