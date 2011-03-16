@@ -63,7 +63,8 @@
       alpha = if arguments[3]? then arguments[3] else 1
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
     else
-      parsedColor = lookup[normalizeKey(arguments[0])] || parseHex(arguments[0]) || parseRGB(arguments[0])
+      c = arguments[0]
+      parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
 
     return unless parsedColor
 
