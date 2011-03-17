@@ -155,8 +155,21 @@ Array.prototype.last = function() {
   return this[this.length - 1];
 };
 
+/**
+ * Pretend the array is a circle and grab a new array containing length elements. 
+ * If length is not given return the element at start, again assuming the array 
+ * is a circle.
+ *
+ * @param {Number} start The index to start wrapping at, or the index of the 
+ * sole element to return if no length is given.
+ * @param {Number} [length] Optional length determines how long result 
+ * array should be.
+ * @returns The element at start mod array.length, or an array of length elements, 
+ * starting from start and wrapping.
+ * @type Object or Array
+ */
 Array.prototype.wrap = function(start, length) {
-  if(length) {
+  if(length != null) {
     var end = start + length;
     var result = [];
   
