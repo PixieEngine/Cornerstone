@@ -156,14 +156,18 @@ Array.prototype.last = function() {
 };
 
 Array.prototype.wrap = function(start, length) {
-  var end = start + length;
-  var result = [];
-
-  for(var i = start; i < end; i++) {
-    result.push(this[i.mod(this.length)]);
+  if(length) {
+    var end = start + length;
+    var result = [];
+  
+    for(var i = start; i < end; i++) {
+      result.push(this[i.mod(this.length)]);
+    }
+  
+    return result;
+  } else {
+    return this[start.mod(this.length)];
   }
-
-  return result;
 };
 
 /**

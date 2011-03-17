@@ -98,3 +98,11 @@ test("Array#clear", function() {
   equals(array.length, 0);
   equals(array[0], undefined);
 });
+
+test("Array#wrap", function() {
+  var array = [0, 1, 2, 3, 4];
+
+  equals(array.wrap(0), 0)
+  equals(array.wrap(-1), 4)
+  equals(array.wrap(2), 2)
+});
