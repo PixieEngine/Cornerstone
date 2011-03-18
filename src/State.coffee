@@ -145,3 +145,33 @@ Guard = (name, object, options) ->
   
   self
   
+GuardsCollection = ->
+  guards = []
+  last_match = null
+  
+  self =
+    add: (name, object, options) ->
+      guard = Guard(name, object, options)
+      guards.push guard
+      return guard
+    
+    all: ->
+      guards
+      
+    match: (name, from, params) ->
+      guards.each (guard) ->
+        match = guard.match(name, from, params)
+        if match
+          last_match = match
+          return guard
+      
+      return false
+      
+    find_to_state: (name, from, params) ->
+      local_match = match(name, from, params)
+      
+      if local_match
+        return match.to
+  
+  self
+  
