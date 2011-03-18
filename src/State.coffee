@@ -51,3 +51,37 @@ CallbackCollection = ->
           callback.run(params)
       
   self
+  
+Event = (name, machine) ->
+  guards = GuardsCollection()
+
+  transition_for = (params) ->
+    if can_fire(params)
+      from = machine.state()
+      to = guards.find_to_state(name, from, params)
+      
+      return Transition(machine, self, from, to, params)
+    else
+      return false
+ 
+  self = 
+    transition: (options) ->
+      guards.add(name, machine.object, options)
+      machine.states.add([options.from, options.to])
+      
+      return self
+      
+    can_fire: (params) ->
+      if guards.match(name, machine.state(), params) then true else false
+     
+    fire: (params) ->
+      transition = transition_for(params)
+      if transition
+        return transition.perform()
+      else
+        return false
+       
+     
+    
+  
+  self
