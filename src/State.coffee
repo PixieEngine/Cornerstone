@@ -97,3 +97,31 @@ EventCollection = ->
       events
   
   self
+  
+Guard = (name, object, options) ->
+  I = 
+    from: options.from
+    to: options.to
+    except: options.except
+    options: options
+    name: name
+    object: object   
+  
+  from = options.from
+  to = options.to
+  except = options.except
+  
+  self =
+    match: (name, from, params) ->
+      if name == I.name && match_from_state(from)
+        if run_callbacks(params)
+          true
+        else
+          false
+      else
+        false
+        
+    match_from_state
+  
+  self
+  
