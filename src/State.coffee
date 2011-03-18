@@ -106,14 +106,10 @@ Guard = (name, object, options) ->
     options: options
     name: name
     object: object   
-  
-  from = options.from
-  to = options.to
-  except = options.except
-  
+    
   self =
     match: (name, from, params) ->
-      if name == I.name && match_from_state(from)
+      if name == I.name && match_from_state(I.from)
         if run_callbacks(params)
           true
         else
