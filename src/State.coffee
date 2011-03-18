@@ -117,7 +117,19 @@ Guard = (name, object, options) ->
       else
         false
         
-    match_from_state
+    match_from_state: (from) ->
+      if typeof I.from == 'string'
+        if I.from == 'any'
+          return check_exceptions(from)
+        else
+          return from == I.from
+      else
+        `for(var i=0; i < I.from.length; i++) {
+          if(from == I.from[i]){
+            return true
+          }
+        }
+        return false;`
   
   self
   
