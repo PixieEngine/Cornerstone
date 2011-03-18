@@ -130,6 +130,18 @@ Guard = (name, object, options) ->
           }
         }
         return false;`
+        
+    check_exceptions: (from) ->
+      return from != I.except
+      
+    run_callbacks: (params) ->
+      success = true
+      if I.options.when
+        success = I.options.when.apply(I.object, params)
+      if I.options.unless && success
+        success = !I.options.unless.apply(I.object, params)
+        
+      return success
   
   self
   
