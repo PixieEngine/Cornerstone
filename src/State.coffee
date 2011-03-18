@@ -81,7 +81,19 @@ Event = (name, machine) ->
       else
         return false
        
-     
-    
+  self
+  
+# just a thin wrapper on an array, probably not needed  
+EventCollection = ->
+  events = []
+  
+  self =
+    add: (name, machine) ->
+      event = Event(name, machine)
+      events.push(event)
+      return event
+      
+    all: ->
+      events
   
   self
