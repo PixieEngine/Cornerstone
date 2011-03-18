@@ -23,3 +23,31 @@ Callback = (options, machine, block)
         options.run.apply(machine.object, params)
       
   self
+  
+CallbackCollection = ->
+  callbacks = []
+  callbacks.before = []
+  callbacks.after = []
+  
+  self =
+    add: (type, options, machine, block) ->
+      callback = Callback(options, machine, block)
+      callbacks[type].push callback
+    
+    all: ->
+      callbacks
+    
+    before: ->
+      callbacks.before
+      
+    after:
+      callbacks.after
+      
+    run: (type, from_state, to_state, event, params) ->
+      localCallbacks = callbacks[type]
+      
+      callbacks.each (callback) ->
+        if callback.match(from_state, to_state, event)
+          callback.run(params)
+      
+  self
