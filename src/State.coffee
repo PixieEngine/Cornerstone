@@ -1,12 +1,5 @@
 Callback = (options, machine, block)
-  I = {}
-  
-  I.options = options
-  I.machine = machine
-  I.block = block
-  
-  self = 
-  
+  self =   
     match: (from_state, to_state, event) ->
       if options.to && options.from
         if options.to == to_state && options.from == from_state
