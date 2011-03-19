@@ -166,7 +166,6 @@ GuardsCollection = ->
   
 Machine = (name, object, options, block) ->
   events = EventCollection()
-  #states = StateCollection()
   states = []
   
   callbacks = CallbackCollection()
@@ -184,7 +183,7 @@ Machine = (name, object, options, block) ->
   add_methods_to_object: (name, object) ->
     object[name] = self.state()
     object[name+'_events'] = events.all()
-    object[name+'_states'] = states.all()
+    object[name+'_states'] = states
     
   add_event_methods: (name, object, event) ->
     object[name] = -> event.fire(arguments)     
