@@ -226,3 +226,23 @@ State = (name) ->
 
   return I 
 
+
+StateCollection = ->
+  states = []
+
+  self = 
+    add: (name) ->
+      if typeof name == 'string'
+        state = State(name)
+        states.push(state)
+      else
+        name.each (item) ->
+          
+        for(var i=0;i<name.length;i++){
+          this.add(name[i]);
+        }
+      }
+    },
+    all: function() {
+      return this.states;
+    }
