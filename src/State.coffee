@@ -145,8 +145,7 @@ GuardsCollection = ->
       guards.push(guard)
       return guard
     
-    all: ->
-      guards
+    all: -> guards
       
     match: (name, from, params) ->
       guards.each (guard) ->
