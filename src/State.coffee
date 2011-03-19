@@ -159,8 +159,7 @@ GuardsCollection = ->
     find_to_state: (name, from, params) ->
       local_match = match(name, from, params)
       
-      if local_match
-        return match.to
+      return match.to if local_match
   
   self
   
