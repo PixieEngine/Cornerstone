@@ -167,7 +167,10 @@ GuardsCollection = ->
 Machine = (name, object, options, block) ->
   events = EventCollection()
   states = []
-  
+  callbacks =
+    before: []
+    after: []
+    
   callbacks = CallbackCollection()
   
   machine_name = name
