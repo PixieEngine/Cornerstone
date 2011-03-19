@@ -189,7 +189,6 @@ Machine = function(name, object, options, block) {
     block(self)
   return self
 
-
   add_methods_to_object: (name, object) ->
     object[name] = self.state()
     object[name+'_events'] = events.all()
@@ -214,8 +213,10 @@ Machine = function(name, object, options, block) {
       return event
     before_transition: (options, block) ->
       callback = callbacks.add('before', options, this, block)
+      
     after_transition: (options, block) ->
       callback = callbacks.add('after', options, this, block)
+      
     state: ->
       return internal_state
       
