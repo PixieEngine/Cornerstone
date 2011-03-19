@@ -180,10 +180,9 @@ SM.Machine = function(name, object, options, block) {
   states = StateCollection()
   callbacks = CallbackCollection()
   
-  this.object       = object;
-  this.machine_name = name;
+  machine_name = name
   
-  this.internal_state = options && options.initial ? options.initial : '';
+  internal_state = options && (if options.initial then options.initial else '')
   this._add_methods_to_object(name, object);
   
   if(block){ block(this); }
