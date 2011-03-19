@@ -239,12 +239,9 @@ Transition = (machine, event, from, to, params) ->
       self.after()
       return true
 
-    before: ->
-      machine.callbacks.run('before', from, to, event, params)
+    before: -> machine.callbacks.run('before', from, to, event, params)
     
-    after: ->
-      machine.callbacks.run('after', from, to, event, params)
+    after: -> machine.callbacks.run('after', from, to, event, params)
 
-    rollback: ->
-      machine.set_state(this.from)
+    rollback: -> machine.set_state(this.from)
 
