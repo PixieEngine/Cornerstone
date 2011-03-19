@@ -17,8 +17,8 @@ Callback = (options, machine, block) ->
         return true
         
     run: (params) ->
-      if block
-        block.apply(machine.object, params)
+      block?.apply(machine.object, params)
+      
       if options.run
         options.run.apply(machine.object, params)
       
