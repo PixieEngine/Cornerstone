@@ -133,9 +133,7 @@ Machine = (name, object, options, block) ->
     after: []
       
   machine_name = name
-  
-  debugger
-  
+    
   internal_state = options && (if options.initial then options.initial else '')
   add_methods_to_object(name, object)
   
