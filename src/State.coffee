@@ -183,42 +183,39 @@ SM.Machine = function(name, object, options, block) {
   machine_name = name
   
   internal_state = options && (if options.initial then options.initial else '')
-  this._add_methods_to_object(name, object);
+  add_methods_to_object(name, object)
   
-  if(block){ block(this); }
-  return this;
-};
+  if block
+    block(self)
+  return self
 
-SM.Machine.prototype = {
+
+  add_methods_to_object: (name, object) ->
+    object[name] = self.state()
+    object[name+'_events'] = events.all()
+    object[name+'_states'] = states.all()
+    
+  add_event_methods: (name, object, event) ->
+    object[name] = ->
+      return event.fire(arguments) 
+    object['can_'+name] = ->
+      return event.can_fire()
+      
+  set_state: (state) ->
+    internal_state = state
+    object[machine_name] = state
   
-  event: function(name, block) {
-    var event = this.events.add(name, this);
-    this._add_event_methods(name, this.object, event);
-    if(block){ block(event); }
-    return event;
-  },
-  before_transition: function(options, block){
-    var callback = this.callbacks.add('before', options, this, block);
-  },
-  after_transition: function(options, block){
-    var callback = this.callbacks.add('after', options, this, block);
-  },
-  state: function(){
-    return this.internal_state;
-  },
-  /* Private method */
-  _add_methods_to_object: function(name, object){
-    object[name]            = this.state();
-    object[name+'_events']  = this.events.all();
-    object[name+'_states']  = this.states.all();
-  },
-  _add_event_methods: function(name, object, event) {
-    object[name] = function(){ return event.fire(arguments); };
-    object['can_'+name] = function(){ return event.can_fire(); };
-  },
-  _set_state: function(state){
-    this.internal_state = state;
-    this.object[this.machine_name] = state;
-  }
-};
-  
+  self =  
+    event: (name, block) ->
+      event = events.add(name, this)
+      add_event_methods(name, object, event)
+      if block then block(event)
+      
+      return event
+    before_transition: (options, block) ->
+      callback = callbacks.add('before', options, this, block)
+    after_transition: (options, block) ->
+      callback = callbacks.add('after', options, this, block)
+    state: ->
+      return internal_state
+
