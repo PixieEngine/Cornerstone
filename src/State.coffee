@@ -243,5 +243,5 @@ Transition = (machine, event, from, to, params) ->
     
     after: -> machine.callbacks.run('after', from, to, event, params)
 
-    rollback: -> machine.set_state(this.from)
+    rollback: -> machine.set_state(from)
 
