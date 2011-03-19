@@ -169,8 +169,7 @@ Machine = (name, object, options, block) ->
     after_transition: (options, block) ->
       callback = callbacks["after"].push(Callback(options, self, block))
       
-    state: ->
-      return internal_state
+    state: -> internal_state
       
 Transition = (machine, event, from, to, params) ->
   self =
