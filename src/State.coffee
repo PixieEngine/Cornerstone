@@ -224,15 +224,12 @@ StateCollection = ->
       if typeof name == 'string'
         state = State(name)
         states.push(state)
-      else
-        name.each (item) ->
-          
+      else          
         `for(var i=0;i<name.length;i++){
           this.add(name[i]);
         }`
 
-    all: ->
-      states
+    all: -> states
       
 Transition = (machine, event, from, to, params) ->
   self =
