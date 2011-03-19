@@ -157,7 +157,9 @@ Machine = (name, object, options, block) ->
   
   self =  
     event: (name, block) ->
-      event = events.push(Event(name, self))
+      event = Event(name, self)
+     
+      events.push(event)
       add_event_methods(name, object, event)
       if block then block(event)
       
