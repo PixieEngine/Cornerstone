@@ -76,12 +76,10 @@ Guard = (name, object, options) ->
         else
           return from == I.from
       else
-        `for(var i=0; i < I.from.length; i++) {
-          if(from == I.from[i]){
-            return true
-          }
-        }
-        return false;`
+        I.from.each (from_item) ->
+          return true if from == from_item
+          
+          return false  
         
     check_exceptions: (from) ->
       return from != I.except
