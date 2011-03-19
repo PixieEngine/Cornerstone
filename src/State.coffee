@@ -142,16 +142,16 @@ Machine = (name, object, options, block) ->
     
   return self
 
-  add_methods_to_object: (name, object) ->
+  add_methods_to_object = (name, object) ->
     object[name] = self.state()
     object[name+'_events'] = events
     object[name+'_states'] = states
     
-  add_event_methods: (name, object, event) ->
+  add_event_methods = (name, object, event) ->
     object[name] = -> event.fire(arguments)     
     object['can_'+name] = -> event.can_fire()
       
-  set_state: (state) ->
+  set_state = (state) ->
     internal_state = state
     object[machine_name] = state
   
