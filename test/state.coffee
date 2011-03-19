@@ -1,7 +1,7 @@
 test "State events should check if event can be fired", ->
   car = {}
 
-  sm = StateMachine 'state', car, { initial: 'parked' }, (machine) ->
+  StateMachine 'state', car, { initial: 'parked' }, (machine) ->
     machine.event 'start', (event) ->
       event.transition({ from: 'parked', to: 'idling' })
     
