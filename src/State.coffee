@@ -86,8 +86,7 @@ EventCollection = ->
       events.push(event)
       return event
       
-    all: ->
-      events
+    all: -> events
   
   self
   
