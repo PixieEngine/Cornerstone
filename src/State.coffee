@@ -142,7 +142,7 @@ GuardsCollection = ->
   self =
     add: (name, object, options) ->
       guard = Guard(name, object, options)
-      guards.push guard
+      guards.push(guard)
       return guard
     
     all: ->
