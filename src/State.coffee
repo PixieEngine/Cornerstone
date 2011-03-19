@@ -165,8 +165,8 @@ GuardsCollection = ->
   
 Machine = (name, object, options, block) ->
   events = EventCollection()
-  states = StateCollection()
-  callbacks = CallbackCollection()
+  #states = StateCollection()
+    callbacks = CallbackCollection()
   
   machine_name = name
   
@@ -207,14 +207,15 @@ Machine = (name, object, options, block) ->
       
     state: ->
       return internal_state
-      
+
+### 
 State = (name) ->
   I = {}
 
   I.name = name;
 
   return I 
-
+###
 
 StateCollection = ->
   states = []
