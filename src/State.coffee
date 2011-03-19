@@ -241,8 +241,6 @@ StateCollection = ->
         `for(var i=0;i<name.length;i++){
           this.add(name[i]);
         }`
-      }
-    },
-    all: function() {
-      return this.states;
-    }
+
+    all: ->
+      states
