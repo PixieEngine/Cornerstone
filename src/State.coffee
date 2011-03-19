@@ -137,6 +137,8 @@ Machine = (name, object, options, block) ->
   internal_state = options && (if options.initial then options.initial else '')
   add_methods_to_object(name, object)
   
+  console.log(object)
+  
   if block
     block(self)
     
