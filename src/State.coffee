@@ -218,4 +218,11 @@ SM.Machine = function(name, object, options, block) {
       callback = callbacks.add('after', options, this, block)
     state: ->
       return internal_state
+      
+State = (name) ->
+  I = {}
+
+  I.name = name;
+
+  return I 
 
