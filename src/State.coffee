@@ -1,4 +1,4 @@
-Callback = (options, machine, block)
+Callback = (options, machine, block) ->
   self =   
     match: (from_state, to_state, event) ->
       if options.to && options.from
