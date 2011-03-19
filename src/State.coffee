@@ -198,6 +198,7 @@ Machine = (name, object, options, block) ->
       if block then block(event)
       
       return event
+      
     before_transition: (options, block) ->
       callback = callbacks.add('before', options, this, block)
       
