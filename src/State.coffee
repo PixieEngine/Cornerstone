@@ -23,17 +23,7 @@ CallbackCollection = ->
   callbacks.before = []
   callbacks.after = []
   
-  self =
-    add: (type, options, machine, block) ->
-      callback = Callback(options, machine, block)
-      callbacks[type].push callback
-    
-    all: -> callbacks
-    
-    before: -> callbacks.before
-      
-    after: -> callbacks.after
-      
+  self =      
     run: (type, from_state, to_state, event, params) ->
       localCallbacks = callbacks[type]
       
@@ -219,9 +209,15 @@ Transition = (machine, event, from, to, params) ->
       self.after()
       return true
 
-    before: -> machine.callbacks.run('before', from, to, event, params)
+    before: ->     
+      machine.callbacks['before'].each (callback) ->
+        if callback.match(from, to, event)
+          callback.run(params)
     
-    after: -> machine.callbacks.run('after', from, to, event, params)
+    after: -> 
+      machine.callbacks['after'].each (callback) ->
+        if callback.match(from, to, event)
+          callback.run(params)
 
     rollback: -> machine.set_state(from)
 
