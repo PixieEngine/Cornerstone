@@ -149,7 +149,7 @@ Machine = (name, object, options, block) ->
     
   add_event_methods = (name, object, event) ->
     object[name] = -> event.fire(arguments)     
-    object['can_'+name] = -> event.can_fire()
+    object['can_' + name] = -> event.can_fire()
       
   set_state = (state) ->
     internal_state = state
