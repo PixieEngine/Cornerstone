@@ -32,8 +32,7 @@ CallbackCollection = ->
     
     before: -> callbacks.before
       
-    after:
-      callbacks.after
+    after: -> callbacks.after
       
     run: (type, from_state, to_state, event, params) ->
       localCallbacks = callbacks[type]
