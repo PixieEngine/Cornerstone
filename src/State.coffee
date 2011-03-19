@@ -63,7 +63,9 @@ Event = (name, machine) ->
       return self
       
     can_fire: (params) ->
-      if guards.match(name, machine.state(), params) then true else false
+      return true if guards.match(name, machine.state(), params)
+      
+      return false
      
     fire: (params) ->
       transition = transition_for(params)
