@@ -166,7 +166,10 @@ Machine = (name, object, options, block) ->
       return event
       
     before_transition: (options, block) ->
-      callback = callbacks["before"].push(Callback(options, self, block))
+      callback = Callback(options, self, block)
+      callbacks["before"].push(callback)
+      
+      return callback
       
     after_transition: (options, block) ->
       callback = callbacks["after"].push(Callback(options, self, block))
