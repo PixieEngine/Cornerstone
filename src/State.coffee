@@ -244,3 +244,22 @@ StateCollection = ->
 
     all: ->
       states
+      
+
+Transition = (machine, event, from, to, params) ->
+  self =
+    perform: ->
+      self.before()
+      machine.set_state(to)
+      self.after()
+      return true
+
+    before: ->
+      machine.callbacks.run('before', from, to, event, params)
+    
+    after: ->
+      machine.callbacks.run('after', from, to, event, params)
+
+    rollback: ->
+      machine.set_state(this.from)
+
