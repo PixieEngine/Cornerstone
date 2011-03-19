@@ -184,10 +184,9 @@ Machine = (name, object, options, block) ->
     object[name+'_states'] = states.all()
     
   add_event_methods: (name, object, event) ->
-    object[name] = ->
-      return event.fire(arguments) 
-    object['can_'+name] = ->
-      return event.can_fire()
+    object[name] = -> event.fire(arguments) 
+    
+    object['can_'+name] = -> event.can_fire()
       
   set_state: (state) ->
     internal_state = state
