@@ -172,7 +172,10 @@ Machine = (name, object, options, block) ->
       return callback
       
     after_transition: (options, block) ->
-      callback = callbacks["after"].push(Callback(options, self, block))
+      callback = Callback(options, self, block)
+      callbacks["after"].push(callback)
+      
+      return callback
       
     state: -> internal_state
       
