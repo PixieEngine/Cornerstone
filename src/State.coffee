@@ -217,6 +217,7 @@ State = (name) ->
   return I 
 ###
 
+### 
 StateCollection = ->
   states = []
 
@@ -231,6 +232,7 @@ StateCollection = ->
         }`
 
     all: -> states
+###
       
 Transition = (machine, event, from, to, params) ->
   self =
