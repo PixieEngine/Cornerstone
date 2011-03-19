@@ -7,15 +7,9 @@ Callback = (options, machine, block) ->
         else
           return false
       
-      if options.to == to_state
-        return true
-      
-      if options.from == from_state
-        return true
-        
-      if options.on == event.name
-        return true
-        
+      if (options.to == to_state) || (options.from == from_state) || (options.on == event.name)
+        return true 
+       
     run: (params) ->
       block?.apply(machine.object, params)
       
