@@ -118,7 +118,7 @@ Machine = (name, object, options, block) ->
     internal_state = state
     object[machine_name] = state
     
-  Event = (name) ->
+  Event = (name, machine) ->
     guards = GuardsCollection()
   
     transition_for = (params) ->
