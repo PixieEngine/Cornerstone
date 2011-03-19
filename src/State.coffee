@@ -103,11 +103,9 @@ Guard = (name, object, options) ->
     match: (name, from, params) ->
       if name == I.name && match_from_state(I.from)
         if run_callbacks(params)
-          true
-        else
-          false
-      else
-        false
+          return true
+
+      return false
         
     match_from_state: (from) ->
       if typeof I.from == 'string'
