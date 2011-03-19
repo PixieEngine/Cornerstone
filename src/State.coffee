@@ -209,32 +209,6 @@ Machine = (name, object, options, block) ->
       
     state: ->
       return internal_state
-
-### 
-State = (name) ->
-  I = {}
-
-  I.name = name;
-
-  return I 
-###
-
-### 
-StateCollection = ->
-  states = []
-
-  self = 
-    add: (name) ->
-      if typeof name == 'string'
-        state = State(name)
-        states.push(state)
-      else          
-        `for(var i=0;i<name.length;i++){
-          this.add(name[i]);
-        }`
-
-    all: -> states
-###
       
 Transition = (machine, event, from, to, params) ->
   self =
