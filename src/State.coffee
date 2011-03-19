@@ -51,21 +51,7 @@ Event = (name, machine) ->
       return false
        
   self
-  
-# just a thin wrapper on an array, probably not needed  
-EventCollection = ->
-  events = []
-  
-  self =
-    add: (name, machine) ->
-      event = Event(name, machine)
-      events.push(event)
-      return event
-      
-    all: -> events
-  
-  self
-  
+    
 Guard = (name, object, options) ->
   I = 
     from: options.from
@@ -140,7 +126,7 @@ GuardsCollection = ->
   self
   
 Machine = (name, object, options, block) ->
-  events = EventCollection()
+  events = []
   states = []
   callbacks =
     before: []
@@ -158,7 +144,7 @@ Machine = (name, object, options, block) ->
 
   add_methods_to_object: (name, object) ->
     object[name] = self.state()
-    object[name+'_events'] = events.all()
+    object[name+'_events'] = events
     object[name+'_states'] = states
     
   add_event_methods: (name, object, event) ->
@@ -171,7 +157,7 @@ Machine = (name, object, options, block) ->
   
   self =  
     event: (name, block) ->
-      event = events.add(name, this)
+      event = events.push(Event(name, self))
       add_event_methods(name, object, event)
       if block then block(event)
       
