@@ -170,9 +170,7 @@ Machine = (name, object, options, block) ->
   callbacks =
     before: []
     after: []
-    
-  callbacks = CallbackCollection()
-  
+      
   machine_name = name
   
   internal_state = options && (if options.initial then options.initial else '')
@@ -205,10 +203,10 @@ Machine = (name, object, options, block) ->
       return event
       
     before_transition: (options, block) ->
-      callback = callbacks.add('before', options, this, block)
+      callback = callbacks["before"].push(Callback(options, self, block))
       
     after_transition: (options, block) ->
-      callback = callbacks.add('after', options, this, block)
+      callback = callbacks["after"].push(Callback(options, self, block))
       
     state: ->
       return internal_state
