@@ -117,6 +117,40 @@ Machine = (name, object, options, block) ->
   set_state: (state) ->
     internal_state = state
     object[machine_name] = state
+    
+  Event = (name) ->
+    guards = GuardsCollection()
+  
+    transition_for = (params) ->
+      if can_fire(params)
+        from = machine.state()
+        to = guards.find_to_state(name, from, params)
+        
+        return Transition(machine, self, from, to, params)
+      else
+        return false
+   
+    self = 
+      transition: (options) ->
+        guards.add(name, machine.object, options)
+        machine.states.push(options.from)
+        machine.states.push(options.to)
+        
+        return self
+        
+      can_fire: (params) ->
+        return true if guards.match(name, machine.state(), params)
+        
+        return false
+       
+      fire: (params) ->
+        transition = transition_for(params)
+  
+        return transition.perform() if transition 
+        
+        return false
+         
+    self    
   
   self =  
     event: (name, block) ->
