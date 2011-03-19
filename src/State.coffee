@@ -34,7 +34,7 @@ Event = (name, machine) ->
  
   self = 
     transition: (options) ->
-      guards.add(name, machine.object, options)
+      #guards.add(name, machine.object, options)
       machine.states.push(options.from)
       machine.states.push(options.to)
       
