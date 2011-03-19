@@ -28,8 +28,7 @@ CallbackCollection = ->
       callback = Callback(options, machine, block)
       callbacks[type].push callback
     
-    all: ->
-      callbacks
+    all: -> callbacks
     
     before: ->
       callbacks.before
