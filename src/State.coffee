@@ -175,7 +175,7 @@ GuardsCollection = ->
   
   self
   
-Machine = function(name, object, options, block) {
+Machine = (name, object, options, block) ->
   events = EventCollection()
   states = StateCollection()
   callbacks = CallbackCollection()
