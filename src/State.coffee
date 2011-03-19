@@ -30,8 +30,7 @@ CallbackCollection = ->
     
     all: -> callbacks
     
-    before: ->
-      callbacks.before
+    before: -> callbacks.before
       
     after:
       callbacks.after
