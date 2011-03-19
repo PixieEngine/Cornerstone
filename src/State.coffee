@@ -1,3 +1,6 @@
+StateMachine = (name, object, options, block) ->
+  return Machine(name, object, options, block)
+ 
 Callback = (options, machine, block) ->
   self =   
     match: (from_state, to_state, event) ->
