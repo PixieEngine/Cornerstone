@@ -67,10 +67,10 @@ Event = (name, machine) ->
      
     fire: (params) ->
       transition = transition_for(params)
-      if transition
-        return transition.perform()
-      else
-        return false
+
+      return transition.perform() if transition 
+      
+      return false
        
   self
   
