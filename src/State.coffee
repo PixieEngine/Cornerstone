@@ -238,9 +238,9 @@ StateCollection = ->
       else
         name.each (item) ->
           
-        for(var i=0;i<name.length;i++){
+        `for(var i=0;i<name.length;i++){
           this.add(name[i]);
-        }
+        }`
       }
     },
     all: function() {
