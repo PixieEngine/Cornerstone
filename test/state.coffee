@@ -14,5 +14,5 @@ test "State events should check if event can be fired", ->
     machine.event('stop', (event) ->
       event.transition({ from: 'idling', to: 'parked' })
       
-    ok(car.can_start())
-    ok(!car.can_stop())
+    ok car.can_start()
+    ok !car.can_stop()
