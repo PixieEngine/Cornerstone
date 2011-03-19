@@ -175,6 +175,7 @@ Machine = (name, object, options, block) ->
   
   if block
     block(self)
+    
   return self
 
   add_methods_to_object: (name, object) ->
