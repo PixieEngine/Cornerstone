@@ -58,7 +58,8 @@ Event = (name, machine) ->
   self = 
     transition: (options) ->
       guards.add(name, machine.object, options)
-      machine.states.add([options.from, options.to])
+      machine.states.push(options.from)
+      machine.states.push(options.to)
       
       return self
       
@@ -166,7 +167,9 @@ GuardsCollection = ->
 Machine = (name, object, options, block) ->
   events = EventCollection()
   #states = StateCollection()
-    callbacks = CallbackCollection()
+  states = []
+  
+  callbacks = CallbackCollection()
   
   machine_name = name
   
