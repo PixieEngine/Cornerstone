@@ -5,7 +5,7 @@ test "State events should check if event can be fired", ->
       
     animation.include(StateMachine)
       
-    state = StateMachine car, { initial: 'parked' }, (machine) ->
+    state = StateMachine (machine) ->
       machine.event 'start', (event) ->
         event.transition({ from: 'parked', to: 'idling' })
       
