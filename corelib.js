@@ -1953,6 +1953,10 @@ function rand(n) {
 (function($) {
   var retrieve, store;
   /***
+  @name Local
+  @namespace
+  */
+  /***
   Store an object in local storage.
 
   @name set

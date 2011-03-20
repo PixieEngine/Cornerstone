@@ -1,5 +1,10 @@
 ( ($) ->
   ###*
+  @name Local
+  @namespace
+  ###
+
+  ###*
   Store an object in local storage.
 
   @name set
