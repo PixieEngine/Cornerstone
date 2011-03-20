@@ -4,7 +4,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - Function</title>
+		<title>JsDoc Reference - Local</title>
 		<link href="../css/default.css" type="text/css" rel="stylesheet" media="all" />
 	</head>
 
@@ -55,7 +55,7 @@
 			<div class="innerContent">
 				<h1 class="classTitle">
 					
-					Built-In Namespace <span>Function</span>
+					Namespace <span>Local</span>
 				</h1>
 
 				<p class="description summary">
@@ -66,8 +66,33 @@
 					
 					
 					
+						<br /><em>Defined in: </em> <a href="../symbols/src/_tmp_d20110320-2492-1uari8m_corelib.js.html">corelib.js</a>.
+					
 				</p>
 
+				
+					<div class="props">
+						<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Local.">
+							<caption>Namespace Summary</caption>
+							<thead>
+								<tr>
+									<th scope="col">Constructor Attributes</th>
+									<th scope="col">Constructor Name and Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="attributes">&nbsp;</td>
+									<td class="nameDescription" >
+										<div class="fixedFont">
+											<b><a href="../symbols/Local.html#constructor">Local</a></b>
+										</div>
+										<div class="description"></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				
 
 				
@@ -79,7 +104,7 @@
 					
 					
 						<div class="props">
-							<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Function.">
+							<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Local.">
 								<caption>Method Summary</caption>
 								
 								<thead>
@@ -92,20 +117,20 @@
 								<tbody>
 									
 										<tr>
-											<td class="attributes">&nbsp;</td>
+											<td class="attributes">&lt;static&gt; &nbsp;</td>
 											<td class="nameDescription">
-												<div class="fixedFont"><b><a href="../symbols/Function.html#withAfter">withAfter</a></b>(interception)
+												<div class="fixedFont">Local.<b><a href="../symbols/Local.html#.get">get</a></b>(key)
 												</div>
-												<div class="description"></div>
+												<div class="description">Retrieve an object from local storage.</div>
 											</td>
 										</tr>
 									
 										<tr>
-											<td class="attributes">&nbsp;</td>
+											<td class="attributes">&lt;static&gt; &nbsp;</td>
 											<td class="nameDescription">
-												<div class="fixedFont"><b><a href="../symbols/Function.html#withBefore">withBefore</a></b>(interception)
+												<div class="fixedFont">Local.<b><a href="../symbols/Local.html#.set">set</a></b>(key, value)
 												</div>
-												<div class="description"></div>
+												<div class="description">Store an object in local storage.</div>
 											</td>
 										</tr>
 									
@@ -126,6 +151,31 @@
 	#### CONSTRUCTOR DETAILS
 	-->
 				
+					<div class="details props">
+						<div class="innerProps">
+							<a name="constructor"></a>
+							
+							<div class="sectionTitle">
+								Namespace Detail
+							</div>
+							
+							<div class="fixedFont">
+								<b>Local</b>
+							</div>
+							
+							<div class="description">
+								
+								
+							</div>
+							
+							
+						
+							
+							
+							
+						</div>
+					</div>
+				
 
 	<!--
 	#### FIELD DETAILS
@@ -143,24 +193,21 @@
 							</div>
 							
 							
-								<a name="withAfter"></a>
+								<a name=".get"></a>
 								
 								<div class="fixedFont heading">
 									<span class='lighter'>
-									
+									&lt;static&gt; 
 									</span>
 									
+									<span class="light">{Object}</span>
 									
-									
-									<b>withAfter</b>(interception)
+									<span class="light">Local.</span><b>get</b>(key)
 								</div>
 								
 								<div class="description">
+									Retrieve an object from local storage.
 									
-									
-									
-										<br />
-										<i>Defined in: </i> <a href="../symbols/src/_tmp_d20110320-2492-1uari8m_corelib.js.html">corelib.js</a>.
 									
 									
 									
@@ -173,7 +220,7 @@
 										<dt class="heading">Parameters:</dt>
 										
 											<dt>
-												<b>interception</b>
+												<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>key</b>
 												
 											</dt>
 											<dd></dd>
@@ -181,28 +228,46 @@
 									</dl>
 								
 								
+								
+									<dl class="detailList nomargin">
+									
+										
+										
+										
+										
+										
+										
+										
+											<dt class="heading">Returns:</dt>
+											
+												<dd>The object that was stored or undefined if no object was stored.</dd>
+											
+										
+										
+										
+										
+										
+									
+									</dl>
 								
 
 								<div class="hr"></div>
 							
-								<a name="withBefore"></a>
+								<a name=".set"></a>
 								
 								<div class="fixedFont heading">
 									<span class='lighter'>
-									
+									&lt;static&gt; 
 									</span>
 									
+									<span class="light">{Object}</span>
 									
-									
-									<b>withBefore</b>(interception)
+									<span class="light">Local.</span><b>set</b>(key, value)
 								</div>
 								
 								<div class="description">
+									Store an object in local storage.
 									
-									
-									
-										<br />
-										<i>Defined in: </i> <a href="../symbols/src/_tmp_d20110320-2492-1uari8m_corelib.js.html">corelib.js</a>.
 									
 									
 									
@@ -215,7 +280,13 @@
 										<dt class="heading">Parameters:</dt>
 										
 											<dt>
-												<b>interception</b>
+												<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>key</b>
+												
+											</dt>
+											<dd></dd>
+										
+											<dt>
+												<span class="light fixedFont">{Object}</span> <b>value</b>
 												
 											</dt>
 											<dd></dd>
@@ -223,6 +294,27 @@
 									</dl>
 								
 								
+								
+									<dl class="detailList nomargin">
+									
+										
+										
+										
+										
+										
+										
+										
+											<dt class="heading">Returns:</dt>
+											
+												<dd>value</dd>
+											
+										
+										
+										
+										
+										
+									
+									</dl>
 								
 
 								
