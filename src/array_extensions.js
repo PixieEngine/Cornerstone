@@ -10,7 +10,7 @@ Array.prototype.copy = function() {
 };
 
 /**
-* Empties the array of it's contents. It is modified in place.
+* Empties the array of its contents. It is modified in place.
 *
 * @type Array
 * @returns this, now emptied.

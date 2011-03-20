@@ -1,4 +1,15 @@
 $ ->
+  ###*
+  The global keydown property lets your query the status of keys.
+  
+  <pre>
+  if keydown.left
+    moveLeft()
+  </pre>
+  
+  @name keydown
+  @namespace
+  ###
   window.keydown = {}
 
   keyName = (event) ->
