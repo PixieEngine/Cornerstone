@@ -16,9 +16,9 @@ test("Array#rand", function() {
 });
 
 test("Array#remove", function() {
-  ok([1,2,3].remove(2) === 2, "[1,2,3].remove(2) === 2");
-  ok([1,3].remove(2) === undefined, "[1,3].remove(2) === undefined");
-  ok([1,3].remove(3) === 3, "[1,3].remove(3) === 3");
+  equals([1,2,3].remove(2), 2, "[1,2,3].remove(2) === 2");
+  equals([1,3].remove(2), undefined, "[1,3].remove(2) === undefined");
+  equals([1,3].remove(3), 3, "[1,3].remove(3) === 3");
   
   var array = [1,2,3];
   array.remove(2);

@@ -65,6 +65,8 @@ Array::remove = (object) ->
   
   if index >= 0
     this.splice(index, 1)[0]
+  else
+    undefined
 
 ###*
 * Returns true if the element is present in the array.
@@ -155,7 +157,7 @@ Array::last = ->
  * @type Object or Array
 ###
 Array::wrap = (start, length) ->
-  if length != null
+  if length?
     end = start + length
     i = start
     result = []
@@ -164,7 +166,7 @@ Array::wrap = (start, length) ->
   
     return result
   else
-    this[start.mod(this.length)]
+    return this[start.mod(this.length)]
 
 ###*
  * Partitions the elements into two groups: those for which the iterator returns
