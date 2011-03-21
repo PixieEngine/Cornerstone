@@ -71,7 +71,7 @@ test("Array#sum", function() {
   equals([1, 2, 3, 4, 5].sum(), 15, "[1, 2, 3, 4, 5] sums to 15");
 });
 
-test("Array#eachSlice", function() {
+test("Array#eachSlice", 6, function() {
   [1, 2, 3, 4, 5, 6].eachSlice(2, function(array) {
     equals(array[0] % 2, 1);
     equals(array[1] % 2, 0);
