@@ -1933,8 +1933,6 @@ Math.TAU = 2 * Math.PI;
   };
 })(jQuery);
 ;
-
-;
 (function($) {
   window.Random = $.extend(window.Random, {
     angle: function() {
