@@ -14,7 +14,7 @@
   @param {Number} n
   ###
   window.rand = (n) -> 
-    if(n)
+    if n
       Math.floor(n * Math.random())
     else
       Math.random()
