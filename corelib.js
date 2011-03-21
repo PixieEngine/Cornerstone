@@ -245,7 +245,7 @@ Array.prototype.copy = function() {
 };
 
 /**
-* Empties the array of it's contents. It is modified in place.
+* Empties the array of its contents. It is modified in place.
 *
 * @type Array
 * @returns this, now emptied.
@@ -911,6 +911,17 @@ jQuery.extend({
 ;
 $(function() {
   var keyName;
+  /***
+  The global keydown property lets your query the status of keys.
+
+  <pre>
+  if keydown.left
+    moveLeft()
+  </pre>
+
+  @name keydown
+  @namespace
+  */
   window.keydown = {};
   keyName = function(event) {
     return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
@@ -1742,7 +1753,7 @@ Math.TAU = 2 * Math.PI;
       },
 
       fill: function(color) {
-        context.fillStyle = color;
+        $canvas.fillColor(color);
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         return this;
@@ -1763,7 +1774,7 @@ Math.TAU = 2 * Math.PI;
        * @returns this
        */
       fillCircle: function(x, y, radius, color) {
-        context.fillStyle = color;
+        $canvas.fillColor(color);
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI*2, true);
         context.closePath();
@@ -1857,7 +1868,7 @@ Math.TAU = 2 * Math.PI;
 
       fillColor: function(color) {
         if(color) {
-          context.fillStyle = color;
+          context.fillStyle = color.toString();
           return this;
         } else {
           return context.fillStyle;
@@ -1880,7 +1891,7 @@ Math.TAU = 2 * Math.PI;
 
       strokeColor: function(color) {
         if(color) {
-          context.strokeStyle = color;
+          context.strokeStyle = color.toString();
           return this;
         } else {
           return context.strokeStyle;
@@ -1922,22 +1933,10 @@ Math.TAU = 2 * Math.PI;
   };
 })(jQuery);
 ;
-/**
- * Returns random integers from [0, n) if n is given.
- * Otherwise returns random float between 0 and 1.
- *
- * @param {Number} n
- */
-function rand(n) {
-  if(n) {
-    return Math.floor(n * Math.random());
-  } else {
-    return Math.random();
-  }
-}
+
 ;
 (function($) {
-  return (window.Random = $.extend(window.Random, {
+  window.Random = $.extend(window.Random, {
     angle: function() {
       return rand() * Math.TAU;
     },
@@ -1947,9 +1946,17 @@ function rand(n) {
     sometimes: function() {
       return !rand(3);
     }
-  }));
+  });
+  /***
+  Returns random integers from [0, n) if n is given.
+  Otherwise returns random float between 0 and 1.
+
+  @param {Number} n
+  */
+  return (window.rand = function(n) {
+    return n ? Math.floor(n * Math.random()) : Math.random();
+  });
 })(jQuery);;
-;
 (function($) {
   var retrieve, store;
   /***
