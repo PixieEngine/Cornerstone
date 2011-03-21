@@ -93,7 +93,7 @@
       },
 
       fill: function(color) {
-        context.fillStyle = color;
+        $canvas.fillColor(color);
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         return this;
@@ -114,7 +114,7 @@
        * @returns this
        */
       fillCircle: function(x, y, radius, color) {
-        context.fillStyle = color;
+        $canvas.fillColor(color);
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI*2, true);
         context.closePath();
@@ -208,7 +208,7 @@
 
       fillColor: function(color) {
         if(color) {
-          context.fillStyle = color;
+          context.fillStyle = color.toString();
           return this;
         } else {
           return context.fillStyle;
@@ -231,7 +231,7 @@
 
       strokeColor: function(color) {
         if(color) {
-          context.strokeStyle = color;
+          context.strokeStyle = color.toString();
           return this;
         } else {
           return context.strokeStyle;
