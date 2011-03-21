@@ -103,10 +103,11 @@ Array::each = (iterator, context) ->
 
 Array::eachSlice = (n, iterator, context) ->
   if n > 0
-    len = (this.length / n).ceil
-    i = 0
+    len = (this.length / n).floor()
+    i = -1
 
-    iterator.call(context, this.slice(i*n, (i+1)*n), i*n, this) while i++ < len
+    while ++i < len
+      iterator.call(context, this.slice(i*n, (i+1)*n), i*n, this)
 
   return this
 
