@@ -1441,6 +1441,7 @@ window.Mouse = (function() {
   return Mouse;
 })();;
 /***
+ * Returns the absolute value of this number.
  * @type Number
  * @returns The absolute value of the number.
 */
@@ -1448,6 +1449,7 @@ Number.prototype.abs = function() {
   return Math.abs(this);
 };
 /***
+ * Returns the mathematical ceiling of this number.
  * @type Number
  * @returns The number truncated to the nearest integer of greater than or equal value.
  *
@@ -1457,6 +1459,29 @@ Number.prototype.abs = function() {
 */
 Number.prototype.ceil = function() {
   return Math.ceil(this);
+};
+/***
+ * Returns the mathematical floor of this number.
+ * @type Number
+ * @returns The number truncated to the nearest integer of less than or equal value.
+ *
+ * (4.9).floor(); // => 4
+ * (4.2).floor(); // => 4
+ * (-1.2).floor(); // => -2
+*/
+Number.prototype.floor = function() {
+  return Math.floor(this);
+};
+/***
+ * Returns this number rounded to the nearest integer.
+ * @type Number
+ * @returns The number rounded to the nearest integer.
+ *
+ * (4.5).round(); // => 5
+ * (4.4).round(); // => 4
+*/
+Number.prototype.round = function() {
+  return Math.round(this);
 };
 /***
  * Returns a number whose value is limited to the given range.
@@ -1473,16 +1498,6 @@ Number.prototype.ceil = function() {
 */
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
-};
-/***
- * @returns The number truncated to the nearest integer of less than or equal value.
- *
- * (4.9).floor(); // => 4
- * (4.2).floor(); // => 4
- * (-1.2).floor(); // => -2
-*/
-Number.prototype.floor = function() {
-  return Math.floor(this);
 };
 /***
  * A mod method useful for array wrapping. The range of the function is
@@ -1504,16 +1519,6 @@ Number.prototype.mod = function(base) {
     result += base;
   }
   return result;
-};
-/***
- * @type Number
- * @returns The number rounded to the nearest integer.
- *
- * (4.5).round(); // => 5
- * (4.4).round(); // => 4
-*/
-Number.prototype.round = function() {
-  return Math.round(this);
 };
 /***
  * Get the sign of this number as an integer (1, -1, or 0).

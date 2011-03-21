@@ -1,4 +1,5 @@
 ###* 
+ * Returns the absolute value of this number.
  * @type Number
  * @returns The absolute value of the number.
 ###
@@ -6,6 +7,7 @@ Number::abs = () ->
   Math.abs(this)
 
 ###*
+ * Returns the mathematical ceiling of this number.
  * @type Number
  * @returns The number truncated to the nearest integer of greater than or equal value.
  * 
@@ -15,6 +17,29 @@ Number::abs = () ->
 ###
 Number::ceil = ->
   Math.ceil(this)
+
+###*
+ * Returns the mathematical floor of this number.
+ * @type Number
+ * @returns The number truncated to the nearest integer of less than or equal value.
+ * 
+ * (4.9).floor(); // => 4
+ * (4.2).floor(); // => 4
+ * (-1.2).floor(); // => -2
+###
+Number::floor = ->
+  Math.floor(this)
+
+###*
+ * Returns this number rounded to the nearest integer.
+ * @type Number
+ * @returns The number rounded to the nearest integer.
+ * 
+ * (4.5).round(); // => 5
+ * (4.4).round(); // => 4
+###
+Number::round = ->
+  Math.round(this)
 
 ###*
  * Returns a number whose value is limited to the given range.
@@ -31,16 +56,6 @@ Number::ceil = ->
 ###
 Number::clamp = (min, max) ->
   Math.min(Math.max(this, min), max)
-
-###*
- * @returns The number truncated to the nearest integer of less than or equal value.
- * 
- * (4.9).floor(); // => 4
- * (4.2).floor(); // => 4
- * (-1.2).floor(); // => -2
-###
-Number::floor = ->
-  Math.floor(this)
 
 ###*
  * A mod method useful for array wrapping. The range of the function is
@@ -62,16 +77,6 @@ Number::mod = (base) ->
     result += base
 
   return result
-
-###*
- * @type Number
- * @returns The number rounded to the nearest integer.
- * 
- * (4.5).round(); // => 5
- * (4.4).round(); // => 4
-###
-Number::round = ->
-  Math.round(this)
 
 ###*
  * Get the sign of this number as an integer (1, -1, or 0).
