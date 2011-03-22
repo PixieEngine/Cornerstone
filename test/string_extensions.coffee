@@ -10,3 +10,9 @@ test "String#constantize", ->
   equals "Math".constantize(), Math, "look up a constant"
   equals "Number".constantize(), Number, "look up a constant"
 
+test "String#blank", ->
+  equals "  ".blank(), true, "A string containing only whitespace should be blank"
+  equals "a".blank(), false, "A string that contains a letter should not be blank"
+  equals "  a ".blank(), false
+  equals "  \n\t ".blank(), true
+

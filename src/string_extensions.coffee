@@ -11,3 +11,6 @@ String::parse = () ->
   catch e
     return this
 
+String::blank = ->
+  /^\s*$/.test(this)
+
