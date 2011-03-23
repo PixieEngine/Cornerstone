@@ -8,7 +8,6 @@
 Array::copy = ->
   this.concat()
 
-
 ###*
 * Empties the array of its contents. It is modified in place.
 *
@@ -143,6 +142,44 @@ Array::first = ->
 ###
 Array::last = ->
   this[this.length - 1]
+
+###*
+ * Returns an object containing the extremes of this array.
+ * <pre>
+ * [-1, 3, 0].extremes() # => {min: -1, max: 3}
+ * </pre>
+ * @param {Function} [fn] An optional funtion used to evaluate 
+ * each element to calculate its value for determining extremes.
+ * @returns {min: minElement, max: maxElement}
+ * @type Object
+### 
+Array::extremes = (fn) ->
+  fn ||= (n) -> n
+
+  min = max = undefined
+  minResult = maxResult = undefined
+
+  this.each (object) ->
+    result = fn(object)
+
+    if min?
+      if result < minResult
+        min = object
+        minResult = result
+    else
+      min = object
+      minResult = result
+
+    if max?
+      if result > maxResult
+        max = object
+        maxResult = result
+    else
+      max = object
+      maxResult = result
+
+  min: min
+  max: max
 
 ###*
  * Pretend the array is a circle and grab a new array containing length elements. 

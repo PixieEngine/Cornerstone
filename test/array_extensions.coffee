@@ -56,6 +56,20 @@ test "#last", ->
   equals [2].last(), 2
   equals [1, 2, 3].last(), 3
   equals [].first(), undefined
+  
+test "#extremes", ->
+  array = [-7, 1, 11, 94]
+  
+  extremes = array.extremes()
+  
+  equals extremes.min, -7, "Min is -7"
+  equals extremes.max, 94, "Max is 94"
+  
+  extremes = array.extremes (value) ->
+    value.mod 11
+    
+  equals extremes.min, 11
+  equals extremes.max, 94
 
 test "#sum", ->
   equals [].sum(), 0, "Empty array sums to zero"
