@@ -1618,7 +1618,6 @@ Number.prototype.d = function(sides) {
 * The mathematical circle constant of 1 turn.
 */
 Math.TAU = 2 * Math.PI;;
-;
 (function($){
   $.fn.powerCanvas = function(options) {
     options = options || {};
@@ -1701,8 +1700,16 @@ Math.TAU = 2 * Math.PI;;
 
         return this;
       },
-      
+
       drawLine: function(x1, y1, x2, y2, width) {
+        if(arguments.length === 3) {
+          width = x2;
+          x2 = y1.x;
+          y2 = y1.y;
+          y1 = x1.y
+          x1 = x1.x
+        }
+
         width = width || 3;
 
         context.lineWidth = width;
@@ -1829,7 +1836,11 @@ Math.TAU = 2 * Math.PI;;
 
       fillColor: function(color) {
         if(color) {
-          context.fillStyle = color.toString();
+          if(color.channels) {
+            context.fillStyle = color.toString();
+          } else {
+            context.fillStyle = color;
+          }
           return this;
         } else {
           return context.fillStyle;
@@ -1852,7 +1863,11 @@ Math.TAU = 2 * Math.PI;;
 
       strokeColor: function(color) {
         if(color) {
-          context.strokeStyle = color.toString();
+          if(color.channels) {
+            context.strokeStyle = color.toString();
+          } else {
+            context.strokeStyle = color;
+          }
           return this;
         } else {
           return context.strokeStyle;
@@ -1972,4 +1987,7 @@ String.prototype.parse = function() {
   } catch (e) {
     return this;
   }
+};
+String.prototype.blank = function() {
+  return /^\s*$/.test(this);
 };;

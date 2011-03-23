@@ -216,7 +216,11 @@
 
       fillColor: function(color) {
         if(color) {
-          context.fillStyle = color.toString();
+          if(color.channels) {
+            context.fillStyle = color.toString();
+          } else {
+            context.fillStyle = color;
+          }
           return this;
         } else {
           return context.fillStyle;
@@ -239,7 +243,11 @@
 
       strokeColor: function(color) {
         if(color) {
-          context.strokeStyle = color.toString();
+          if(color.channels) {
+            context.strokeStyle = color.toString();
+          } else {
+            context.strokeStyle = color;
+          }
           return this;
         } else {
           return context.strokeStyle;
