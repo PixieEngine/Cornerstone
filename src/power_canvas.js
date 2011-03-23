@@ -80,8 +80,16 @@
 
         return this;
       },
-      
+
       drawLine: function(x1, y1, x2, y2, width) {
+        if(arguments.length === 3) {
+          width = x2;
+          x2 = y1.x;
+          y2 = y1.y;
+          y1 = x1.y
+          x1 = x1.x
+        }
+
         width = width || 3;
 
         context.lineWidth = width;
