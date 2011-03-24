@@ -1,7 +1,9 @@
-test "Storage", ->
+module "Storage"
+ 
+test "Local exists", ->
   ok(Local)
 
-test "Storage Local.set and Local.get", ->
+test "Local.set and Local.get", ->
   object =
     key: "test"
     cool: true
@@ -32,3 +34,5 @@ test "Storage Local.set and Local.get", ->
   ret = Local.get("__TEST")
   equal ret, ""
 
+ module undefined
+ 
