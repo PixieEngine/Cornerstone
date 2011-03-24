@@ -173,5 +173,8 @@ Number::d = (sides) ->
 
 ###* 
 * The mathematical circle constant of 1 turn.
+* @name TAU
+* @fieldOf Math
 ###
 Math.TAU = 2 * Math.PI
+
