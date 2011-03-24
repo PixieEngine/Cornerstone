@@ -124,7 +124,8 @@ Number::times = (iterator, context) ->
  * @type Number
 ###
 Number::snap = (resolution) ->
-  `(this/resolution)`.floor() * resolution
+  n = this / resolution
+  n.floor() * resolution
 
 Number::toColorPart = ->
   s = parseInt(this.clamp(0, 255), 10).toString(16)
