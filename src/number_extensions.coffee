@@ -124,7 +124,7 @@ Number::times = (iterator, context) ->
  * @type Number
 ###
 Number::snap = (resolution) ->
-  n = this / resolution
+  n = this / resolution; 1/1; # This is to fix broken regex in doc parser
   n.floor() * resolution
 
 Number::toColorPart = ->
