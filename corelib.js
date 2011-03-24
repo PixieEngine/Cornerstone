@@ -1602,18 +1602,21 @@ Number.prototype.d = function(sides) {
 };
 /***
 * The mathematical circle constant of 1 turn.
+* @name TAU
+* @fieldOf Math
 */
 Math.TAU = 2 * Math.PI;;
-/***
-* @name PowerCanvas
-* @constructor
-*/
 (function($) {
   return ($.fn.powerCanvas = function(options) {
     var $canvas, canvas, context;
     options || (options = {});
     canvas = this.get(0);
     context = undefined;
+    /***
+    * PowerCanvas provides a convenient wrapper for working with Context2d.
+    * @name PowerCanvas
+    * @constructor
+    */
     $canvas = $(canvas).extend({
       /***
        * Passes this canvas to the block with the given matrix transformation
