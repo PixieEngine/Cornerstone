@@ -1,3 +1,7 @@
+###*
+* @name PowerCanvas
+* @constructor
+###
 ( ($) ->
   $.fn.powerCanvas = (options) ->
     options ||= {}
@@ -5,10 +9,6 @@
     canvas = this.get(0)
     context = undefined
 
-    ###*
-     * @name PowerCanvas
-     * @constructor
-    ###
     $canvas = $(canvas).extend
       ###*
        * Passes this canvas to the block with the given matrix transformation
