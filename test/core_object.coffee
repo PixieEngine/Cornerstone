@@ -62,5 +62,5 @@ test "#include", ->
   equal o.test(), "my_val"
   equal o.test2, "cool"
 
-module undefined
+module()
 

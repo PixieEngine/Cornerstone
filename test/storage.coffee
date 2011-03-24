@@ -34,5 +34,5 @@ test "Local.set and Local.get", ->
   ret = Local.get("__TEST")
   equal ret, ""
 
- module undefined
+ module()
  
