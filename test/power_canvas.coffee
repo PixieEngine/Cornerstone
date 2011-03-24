@@ -3,5 +3,5 @@ module "PowerCanvas"
 test "exists", ->
   ok $.fn.powerCanvas
 
-module undefined
+module()
 
