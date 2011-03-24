@@ -1,4 +1,6 @@
-test "Core#extend", ->
+module "Core"
+ 
+test "#extend", ->
   o = Core()
   
   o.extend
@@ -26,7 +28,7 @@ test "Core#extend", ->
   equal calledBefore, true
   equal calledAfter, true
 
-test "Core#attrAccessor", ->
+test "#attrAccessor", ->
   o = Core
     test: "my_val"
   
@@ -36,7 +38,7 @@ test "Core#attrAccessor", ->
   equal o.test("new_val"), o
   equal o.test(), "new_val"
 
-test "Core#attrReader", ->
+test "#attrReader", ->
   o = Core
     test: "my_val"
   
@@ -46,7 +48,7 @@ test "Core#attrReader", ->
   equal o.test("new_val"), "my_val"
   equal o.test(), "my_val"
 
-test "Core#include", ->
+test "#include", ->
   o = Core
     test: "my_val"
     
@@ -59,4 +61,6 @@ test "Core#include", ->
   
   equal o.test(), "my_val"
   equal o.test2, "cool"
+
+module undefined
 
