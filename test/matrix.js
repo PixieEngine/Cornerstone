@@ -1,4 +1,6 @@
 (function() {
+  module("Matrix");
+
   var TOLERANCE = 0.00001;
 
   function equalEnough(expected, actual, tolerance, message) {
@@ -28,7 +30,7 @@
     matrixEqual(matrix, Matrix.IDENTITY);
   });
 
-  test("Empty Matrix", function() {
+  test("Empty", function() {
     var matrix = Matrix(0, 0, 0, 0, 0, 0);
 
     equals(matrix.a, 0, "a");
@@ -39,7 +41,7 @@
     equals(matrix.ty, 0, "ty");
   });
 
-  test("Matrix.scale", function() {
+  test(".scale", function() {
     var matrix = Matrix.scale(2, 2);
 
     equals(matrix.a, 2, "a");
@@ -55,7 +57,7 @@
     equals(matrix.d, 3, "d");
   });
 
-  test("Matrix.scale (about a point)", function() {
+  test(".scale (about a point)", function() {
     var p = Point(5, 17);
 
     var transformedPoint = Matrix.scale(3, 7, p).transformPoint(p);
@@ -64,7 +66,7 @@
     equals(transformedPoint.y, p.y, "Point should remain the same");
   });
 
-  test("Matrix#scale (about a point)", function() {
+  test("#scale (about a point)", function() {
     var p = Point(3, 11);
 
     var transformedPoint = Matrix.IDENTITY.scale(3, 7, p).transformPoint(p);
@@ -73,7 +75,7 @@
     equals(transformedPoint.y, p.y, "Point should remain the same");
   });
 
-  test("Matrix.rotation", function() {
+  test(".rotation", function() {
     var matrix = Matrix.rotation(Math.PI / 2);
 
     equalEnough(matrix.a, 0, TOLERANCE);
@@ -82,7 +84,7 @@
     equalEnough(matrix.d, 0, TOLERANCE);
   });
 
-  test("Matrix.rotation (about a point)", function() {
+  test(".rotation (about a point)", function() {
     var p = Point(11, 7);
 
     var transformedPoint = Matrix.rotation(Math.PI / 2, p).transformPoint(p);
@@ -91,7 +93,7 @@
     equals(transformedPoint.y, p.y, "Point should remain the same");
   });
 
-  test("Matrix#rotate (about a point)", function() {
+  test("#rotate (about a point)", function() {
     var p = Point(8, 5);
 
     var transformedPoint = Matrix.IDENTITY.rotate(Math.PI / 2, p).transformPoint(p);
@@ -100,7 +102,7 @@
     equals(transformedPoint.y, p.y, "Point should remain the same");
   });
 
-  test("Matrix#inverse (Identity)", function() {
+  test("#inverse (Identity)", function() {
     var matrix = Matrix().inverse();
 
     equals(matrix.a, 1, "a");
@@ -142,8 +144,10 @@
 
     matrixEqual(m1, m2);
   });
+  
+  module("Point");
 
-  test("Point#add", function() {
+  test("#add", function() {
     var p1 = Point(5, 6);
     var p2 = Point(7, 5);
 
@@ -153,7 +157,7 @@
     equals(result.y, p1.y + p2.y);
   });
 
-  test("Point#subtract", function() {
+  test("#subtract", function() {
     var p1 = Point(5, 6);
     var p2 = Point(7, 5);
 
@@ -163,7 +167,7 @@
     equals(result.y, p1.y - p2.y);
   });
 
-  test("Point#scale", function() {
+  test("#scale", function() {
     var p1 = Point(5, 6);
     var scalar = 2;
 
@@ -173,19 +177,21 @@
     equals(result.y, p1.y * scalar);
   });
   
-  test("Point#equal", function() {
+  test("#equal", function() {
     ok(Point(7, 8).equal(Point(7, 8)));
   });
 
-  test("Point#magnitude", function() {
+  test("#magnitude", function() {
     equals(Point(3, 4).magnitude(), 5);
   });
   
-  test("Point.fromAngle", function() {
+  test(".fromAngle", function() {
     var p = Point.fromAngle(Math.TAU / 4);
     
     equalEnough(p.x, 0, TOLERANCE);
     equals(p.y, 1);
   });
+  
+  module(undefined);
 }());
 
