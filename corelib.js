@@ -379,6 +379,50 @@ Array.prototype.last = function() {
   return this[this.length - 1];
 };
 /***
+ * Returns an object containing the extremes of this array.
+ * <pre>
+ * [-1, 3, 0].extremes() # => {min: -1, max: 3}
+ * </pre>
+ * @param {Function} [fn] An optional funtion used to evaluate
+ * each element to calculate its value for determining extremes.
+ * @returns {min: minElement, max: maxElement}
+ * @type Object
+*/
+Array.prototype.extremes = function(fn) {
+  var max, maxResult, min, minResult;
+  fn || (fn = function(n) {
+    return n;
+  });
+  min = (max = undefined);
+  minResult = (maxResult = undefined);
+  this.each(function(object) {
+    var result;
+    result = fn(object);
+    if (typeof min !== "undefined" && min !== null) {
+      if (result < minResult) {
+        min = object;
+        minResult = result;
+      }
+    } else {
+      min = object;
+      minResult = result;
+    }
+    if (typeof max !== "undefined" && max !== null) {
+      if (result > maxResult) {
+        max = object;
+        return (maxResult = result);
+      }
+    } else {
+      max = object;
+      return (maxResult = result);
+    }
+  });
+  return {
+    min: min,
+    max: max
+  };
+};
+/***
  * Pretend the array is a circle and grab a new array containing length elements.
  * If length is not given return the element at start, again assuming the array
  * is a circle.
@@ -914,9 +958,9 @@ $(function() {
     }) : (window[name] = $.noop);
   });
 });;
-/**
+/***
 * Matrix.js v1.3.0pre
-* 
+*
 * Copyright (c) 2010 STRd6
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -941,29 +985,30 @@ $(function() {
 * http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/geom/Matrix.html
 */
 (function() {
-  /**
+  var Matrix, Point;
+  /***
    * Create a new point with given x and y coordinates. If no arguments are given
    * defaults to (0, 0).
    * @name Point
    * @param {Number} [x]
    * @param {Number} [y]
    * @constructor
-   */
-  function Point(x, y) {
+  */
+  Point = function(x, y) {
     return {
-      /**
+      /***
        * The x coordinate of this point.
        * @name x
        * @fieldOf Point#
-       */
+      */
       x: x || 0,
-      /**
+      /***
        * The y coordinate of this point.
        * @name y
        * @fieldOf Point#
-       */
+      */
       y: y || 0,
-      /**
+      /***
        * Adds a point to this one and returns the new point.
        * @name add
        * @methodOf Point#
@@ -971,11 +1016,11 @@ $(function() {
        * @param {Point} other The point to add this point to.
        * @returns A new point, the sum of both.
        * @type Point
-       */
+      */
       add: function(other) {
         return Point(this.x + other.x, this.y + other.y);
       },
-      /**
+      /***
        * Subtracts a point to this one and returns the new point.
        * @name subtract
        * @methodOf Point#
@@ -983,11 +1028,11 @@ $(function() {
        * @param {Point} other The point to subtract from this point.
        * @returns A new point, this - other.
        * @type Point
-       */
+      */
       subtract: function(other) {
         return Point(this.x - other.x, this.y - other.y);
       },
-      /**
+      /***
        * Scale this Point (Vector) by a constant amount.
        * @name scale
        * @methodOf Point#
@@ -995,11 +1040,11 @@ $(function() {
        * @param {Number} scalar The amount to scale this point by.
        * @returns A new point, this * scalar.
        * @type Point
-       */
+      */
       scale: function(scalar) {
         return Point(this.x * scalar, this.y * scalar);
       },
-      /**
+      /***
        * Determine whether this point is equal to another point.
        * @name equal
        * @methodOf Point#
@@ -1007,22 +1052,22 @@ $(function() {
        * @param {Point} other The point to check for equality.
        * @returns true if the other point has the same x, y coordinates, false otherwise.
        * @type Boolean
-       */
+      */
       equal: function(other) {
         return this.x === other.x && this.y === other.y;
       },
-      /**
+      /***
        * Calculate the magnitude of this Point (Vector).
        * @name magnitude
        * @methodOf Point#
        *
        * @returns The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
        * @type Number
-       */
+      */
       magnitude: function() {
         return Point.distance(Point(0, 0), this);
       },
-      /**
+      /***
        * Calculate the dot product of this point and another point (Vector).
        * @name dot
        * @methodOf Point#
@@ -1030,14 +1075,14 @@ $(function() {
        * @param {Point} other The point to dot with this point.
        * @returns The dot product of this point dot other as a scalar value.
        * @type Number
-       */
+      */
       dot: function(other) {
         return this.x * other.x + this.y * other.y;
       },
-      /**
-       * Calculate the cross product of this point and another point (Vector). 
+      /***
+       * Calculate the cross product of this point and another point (Vector).
        * Usually cross products are thought of as only applying to three dimensional vectors,
-       * but z can be treated as zero. The result of this method is interpreted as the magnitude 
+       * but z can be treated as zero. The result of this method is interpreted as the magnitude
        * of the vector result of the cross product between [x1, y1, 0] x [x2, y2, 0]
        * perpendicular to the xy plane.
        * @name cross
@@ -1046,11 +1091,11 @@ $(function() {
        * @param {Point} other The point to cross with this point.
        * @returns The cross product of this point with the other point as scalar value.
        * @type Number
-       */
+      */
       cross: function(other) {
         return this.x * other.y - other.x * this.y;
       },
-      /**
+      /***
        * The norm of a vector is the unit vector pointing in the same direction. This method
        * treats the point as though it is a vector from the origin to (x, y).
        * @name norm
@@ -1058,22 +1103,22 @@ $(function() {
        *
        * @returns The unit vector pointing in the same direction as this vector.
        * @type Point
-       */
+      */
       norm: function() {
-        return this.scale(1.0/this.length());
+        return this.scale(1.0 / this.length());
       },
-      /**
+      /***
        * Computed the length of this point as though it were a vector from (0,0) to (x,y)
        * @name length
        * @methodOf Point#
        *
        * @returns The length of the vector from the origin to this point.
        * @type Number
-       */
+      */
       length: function() {
         return Math.sqrt(this.dot(this));
       },
-      /**
+      /***
        * Computed the Euclidean between this point and another point.
        * @name distance
        * @methodOf Point#
@@ -1081,50 +1126,43 @@ $(function() {
        * @param {Point} other The point to compute the distance to.
        * @returns The distance between this point and another point.
        * @type Number
-       */
+      */
       distance: function(other) {
         return Point.distance(this, other);
       }
-    }
-  }
-
-  /**
+    };
+  };
+  /***
    * @param {Point} p1
    * @param {Point} p2
    * @type Number
    * @returns The Euclidean distance between two points.
-   */
+  */
   Point.distance = function(p1, p2) {
     return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
   };
-
-  /**
+  /***
    * Construct a point on the unit circle for the given angle.
    *
    * @param {Number} angle The angle in radians
    * @type Point
    * @returns The point on the unit circle.
-   */
+  */
   Point.fromAngle = function(angle) {
     return Point(Math.cos(angle), Math.sin(angle));
   };
-
-  /**
+  /***
    * If you have two dudes, one standing at point p1, and the other
    * standing at point p2, then this method will return the direction
    * that the dude standing at p1 will need to face to look at p2.
    * @param {Point} p1 The starting point.
    * @param {Point} p2 The ending point.
    * @returns The direction from p1 to p2 in radians.
-   */
+  */
   Point.direction = function(p1, p2) {
-    return Math.atan2(
-      p2.y - p1.y,
-      p2.x - p1.x
-    );
+    return Math.atan2(p2.y - p1.y, p2.x - p1.x);
   };
-
-  /**
+  /***
    * <pre>
    *  _        _
    * | a  c tx  |
@@ -1145,46 +1183,44 @@ $(function() {
    * @param {Number} [tx]
    * @param {Number} [ty]
    * @constructor
-   */
-  function Matrix(a, b, c, d, tx, ty) {
-    a = a !== undefined ? a : 1;
-    d = d !== undefined ? d : 1;
-
+  */
+  Matrix = function(a, b, c, d, tx, ty) {
+    a = (typeof a !== "undefined" && a !== null) ? a : 1;
+    d = (typeof d !== "undefined" && d !== null) ? d : 1;
     return {
-      /**
+      /***
        * @name a
        * @fieldOf Matrix#
-       */
+      */
       a: a,
-      /**
+      /***
        * @name b
        * @fieldOf Matrix#
-       */
+      */
       b: b || 0,
-      /**
+      /***
        * @name c
        * @fieldOf Matrix#
-       */
+      */
       c: c || 0,
-      /**
+      /***
        * @name d
        * @fieldOf Matrix#
-       */
+      */
       d: d,
-      /**
+      /***
        * @name tx
        * @fieldOf Matrix#
-       */
+      */
       tx: tx || 0,
-      /**
+      /***
        * @name ty
        * @fieldOf Matrix#
-       */
+      */
       ty: ty || 0,
-
-      /**
+      /***
        * Returns the result of this matrix multiplied by another matrix
-       * combining the geometric effects of the two. In mathematical terms, 
+       * combining the geometric effects of the two. In mathematical terms,
        * concatenating two matrixes is the same as combining them using matrix multiplication.
        * If this matrix is A and the matrix passed in is B, the resulting matrix is A x B
        * http://mathworld.wolfram.com/MatrixMultiplication.html
@@ -1194,38 +1230,26 @@ $(function() {
        * @param {Matrix} matrix The matrix to multiply this matrix by.
        * @returns The result of the matrix multiplication, a new matrix.
        * @type Matrix
-       */
+      */
       concat: function(matrix) {
-        return Matrix(
-          this.a * matrix.a + this.c * matrix.b,
-          this.b * matrix.a + this.d * matrix.b,
-          this.a * matrix.c + this.c * matrix.d,
-          this.b * matrix.c + this.d * matrix.d,
-          this.a * matrix.tx + this.c * matrix.ty + this.tx,
-          this.b * matrix.tx + this.d * matrix.ty + this.ty
-        );
+        return Matrix(this.a * matrix.a + this.c * matrix.b, this.b * matrix.a + this.d * matrix.b, this.a * matrix.c + this.c * matrix.d, this.b * matrix.c + this.d * matrix.d, this.a * matrix.tx + this.c * matrix.ty + this.tx, this.b * matrix.tx + this.d * matrix.ty + this.ty);
       },
-
-      /**
-       * Given a point in the pretransform coordinate space, returns the coordinates of 
-       * that point after the transformation occurs. Unlike the standard transformation 
-       * applied using the transformPoint() method, the deltaTransformPoint() method's 
-       * transformation does not consider the translation parameters tx and ty.
+      /***
+       * Given a point in the pretransform coordinate space, returns the coordinates of
+       * that point after the transformation occurs. Unlike the standard transformation
+       * applied using the transformPoint() method, the deltaTransformPoint() method
+       * does not consider the translation parameters tx and ty.
        * @name deltaTransformPoint
        * @methodOf Matrix#
        * @see #transformPoint
        *
        * @return A new point transformed by this matrix ignoring tx and ty.
        * @type Point
-       */
+      */
       deltaTransformPoint: function(point) {
-        return Point(
-          this.a * point.x + this.c * point.y,
-          this.b * point.x + this.d * point.y
-        );
+        return Point(this.a * point.x + this.c * point.y, this.b * point.x + this.d * point.y);
       },
-
-      /**
+      /***
        * Returns the inverse of the matrix.
        * http://mathworld.wolfram.com/MatrixInverse.html
        * @name inverse
@@ -1233,20 +1257,13 @@ $(function() {
        *
        * @returns A new matrix that is the inverse of this matrix.
        * @type Matrix
-       */
+      */
       inverse: function() {
-        var determinant = this.a * this.d - this.b * this.c;
-        return Matrix(
-          this.d / determinant,
-          -this.b / determinant,
-          -this.c / determinant,
-          this.a / determinant,
-          (this.c * this.ty - this.d * this.tx) / determinant,
-          (this.b * this.tx - this.a * this.ty) / determinant
-        );
+        var determinant;
+        determinant = this.a * this.d - this.b * this.c;
+        return Matrix(this.d / determinant, -this.b / determinant, -this.c / determinant, this.a / determinant, (this.c * this.ty - this.d * this.tx) / determinant, (this.b * this.tx - this.a * this.ty) / determinant);
       },
-
-      /**
+      /***
        * Returns a new matrix that corresponds this matrix multiplied by a
        * a rotation matrix.
        * @name rotate
@@ -1257,12 +1274,11 @@ $(function() {
        * @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
        * @returns A new matrix, rotated by the specified amount.
        * @type Matrix
-       */
+      */
       rotate: function(theta, aboutPoint) {
         return this.concat(Matrix.rotation(theta, aboutPoint));
       },
-
-      /**
+      /***
        * Returns a new matrix that corresponds this matrix multiplied by a
        * a scaling matrix.
        * @name scale
@@ -1273,13 +1289,12 @@ $(function() {
        * @param {Number} [sy]
        * @param {Point} [aboutPoint] The point that remains fixed during the scaling
        * @type Matrix
-       */
+      */
       scale: function(sx, sy, aboutPoint) {
         return this.concat(Matrix.scale(sx, sy, aboutPoint));
       },
-
-      /**
-       * Returns the result of applying the geometric transformation represented by the 
+      /***
+       * Returns the result of applying the geometric transformation represented by the
        * Matrix object to the specified point.
        * @name transformPoint
        * @methodOf Matrix#
@@ -1287,15 +1302,11 @@ $(function() {
        *
        * @returns A new point with the transformation applied.
        * @type Point
-       */
+      */
       transformPoint: function(point) {
-        return Point(
-          this.a * point.x + this.c * point.y + this.tx,
-          this.b * point.x + this.d * point.y + this.ty
-        );
+        return Point(this.a * point.x + this.c * point.y + this.tx, this.b * point.x + this.d * point.y + this.ty);
       },
-
-      /**
+      /***
        * Translates the matrix along the x and y axes, as specified by the tx and ty parameters.
        * @name translate
        * @methodOf Matrix#
@@ -1305,44 +1316,31 @@ $(function() {
        * @param {Number} ty The translation along the y axis.
        * @returns A new matrix with the translation applied.
        * @type Matrix
-       */
+      */
       translate: function(tx, ty) {
         return this.concat(Matrix.translation(tx, ty));
       }
-    }
-  }
-
-  /**
+    };
+  };
+  /***
    * Creates a matrix transformation that corresponds to the given rotation,
    * around (0,0) or the specified point.
    * @see Matrix#rotate
    *
    * @param {Number} theta Rotation in radians.
    * @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
-   * @returns 
+   * @returns
    * @type Matrix
-   */
+  */
   Matrix.rotation = function(theta, aboutPoint) {
-    var rotationMatrix = Matrix(
-      Math.cos(theta),
-      Math.sin(theta),
-      -Math.sin(theta),
-      Math.cos(theta)
-    );
-
-    if(aboutPoint) {
-      rotationMatrix =
-        Matrix.translation(aboutPoint.x, aboutPoint.y).concat(
-          rotationMatrix
-        ).concat(
-          Matrix.translation(-aboutPoint.x, -aboutPoint.y)
-        );
+    var rotationMatrix;
+    rotationMatrix = Matrix(Math.cos(theta), Math.sin(theta), -Math.sin(theta), Math.cos(theta));
+    if (typeof aboutPoint !== "undefined" && aboutPoint !== null) {
+      rotationMatrix = Matrix.translation(aboutPoint.x, aboutPoint.y).concat(rotationMatrix).concat(Matrix.translation(-aboutPoint.x, -aboutPoint.y));
     }
-
     return rotationMatrix;
   };
-
-  /**
+  /***
    * Returns a matrix that corresponds to scaling by factors of sx, sy along
    * the x and y axis respectively.
    * If only one parameter is given the matrix is scaled uniformly along both axis.
@@ -1355,25 +1353,17 @@ $(function() {
    * @param {Point} [aboutPoint] The point about which the scaling occurs. Defaults to (0,0).
    * @returns A matrix transformation representing scaling by sx and sy.
    * @type Matrix
-   */
+  */
   Matrix.scale = function(sx, sy, aboutPoint) {
+    var scaleMatrix;
     sy = sy || sx;
-
-    var scaleMatrix = Matrix(sx, 0, 0, sy);
-
-    if(aboutPoint) {
-      scaleMatrix =
-        Matrix.translation(aboutPoint.x, aboutPoint.y).concat(
-          scaleMatrix
-        ).concat(
-          Matrix.translation(-aboutPoint.x, -aboutPoint.y)
-        );
+    scaleMatrix = Matrix(sx, 0, 0, sy);
+    if (aboutPoint) {
+      scaleMatrix = Matrix.translation(aboutPoint.x, aboutPoint.y).concat(scaleMatrix).concat(Matrix.translation(-aboutPoint.x, -aboutPoint.y));
     }
-
     return scaleMatrix;
   };
-
-  /**
+  /***
    * Returns a matrix that corresponds to a translation of tx, ty.
    * @see Matrix#translate
    *
@@ -1381,35 +1371,31 @@ $(function() {
    * @param {Number} ty The amount to translate in the y direction.
    * @return A matrix transformation representing a translation by tx and ty.
    * @type Matrix
-   */
+  */
   Matrix.translation = function(tx, ty) {
     return Matrix(1, 0, 0, 1, tx, ty);
   };
-
-  /**
+  /***
    * A constant representing the identity matrix.
    * @name IDENTITY
    * @fieldOf Matrix
-   */
+  */
   Matrix.IDENTITY = Matrix();
-  /**
+  /***
    * A constant representing the horizontal flip transformation matrix.
    * @name HORIZONTAL_FLIP
    * @fieldOf Matrix
-   */
+  */
   Matrix.HORIZONTAL_FLIP = Matrix(-1, 0, 0, 1);
-  /**
+  /***
    * A constant representing the vertical flip transformation matrix.
    * @name VERTICAL_FLIP
    * @fieldOf Matrix
-   */
+  */
   Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1);
-  
-  // Export to window
   window["Point"] = Point;
-  window["Matrix"] = Matrix;
-}());
-;
+  return (window["Matrix"] = Matrix);
+})();;
 window.Mouse = (function() {
   var Mouse, buttons, set_button;
   Mouse = {
@@ -1618,24 +1604,18 @@ Number.prototype.d = function(sides) {
 * The mathematical circle constant of 1 turn.
 */
 Math.TAU = 2 * Math.PI;;
-(function($){
-  $.fn.powerCanvas = function(options) {
-    options = options || {};
-
-    var canvas = this.get(0);
-
-    if(!canvas) {
-      return this;
-    }
-
-    var context;
-
-    /**
+(function($) {
+  return ($.fn.powerCanvas = function(options) {
+    var $canvas, canvas, context;
+    options || (options = {});
+    canvas = this.get(0);
+    context = undefined;
+    /***
      * @name PowerCanvas
      * @constructor
-     */
-    var $canvas = $(canvas).extend({
-      /**
+    */
+    $canvas = $(canvas).extend({
+      /***
        * Passes this canvas to the block with the given matrix transformation
        * applied. All drawing methods called within the block will draw
        * into the canvas with the transformation applied. The transformation
@@ -1647,87 +1627,63 @@ Math.TAU = 2 * Math.PI;;
        * @param {Matrix} matrix
        * @param {Function} block
        * @returns this
-       */
+      */
       withTransform: function(matrix, block) {
         context.save();
-
-        context.transform(
-          matrix.a,
-          matrix.b,
-          matrix.c,
-          matrix.d,
-          matrix.tx,
-          matrix.ty
-        );
-
+        context.transform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
         try {
           block(this);
         } finally {
           context.restore();
         }
-
         return this;
       },
-
       clear: function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-
         return this;
       },
-      
       context: function() {
         return context;
       },
-      
       element: function() {
         return canvas;
       },
-      
       createLinearGradient: function(x0, y0, x1, y1) {
         return context.createLinearGradient(x0, y0, x1, y1);
       },
-      
       createRadialGradient: function(x0, y0, r0, x1, y1, r1) {
         return context.createRadialGradient(x0, y0, r0, x1, y1, r1);
       },
-      
       createPattern: function(image, repitition) {
         return context.createPattern(image, repitition);
       },
-
       drawImage: function(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
         context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-
         return this;
       },
-
       drawLine: function(x1, y1, x2, y2, width) {
-        if(arguments.length === 3) {
+        if (arguments.length === 3) {
           width = x2;
           x2 = y1.x;
           y2 = y1.y;
-          y1 = x1.y
-          x1 = x1.x
+          y1 = x1.y;
+          x1 = x1.x;
         }
-
-        width = width || 3;
-
+        width || (width = 3);
         context.lineWidth = width;
         context.beginPath();
         context.moveTo(x1, y1);
         context.lineTo(x2, y2);
         context.closePath();
         context.stroke();
+        return this;
       },
-
       fill: function(color) {
         $canvas.fillColor(color);
         context.fillRect(0, 0, canvas.width, canvas.height);
-
         return this;
       },
-
-      /**
+      /***
        * Fills a circle at the specified position with the specified
        * radius and color.
        *
@@ -1738,24 +1694,22 @@ Math.TAU = 2 * Math.PI;;
        * @param {Number} y
        * @param {Number} radius
        * @param {Number} color
-       * @see PowerCanvas#fillColor 
+       * @see PowerCanvas#fillColor
        * @returns this
-       */
+      */
       fillCircle: function(x, y, radius, color) {
         $canvas.fillColor(color);
         context.beginPath();
-        context.arc(x, y, radius, 0, Math.PI*2, true);
+        context.arc(x, y, radius, 0, Math.TAU, true);
         context.closePath();
         context.fill();
-
         return this;
       },
-
-      /**
+      /***
        * Fills a rectangle with the current fillColor
        * at the specified position with the specified
-       * width and height 
-      
+       * width and height
+
        * @name fillRect
        * @methodOf PowerCanvas#
        *
@@ -1763,25 +1717,18 @@ Math.TAU = 2 * Math.PI;;
        * @param {Number} y
        * @param {Number} width
        * @param {Number} height
-       * @see PowerCanvas#fillColor 
+       * @see PowerCanvas#fillColor
        * @returns this
-       */      
-      
+      */
       fillRect: function(x, y, width, height) {
         context.fillRect(x, y, width, height);
-
         return this;
       },
-
-      /**
+      /***
       * Adapted from http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html
       */
-      
       fillRoundRect: function(x, y, width, height, radius, strokeWidth) {
-        if (!radius) {
-          radius = 5;
-        }
-        
+        radius || (radius = 5);
         context.beginPath();
         context.moveTo(x + radius, y);
         context.lineTo(x + width - radius, y);
@@ -1791,53 +1738,46 @@ Math.TAU = 2 * Math.PI;;
         context.lineTo(x + radius, y + height);
         context.quadraticCurveTo(x, y + height, x, y + height - radius);
         context.lineTo(x, y + radius);
-        context.quadraticCurveTo(x, y, x + radius, y);        
+        context.quadraticCurveTo(x, y, x + radius, y);
         context.closePath();
-                  
         if (strokeWidth) {
-          context.lineWidth = strokeWidth;  
+          context.lineWidth = strokeWidth;
           context.stroke();
         }
-        
-        context.fill();  
-    
-        return this;    
-      },       
-
-      fillText: function(text, x, y) {
-        context.fillText(text, x, y);
-
+        context.fill();
         return this;
       },
-
-      centerText: function(text, y) {
-        var textWidth = $canvas.measureText(text);
-
-        $canvas.fillText(text, (canvas.width - textWidth) / 2, y);
+      fillText: function(text, x, y) {
+        context.fillText(text, x, y);
+        return this;
       },
-
+      centerText: function(text, y) {
+        var textWidth;
+        textWidth = $canvas.measureText(text);
+        return $canvas.fillText(text, (canvas.width - textWidth) / 2, y);
+      },
       fillWrappedText: function(text, x, y, width) {
-        var tokens = text.split(" ");
-        var tokens2 = text.split(" ");
-        var lineHeight = 16;
-
+        var lineHeight, tokens, tokens2;
+        tokens = text.split(" ");
+        tokens2 = text.split(" ");
+        lineHeight = 16;
         if ($canvas.measureText(text) > width) {
-          if (tokens.length % 2 == 0) {
-            tokens2 = tokens.splice(tokens.length / 2, (tokens.length / 2), "");
+          if (tokens.length % 2 === 0) {
+            tokens2 = tokens.splice(tokens.length / 2, tokens.length / 2, "");
           } else {
             tokens2 = tokens.splice(tokens.length / 2 + 1, (tokens.length / 2) + 1, "");
           }
           context.fillText(tokens.join(" "), x, y);
-          context.fillText(tokens2.join(" "), x, y + lineHeight);
+          return context.fillText(tokens2.join(" "), x, y + lineHeight);
         } else {
-          context.fillText(tokens.join(" "), x, y + lineHeight);
+          return context.fillText(tokens.join(" "), x, y + lineHeight);
         }
       },
-
       fillColor: function(color) {
-        if(color) {
-          if(color.channels) {
+        if (color) {
+          if (color.channels) {
             context.fillStyle = color.toString();
+            log(color);
           } else {
             context.fillStyle = color;
           }
@@ -1846,24 +1786,24 @@ Math.TAU = 2 * Math.PI;;
           return context.fillStyle;
         }
       },
-
       font: function(font) {
-        context.font = font;
+        if (typeof font !== "undefined" && font !== null) {
+          context.font = font;
+          return this;
+        } else {
+          return context.font;
+        }
       },
-
       measureText: function(text) {
         return context.measureText(text).width;
       },
-
       putImageData: function(imageData, x, y) {
         context.putImageData(imageData, x, y);
-
         return this;
       },
-
       strokeColor: function(color) {
-        if(color) {
-          if(color.channels) {
+        if (color) {
+          if (color.channels) {
             context.strokeStyle = color.toString();
           } else {
             context.strokeStyle = color;
@@ -1873,42 +1813,30 @@ Math.TAU = 2 * Math.PI;;
           return context.strokeStyle;
         }
       },
-      
       strokeRect: function(x, y, width, height) {
         context.strokeRect(x, y, width, height);
-
         return this;
       },
-
       textAlign: function(textAlign) {
         context.textAlign = textAlign;
         return this;
       },
-
       height: function() {
         return canvas.height;
       },
-
       width: function() {
         return canvas.width;
       }
     });
-
-    if(canvas.getContext) {
+    if ((typeof canvas === "undefined" || canvas === null) ? undefined : canvas.getContext) {
       context = canvas.getContext('2d');
-
-      if(options.init) {
+      if (options.init) {
         options.init($canvas);
       }
-
       return $canvas;
-    } else {
-      return false;
     }
-
-  };
-})(jQuery);
-;
+  });
+})(jQuery);;
 (function($) {
   window.Random = $.extend(window.Random, {
     angle: function() {
