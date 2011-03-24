@@ -1553,7 +1553,7 @@ Number.prototype.times = function(iterator, context) {
  * @type Number
 */
 Number.prototype.snap = function(resolution) {
-  return (this / resolution).floor() * resolution;
+  return (this/resolution).floor() * resolution;
 };
 Number.prototype.toColorPart = function() {
   var s;
