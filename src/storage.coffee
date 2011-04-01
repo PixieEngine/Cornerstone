@@ -40,6 +40,16 @@
     get: retrieve
     set: store
     put: store
+    ###*
+    Access an instance of Local with a specified prefix.
+
+    @name new
+    @methodOf Local
+
+    @param {String} prefix
+    @type Local
+    @returns An interface to local storage with the given prefix applied.
+    ###
     new: (prefix) ->
       prefix ||= ""
 
@@ -49,6 +59,6 @@
         store("#{prefix}_key", value)
       put: (key, value) ->
         store("#{prefix}_key", value)
-      
+
 )(jQuery)
 
