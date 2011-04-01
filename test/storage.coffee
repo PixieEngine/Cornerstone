@@ -1,5 +1,5 @@
 module "Storage"
- 
+
 test "Local exists", ->
   ok(Local)
 
@@ -34,5 +34,14 @@ test "Local.set and Local.get", ->
   ret = Local.get("__TEST")
   equal ret, ""
 
- module()
- 
+test "Local.new", ->
+  local = Local.new("TEST")
+  key = "a test value"
+  
+  local.set(key, true)
+  equal local.get(key), true
+  
+  equal Local.get(key), null
+
+module()
+

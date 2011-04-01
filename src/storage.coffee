@@ -35,10 +35,20 @@
 
     if value?
       JSON.parse(value)
- 
+
   window.Local = $.extend window.Local,
     get: retrieve
     set: store
     put: store
+    new: (prefix) ->
+      prefix ||= ""
+
+      get: (key) ->
+        retrieve("#{prefix}_key")
+      set: (key, value) ->
+        store("#{prefix}_key", value)
+      put: (key, value) ->
+        store("#{prefix}_key", value)
+      
 )(jQuery)
 
