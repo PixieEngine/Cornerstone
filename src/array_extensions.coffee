@@ -4,7 +4,7 @@
 * @param [separator] Specifies a string to separate each element of the array. 
 * The separator is converted to a string if necessary. If omitted, the array 
 * elements are separated with a comma.
-* @methodOf Array
+* @methodOf Array#
 ###
 
 ###*
