@@ -40,7 +40,6 @@
           block(this)
         finally
           context.restore()
-        
 
         return this
 
@@ -48,19 +47,46 @@
         context.clearRect(0, 0, canvas.width, canvas.height)
 
         return this
-      
+
+      clearRect: (x, y, width, height) ->
+        context.clearRect(x, y, width, height)
+
+        return this
+
       context: ->
         context
       
       element: ->
         canvas
+        
+      globalAlpha: (newVal) ->
+        if newVal?
+          context.globalAlpha = newVal
+          return this
+        else
+          context.globalAlpha
+          
+      compositeOperation: (newVal) ->
+        if newVal?
+          context.globalCompositeOperation = newVal
+          return this
+        else
+          context.globalCompositeOperation
       
       createLinearGradient: (x0, y0, x1, y1) ->
         context.createLinearGradient(x0, y0, x1, y1)
       
       createRadialGradient: (x0, y0, r0, x1, y1, r1) ->
         context.createRadialGradient(x0, y0, r0, x1, y1, r1)
-      
+        
+      buildRadialGradient: (c1, c2, stops) ->
+        gradient = context.createRadialGradient(c1.x, c1.y, c1.radius, c2.x, c2.y, c2.radius)
+
+        for position, color of stops
+          gradient.addColorStop(position, color)
+
+        return gradient
+
       createPattern: (image, repitition) ->
         context.createPattern(image, repitition)
 
@@ -138,6 +164,16 @@
         context.fillRect(x, y, width, height)
 
         return this
+    
+      fillShape: (points...) ->
+        context.beginPath()
+        points.each (point, i) ->
+          if i == 0
+            context.moveTo(point.x, point.y)
+          else
+            context.lineTo(point.x, point.y)
+        context.lineTo points[0].x, points[0].y
+        context.fill()
 
       ###*
       * Adapted from http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html
@@ -196,7 +232,6 @@
         if color
           if color.channels
             context.fillStyle = color.toString()
-            log color
           else
             context.fillStyle = color
           
@@ -256,4 +291,3 @@
       return $canvas
 
 )(jQuery)
-
