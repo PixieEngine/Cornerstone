@@ -11,26 +11,28 @@ description_xpath = "/html/body/section[2]/div/div/article/div[2]/div[2]/div[2]/
 usage_path = "/html/body/section[2]/div/div/article/div[2]/div[2]/div[2]/div[2]/p/code"
 param_xpath = "/html/body/section[2]/div/div/article/div[2]/div[2]/div[2]/div[3]/dl"
 
-object = "Array"
-page = agent.get "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/#{object}"
-
-method_links = page.search method_xpath
+objects = %w[Boolean Number String Array Object Function RegExp Date]
 
 File.open("src/stubs.coffee", 'wb') do |file|
-  method_links.each do |method_link|
-    method_name = method_link.content
-    
-    method_page = agent.click(method_link)
-    
-    description = method_page.search(description_xpath).text
-    
-    example_usage = method_page.search(usage_path).to_s
+  objects.each do |object|
+    page = agent.get "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/#{object}"
 
-    params = method_page.search(param_xpath).map do |param|
-      word_wrap "@param #{param.search("dt").text} #{param.search("dd").text}"
-    end.join("\n")
+    method_links = page.search method_xpath
+    
+    method_links.each do |method_link|
+      method_name = method_link.content
+      
+      method_page = agent.click(method_link)
+      
+      description = method_page.search(description_xpath).text
+      
+      example_usage = method_page.search(usage_path).to_s
 
-    documentation = <<-eof
+      params = method_page.search(param_xpath).map do |param|
+        word_wrap "@param #{param.search("dt").text} #{param.search("dd").text}"
+      end.join("\n")
+
+      documentation = <<-eof
 ###*
 #{word_wrap description}
 
@@ -39,10 +41,11 @@ File.open("src/stubs.coffee", 'wb') do |file|
 @name #{method_name}
 @methodOf #{object}#
 ###
-    eof
-    
-    puts documentation
-    
-    file.write documentation
-  end; ""
+      eof
+      
+      puts documentation
+      
+      file.write documentation
+    end
+  end
 end
