@@ -424,7 +424,7 @@
    * @type Matrix
   ###
   Matrix.scale = (sx, sy, aboutPoint) ->
-    sy = sy || sx;
+    sy = sy || sx
 
     scaleMatrix = Matrix(sx, 0, 0, sy)
 
@@ -472,6 +472,6 @@
   Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1)
 
   # Export to window
-  window["Point"] = Point;
-  window["Matrix"] = Matrix;
+  window["Point"] = Point
+  window["Matrix"] = Matrix
 )()
