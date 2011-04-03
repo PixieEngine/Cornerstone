@@ -130,6 +130,53 @@
           return padString(hexString(number))
 
         "##{hexFromNumber(channels[0])}#{hexFromNumber(channels[1])}#{hexFromNumber(channels[2])}"
+        
+      toHsl: ->
+        r = channels[0] / 255
+        g = channels[1] / 255
+        b = channels[2] / 255
+        
+        min = [r, g, b].extremes[0]
+        max = [r, g, b].extremes[1]
+
+        h = s = l = (max + min) / 2
+
+        if max == min
+          h = s = 0
+        else
+          d = max - min
+          s = (if l > 0.5 then d / (2 - max - min) else d / (max + min))        
+        
+        Color.RGBtoHSL = function (rgb) {
+          // in JS 1.7 use: var [r, g, b] = rgb;
+          var r = rgb[0],
+              g = rgb[1],
+              b = rgb[2];
+      
+          r /= 255;
+          g /= 255;
+          b /= 255;
+      
+          var max = math.max(r, g, b),
+              min = math.min(r, g, b),
+          h, s, l = (max + min) / 2;
+      
+          if (max === min) {
+            h = s = 0; // achromatic
+          } else {
+            var d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+          }
+      
+          return [h, s, l];
+      
+        }; 
  
       toString: -> self.rgba()
 
