@@ -148,11 +148,13 @@
           s = (if l > 0.5 then d / (2 - max - min) else d / (max + min))  
       
           switch max
-            when r then h = (g - b) / d + (g < b ? 6 : 0)
+            when r then h = (g - b) / d + (if g < b then 6 else 0)
             when g then h = (b - r) / d + 2
             when b then h = (r - g) / d + 4
       
           h /= 6
+
+          h *= 360
     
         return [h, s, l]    
         
