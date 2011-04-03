@@ -211,8 +211,23 @@ test "toHsl returns proper values", ->
   equals hsl[1].toFixed(2), 0.48
   equals hsl[2].toFixed(2), 0.33
   equals hsl[3], 1
+
+test "#hslToRgb", ->
+  color = Color(50, 10, 100)
+  hsl = color.toHsl()
+  rgb = color.hslToRgb(hsl)
+  
+  equals rgb.r(), color.r()
+  equals rgb.g(), color.g()
+  equals rgb.b(), color.b()
   
 test "#lighten", ->
-  color = Color(92, 34, 12)
+  color = Color(20, 45, 123)
+  lightColor = color.lighten(0.1)
   
-
+  equals lightColor.r(), 27
+  equals lightColor.g(), 62
+  equals lightColor.b(), 167
+  
+  
+  
