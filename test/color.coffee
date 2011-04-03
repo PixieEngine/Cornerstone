@@ -101,57 +101,74 @@ test "should parse length 3 hex string", ->
  
 test "should parse length 3 hex string with leading #", ->  
   color = Color('#3ef')
-  equals color.r(), 51
-  equals color.g(), 238
-  equals color.b(), 255
+  
+  ok color.equals
+    r: -> 51
+    g: -> 238
+    b: -> 255
+    a: -> 1  
   
 test "should know what Fuzzy Wuzzy Brown is", ->
   color = Color("Fuzzy Wuzzy Brown")
-  equals color.r(), 196
-  equals color.g(), 86
-  equals color.b(), 85
+  
+  ok color.equals
+    r: -> 196
+    g: -> 86
+    b: -> 85
+    a: -> 1
 
 test "should parse arrays", ->
   color = Color([1, 24, 101])
-  equals color.r(), 1
-  equals color.g(), 24
-  equals color.b(), 101 
+  
+  ok color.equals
+    r: -> 1
+    g: -> 24
+    b: -> 101
+    a: -> 1
   
 test "parse 3 or 4 number arguments", ->
   color = Color(4, 34, 102, 0.4)
-  equals color.r(), 4
-  equals color.g(), 34
-  equals color.b(), 102
-  equals color.a(), 0.4
   
+  ok color.equals
+    r: -> 4
+    g: -> 34
+    b: -> 102
+    a: -> 0.4
+    
 test "should parse first argument array, second argument alpha", ->
   color = Color([4, 200, 43], 0.4)
-  equals color.r(), 4
-  equals color.g(), 200
-  equals color.b(), 43
-  equals color.a(), 0.4
+  
+  ok color.equals
+    r: -> 4
+    g: -> 200
+    b: -> 43
+    a: -> 0.4
   
 test "should parse first argument string, second argument alpha", ->
   hexColor = Color("#1084ce", 0.5)
   rgbColor = Color("rgb(3, 90, 210)", 0.3)
-  equals hexColor.r(), 16
-  equals hexColor.g(), 132
-  equals hexColor.b(), 206
-  equals hexColor.a(), 0.5
   
-  equals rgbColor.r(), 3
-  equals rgbColor.g(), 90
-  equals rgbColor.b(), 210
-  equals rgbColor.a(), 0.3
+  ok hexColor.equals
+    r: -> 16
+    g: -> 132
+    b: -> 206
+    a: -> 0.5
+
+  ok rgbColor.equals
+    r: -> 3
+    g: -> 90
+    b: -> 210
+    a: -> 0.3 
   
 test "should equal colors with the same rbga values", ->
   color1 = Color(4, 20, 100)
   color2 = Color('rgb(4, 20, 100)')
   color3 = Color('#041464')
   color4 = Color([4, 20, 100])
-  ok(color1.equals(color2))
-  ok(color1.equals(color3))
-  ok(color1.equals(color4))
+  
+  ok color1.equals(color2)
+  ok color1.equals(color3)
+  ok color1.equals(color4)
   
   alpha1 = Color(51, 51, 51, 1)
   alpha2 = Color('rgba(51, 51, 51, 1)')
@@ -159,24 +176,30 @@ test "should equal colors with the same rbga values", ->
   alpha4 = Color('#333f')
   alpha5 = Color([51,51,51,1])
   
-  ok(alpha1.equals(alpha2))
-  ok(alpha1.equals(alpha3))
-  ok(alpha1.equals(alpha4))
-  ok(alpha1.equals(alpha5))
+  ok alpha1.equals(alpha2)
+  ok alpha1.equals(alpha3)
+  ok alpha1.equals(alpha4)
+  ok alpha1.equals(alpha5)
     
 test "should output proper toString", ->
   color = Color(5, 25, 125, 0.73)
+  
   equals color.toString(), "rgba(5, 25, 125, 0.73)"
   
 test "should output proper toHex", ->
   white = Color(255, 255, 255)
   black = Color(0, 0, 0)
+  
   equals white.toHex(), "#ffffff"
   equals black.toHex(), "#000000"
   
 test "should recognize an object with a channels array as a Color", ->
   red = Color(255, 0, 0)
   testColor = Color(red)
-  equals testColor.r(), 255
-  equals testColor.g(), 0
-  equals testColor.b(), 0
+  
+  ok testColor.equals
+    r: -> 255
+    g: -> 0
+    b: -> 0
+    a: -> 1
+
