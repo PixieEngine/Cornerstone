@@ -149,8 +149,12 @@
         hsl = self.toHsl()
         hsl[2] = hsl[2] + amount
         
-        log hsl
-        
+        return Color(self.hslToRgb(hsl))
+
+      darken: (amount) ->
+        hsl = self.toHsl()
+        hsl[2] = hsl[2] - amount
+       
         return Color(self.hslToRgb(hsl))
  
       rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"

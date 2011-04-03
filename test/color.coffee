@@ -229,5 +229,14 @@ test "#lighten", ->
   equals lightColor.g(), 62
   equals lightColor.b(), 167
   
+test "#darken", ->
+  color = Color(34, 58, 29)
+  darkColor = color.darken(0.1)
+  
+  equals darkColor.r(), 14 
+  equals darkColor.g(), 24
+  equals darkColor.b(), 12
+  
+  
   
   
