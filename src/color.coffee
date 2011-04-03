@@ -23,7 +23,7 @@
         undefined
 
   parseRGB = (colorString) ->
-    return unless bits = rgbParser.exec(colorString)
+    return undefined unless bits = rgbParser.exec(colorString)
 
     return [
       parseInt(bits[1])
