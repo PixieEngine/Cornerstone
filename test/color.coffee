@@ -2,30 +2,39 @@ module "Color"
  
 test "default should be black", ->
   color = Color()
-  equals color.r(), 0, "default red channel is 0"
-  equals color.g(), 0, "default green channel is 0"
-  equals color.b(), 0, "default blue channel is 0"
-  equals color.a(), 0, "default alpha channel is 0"
+  
+  ok color.equals
+    r: -> 0
+    g: -> 0
+    b: -> 0 
+    a: -> 0
  
 test "should parse rgb", ->
   color = Color('rgb(3, 56, 174)')
-  equals color.r(), 3, 'red channel should equal input red value'
-  equals color.g(), 56, 'green channel should equal input green value'
-  equals color.b(), 174, 'blue channel should equal input blue value'
+  
+  ok color.equals
+    r: -> 3
+    g: -> 56
+    b: -> 174
+    a: -> 1
 
 test "should parse rgba", ->
   color = Color('rgb(4, 66, 134, 0.45)')
-  equals color.r(), 4
-  equals color.g(), 66
-  equals color.b(), 134
-  equals color.a(), 0.45
+  
+  ok color.equals
+    r: -> 4
+    g: -> 66
+    b: -> 134
+    a: -> 0.45
 
 test "should parse rgba without leading 0 on alpha value", -> 
   color = Color('rgb(4, 66, 134, .33)')
-  equals color.r(), 4
-  equals color.g(), 66
-  equals color.b(), 134
-  equals color.a(), 0.33 
+  
+  ok color.equals
+    r: -> 4
+    g: -> 66
+    b: -> 134
+    a: -> 0.33
 
 test "should parse length 8 hex string", -> 
   color = Color('ae56f03a')
