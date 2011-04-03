@@ -140,7 +140,7 @@
           g = hueToRgb(p, q, h)
           b = hueToRgb(p, q, h - 1/3)
            
-        return Color([r * 0xFF, g * 0xFF, b * 0xFF])
+        return Color([(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round()])
                     
       lighten: (amount) ->
         hsl = self.toHsl()
@@ -173,14 +173,14 @@
         "##{hexFromNumber(channels[0])}#{hexFromNumber(channels[1])}#{hexFromNumber(channels[2])}"
         
       toHsl: ->
-        r = channels[0] / 255
-        g = channels[1] / 255
-        b = channels[2] / 255
+        r = channels[0] / 255.0
+        g = channels[1] / 255.0
+        b = channels[2] / 255.0
         
         min = Math.min(r, g, b)
         max = Math.max(r, g, b)
 
-        hue = saturation = lightness = (max + min) / 2
+        hue = saturation = lightness = (max + min) / 2.0
 
         if max == min
           hue = saturation = 0
@@ -193,9 +193,9 @@
             when g then hue = (b - r) / delta + 2
             when b then hue = (r - g) / delta + 4
       
-          hue *= 60.0
+          hue *= 60
     
-        return [hue, saturation, lightness, channels[3]]    
+        return [hue.round(), saturation, lightness, channels[3]]    
         
       toString: -> self.rgba()
 
