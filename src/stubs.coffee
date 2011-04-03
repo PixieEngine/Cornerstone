@@ -722,3 +722,543 @@ most unnecessary spaces are removed.
 @name toString
 @methodOf Function#
 ###
+###*
+Executes a search for a match in a specified string. Returns a result array, or
+null.
+
+
+@param regexp  The name of the regular expression. It can be a variable name or
+a literal.
+@param str  The string against which to match the regular expression.
+@name exec
+@methodOf RegExp#
+###
+###*
+Executes the search for a match between a regular expression and a specified
+string. Returns true or false.
+
+<code> <em>regexp</em>.test([<em>str</em>]) </code>
+@param regexp  The name of the regular expression. It can be a variable name or
+a literal.
+@param str  The string against which to match the regular expression.
+@name test
+@methodOf RegExp#
+###
+###*
+Non-standard
+
+
+
+@name toSource
+@methodOf RegExp#
+###
+###*
+Returns a string representing the specified object.
+
+<code><i>regexp</i>.toString()</code>
+
+@name toString
+@methodOf RegExp#
+###
+###*
+Returns a reference to the Date function that created the instance's prototype.
+Note that the value of this property is a reference to the function itself, not
+a string containing the function's name.
+
+
+
+@name constructor
+@methodOf Date#
+###
+###*
+Returns the day of the month for the specified date according to local time.
+
+<code>
+getDate()
+</code>
+
+@name getDate
+@methodOf Date#
+###
+###*
+Returns the day of the week for the specified date according to local time.
+
+<code>
+getDay()
+</code>
+
+@name getDay
+@methodOf Date#
+###
+###*
+Returns the year of the specified date according to local time.
+
+<code>
+getFullYear()
+</code>
+
+@name getFullYear
+@methodOf Date#
+###
+###*
+Returns the hour for the specified date according to local time.
+
+<code>
+getHours()
+</code>
+
+@name getHours
+@methodOf Date#
+###
+###*
+Returns the milliseconds in the specified date according to local time.
+
+<code>
+getMilliseconds()
+</code>
+
+@name getMilliseconds
+@methodOf Date#
+###
+###*
+Returns the minutes in the specified date according to local time.
+
+<code>
+getMinutes()
+</code>
+
+@name getMinutes
+@methodOf Date#
+###
+###*
+Returns the month in the specified date according to local time.
+
+<code>
+getMonth()
+</code>
+
+@name getMonth
+@methodOf Date#
+###
+###*
+Returns the seconds in the specified date according to local time.
+
+<code>
+getSeconds()
+</code>
+
+@name getSeconds
+@methodOf Date#
+###
+###*
+Returns the numeric value corresponding to the time for the specified date
+according to universal time.
+
+<code> getTime() </code>
+
+@name getTime
+@methodOf Date#
+###
+###*
+Returns the time-zone offset from UTC, in minutes, for the current locale.
+
+<code> getTimezoneOffset() </code>
+
+@name getTimezoneOffset
+@methodOf Date#
+###
+###*
+Returns the day (date) of the month in the specified date according to universal
+time.
+
+<code>
+getUTCDate()
+</code>
+
+@name getUTCDate
+@methodOf Date#
+###
+###*
+Returns the day of the week in the specified date according to universal time.
+
+<code>
+getUTCDay()
+</code>
+
+@name getUTCDay
+@methodOf Date#
+###
+###*
+Returns the year in the specified date according to universal time.
+
+<code>
+getUTCFullYear()
+</code>
+
+@name getUTCFullYear
+@methodOf Date#
+###
+###*
+Returns the hours in the specified date according to universal time.
+
+<code>
+getUTCHours
+</code>
+
+@name getUTCHours
+@methodOf Date#
+###
+###*
+Returns the milliseconds in the specified date according to universal time.
+
+<code>
+getUTCMilliseconds()
+</code>
+
+@name getUTCMilliseconds
+@methodOf Date#
+###
+###*
+Returns the minutes in the specified date according to universal time.
+
+<code>
+getUTCMinutes()
+</code>
+
+@name getUTCMinutes
+@methodOf Date#
+###
+###*
+Returns the month of the specified date according to universal time.
+
+<code>
+getUTCMonth()
+</code>
+
+@name getUTCMonth
+@methodOf Date#
+###
+###*
+Returns the seconds in the specified date according to universal time.
+
+<code>
+getUTCSeconds()
+</code>
+
+@name getUTCSeconds
+@methodOf Date#
+###
+###*
+Deprecated
+
+
+
+@name getYear
+@methodOf Date#
+###
+###*
+Sets the day of the month for a specified date according to local time.
+
+<code> setDate(<em>dayValue</em>) </code>
+@param dayValue  An integer from 1 to 31, representing the day of the month.
+@name setDate
+@methodOf Date#
+###
+###*
+Sets the full year for a specified date according to local time.
+
+<code>
+setFullYear(<i>yearValue</i>[, <i>monthValue</i>[, <em>dayValue</em>]])
+</code>
+@param  yearValue   An integer specifying the numeric value of the year, for
+example, 1995.
+@param  monthValue   An integer between 0 and 11 representing the months January
+through December.
+@param  dayValue   An integer between 1 and 31 representing the day of the
+month. If you specify the dayValue parameter, you must also specify the
+monthValue.
+@name setFullYear
+@methodOf Date#
+###
+###*
+Sets the hours for a specified date according to local time.
+
+<code>
+setHours(<i>hoursValue</i>[, <i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]]])
+</code>
+@param  hoursValue   An integer between 0 and 23, representing the hour. 
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+you specify the secondsValue parameter, you must also specify the minutesValue.
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
+you specify the msValue parameter, you must also specify the minutesValue and
+secondsValue.
+@name setHours
+@methodOf Date#
+###
+###*
+Sets the milliseconds for a specified date according to local time.
+
+<code>
+setMilliseconds(<i>millisecondsValue</i>)
+</code>
+@param  millisecondsValue   A number between 0 and 999, representing the
+milliseconds.
+@name setMilliseconds
+@methodOf Date#
+###
+###*
+Sets the minutes for a specified date according to local time.
+
+<code>
+setMinutes(<i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]])
+</code>
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+you specify the secondsValue parameter, you must also specify the minutesValue.
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
+you specify the msValue parameter, you must also specify the minutesValue and
+secondsValue.
+@name setMinutes
+@methodOf Date#
+###
+###*
+Set the month for a specified date according to local time.
+
+<code>
+setMonth(<i>monthValue</i>[, <em>dayValue</em>])
+</code>
+@param  monthValue   An integer between 0 and 11 (representing the months
+January through December).
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@name setMonth
+@methodOf Date#
+###
+###*
+Sets the seconds for a specified date according to local time.
+
+<code>
+setSeconds(<i>secondsValue</i>[, <em>msValue</em>])
+</code>
+@param  secondsValue   An integer between 0 and 59. 
+@param  msValue   A number between 0 and 999, representing the milliseconds.
+@name setSeconds
+@methodOf Date#
+###
+###*
+Sets the Date object to the time represented by a number of milliseconds since
+January 1, 1970, 00:00:00 UTC.
+
+<code>
+setTime(<i>timeValue</i>)
+</code>
+@param  timeValue   An integer representing the number of milliseconds since 1
+January 1970, 00:00:00 UTC.
+@name setTime
+@methodOf Date#
+###
+###*
+Sets the day of the month for a specified date according to universal time.
+
+<code>
+setUTCDate(<i>dayValue</i>)
+</code>
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@name setUTCDate
+@methodOf Date#
+###
+###*
+Sets the full year for a specified date according to universal time.
+
+<code>
+setUTCFullYear(<i>yearValue</i>[, <i>monthValue</i>[, <em>dayValue</em>]])
+</code>
+@param  yearValue   An integer specifying the numeric value of the year, for
+example, 1995.
+@param  monthValue   An integer between 0 and 11 representing the months January
+through December.
+@param  dayValue   An integer between 1 and 31 representing the day of the
+month. If you specify the dayValue parameter, you must also specify the
+monthValue.
+@name setUTCFullYear
+@methodOf Date#
+###
+###*
+Sets the hour for a specified date according to universal time.
+
+<code>
+setUTCHours(<i>hoursValue</i>[, <i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]]])
+</code>
+@param  hoursValue   An integer between 0 and 23, representing the hour. 
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+you specify the secondsValue parameter, you must also specify the minutesValue.
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
+you specify the msValue parameter, you must also specify the minutesValue and
+secondsValue.
+@name setUTCHours
+@methodOf Date#
+###
+###*
+Sets the milliseconds for a specified date according to universal time.
+
+<code>
+setUTCMilliseconds(<i>millisecondsValue</i>)
+</code>
+@param  millisecondsValue   A number between 0 and 999, representing the
+milliseconds.
+@name setUTCMilliseconds
+@methodOf Date#
+###
+###*
+Sets the minutes for a specified date according to universal time.
+
+<code>
+setUTCMinutes(<i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]])
+</code>
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+you specify the secondsValue parameter, you must also specify the minutesValue.
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
+you specify the msValue parameter, you must also specify the minutesValue and
+secondsValue.
+@name setUTCMinutes
+@methodOf Date#
+###
+###*
+Sets the month for a specified date according to universal time.
+
+<code>
+setUTCMonth(<i>monthValue</i>[, <em>dayValue</em>])
+</code>
+@param  monthValue   An integer between 0 and 11, representing the months
+January through December.
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@name setUTCMonth
+@methodOf Date#
+###
+###*
+Sets the seconds for a specified date according to universal time.
+
+<code>
+setUTCSeconds(<i>secondsValue</i>[, <em>msValue</em>])
+</code>
+@param  secondsValue   An integer between 0 and 59. 
+@param  msValue   A number between 0 and 999, representing the milliseconds.
+@name setUTCSeconds
+@methodOf Date#
+###
+###*
+Deprecated
+
+
+
+@name setYear
+@methodOf Date#
+###
+###*
+Returns the date portion of a Date object in human readable form in American
+English.
+
+<code><em>date</em>.toDateString()</code>
+
+@name toDateString
+@methodOf Date#
+###
+###*
+Returns a JSON representation of the Date object.
+
+<code><em>date</em>.prototype.toJSON()</code>
+
+@name toJSON
+@methodOf Date#
+###
+###*
+Deprecated
+
+
+
+@name toGMTString
+@methodOf Date#
+###
+###*
+Converts a date to a string, returning the "date" portion using the operating
+system's locale's conventions.
+
+<code>
+toLocaleDateString()
+</code>
+
+@name toLocaleDateString
+@methodOf Date#
+###
+###*
+Non-standard
+
+
+
+@name toLocaleFormat
+@methodOf Date#
+###
+###*
+Converts a date to a string, using the operating system's locale's conventions.
+
+<code>
+toLocaleString()
+</code>
+
+@name toLocaleString
+@methodOf Date#
+###
+###*
+Converts a date to a string, returning the "time" portion using the current
+locale's conventions.
+
+<code> toLocaleTimeString() </code>
+
+@name toLocaleTimeString
+@methodOf Date#
+###
+###*
+Non-standard
+
+
+
+@name toSource
+@methodOf Date#
+###
+###*
+Returns a string representing the specified Date object.
+
+<code> toString() </code>
+
+@name toString
+@methodOf Date#
+###
+###*
+Returns the time portion of a Date object in human readable form in American
+English.
+
+<code><em>date</em>.toTimeString()</code>
+
+@name toTimeString
+@methodOf Date#
+###
+###*
+Converts a date to a string, using the universal time convention.
+
+<code> toUTCString() </code>
+
+@name toUTCString
+@methodOf Date#
+###
+###*
+Returns the primitive value of a Date object.
+
+<code>
+valueOf()
+</code>
+
+@name valueOf
+@methodOf Date#
+###
