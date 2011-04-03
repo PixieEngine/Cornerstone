@@ -38,49 +38,66 @@ test "should parse rgba without leading 0 on alpha value", ->
 
 test "should parse length 8 hex string", -> 
   color = Color('ae56f03a')
-  equals color.r(), 174 
-  equals color.g(), 86
-  equals color.b(), 240 
-  equals color.a(), 58 / 255.0
+  
+  ok color.equals
+    r: -> 174
+    g: -> 86
+    b: -> 240
+    a: -> 58 / 255.0
  
 test "should parse length 8 hex string with leading #", ->
   color = Color('#001f34bb')
-  equals color.r(), 0
-  equals color.g(), 31
-  equals color.b(), 52 
-  equals color.a(), 187 / 255.0
- 
+  
+  ok color.equals
+    r: -> 0
+    g: -> 31
+    b: -> 52
+    a: -> 187 / 255.0
+   
 test "should parse length 6 hex string", -> 
   color = Color('1084ce')
-  equals color.r(), 16 
-  equals color.g(), 132
-  equals color.b(), 206 
+  
+  ok color.equals
+    r: -> 16
+    g: -> 132
+    b: -> 206
+    a: -> 1
  
 test "should parse length 6 hex string with leading #", ->
   color = Color('#dfef12')
-  equals color.r(), 223
-  equals color.g(), 239
-  equals color.b(), 18
-
+  
+  ok color.equals
+    r: -> 223
+    g: -> 239
+    b: -> 18
+    a: -> 1
+  
 test "should parse length 4 hex string", ->   
   color = Color('b8f0')
-  equals color.r(), 187
-  equals color.g(), 136
-  equals color.b(), 255
-  equals color.a(), 0.0
- 
+  
+  ok color.equals
+    r: -> 187
+    g: -> 136
+    b: -> 255
+    a: -> 0
+   
 test "should parse length 4 hex string with leading #", ->  
   color = Color('#ab87')
-  equals color.r(), 170
-  equals color.g(), 187
-  equals color.b(), 136
-  equals color.a(), 119 / 255.0 
+  
+  ok color.equals
+    r: -> 170
+    g: -> 187
+    b: -> 136
+    a: -> 119 / 255.0
  
 test "should parse length 3 hex string", ->   
   color = Color('a94')
-  equals color.r(), 170
-  equals color.g(), 153
-  equals color.b(), 68
+  
+  ok color.equals
+    r: -> 170
+    g: -> 153
+    b: -> 68
+    a: -> 1
  
 test "should parse length 3 hex string with leading #", ->  
   color = Color('#3ef')
