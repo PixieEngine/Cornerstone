@@ -154,7 +154,7 @@
       
           h *= 60
     
-        return [h, s, l]    
+        return [h, s, l, channels[3]]    
         
       toString: -> self.rgba()
 

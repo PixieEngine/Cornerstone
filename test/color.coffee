@@ -210,5 +210,9 @@ test "toHsl returns proper values", ->
   equals hsl[0].round(), 319
   equals hsl[1].toFixed(2), 0.48
   equals hsl[2].toFixed(2), 0.33
+  equals hsl[3], 1
+  
+test "#lighten", ->
+  color = Color(92, 34, 12)
   
 
