@@ -147,3 +147,10 @@ test "should output proper toHex", ->
   black = Color(0, 0, 0)
   equals white.toHex(), "#ffffff"
   equals black.toHex(), "#000000"
+  
+test "should recognize an object with a channels array as a Color", ->
+  red = Color(255, 0, 0)
+  testColor = Color(red)
+  equals testColor.r(), 255
+  equals testColor.g(), 0
+  equals testColor.b(), 0
