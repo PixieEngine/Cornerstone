@@ -152,9 +152,7 @@
             when g then h = (b - r) / d + 2
             when b then h = (r - g) / d + 4
       
-          h /= 6
-
-          h *= 360
+          h *= 60
     
         return [h, s, l]    
         
