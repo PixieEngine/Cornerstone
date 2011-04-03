@@ -127,11 +127,8 @@
           t -= 1 if t > 1
 
           return p + (q - p) * 6 * t if t < 1/6
-          
           return q if t < 1/2
-
           return p + (q - p) * (2/3 - t) * 6 if t < 2/3
-          
           return p
           
         if s == 0
@@ -183,22 +180,22 @@
         min = Math.min(r, g, b)
         max = Math.max(r, g, b)
 
-        h = s = l = (max + min) / 2
+        hue = saturation = lightness = (max + min) / 2
 
         if max == min
-          h = s = 0
+          hue = saturation = 0
         else
-          d = max - min
-          s = (if l > 0.5 then d / (2 - max - min) else d / (max + min))  
+          delta = max - min
+          saturation = (if lightness > 0.5 then delta / (2 - max - min) else delta / (max + min))  
       
           switch max
-            when r then h = (g - b) / d + (if g < b then 6 else 0)
-            when g then h = (b - r) / d + 2
-            when b then h = (r - g) / d + 4
+            when r then hue = (g - b) / delta + (if g < b then 6 else 0)
+            when g then hue = (b - r) / delta + 2
+            when b then hue = (r - g) / delta + 4
       
-          h *= 60.0
+          hue *= 60.0
     
-        return [h, s, l, channels[3]]    
+        return [hue, saturation, lightness, channels[3]]    
         
       toString: -> self.rgba()
 
