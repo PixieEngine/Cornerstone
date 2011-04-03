@@ -147,12 +147,14 @@
                     
       lighten: (amount) ->
         hsl = self.toHsl()
+        hsl[0] = hsl[0].round()
         hsl[2] = hsl[2] + amount
         
         return Color(self.hslToRgb(hsl))
 
       darken: (amount) ->
         hsl = self.toHsl()
+        hsl[0] = hsl[0].round()
         hsl[2] = hsl[2] - amount
        
         return Color(self.hslToRgb(hsl))
@@ -194,7 +196,7 @@
             when g then h = (b - r) / d + 2
             when b then h = (r - g) / d + 4
       
-          h *= 60
+          h *= 60.0
     
         return [h, s, l, channels[3]]    
         

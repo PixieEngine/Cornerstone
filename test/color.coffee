@@ -207,7 +207,7 @@ test "toHsl returns proper values", ->
   color = Color(123, 43, 98)
   hsl = color.toHsl()
   
-  equals hsl[0].round(), 319
+  equals hsl[0], 319
   equals hsl[1].toFixed(2), 0.48
   equals hsl[2].toFixed(2), 0.33
   equals hsl[3], 1
