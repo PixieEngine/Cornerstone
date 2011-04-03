@@ -136,8 +136,8 @@
         g = channels[1] / 255
         b = channels[2] / 255
         
-        min = [r, g, b].extremes[0]
-        max = [r, g, b].extremes[1]
+        min = Math.min(r, g, b)
+        max = Math.max(r, g, b)
 
         h = s = l = (max + min) / 2
 
