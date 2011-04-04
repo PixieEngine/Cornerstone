@@ -313,7 +313,7 @@ this.CoffeeScript=function(){function require(a){return require[a]}require["./he
     switch (hexString.length) {
       case 3:
       case 4:
-        return [parseInt(hexString.substr(0, 1), 16) * 0x11, parseInt(hexString.substr(1, 1), 16) * 0x11, parseInt(hexString.substr(2, 1), 16) * 0x11, hexString.substr(3, 1).length ? (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0 : null];
+        return [parseInt(hexString.substr(0, 1), 16) * 0x11, parseInt(hexString.substr(1, 1), 16) * 0x11, parseInt(hexString.substr(2, 1), 16) * 0x11, hexString.substr(3, 1).length ? (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255.0 : 1.0];
       case 6:
       case 8:
         return [parseInt(hexString.substr(0, 2), 16), parseInt(hexString.substr(2, 2), 16), parseInt(hexString.substr(4, 2), 16), hexString.substr(6, 2).length ? parseInt(hexString.substr(6, 2), 16) / 255.0 : 1.0];
@@ -324,7 +324,7 @@ this.CoffeeScript=function(){function require(a){return require[a]}require["./he
   parseRGB = function(colorString) {
     var _ref, bits;
     if (!(bits = rgbParser.exec(colorString))) {
-      return null;
+      return undefined;
     }
     return [parseInt(bits[1]), parseInt(bits[2]), parseInt(bits[3]), (typeof (_ref = bits[4]) !== "undefined" && _ref !== null) ? parseFloat(bits[4]) : 1.0];
   };
@@ -402,6 +402,55 @@ this.CoffeeScript=function(){function require(a){return require[a]}require["./he
       equals: function(other) {
         return other.r() === self.r() && other.g() === self.g() && other.b() === self.b() && other.a() === self.a();
       },
+      hslToRgb: function(hsl) {
+        var b, g, h, hueToRgb, l, p, q, r, s;
+        h = hsl[0] / 360.0;
+        s = hsl[1];
+        l = hsl[2];
+        r = (g = (b = null));
+        hueToRgb = function(p, q, t) {
+          if (t < 0) {
+            t += 1;
+          }
+          if (t > 1) {
+            t -= 1;
+          }
+          if (t < 1 / 6) {
+            return p + (q - p) * 6 * t;
+          }
+          if (t < 1 / 2) {
+            return q;
+          }
+          if (t < 2 / 3) {
+            return p + (q - p) * (2 / 3 - t) * 6;
+          }
+          return p;
+        };
+        if (s === 0) {
+          r = (g = (b = l));
+        } else {
+          q = (l < 0.5 ? l * (1 + s) : l + s - l * s);
+          p = 2 * l - q;
+          r = hueToRgb(p, q, h + 1 / 3);
+          g = hueToRgb(p, q, h);
+          b = hueToRgb(p, q, h - 1 / 3);
+        }
+        return Color([(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round()]);
+      },
+      lighten: function(amount) {
+        var hsl;
+        hsl = self.toHsl();
+        hsl[0] = hsl[0].round();
+        hsl[2] = hsl[2] + amount;
+        return Color(self.hslToRgb(hsl));
+      },
+      darken: function(amount) {
+        var hsl;
+        hsl = self.toHsl();
+        hsl[0] = hsl[0].round();
+        hsl[2] = hsl[2] - amount;
+        return Color(self.hslToRgb(hsl));
+      },
       rgba: function() {
         return "rgba(" + (self.r()) + ", " + (self.g()) + ", " + (self.b()) + ", " + (self.a()) + ")";
       },
@@ -420,6 +469,34 @@ this.CoffeeScript=function(){function require(a){return require[a]}require["./he
           return padString(hexString(number));
         };
         return "#" + (hexFromNumber(channels[0])) + (hexFromNumber(channels[1])) + (hexFromNumber(channels[2]));
+      },
+      toHsl: function() {
+        var b, delta, g, hue, lightness, max, min, r, saturation;
+        r = channels[0] / 255.0;
+        g = channels[1] / 255.0;
+        b = channels[2] / 255.0;
+        min = Math.min(r, g, b);
+        max = Math.max(r, g, b);
+        hue = (saturation = (lightness = (max + min) / 2.0));
+        if (max === min) {
+          hue = (saturation = 0);
+        } else {
+          delta = max - min;
+          saturation = (lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min));
+          switch (max) {
+            case r:
+              hue = (g - b) / delta + (g < b ? 6 : 0);
+              break;
+            case g:
+              hue = (b - r) / delta + 2;
+              break;
+            case b:
+              hue = (r - g) / delta + 4;
+              break;
+          }
+          hue *= 60;
+        }
+        return [hue.round(), saturation, lightness, channels[3]];
       },
       toString: function() {
         return self.rgba();
