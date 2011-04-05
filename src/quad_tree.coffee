@@ -10,7 +10,7 @@
       maxDepth: 4
       maxChildren: 5
       
-    root = Node(I.bounds, I.maxDepth, I.maxChildren())
+    root = Node(I.bounds, I.maxDepth, I.maxChildren)
 
     self =
       clear: -> root.clear()
