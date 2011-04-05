@@ -15,6 +15,8 @@
       root = Node(I.bounds, I.maxDepth, I.maxChildren)
   
       self =
+        I: I
+      
         clear: -> root.clear()
       
         insert: (obj) ->
