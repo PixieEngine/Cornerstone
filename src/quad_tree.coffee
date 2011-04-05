@@ -143,4 +143,4 @@
       self
       
   window.QuadTree = QuadTree
-(window))
+)(window)
