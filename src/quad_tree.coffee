@@ -1,5 +1,4 @@
-(
-  window.QuadTree = (I) ->
+(window.QuadTree = (I) ->
     I ||= {}
     
     $.reverseMerge I,
@@ -19,7 +18,8 @@
     
       insert: (obj) ->
         if obj instanceOf Array
-          obj.invoke('root.insert') 
+          obj.each (item) ->
+            root.insert(item) 
         else
           root.insert(obj)
               
@@ -84,7 +84,8 @@
         if (I.depth >= I.maxDepth) && (I.children.length > I.maxChildren)
           self.subdivide()
           
-          I.children.invoke('self.insert')
+          I.children.each (child) ->
+            self.insert(child)
           
           I.children.clear()    
       
