@@ -13,8 +13,7 @@
     root = Node(I.bounds, I.maxDepth, I.maxChildren())
 
     self =
-      clear: ->
-        root.clear()
+      clear: -> root.clear()
     
       insert: (obj) ->
         if obj instanceOf Array
@@ -23,8 +22,7 @@
         else
           root.insert(obj)
               
-      retrieve: (item) ->
-        return root.retrieve(item).copy()
+      retrieve: (item) -> root.retrieve(item).copy()
         
     self
     
