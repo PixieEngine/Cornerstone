@@ -66,6 +66,13 @@
       return index
       
     self =
+      clear: ->
+        I.children.clear()
+        
+        I.nodes.each (node) ->
+          node.clear()
+        
+        I.nodes.clear()
     
       insert: (item) ->
         index = findIndex(item)
@@ -90,8 +97,48 @@
       
         return I.children    
           
+      subdivide: ->
+        depth = I.depth + 1
+    
+        bx = I.bounds.x
+        by = I.bounds.y
+        
+        b_w_h = (I.bounds.width / 2).floor() 
+        b_h_h = (I.bounds.height / 2).floor()
+        bx_b_w_h = bx + b_w_h
+        by_b_h_h = by + b_h_h  
+        
+        I.nodes[TOP_LEFT] = Node
+          bounds:
+            x: bx
+            y: by
+            width: b_w_h
+            height: b_h_h
+          depth: depth
           
-      
+        I.nodes[TOP_RIGHT] = Node
+          bounds:
+            x: bx_b_w_h
+            y: by
+            width: b_w_h
+            height: b_h_h
+          depth: depth
+          
+        I.nodes[BOTTOM_LEFT] = Node
+          bounds:
+            x: bx
+            y: by_b_h_h
+            width: b_w_h
+            height: b_h_h
+          depth: depth
+          
+        I.nodes[BOTTOM_RIGHT] = Node
+          bounds:
+            x: bx_b_w_h
+            y: by_b_h_h
+            width: b_w_h
+            height: b_h_h
+          depth: depth
     
     self
 
