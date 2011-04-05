@@ -28,7 +28,7 @@
         
     self
     
-  window.Node(I) ->
+  window.Node = (I) ->
     I ||= {}
     
     $.reverseMerge I,
@@ -141,5 +141,4 @@
           depth: depth
     
     self
-
 )()
