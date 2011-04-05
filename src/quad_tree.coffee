@@ -1,5 +1,5 @@
 (
-  window.QuadTree(I) ->
+  window.QuadTree = (I) ->
     I ||= {}
     
     $.reverseMerge I,
