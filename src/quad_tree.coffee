@@ -77,7 +77,7 @@
         index = findIndex(item)
        
         if I.nodes.length
-          return I.nodes[index]insert(item)
+          return I.nodes[index].insert(item)
           
         I.children.push(item)
         
@@ -99,18 +99,18 @@
       subdivide: ->
         depth = I.depth + 1
     
-        bx = I.bounds.x
-        by = I.bounds.y
+        b_x = I.bounds.x
+        b_y = I.bounds.y
         
         b_w_h = (I.bounds.width / 2).floor() 
         b_h_h = (I.bounds.height / 2).floor()
-        bx_b_w_h = bx + b_w_h
-        by_b_h_h = by + b_h_h  
+        bx_b_w_h = b_x + b_w_h
+        by_b_h_h = b_y + b_h_h  
         
         I.nodes[TOP_LEFT] = Node
           bounds:
-            x: bx
-            y: by
+            x: b_x
+            y: b_y
             width: b_w_h
             height: b_h_h
           depth: depth
@@ -118,14 +118,14 @@
         I.nodes[TOP_RIGHT] = Node
           bounds:
             x: bx_b_w_h
-            y: by
+            y: b_y
             width: b_w_h
             height: b_h_h
           depth: depth
           
         I.nodes[BOTTOM_LEFT] = Node
           bounds:
-            x: bx
+            x: b_x
             y: by_b_h_h
             width: b_w_h
             height: b_h_h
