@@ -1,5 +1,4 @@
 ((window) ->
-
   QuadTree = (I) ->
     I ||= {}
     
@@ -58,9 +57,8 @@
             
       index = TOP_LEFT
       
-      if left
-        if !top
-          index = BOTTOM_LEFT
+      if left && !top
+        index = BOTTOM_LEFT
       else
         if top
           index = TOP_RIGHT
@@ -104,47 +102,49 @@
         return I.children    
           
       subdivide: ->
-        depth = I.depth + 1
+        increased_depth = I.depth + 1
     
-        b_x = I.bounds.x
-        b_y = I.bounds.y
+        x_bounds = I.bounds.x
+        y_bounds = I.bounds.y
+        width = I.bounds.width
+        height = I.bounds.height
         
-        b_w_h = (I.bounds.width / 2).floor() 
-        b_h_h = (I.bounds.height / 2).floor()
-        bx_b_w_h = b_x + b_w_h
-        by_b_h_h = b_y + b_h_h  
+        half_width = (width / 2).floor() 
+        half_height = (height / 2).floor()
+        x_midpoint = x_bounds + half_width
+        y_midpoint = y_bounds + half_height  
         
         I.nodes[TOP_LEFT] = Node
           bounds:
-            x: b_x
-            y: b_y
-            width: b_w_h
-            height: b_h_h
-          depth: depth
+            x: x_bounds
+            y: y_bounds
+            width: half_width
+            height: half_height
+          depth: increased_depth
           
         I.nodes[TOP_RIGHT] = Node
           bounds:
-            x: bx_b_w_h
-            y: b_y
-            width: b_w_h
-            height: b_h_h
-          depth: depth
+            x: x_midpoint
+            y: y_bounds
+            width: half_width
+            height: half_height
+          depth: increased_depth
           
         I.nodes[BOTTOM_LEFT] = Node
           bounds:
-            x: b_x
-            y: by_b_h_h
-            width: b_w_h
-            height: b_h_h
-          depth: depth
+            x: x_bounds
+            y: y_midpoint
+            width: half_width
+            height: half_height
+          depth: increased_depth
           
         I.nodes[BOTTOM_RIGHT] = Node
           bounds:
-            x: bx_b_w_h
-            y: by_b_h_h
-            width: b_w_h
-            height: b_h_h
-          depth: depth
+            x: x_midpoint
+            y: y_midpoint
+            width: half_width
+            height: half_height
+          depth: increased_depth
     
     self
       
