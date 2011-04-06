@@ -57,11 +57,8 @@
       x = bounds.x
       y = bounds.y
       
-      half_width = bounds.width / 2
-      half_height = bounds.height / 2
-      
-      x_midpoint = x + half_width
-      y_midpoint = y + half_height
+      x_midpoint = x + halfWidth()
+      y_midpoint = y + halfHeight()
       
       left = item.x <= x_midpoint
       top = item.y <= y_midpoint
@@ -78,20 +75,20 @@
           index = BOTTOM_RIGHT
       
       return index
+      
+    halfWidth = -> (I.bounds.width / 2).floor()     
+    halfHeight = -> (I.bounds.height / 2).floor()
 
     subdivide = ->
       increased_depth = I.depth + 1
       
       bounds = I.bounds
-  
-      x = bounds.x
-      y = bounds.y
       
       width = bounds.width
       height = bounds.height
       
-      half_width = (width / 2).floor() 
-      half_height = (height / 2).floor()
+      half_width = halfWidth() 
+      half_height = halfHeight()
        
       4.times (n) ->
         I.nodes[n] = Node
