@@ -30,3 +30,5 @@ test "should subdivide if too many points are inserted", ->
       y: 5
               
   ok quadTree.root().I.nodes.length
+  
+module()

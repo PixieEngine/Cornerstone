@@ -237,6 +237,7 @@ test "#darken", ->
   equals darkColor.g(), 24
   equals darkColor.b(), 12
   
+module()
   
   
   
