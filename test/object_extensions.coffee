@@ -1,17 +1,17 @@
 module "Object"
  
-test "#isArray", ->
-  a = [1,2,3]
-  b = {
+test "isArray", ->
+  array = [1,2,3]
+  object = {
     blah: "blah"
     second: "another"
   }
-  c = 5
-  d = "string"
+  number = 5
+  string = "string"
   
-  ok a.isArray(), "an array should evaluate to an array"
-  ok !b.isArray(), "an object should not evaluate to an array"
-  ok !c.isArray(), "a number should not evaluate to an array"
-  ok !d.isArray(), "a string should not evaluate to an array"
+  ok Object.isArray(array), "an array is an array"
+  ok !Object.isArray(object), "an object is not an array"
+  ok !Object.isArray(number), "a number is not an array"
+  ok !Object.isArray(string), "a string is not array"
   
 module()
