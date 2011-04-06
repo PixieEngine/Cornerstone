@@ -11,7 +11,12 @@
       maxChildren: 5        
       maxDepth: 4
       
-    root = Node(I.bounds, I.maxDepth, I.maxChildren)
+    root = Node
+      bounds: I.bounds 
+      maxDepth: I.maxDepth
+      maxChildren: I.maxChildren
+    
+    log root
 
     self =
       I: I

@@ -38,9 +38,7 @@ test "points should end up in the correct nodes", ->
     quadTree.insert
       x: 50
       y: 50
-  
-  log quadTree.root().I
-  
+    
   ok quadTree.root().I.nodes[0].I.children.length == quadTree.I.maxChildren + 1
   
 module()
