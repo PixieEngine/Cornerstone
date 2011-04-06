@@ -81,8 +81,6 @@
 
     subdivide = ->
       increased_depth = I.depth + 1
-      
-      bounds = I.bounds
             
       half_width = halfWidth() 
       half_height = halfHeight()
