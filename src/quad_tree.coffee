@@ -129,12 +129,9 @@
           I.children.clear()    
       
       retrieve: (item) ->
-        if I.nodes.length
-          index = findIndex(item)
+        index = findIndex(item)
     
-          return I.nodes[index].retrieve(item)
-      
-        return I.children    
+        return I.nodes[index]?.retrieve(item) || I.children  
                       
     self
       
