@@ -34,7 +34,7 @@ test "should subdivide if too many points are inserted", ->
               
   ok quadTree.root().I.nodes.length
   
-test "points should end up in the correct nodes", ->
+test "should retrieve correct number of nodes", ->
   quadTree = QuadTree(
     maxChildren: 4
   )
@@ -43,8 +43,16 @@ test "points should end up in the correct nodes", ->
     quadTree.insert
       x: 1 + n * 50
       y: 50
-          
-  equals quadTree.root().I.nodes[0].I.nodes[0].I.children.length, 3
-  equals quadTree.root().I.nodes[0].I.nodes[1].I.children.length, 2
+      
+  node1 = quadTree.retrieve
+    x: 0
+    y: 0
+    
+  node2 = quadTree.retrieve
+    x: 150
+    y: 0
+              
+  equals node1.length, 3
+  equals node2.length, 2
   
 module()
