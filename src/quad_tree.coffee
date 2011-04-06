@@ -68,8 +68,9 @@
             
       index = TOP_LEFT
       
-      if left && !top
-        index = BOTTOM_LEFT
+      if left
+        if !top
+          index = BOTTOM_LEFT
       else
         if top
           index = TOP_RIGHT
