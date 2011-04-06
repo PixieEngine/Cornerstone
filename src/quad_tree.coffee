@@ -54,7 +54,7 @@
     BOTTOM_LEFT = 2
     BOTTOM_RIGHT = 3
       
-    findQuadrant = (item) ->
+    findQuadrants = (item) ->
       bounds = I.bounds
       
       x = bounds.x
@@ -132,9 +132,10 @@
           I.children.clear()    
       
       retrieve: (item) ->
-        index = findQuadrant(item)
-    
-        return I.nodes[index]?.retrieve(item) || I.children  
+        quadrants = findQuadrants(item)
+        
+        quadrants.each (quadrant) ->
+          return I.nodes[quadrant]?.retrieve(item) || I.children  
                       
     self
       
