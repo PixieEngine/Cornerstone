@@ -47,9 +47,7 @@ Array::clear = ->
 * @returns A new array containing the results of invoking the 
 * named method on each element.
 ###
-Array::invoke = (method) ->
-  args = Array.prototype.slice.call(arguments, 1)
-  
+Array::invoke = (method, args...) ->
   this.map (element) ->
     element[method].apply(element, args)
 

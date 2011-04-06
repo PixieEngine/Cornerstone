@@ -28,6 +28,13 @@ test "#remove", ->
 
 test "#map", ->
   equals [1].map((x) -> return x + 1 )[0], 2
+  
+test "#invoke", ->
+  results = ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
+  
+  equals results[0], "hel"
+  equals results[1], "wor"
+  equals results[2], 'coo'
 
 test "#each", ->
   array = [1, 2, 3]
