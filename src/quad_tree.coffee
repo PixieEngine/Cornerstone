@@ -15,8 +15,6 @@
       bounds: I.bounds 
       maxDepth: I.maxDepth
       maxChildren: I.maxChildren
-    
-    log root
 
     self =
       I: I

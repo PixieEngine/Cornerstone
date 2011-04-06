@@ -8,6 +8,9 @@ test "should have bounds", ->
   equals quadTree.I.bounds.width, 480
   equals quadTree.I.bounds.height, 320
   
+  equals quadTree.root().I.bounds.width, 480, "root should have correct width"
+  equals quadTree.root().I.bounds.height, 320, "root should have correct height"
+  
 test "should insert and retrieve point", ->
   quadTree = QuadTree()
    
