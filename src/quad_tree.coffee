@@ -16,6 +16,7 @@
   
       self =
         I: I
+        root: -> root
       
         clear: -> root.clear()
       
@@ -68,6 +69,8 @@
         return index
         
       self =
+        I: I
+        
         clear: ->
           I.children.clear()
           
@@ -84,6 +87,7 @@
           I.children.push(item)
           
           if (I.depth >= I.maxDepth) && (I.children.length > I.maxChildren)
+            log "got here"
             self.subdivide()
             
             I.children.each (child) ->
