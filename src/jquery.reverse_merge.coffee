@@ -4,10 +4,8 @@
  * @return target
 ###
 jQuery.extend
-  reverseMerge: (target) ->
-    for object, i in arguments
-      continue if i == 0
-
+  reverseMerge: (target, objects...) ->
+    for object in objects
       for name of object
         unless target.hasOwnProperty(name)
           target[name] = object[name]
