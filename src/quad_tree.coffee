@@ -53,6 +53,7 @@
       
     findIndex = (item) ->
       bounds = I.bounds
+      
       left = !(item.x > bounds.x + bounds.width / 2)
       top = !(item.y > bounds.y + bounds.height / 2)
             
