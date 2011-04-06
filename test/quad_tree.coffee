@@ -24,9 +24,9 @@ test "should insert and retrieve point", ->
 test "should subdivide if too many points are inserted", ->
   quadTree = QuadTree()
   
-  quadTree.I.maxChildren.times (n) ->
+  (quadTree.I.maxChildren + 1).times (n) ->
     quadTree.insert
-      x: n * 2
-      y: n * 5
-      
-  
+      x: 2
+      y: 5
+        
+  ok quadTree.root().I.children.length

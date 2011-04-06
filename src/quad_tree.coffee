@@ -86,8 +86,7 @@
             
           I.children.push(item)
           
-          if (I.depth >= I.maxDepth) && (I.children.length > I.maxChildren)
-            log "got here"
+          if (I.depth < I.maxDepth) && (I.children.length > I.maxChildren)
             self.subdivide()
             
             I.children.each (child) ->
