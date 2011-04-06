@@ -96,6 +96,8 @@
             width: half_width
             height: half_height
           depth: increased_depth
+          maxChildren: I.maxChildren
+          maxDepth: I.maxDepth
  
     self =
       I: I
