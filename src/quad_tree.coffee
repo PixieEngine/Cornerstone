@@ -60,8 +60,11 @@
       half_width = bounds.width / 2
       half_height = bounds.height / 2
       
-      left = !(item.x > x + half_width)
-      top = !(item.y > y + half_height)
+      x_midpoint = x + half_width
+      y_midpoint = y + half_height
+      
+      left = item.x <= x_midpoint
+      top = item.y <= y_midpoint
             
       index = TOP_LEFT
       
