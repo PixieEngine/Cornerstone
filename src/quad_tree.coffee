@@ -104,20 +104,20 @@
       subdivide: ->
         increased_depth = I.depth + 1
     
-        x_bounds = I.bounds.x
-        y_bounds = I.bounds.y
+        x = I.bounds.x
+        y = I.bounds.y
         width = I.bounds.width
         height = I.bounds.height
         
         half_width = (width / 2).floor() 
         half_height = (height / 2).floor()
-        x_midpoint = x_bounds + half_width
-        y_midpoint = y_bounds + half_height  
+        x_midpoint = x + half_width
+        y_midpoint = y + half_height  
         
         I.nodes[TOP_LEFT] = Node
           bounds:
-            x: x_bounds
-            y: y_bounds
+            x: x
+            y: y
             width: half_width
             height: half_height
           depth: increased_depth
@@ -125,14 +125,14 @@
         I.nodes[TOP_RIGHT] = Node
           bounds:
             x: x_midpoint
-            y: y_bounds
+            y: y
             width: half_width
             height: half_height
           depth: increased_depth
           
         I.nodes[BOTTOM_LEFT] = Node
           bounds:
-            x: x_bounds
+            x: x
             y: y_midpoint
             width: half_width
             height: half_height
