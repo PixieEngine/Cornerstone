@@ -54,11 +54,14 @@
     findIndex = (item) ->
       bounds = I.bounds
       
+      x = bounds.x
+      y = bounds.y
+      
       half_width = bounds.width / 2
       half_height = bounds.height / 2
       
-      left = !(item.x > bounds.x + half_width)
-      top = !(item.y > bounds.y + half_height)
+      left = !(item.x > x + half_width)
+      top = !(item.y > y + half_height)
             
       index = TOP_LEFT
       
