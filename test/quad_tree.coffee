@@ -37,10 +37,12 @@ test "should subdivide if too many points are inserted", ->
 test "points should end up in the correct nodes", ->
   quadTree = QuadTree()
   
-  (quadTree.I.maxChildren + 1).times ->
+  (quadTree.I.maxChildren + 1).times (n) ->
     quadTree.insert
-      x: 50
+      x: n * 50
       y: 50
+      
+  log quadTree.root()
     
   ok quadTree.root().I.nodes[0].I.children.length == quadTree.I.maxChildren + 1
   

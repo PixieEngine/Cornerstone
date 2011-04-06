@@ -108,10 +108,12 @@
         I.nodes.clear()
     
       insert: (item) ->
-        index = findIndex(item)
-       
         if I.nodes.length
-          return I.nodes[index].insert(item)
+          index = findIndex(item)
+        
+          I.nodes[index].insert(item)
+        
+          return true
           
         I.children.push(item)
         
