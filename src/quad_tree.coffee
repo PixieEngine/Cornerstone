@@ -78,7 +78,30 @@
           index = BOTTOM_RIGHT
       
       return index
+
+    subdivide = ->
+      increased_depth = I.depth + 1
       
+      bounds = I.bounds
+  
+      x = bounds.x
+      y = bounds.y
+      
+      width = bounds.width
+      height = bounds.height
+      
+      half_width = (width / 2).floor() 
+      half_height = (height / 2).floor()
+       
+      4.times (n) ->
+        I.nodes[n] = Node
+          bounds:
+            x: (half_width * n) % width
+            y: (half_height * n) % height
+            width: half_width
+            height: half_height
+          depth: increased_depth
+ 
     self =
       I: I
       
@@ -98,7 +121,7 @@
         I.children.push(item)
         
         if (I.depth < I.maxDepth) && (I.children.length > I.maxChildren)
-          self.subdivide()
+          subdivide()
           
           I.children.each (child) ->
             self.insert(child)
@@ -112,30 +135,7 @@
           return I.nodes[index].retrieve(item)
       
         return I.children    
-          
-      subdivide: ->
-        increased_depth = I.depth + 1
-        
-        bounds = I.bounds
-    
-        x = bounds.x
-        y = bounds.y
-        
-        width = bounds.width
-        height = bounds.height
-        
-        half_width = (width / 2).floor() 
-        half_height = (height / 2).floor()
-         
-        4.times (n) ->
-          I.nodes[n] = Node
-            bounds:
-              x: (half_width * n) % width
-              y: (half_height * n) % height
-              width: half_width
-              height: half_height
-            depth: increased_depth
-            
+                      
     self
       
   window.QuadTree = QuadTree
