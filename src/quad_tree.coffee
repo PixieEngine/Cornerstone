@@ -114,12 +114,14 @@
           
       subdivide: ->
         increased_depth = I.depth + 1
-    
-        x = I.bounds.x
-        y = I.bounds.y
         
-        width = I.bounds.width
-        height = I.bounds.height
+        bounds = I.bounds
+    
+        x = bounds.x
+        y = bounds.y
+        
+        width = bounds.width
+        height = bounds.height
         
         half_width = (width / 2).floor() 
         half_height = (height / 2).floor()
