@@ -20,7 +20,7 @@
         clear: -> root.clear()
       
         insert: (obj) ->
-          if obj instanceOf Array
+          if Object.prototype.toString.call(obj) == '[object Array]'
             obj.each (item) ->
               root.insert(item) 
           else
