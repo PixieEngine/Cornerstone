@@ -8,13 +8,14 @@
         y: 0
         width: 480
         height: 320
+      maxChildren: 5        
       maxDepth: 4
-      maxChildren: 5
       
     root = Node(I.bounds, I.maxDepth, I.maxChildren)
 
     self =
       I: I
+      
       root: -> root
     
       clear: -> root.clear()
@@ -37,8 +38,8 @@
       bounds: 
         x: 0
         y: 0
-        width: 120
-        height: 80
+        width: 240
+        height: 160
       children: []
       depth: 0
       maxChildren: 5
