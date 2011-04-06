@@ -106,6 +106,12 @@ Array::each = (iterator, context) ->
       iterator.call context, element, i, this
 
   return this
+  
+Array::eachWithObject = (object, iterator, context) ->
+  this.each (element) ->
+    iterator.call context, object, element
+
+  return object
 
 Array::eachSlice = (n, iterator, context) ->
   if n > 0

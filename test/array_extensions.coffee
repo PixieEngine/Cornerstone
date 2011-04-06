@@ -34,7 +34,7 @@ test "#invoke", ->
   
   equals results[0], "hel"
   equals results[1], "wor"
-  equals results[2], 'coo'
+  equals results[2], "coo"
 
 test "#each", ->
   array = [1, 2, 3]
@@ -42,7 +42,17 @@ test "#each", ->
 
   equals array, array.each -> count++
   equals array.length, count
-         
+
+test "#eachWithObject", ->
+  array = [1, 2, 3]
+
+  result = array.eachWithObject {}, (hash, element) ->
+    hash[element] = (element + 1).toString()
+
+  equal result[1], "2"
+  equal result[2], "3"
+  equal result[3], "4"
+
 test "#shuffle", ->
   array = [0, 1, 2, 3, 4, 5]
 
