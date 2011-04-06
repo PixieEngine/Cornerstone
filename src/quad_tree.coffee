@@ -54,7 +54,7 @@
     BOTTOM_LEFT = 2
     BOTTOM_RIGHT = 3
       
-    findQuadrants = (item) ->
+    findQuadrant = (item) ->
       bounds = I.bounds
       
       x = bounds.x
@@ -64,24 +64,20 @@
       y_midpoint = y + halfHeight()
       
       left = item.x <= x_midpoint
-      right = item.x + item.width > x_midpoint
       top = item.y <= y_midpoint
-      bottom = item.y + item.height > y_midpoint
             
-      quadrants = []
+      index = TOP_LEFT
       
       if left
-        if top
-          quadrants.push(TOP_LEFT)
-        if bottom
-          quadrants.push(BOTTOM_LEFT)
+        if !top
+          index = BOTTOM_LEFT
       else
         if top
-          quadrants.push(TOP_RIGHT)
-        if bottom
-          quadrants.push(BOTTOM_RIGHT)
+          index = TOP_RIGHT
+        else
+          index = BOTTOM_RIGHT
       
-      return quadrants
+      return index
       
     halfWidth = -> (I.bounds.width / 2).floor()     
     halfHeight = -> (I.bounds.height / 2).floor()
@@ -132,10 +128,9 @@
           I.children.clear()    
       
       retrieve: (item) ->
-        quadrants = findQuadrants(item)
-        
-        quadrants.each (quadrant) ->
-          return I.nodes[quadrant]?.retrieve(item) || I.children  
+        index = findQuadrant(item)
+    
+        return I.nodes[index]?.retrieve(item) || I.children  
                       
     self
       
