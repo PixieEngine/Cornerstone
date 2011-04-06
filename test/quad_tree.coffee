@@ -28,5 +28,5 @@ test "should subdivide if too many points are inserted", ->
     quadTree.insert
       x: 2
       y: 5
-        
-  ok quadTree.root().I.children.length
+              
+  ok quadTree.root().I.nodes.length

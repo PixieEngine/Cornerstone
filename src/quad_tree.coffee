@@ -43,6 +43,7 @@
         children: []
         depth: 0
         maxChildren: 5
+        maxDepth: 4
         nodes: []
         
       TOP_LEFT = 0
