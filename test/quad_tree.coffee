@@ -24,11 +24,23 @@ test "should insert and retrieve point", ->
 test "should subdivide if too many points are inserted", ->
   quadTree = QuadTree()
   
-  (quadTree.I.maxChildren + 1).times (n) ->
+  (quadTree.I.maxChildren + 1).times ->
     quadTree.insert
       x: 2
       y: 5
               
   ok quadTree.root().I.nodes.length
+  
+test "points should end up in the correct nodes", ->
+  quadTree = QuadTree()
+  
+  (quadTree.I.maxChildren + 1).times ->
+    quadTree.insert
+      x: 50
+      y: 50
+  
+  log quadTree.root().I
+  
+  ok quadTree.root().I.nodes[0].I.children.length == quadTree.I.maxChildren + 1
   
 module()

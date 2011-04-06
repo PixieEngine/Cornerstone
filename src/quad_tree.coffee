@@ -38,8 +38,8 @@
       bounds: 
         x: 0
         y: 0
-        width: 240
-        height: 160
+        width: 120
+        height: 80
       children: []
       depth: 0
       maxChildren: 5
@@ -83,18 +83,15 @@
       increased_depth = I.depth + 1
       
       bounds = I.bounds
-      
-      width = bounds.width
-      height = bounds.height
-      
+            
       half_width = halfWidth() 
       half_height = halfHeight()
        
       4.times (n) ->
         I.nodes[n] = Node
           bounds:
-            x: (half_width * n) % width
-            y: (half_height * n) % height
+            x: half_width * (n % 2)
+            y: half_height * (if n < 2 then 0 else 1)
             width: half_width
             height: half_height
           depth: increased_depth
