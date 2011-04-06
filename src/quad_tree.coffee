@@ -114,38 +114,15 @@
         x_midpoint = x + half_width
         y_midpoint = y + half_height  
         
-        I.nodes[TOP_LEFT] = Node
-          bounds:
-            x: x
-            y: y
-            width: half_width
-            height: half_height
-          depth: increased_depth
-          
-        I.nodes[TOP_RIGHT] = Node
-          bounds:
-            x: x_midpoint
-            y: y
-            width: half_width
-            height: half_height
-          depth: increased_depth
-          
-        I.nodes[BOTTOM_LEFT] = Node
-          bounds:
-            x: x
-            y: y_midpoint
-            width: half_width
-            height: half_height
-          depth: increased_depth
-          
-        I.nodes[BOTTOM_RIGHT] = Node
-          bounds:
-            x: x_midpoint
-            y: y_midpoint
-            width: half_width
-            height: half_height
-          depth: increased_depth
-    
+        4.times (n) ->
+          I.nodes[n] = Node
+            bounds:
+              x: (half_width * n) % width
+              y: (half_height * n) % height
+              width: half_width
+              height: half_height
+            depth: increased_depth
+            
     self
       
   window.QuadTree = QuadTree
