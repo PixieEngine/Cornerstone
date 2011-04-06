@@ -5,7 +5,7 @@ test "#abs", ->
   equals (4.2).abs(), 4.2, "(4.2).abs() equals 4.2"
   equals (-1.2).abs(), 1.2, "(-1.2).abs() equals 1.2"
   equals (0).abs(), 0, "(0).abs() equals 0"
-
+    
 test "#ceil", ->
   equals (4.9).ceil(), 5, "(4.9).floor() equals 5"
   equals (4.2).ceil(), 5, "(4.2).ceil() equals 5"

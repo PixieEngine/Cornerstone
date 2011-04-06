@@ -5,7 +5,7 @@
 ###
 Number::abs = () ->
   Math.abs(this)
-
+  
 ###*
  * Returns the mathematical ceiling of this number.
  * @type Number
