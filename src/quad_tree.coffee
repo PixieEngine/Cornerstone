@@ -106,11 +106,13 @@
     
         x = I.bounds.x
         y = I.bounds.y
+        
         width = I.bounds.width
         height = I.bounds.height
         
         half_width = (width / 2).floor() 
         half_height = (height / 2).floor()
+        
         x_midpoint = x + half_width
         y_midpoint = y + half_height  
         
