@@ -64,18 +64,22 @@
       y_midpoint = y + halfHeight()
       
       left = item.x <= x_midpoint
+      right = item.x + item.width > x_midpoint
       top = item.y <= y_midpoint
+      bottom = item.y + item.height > y_midpoint
             
-      index = TOP_LEFT
+      index = []
       
       if left
-        if !top
-          index = BOTTOM_LEFT
+        if top
+          index.push(TOP_LEFT)
+        if bottom
+          index.push(BOTTOM_LEFT)
       else
         if top
-          index = TOP_RIGHT
-        else
-          index = BOTTOM_RIGHT
+          index.push(TOP_RIGHT)
+        if bottom
+          index.push(BOTTOM_RIGHT)
       
       return index
       
