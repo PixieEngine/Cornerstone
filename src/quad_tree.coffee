@@ -54,7 +54,7 @@
     BOTTOM_LEFT = 2
     BOTTOM_RIGHT = 3
       
-    findIndex = (item) ->
+    findQuadrant = (item) ->
       bounds = I.bounds
       
       x = bounds.x
@@ -111,7 +111,7 @@
     
       insert: (item) ->
         if I.nodes.length
-          index = findIndex(item)
+          index = findQuadrant(item)
         
           I.nodes[index].insert(item)
         
@@ -128,7 +128,7 @@
           I.children.clear()    
       
       retrieve: (item) ->
-        index = findIndex(item)
+        index = findQuadrant(item)
     
         return I.nodes[index]?.retrieve(item) || I.children  
                       
