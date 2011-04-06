@@ -68,20 +68,20 @@
       top = item.y <= y_midpoint
       bottom = item.y + item.height > y_midpoint
             
-      index = []
+      quadrants = []
       
       if left
         if top
-          index.push(TOP_LEFT)
+          quadrants.push(TOP_LEFT)
         if bottom
-          index.push(BOTTOM_LEFT)
+          quadrants.push(BOTTOM_LEFT)
       else
         if top
-          index.push(TOP_RIGHT)
+          quadrants.push(TOP_RIGHT)
         if bottom
-          index.push(BOTTOM_RIGHT)
+          quadrants.push(BOTTOM_RIGHT)
       
-      return index
+      return quadrants
       
     halfWidth = -> (I.bounds.width / 2).floor()     
     halfHeight = -> (I.bounds.height / 2).floor()
