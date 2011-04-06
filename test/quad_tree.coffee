@@ -8,7 +8,7 @@ test "should have bounds", ->
   equals quadTree.I.bounds.width, 480
   equals quadTree.I.bounds.height, 320
   
-test "can insert and retrieve point", ->
+test "should insert and retrieve point", ->
   quadTree = QuadTree()
    
   quadTree.insert
@@ -20,3 +20,13 @@ test "can insert and retrieve point", ->
     y: 100
     
   ok items.length
+  
+test "should subdivide if too many points are inserted", ->
+  quadTree = QuadTree()
+  
+  quadTree.I.maxChildren.times (n) ->
+    quadTree.insert
+      x: n * 2
+      y: n * 5
+      
+  
