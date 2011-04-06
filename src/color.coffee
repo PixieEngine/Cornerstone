@@ -43,7 +43,7 @@
 
     if arguments.length == 0
       parsedColor = [0, 0, 0, 0]
-    else if arguments.length == 1 && Object.prototype.toString.call(arguments[0]) == '[object Array]'
+    else if arguments.length == 1 && Object.isArray(arguments[0])
       alpha = if arguments[0][3]? then arguments[0][3] else 1
       parsedColor = [
         parseInt(arguments[0][0]),
