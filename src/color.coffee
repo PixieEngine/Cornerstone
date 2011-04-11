@@ -2724,4 +2724,7 @@
 
   names.each (element) ->
     lookup[normalizeKey(element[1])] = parseHex(element[0])
+
+  window.Color.random = () ->
+    Color(rand(256), rand(256), rand(256), 1) 
 )()

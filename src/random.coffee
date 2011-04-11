@@ -2,11 +2,13 @@
   window.Random = $.extend window.Random,
     angle: ->
       rand() * Math.TAU
+    color: ->
+      Color.random()
     often: ->
       return rand(3)
     sometimes: ->
       !rand(3)
-      
+
   ###*
   Returns random integers from [0, n) if n is given.
   Otherwise returns random float between 0 and 1.
