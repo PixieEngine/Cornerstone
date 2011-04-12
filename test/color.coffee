@@ -126,6 +126,11 @@ test "should parse 'transparent'", ->
     b: -> 0
     a: -> 0
 
+test "should throw error if cannot find color", ->
+  raises ->
+    color = Color("asdf39402394")
+  , "asdf39402394 is an unknown color"
+
 test "should parse arrays", ->
   color = Color([1, 24, 101])
 
