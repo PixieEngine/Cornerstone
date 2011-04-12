@@ -66,7 +66,7 @@
       c = arguments[0]
       parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
 
-    return unless parsedColor
+    throw "Unknown color" unless parsedColor
 
     alpha = parsedColor[3]
 
