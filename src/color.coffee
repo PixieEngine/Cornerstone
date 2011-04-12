@@ -35,9 +35,10 @@
   normalizeKey = (key) ->
     key.toString().toLowerCase().split(' ').join('')
 
-  window.Color = (color) ->
+  window.Color = (args...) ->
+    color = args.first()
     # HAX: checking to see if we are passing in an instance of Color
-    return Color(arguments[0].channels()) if arguments[0]?.channels
+    return Color(color.channels()) if color?.channels
 
     parsedColor = null
 
@@ -66,7 +67,7 @@
       c = arguments[0]
       parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
 
-    throw "Unknown color" unless parsedColor
+    throw "#{args.join(',')} is an unknown color" unless parsedColor
 
     alpha = parsedColor[3]
 
