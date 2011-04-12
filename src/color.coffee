@@ -2720,6 +2720,7 @@
     ["0343df", "blue"]
     ["15b01a", "green"]
     ["7e1e9c", "purple"]
+    ["00000000", "transparent"]
   ]
 
   names.each (element) ->
