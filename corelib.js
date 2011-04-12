@@ -1436,76 +1436,99 @@ window.Mouse = (function() {
   return Mouse;
 })();;
 /***
- * Returns the absolute value of this number.
- * @type Number
- * @returns The absolute value of the number.
+Returns the absolute value of this number.
+
+@name abs
+@methodOf Number#
+
+@type Number
+@returns The absolute value of the number.
 */
 Number.prototype.abs = function() {
   return Math.abs(this);
 };
 /***
- * Returns the mathematical ceiling of this number.
- * @type Number
- * @returns The number truncated to the nearest integer of greater than or equal value.
- *
- * (4.9).ceil(); // => 5
- * (4.2).ceil(); // => 5
- * (-1.2).ceil(); // => -1
+Returns the mathematical ceiling of this number.
+
+@name ceil
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of greater than or equal value.
+
+(4.9).ceil() # => 5
+(4.2).ceil() # => 5
+(-1.2).ceil() # => -1
 */
 Number.prototype.ceil = function() {
   return Math.ceil(this);
 };
 /***
- * Returns the mathematical floor of this number.
- * @type Number
- * @returns The number truncated to the nearest integer of less than or equal value.
- *
- * (4.9).floor(); // => 4
- * (4.2).floor(); // => 4
- * (-1.2).floor(); // => -2
+Returns the mathematical floor of this number.
+
+@name floor
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of less than or equal value.
+
+(4.9).floor() # => 4
+(4.2).floor() # => 4
+(-1.2).floor() # => -2
 */
 Number.prototype.floor = function() {
   return Math.floor(this);
 };
 /***
- * Returns this number rounded to the nearest integer.
- * @type Number
- * @returns The number rounded to the nearest integer.
- *
- * (4.5).round(); // => 5
- * (4.4).round(); // => 4
+Returns this number rounded to the nearest integer.
+
+@name round
+@methodOf Number#
+
+@type Number
+@returns The number rounded to the nearest integer.
+
+(4.5).round() # => 5
+(4.4).round() # => 4
 */
 Number.prototype.round = function() {
   return Math.round(this);
 };
 /***
- * Returns a number whose value is limited to the given range.
- *
- * Example: limit the output of this computation to between 0 and 255
- * <pre>
- * (x * 255).clamp(0, 255)
- * </pre>
- *
- * @param {Number} min The lower boundary of the output range
- * @param {Number} max The upper boundary of the output range
- * @returns A number in the range [min, max]
- * @type Number
+Returns a number whose value is limited to the given range.
+
+Example: limit the output of this computation to between 0 and 255
+<pre>
+(x * 255).clamp(0, 255)
+</pre>
+
+@name clamp
+@methodOf Number#
+
+@param {Number} min The lower boundary of the output range
+@param {Number} max The upper boundary of the output range
+
+@returns A number in the range [min, max]
+@type Number
 */
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
 };
 /***
- * A mod method useful for array wrapping. The range of the function is
- * constrained to remain in bounds of array indices.
- *
- * <pre>
- * Example:
- * (-1).mod(5) === 4
- * </pre>
- *
- * @param {Number} base
- * @returns An integer between 0 and (base - 1) if base is positive.
- * @type Number
+A mod method useful for array wrapping. The range of the function is
+constrained to remain in bounds of array indices.
+
+<pre>
+Example:
+(-1).mod(5) == 4
+</pre>
+
+@name mod
+@methodOf Number#
+
+@param {Number} base
+@returns An integer between 0 and (base - 1) if base is positive.
+@type Number
 */
 Number.prototype.mod = function(base) {
   var result;
@@ -1516,9 +1539,13 @@ Number.prototype.mod = function(base) {
   return result;
 };
 /***
- * Get the sign of this number as an integer (1, -1, or 0).
- * @type Number
- * @returns The sign of this number, 0 if the number is 0.
+Get the sign of this number as an integer (1, -1, or 0).
+
+@name sign
+@methodOf Number#
+
+@type Number
+@returns The sign of this number, 0 if the number is 0.
 */
 Number.prototype.sign = function() {
   if (this > 0) {
@@ -1530,16 +1557,19 @@ Number.prototype.sign = function() {
   }
 };
 /***
- * Calls iterator the specified number of times, passing in the number of the
- * current iteration as a parameter: 0 on first call, 1 on the second call, etc.
- *
- * @param {Function} iterator The iterator takes a single parameter, the number
- * of the current iteration.
- * @param {Object} [context] The optional context parameter specifies an object
- * to treat as <code>this</code> in the iterator block.
- *
- * @returns The number of times the iterator was called.
- * @type Number
+Calls iterator the specified number of times, passing in the number of the
+current iteration as a parameter: 0 on first call, 1 on the second call, etc.
+
+@name times
+@methodOf Number#
+
+@param {Function} iterator The iterator takes a single parameter, the number
+of the current iteration.
+@param {Object} [context] The optional context parameter specifies an object
+to treat as <code>this</code> in the iterator block.
+
+@returns The number of times the iterator was called.
+@type Number
 */
 Number.prototype.times = function(iterator, context) {
   var i;
@@ -1550,16 +1580,19 @@ Number.prototype.times = function(iterator, context) {
   return i;
 };
 /***
- * Returns the the nearest grid resolution less than or equal to the number.
- *
- *   EX:
- *    (7).snap(8) => 0
- *    (4).snap(8) => 0
- *    (12).snap(8) => 8
- *
- * @param {Number} resolution The grid resolution to snap to.
- * @returns The nearest multiple of resolution lower than the number.
- * @type Number
+Returns the the nearest grid resolution less than or equal to the number.
+
+  EX:
+   (7).snap(8) => 0
+   (4).snap(8) => 0
+   (12).snap(8) => 8
+
+@name snap
+@methodOf Number#
+
+@param {Number} resolution The grid resolution to snap to.
+@returns The nearest multiple of resolution lower than the number.
+@type Number
 */
 Number.prototype.snap = function(resolution) {
   var n;
@@ -1591,7 +1624,13 @@ Number.prototype.approachRotation = function(target, maxDelta) {
   return (target - this).clamp(-maxDelta, maxDelta) + this;
 };
 /***
-* @returns This number constrained between -PI and PI.
+Constrains a rotation to between -PI and PI.
+
+@name constrainRotation
+@methodOf Number#
+
+@returns This number constrained between -PI and PI.
+@type Number
 */
 Number.prototype.constrainRotation = function() {
   var target;
@@ -1613,9 +1652,10 @@ Number.prototype.d = function(sides) {
   return sum;
 };
 /***
-* The mathematical circle constant of 1 turn.
-* @name TAU
-* @fieldOf Math
+The mathematical circle constant of 1 turn.
+
+@name TAU
+@fieldOf Math
 */
 Math.TAU = 2 * Math.PI;;
 /***
