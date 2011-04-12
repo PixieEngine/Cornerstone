@@ -2,37 +2,33 @@ var App;
 App = {};;
 var __slice = Array.prototype.slice;
 /***
-* Joins all elements of an array into a string.
-* @name join
-* @param [separator] Specifies a string to separate each element of the array.
-* The separator is converted to a string if necessary. If omitted, the array
-* elements are separated with a comma.
-* @methodOf Array#
-*/
-/***
-* Creates and returns a copy of the array. The copy contains
-* the same objects.
-*
-* @type Array
-* @returns A new array that is a copy of the array
+Creates and returns a copy of the array. The copy contains
+the same objects.
+
+@name copy
+@methodOf Array#
+@type Array
+@returns A new array that is a copy of the array
 */
 Array.prototype.copy = function() {
   return this.concat();
 };
 /***
-* Empties the array of its contents. It is modified in place.
-*
-* @type Array
-* @returns this, now emptied.
+Empties the array of its contents. It is modified in place.
+
+@name clear
+@methodOf Array#
+@type Array
+@returns this, now emptied.
 */
 Array.prototype.clear = function() {
   this.length = 0;
   return this;
 };
 /***
-* Invoke the named method on each element in the array
-* and return a new array containing the results of the invocation.
-*
+Invoke the named method on each element in the array
+and return a new array containing the results of the invocation.
+
 <code><pre>
   [1.1, 2.2, 3.3, 4.4].invoke("floor")
   => [1, 2, 3, 4]
@@ -40,13 +36,15 @@ Array.prototype.clear = function() {
   ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
   => ['hel', 'wor', 'coo']
 </pre></code>
-*
-* @param {String} method The name of the method to invoke.
-* @param [arg...] Optional arguments to pass to the method being invoked.
-*
-* @type Array
-* @returns A new array containing the results of invoking the
-* named method on each element.
+
+@param {String} method The name of the method to invoke.
+@param [arg...] Optional arguments to pass to the method being invoked.
+
+@name invoke
+@methodOf Array#
+@type Array
+@returns A new array containing the results of invoking the
+named method on each element.
 */
 Array.prototype.invoke = function(method) {
   var args;
@@ -56,19 +54,24 @@ Array.prototype.invoke = function(method) {
   });
 };
 /***
-* Randomly select an element from the array.
-*
-* @returns A random element from an array
+Randomly select an element from the array.
+
+@name rand
+@methodOf Array#
+@type Object
+@returns A random element from an array
 */
 Array.prototype.rand = function() {
   return this[rand(this.length)];
 };
 /***
-* Remove the first occurance of the given object from the array if it is
-* present.
-*
-* @param {Object} object The object to remove from the array if present.
-* @returns The removed object if present otherwise undefined.
+Remove the first occurance of the given object from the array if it is
+present.
+
+@name remove
+@methodOf Array#
+@param {Object} object The object to remove from the array if present.
+@returns The removed object if present otherwise undefined.
 */
 Array.prototype.remove = function(object) {
   var index;
@@ -76,27 +79,32 @@ Array.prototype.remove = function(object) {
   return index >= 0 ? this.splice(index, 1)[0] : undefined;
 };
 /***
-* Returns true if the element is present in the array.
-*
-* @param {Object} element The element to check if present.
-* @returns true if the element is in the array, false otherwise.
-* @type Boolean
+Returns true if the element is present in the array.
+
+@name include
+@methodOf Array#
+@param {Object} element The element to check if present.
+@returns true if the element is in the array, false otherwise.
+@type Boolean
 */
 Array.prototype.include = function(element) {
   return this.indexOf(element) !== -1;
 };
 /***
- * Call the given iterator once for each element in the array,
- * passing in the element as the first argument, the index of
- * the element as the second argument, and this array as the
- * third argument.
- *
- * @param {Function} iterator Function to be called once for
- * each element in the array.
- * @param {Object} [context] Optional context parameter to be
- * used as `this` when calling the iterator function.
- *
- * @returns `this` to enable method chaining.
+Call the given iterator once for each element in the array,
+passing in the element as the first argument, the index of
+the element as the second argument, and this array as the
+third argument.
+
+@name each
+@methodOf Array#
+@param {Function} iterator Function to be called once for
+each element in the array.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@type Array
+@returns this to enable method chaining.
 */
 Array.prototype.each = function(iterator, context) {
   var _len, _ref, element, i;
@@ -111,12 +119,51 @@ Array.prototype.each = function(iterator, context) {
   }
   return this;
 };
+/***
+Call the given iterator once for each element in the array,
+passing in the given object as the first argument and the element
+as the second argument. Additional arguments are passed similar to
+<code>each</code>
+
+@see Array#each
+
+@name eachWithObject
+@methodOf Array#
+
+@param {Object} object The number of elements in each group.
+@param {Function} iterator Function to be called once for
+each element in the array.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@returns this
+@type Array
+*/
 Array.prototype.eachWithObject = function(object, iterator, context) {
-  this.each(function(element) {
-    return iterator.call(context, object, element);
+  this.each(function(element, i, self) {
+    return iterator.call(context, object, element, i, self);
   });
   return object;
 };
+/***
+Call the given iterator once for each group of elements in the array,
+passing in the elements in groups of n. Additional argumens are
+passed as in <code>each</each>.
+
+@see Array#each
+
+@name eachSlice
+@methodOf Array#
+
+@param {Number} n The number of elements in each group.
+@param {Function} iterator Function to be called once for
+each group of elements in the array.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@returns this
+@type Array
+*/
 Array.prototype.eachSlice = function(n, iterator, context) {
   var i, len;
   if (n > 0) {
@@ -129,10 +176,13 @@ Array.prototype.eachSlice = function(n, iterator, context) {
   return this;
 };
 /***
- * Returns a new array with the elements all shuffled up.
- *
- * @returns A new array that is randomly shuffled.
- * @type Array
+Returns a new array with the elements all shuffled up.
+
+@name shuffle
+@methodOf Array#
+
+@returns A new array that is randomly shuffled.
+@type Array
 */
 Array.prototype.shuffle = function() {
   var shuffledArray;
@@ -143,32 +193,42 @@ Array.prototype.shuffle = function() {
   return shuffledArray;
 };
 /***
- * Returns the first element of the array, undefined if the array is empty.
- *
- * @returns The first element, or undefined if the array is empty.
- * @type Object
+Returns the first element of the array, undefined if the array is empty.
+
+@name first
+@methodOf Array#
+
+@returns The first element, or undefined if the array is empty.
+@type Object
 */
 Array.prototype.first = function() {
   return this[0];
 };
 /***
- * Returns the last element of the array, undefined if the array is empty.
- *
- * @returns The last element, or undefined if the array is empty.
- * @type Object
+Returns the last element of the array, undefined if the array is empty.
+
+@name last
+@methodOf Array#
+
+@returns The last element, or undefined if the array is empty.
+@type Object
 */
 Array.prototype.last = function() {
   return this[this.length - 1];
 };
 /***
- * Returns an object containing the extremes of this array.
- * <pre>
- * [-1, 3, 0].extremes() # => {min: -1, max: 3}
- * </pre>
- * @param {Function} [fn] An optional funtion used to evaluate
- * each element to calculate its value for determining extremes.
- * @returns {min: minElement, max: maxElement}
- * @type Object
+Returns an object containing the extremes of this array.
+<pre>
+[-1, 3, 0].extremes() # => {min: -1, max: 3}
+</pre>
+
+@name extremes
+@methodOf Array#
+
+@param {Function} [fn] An optional funtion used to evaluate
+each element to calculate its value for determining extremes.
+@returns {min: minElement, max: maxElement}
+@type Object
 */
 Array.prototype.extremes = function(fn) {
   var max, maxResult, min, minResult;
@@ -205,17 +265,20 @@ Array.prototype.extremes = function(fn) {
   };
 };
 /***
- * Pretend the array is a circle and grab a new array containing length elements.
- * If length is not given return the element at start, again assuming the array
- * is a circle.
- *
- * @param {Number} start The index to start wrapping at, or the index of the
- * sole element to return if no length is given.
- * @param {Number} [length] Optional length determines how long result
- * array should be.
- * @returns The element at start mod array.length, or an array of length elements,
- * starting from start and wrapping.
- * @type Object or Array
+Pretend the array is a circle and grab a new array containing length elements.
+If length is not given return the element at start, again assuming the array
+is a circle.
+
+@name wrap
+@methodOf Array#
+
+@param {Number} start The index to start wrapping at, or the index of the
+sole element to return if no length is given.
+@param {Number} [length] Optional length determines how long result
+array should be.
+@returns The element at start mod array.length, or an array of length elements,
+starting from start and wrapping.
+@type Object or Array
 */
 Array.prototype.wrap = function(start, length) {
   var end, i, result;
@@ -232,14 +295,18 @@ Array.prototype.wrap = function(start, length) {
   }
 };
 /***
- * Partitions the elements into two groups: those for which the iterator returns
- * true, and those for which it returns false.
- * @param {Function} iterator
- * @param {Object} [context] Optional context parameter to be
- * used as `this` when calling the iterator function.
- *
- * @type Array
- * @returns An array in the form of [trueCollection, falseCollection]
+Partitions the elements into two groups: those for which the iterator returns
+true, and those for which it returns false.
+
+@name partition
+@methodOf Array#
+
+@param {Function} iterator
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@type Array
+@returns An array in the form of [trueCollection, falseCollection]
 */
 Array.prototype.partition = function(iterator, context) {
   var falseCollection, trueCollection;
@@ -251,26 +318,32 @@ Array.prototype.partition = function(iterator, context) {
   return [trueCollection, falseCollection];
 };
 /***
- * Return the group of elements for which the return value of the iterator is true.
- *
- * @param {Function} iterator The iterator receives each element in turn as
- * the first agument.
- * @param {Object} [context] Optional context parameter to be
- * used as `this` when calling the iterator function.
- *
- * @type Array
- * @returns An array containing the elements for which the iterator returned true.
+Return the group of elements for which the return value of the iterator is true.
+
+@name select
+@methodOf Array#
+
+@param {Function} iterator The iterator receives each element in turn as
+the first agument.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@type Array
+@returns An array containing the elements for which the iterator returned true.
 */
 Array.prototype.select = function(iterator, context) {
   return this.partition(iterator, context)[0];
 };
 /***
- * Return the group of elements that are not in the passed in set.
- *
- * @param {Array} values List of elements to exclude.
- *
- * @type Array
- * @returns An array containing the elements that are not passed in.
+Return the group of elements that are not in the passed in set.
+
+@name without
+@methodOf Array#
+
+@param {Array} values List of elements to exclude.
+
+@type Array
+@returns An array containing the elements that are not passed in.
 */
 Array.prototype.without = function(values) {
   return this.reject(function(element) {
@@ -278,25 +351,48 @@ Array.prototype.without = function(values) {
   });
 };
 /***
- * Return the group of elements for which the return value of the iterator is false.
- *
- * @param {Function} iterator The iterator receives each element in turn as
- * the first agument.
- * @param {Object} [context] Optional context parameter to be
- * used as `this` when calling the iterator function.
- *
- * @type Array
- * @returns An array containing the elements for which the iterator returned false.
+Return the group of elements for which the return value of the iterator is false.
+
+@name reject
+@methodOf Array#
+
+@param {Function} iterator The iterator receives each element in turn as
+the first agument.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+
+@type Array
+@returns An array containing the elements for which the iterator returned false.
 */
 Array.prototype.reject = function(iterator, context) {
   return this.partition(iterator, context)[1];
 };
+/***
+Combines all elements of the array by applying a binary operation.
+for each element in the arra the iterator is passed an accumulator
+value (memo) and the element.
+
+@name inject
+@methodOf Array#
+
+@type Object
+@returns The result of a
+*/
 Array.prototype.inject = function(initial, iterator) {
   this.each(function(element) {
     return (initial = iterator(initial, element));
   });
   return initial;
 };
+/***
+Add all the elements in the array.
+
+@name sum
+@methodOf Array#
+
+@type Number
+@returns The sum of the elements in the array.
+*/
 Array.prototype.sum = function() {
   return this.inject(0, function(sum, n) {
     return sum + n;
@@ -1846,7 +1942,7 @@ var __hasProp = Object.prototype.hasOwnProperty, __slice = Array.prototype.slice
     return self;
   };
   Node = function(I) {
-    var BOTTOM_LEFT, BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT, findIndex, halfHeight, halfWidth, self, subdivide;
+    var BOTTOM_LEFT, BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT, findQuadrant, halfHeight, halfWidth, self, subdivide;
     I || (I = {});
     $.reverseMerge(I, {
       bounds: {
@@ -1865,7 +1961,7 @@ var __hasProp = Object.prototype.hasOwnProperty, __slice = Array.prototype.slice
     TOP_RIGHT = 1;
     BOTTOM_LEFT = 2;
     BOTTOM_RIGHT = 3;
-    findIndex = function(item) {
+    findQuadrant = function(item) {
       var bounds, index, left, top, x, x_midpoint, y, y_midpoint;
       bounds = I.bounds;
       x = bounds.x;
@@ -1923,7 +2019,7 @@ var __hasProp = Object.prototype.hasOwnProperty, __slice = Array.prototype.slice
       insert: function(item) {
         var index;
         if (I.nodes.length) {
-          index = findIndex(item);
+          index = findQuadrant(item);
           I.nodes[index].insert(item);
           return true;
         }
@@ -1938,7 +2034,7 @@ var __hasProp = Object.prototype.hasOwnProperty, __slice = Array.prototype.slice
       },
       retrieve: function(item) {
         var index;
-        index = findIndex(item);
+        index = findQuadrant(item);
         return (I.nodes[index] == null ? undefined : I.nodes[index].retrieve(item)) || I.children;
       }
     };
