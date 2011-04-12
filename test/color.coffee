@@ -117,6 +117,15 @@ test "should know what lavender blue is", ->
     b: -> 248
     a: -> 1
 
+test "should parse 'transparent'", ->
+  color = Color("transparent")
+
+  ok color.equals
+    r: -> 0
+    g: -> 0
+    b: -> 0
+    a: -> 0
+
 test "should parse arrays", ->
   color = Color([1, 24, 101])
 
