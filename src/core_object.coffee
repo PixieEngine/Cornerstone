@@ -1,4 +1,4 @@
-###
+###*
 The Core class is used to add extended functionality to objects without
 extending the object class directly. Inherit from Core to gain its utility
 methods.
@@ -9,14 +9,15 @@ methods.
 @param {Object} I Instance variables
 ###
 
+###*
+@name I
+@memberOf Core#
+###
+
 Core = (I) ->
   I ||= {}
 
   self =
-    ###*
-    @name I
-    @memberOf Core#
-    ###
     I: I
 
     ###
