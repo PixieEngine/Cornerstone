@@ -13,12 +13,16 @@ Core = (I) ->
   I ||= {}
 
   self =
+    ###*
+    @name I
+    @memberOf Core#
+    ###
     I: I
 
     ###
     Generates a public jQuery style getter / setter method for each 
     String argument.
-    
+
     @name attrAccessor
     @methodOf Core#
     ###
@@ -30,10 +34,10 @@ Core = (I) ->
             return self
           else
             I[attrName]
-            
+
     ###
     Generates a public jQuery style getter method for each String argument.
-    
+
     @name attrReader
     @methodOf Core#
     ###
@@ -46,27 +50,27 @@ Core = (I) ->
     Extends this object with methods from the passed in object. `before` and 
     `after` are special option names that glue functionality before or after 
     existing methods.
-    
+
     @name extend
     @methodOf Core#
     ###
     extend: (options) ->
       afterMethods = options.after
       beforeMethods = options.before
-      
+
       delete options.after
       delete options.before
-      
+
       $.extend self, options
 
       if beforeMethods
         $.each beforeMethods, (name, fn) ->
           self[name] = self[name].withBefore(fn)
-          
+
       if afterMethods
         $.each afterMethods, (name, fn) ->
           self[name] = self[name].withAfter(fn)
-          
+
       return self
 
     # Includes a module
