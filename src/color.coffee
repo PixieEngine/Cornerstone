@@ -78,11 +78,13 @@
     if args.length == 0
       parsedColor = [0, 0, 0, 1]
     else if args.length == 1 && Object.isArray(args.first())
-      alpha = if arguments[0][3]? then arguments[0][3] else 1
+      arr = args.first()
+
+      alpha = if arr[3]? then arr[3] else 1
       parsedColor = [
-        parseInt(arguments[0][0]),
-        parseInt(arguments[0][1]),
-        parseInt(arguments[0][2]),
+        parseInt(arr[0]),
+        parseInt(arr[1]),
+        parseInt(arr[2]),
         parseFloat(alpha)
       ]
     else if arguments.length == 2
