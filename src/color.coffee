@@ -2727,6 +2727,17 @@
   names.each (element) ->
     lookup[normalizeKey(element[1])] = parseHex(element[0])
 
-  window.Color.random = () ->
+  window.Color.random = ->
     Color(rand(256), rand(256), rand(256), 1) 
+
+  window.Color.mix = (color1, color2, amount) ->
+    percent = (if amount then amount.round() / 100.0 else 0.5)
+    new_colors = [
+      (color1.channels()[0] * percent) + (color2.channels()[0] * (1 - percent))
+      (color1.channels()[1] * percent) + (color2.channels()[1] * (1 - percent))
+      (color1.channels()[2] * percent) + (color2.channels()[2] * (1 - percent))
+      (color1.channels()[3] * percent) + (color2.channels()[3] * (1 - percent))
+    ]
+
+    return Color(new_colors)    
 )()
