@@ -36,16 +36,12 @@
   parseHSL = (colorString) ->
     return undefined unless bits = hslParser.exec(colorString)
 
-    output = hslToRgb [
+    return hslToRgb [
       parseFloat(bits[1]).round() 
       parseFloat bits[2] 
       parseFloat bits[3]
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ] 
-
-    log output
-
-    return output
 
   hslToRgb = (hsl) ->
     h = hsl[0] / 360.0
