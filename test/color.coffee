@@ -262,8 +262,14 @@ test "Color.mix", ->
     g: -> 72
     b: -> 150
     a: -> 0.75
+  , "Colors mix properly when not weighted"
 
-# TODO: tests for mixing ratio
+  mixedColor2 = Color.mix(color1, color2, 0.1)
+
+  equals mixedColor2.r(), (3.3 + 45).floor()
+  equals mixedColor2.g(), (5.5 + 81).floor()
+  equals mixedColor2.b(), (10 + 180).floor()
+  equals mixedColor2.a(), 0.1 + (0.5 * 0.9)
 
 module()
 

@@ -2731,7 +2731,7 @@
     Color(rand(256), rand(256), rand(256), 1) 
 
   window.Color.mix = (color1, color2, amount) ->
-    percent = (if amount then amount.round() / 100.0 else 0.5)
+    percent = (if amount then amount else 0.5)
     new_colors = [
       (color1.channels()[0] * percent) + (color2.channels()[0] * (1 - percent))
       (color1.channels()[1] * percent) + (color2.channels()[1] * (1 - percent))
