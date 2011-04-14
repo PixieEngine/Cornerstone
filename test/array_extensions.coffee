@@ -3,14 +3,14 @@ module "Array"
 test "#copy", ->
   a = [1,2,3]
   b = a.copy()
-  
+
   ok a != b, "Original array is not the same array as the copied one"
   ok a.length == b.length, "Both arrays are the same size"
   ok a[0] == b[0] && a[1] == b[1] && a[2] == b[2], "The elements of the two arrays are equal"
 
 test "#rand", ->
   array = [1,2,3]
-  
+
   ok array.indexOf(array.rand()) != -1, "Array includes randomly selected element"
   ok [5].rand() == 5, "[5].rand() === 5"
   ok [].rand() == undefined, "[].rand() === undefined"
@@ -19,7 +19,7 @@ test "#remove", ->
   equals [1,2,3].remove(2), 2, "[1,2,3].remove(2) === 2"
   equals [1,3].remove(2), undefined, "[1,3].remove(2) === undefined"
   equals [1,3].remove(3), 3, "[1,3].remove(3) === 3"
-  
+
   array = [1,2,3]
   array.remove(2)
   ok array.length == 2, "array = [1,2,3]; array.remove(2); array.length === 2"
@@ -28,10 +28,10 @@ test "#remove", ->
 
 test "#map", ->
   equals [1].map((x) -> return x + 1 )[0], 2
-  
+
 test "#invoke", ->
   results = ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
-  
+
   equals results[0], "hel"
   equals results[1], "wor"
   equals results[2], "coo"
@@ -73,18 +73,18 @@ test "#last", ->
   equals [2].last(), 2
   equals [1, 2, 3].last(), 3
   equals [].first(), undefined
-  
+
 test "#extremes", ->
   array = [-7, 1, 11, 94]
-  
+
   extremes = array.extremes()
-  
+
   equals extremes.min, -7, "Min is -7"
   equals extremes.max, 94, "Max is 94"
-  
+
   extremes = array.extremes (value) ->
     value.mod 11
-    
+
   equals extremes.min, 11
   equals extremes.max, 94
 
@@ -100,9 +100,9 @@ test "#eachSlice", 6, ->
 
 test "#without", ->
   array = [1, 2, 3, 4]
-  
+
   excluded = array.without([2, 4])
-  
+
   equals excluded[0], 1
   equals excluded[1], 3
 
@@ -111,9 +111,9 @@ test "#clear", ->
 
   equals array.length, 4
   equals array[0], 1
-  
+
   array.clear()
-    
+
   equals array.length, 0
   equals array[0], undefined
 
