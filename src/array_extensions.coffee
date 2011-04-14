@@ -385,3 +385,4 @@ Add all the elements in the array.
 Array::sum = ->
   this.inject 0, (sum, n) ->
     sum + n
+
