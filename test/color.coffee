@@ -252,8 +252,8 @@ test "#darken", ->
   equals darkColor.b(), 12
 
 test "Color.mix", ->
-  color1 = Color(33, 55, 100)
-  color2 = Color(50, 90, 200)
+  color1 = Color(33, 55, 100, 1)
+  color2 = Color(50, 90, 200, 0.5)
 
   mixedColor = Color.mix(color1, color2)
 
@@ -261,6 +261,9 @@ test "Color.mix", ->
     r: -> 41
     g: -> 72
     b: -> 150
+    a: -> 0.75
+
+# TODO: tests for mixing ratio
 
 module()
 
