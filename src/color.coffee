@@ -35,7 +35,7 @@
     hslMap = bits.splice(1, 3).map (channel) ->
       parseFloat channel
 
-    return hslMap.concat(if bits[1]? then parseFloat(bits[1]) else 1.0)
+    return hslToRgb(hslMap.concat(if bits[1]? then parseFloat(bits[1]) else 1.0))
 
   hslToRgb = (hsl) ->
     h = hsl[0] / 360.0
@@ -105,7 +105,7 @@
     alpha = parsedColor[3]
 
     channels = [
-      parsedColor[0].round()
+      parsedColor[0]
       parsedColor[1].round()
       parsedColor[2].round()
       if alpha? then parseFloat(alpha) else 1.0
