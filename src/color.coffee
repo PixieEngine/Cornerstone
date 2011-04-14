@@ -1,5 +1,6 @@
 (->
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d?\.?\d*)?\)$/
+  hslParser = /^hsla?\((\d{1,3}),\s*(\d?\.?\d*),\s*(\d?\.?\d*),?\s*(\d?\.?\d*)?\)$/
 
   parseHex = (hexString) ->
     hexString = hexString.replace(/#/, '')
@@ -20,7 +21,7 @@
           if hexString.substr(6, 2).length then parseInt(hexString.substr(6, 2), 16) / 255.0 else 1.0
         ]
       else
-        undefined
+        return undefined
 
   parseRGB = (colorString) ->
     return undefined unless bits = rgbParser.exec(colorString)
@@ -31,6 +32,39 @@
       parseInt(bits[3])
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
+
+  parseHSL = (colorString) ->
+    return undefined unless bits = hslParser.exec(colorString)
+
+    return hslToRgb(bits)
+
+  hslToRgb = (hsl) ->
+    h = hsl[0] / 360.0
+    s = hsl[1]
+    l = hsl[2]
+    a = (if hsl[3] then hsl[3] else 1.0)
+
+    r = g = b = null
+
+    hueToRgb = (p, q, t) ->
+      t += 1 if t < 0
+      t -= 1 if t > 1
+
+      return p + (q - p) * 6 * t if t < 1/6
+      return q if t < 1/2
+      return p + (q - p) * (2/3 - t) * 6 if t < 2/3
+      return p
+
+    if s == 0
+      r = g = b = l
+    else
+      q = (if l < 0.5 then l * (1 + s) else l + s - l * s)
+      p = 2 * l - q
+      r = hueToRgb(p, q, h + 1/3)
+      g = hueToRgb(p, q, h)
+      b = hueToRgb(p, q, h - 1/3)
+
+    return Color([(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round(), a])
 
   normalizeKey = (key) ->
     key.toString().toLowerCase().split(' ').join('')
@@ -116,46 +150,19 @@
           other.b() == self.b() &&
           other.a() == self.a()
 
-      hslToRgb: (hsl) ->
-        h = hsl[0] / 360.0
-        s = hsl[1]
-        l = hsl[2]
-
-        r = g = b = null
-
-        hueToRgb = (p, q, t) ->
-          t += 1 if t < 0
-          t -= 1 if t > 1
-
-          return p + (q - p) * 6 * t if t < 1/6
-          return q if t < 1/2
-          return p + (q - p) * (2/3 - t) * 6 if t < 2/3
-          return p
-
-        if s == 0
-          r = g = b = l
-        else
-          q = (if l < 0.5 then l * (1 + s) else l + s - l * s)
-          p = 2 * l - q
-          r = hueToRgb(p, q, h + 1/3)
-          g = hueToRgb(p, q, h)
-          b = hueToRgb(p, q, h - 1/3)
-
-        return Color([(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round()])
-
       lighten: (amount) ->
         hsl = self.toHsl()
         hsl[0] = hsl[0].round()
         hsl[2] = hsl[2] + amount
 
-        return Color(self.hslToRgb(hsl))
+        return Color(hslToRgb(hsl))
 
       darken: (amount) ->
         hsl = self.toHsl()
         hsl[0] = hsl[0].round()
         hsl[2] = hsl[2] - amount
 
-        return Color(self.hslToRgb(hsl))
+        return Color(hslToRgb(hsl))
 
       rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
