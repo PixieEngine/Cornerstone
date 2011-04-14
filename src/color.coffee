@@ -182,7 +182,7 @@
           return (pad || "") + hexString
 
         hexFromNumber = (number) ->
-          return padString(hexString(number))
+          return padString hexString(number)
 
         "##{hexFromNumber(channels[0])}#{hexFromNumber(channels[1])}#{hexFromNumber(channels[2])}"
 
