@@ -257,12 +257,10 @@ test "Color.mix", ->
 
   mixedColor = Color.mix(color1, color2)
 
-  ok mixedColor.equals
-    r: -> (83 / 2).round()
-    g: -> (145 / 2).round()
-    b: -> (150 / 2).round()
-    a: -> 0.75
-  , "Colors mix properly when not weighted"
+  equals mixedColor.r(), (83 / 2).round()
+  equals mixedColor.g(), (145 / 2).round()
+  equals mixedColor.b(), (300 / 2).round()
+  equals mixedColor.a(), 0.75
 
   mixedColor2 = Color.mix(color1, color2, 0.1)
 
