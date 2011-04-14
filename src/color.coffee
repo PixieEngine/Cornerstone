@@ -80,9 +80,7 @@
     else if args.length == 1 && Object.isArray(args.first())
       arr = args.first()
 
-      rgb = arr.splice(0, 3)
-
-      rgbMap = rgb.map (channel) ->
+      rgbMap = arr.splice(0, 3).map (channel) ->
         parseFloat channel 
 
       alpha = if arr[0]? then parseFloat arr[0] else 1.0
@@ -97,7 +95,8 @@
           parseFloat channel
 
         parsedColor = rgbMap.concat(parseFloat alpha)
-      else if !Object.isArray(color)
+
+    else if !Object.isArray(color)
         parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
         parsedColor[3] = alpha
     else if arguments.length > 2
