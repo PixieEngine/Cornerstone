@@ -258,17 +258,17 @@ test "Color.mix", ->
   mixedColor = Color.mix(color1, color2)
 
   ok mixedColor.equals
-    r: -> 41
-    g: -> 72
-    b: -> 150
+    r: -> (83 / 2).round()
+    g: -> (145 / 2).round()
+    b: -> (150 / 2).round()
     a: -> 0.75
   , "Colors mix properly when not weighted"
 
   mixedColor2 = Color.mix(color1, color2, 0.1)
 
-  equals mixedColor2.r(), (3.3 + 45).floor()
-  equals mixedColor2.g(), (5.5 + 81).floor()
-  equals mixedColor2.b(), (10 + 180).floor()
+  equals mixedColor2.r(), (3.3 + 45).round()
+  equals mixedColor2.g(), (5.5 + 81).round()
+  equals mixedColor2.b(), (10 + 180).round()
   equals mixedColor2.a(), 0.1 + (0.5 * 0.9)
 
 # TODO: when taking in rgb values they are floored. should probably be rounded instead
