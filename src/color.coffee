@@ -175,13 +175,11 @@
       toHex: ->
         hexString = (number) ->
           number.toString(16)
-        padString = (hexString) ->
-          pad = ""
-
+        padString = (hexString) ->        
           if hexString.length == 1 
             pad = "0"
 
-          return pad + hexString
+          return (pad || "") + hexString
 
         hexFromNumber = (number) ->
           return padString(hexString(number))
