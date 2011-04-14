@@ -176,10 +176,12 @@
         hexString = (number) ->
           number.toString(16)
         padString = (hexString) ->
-          if hexString.length == 1
-            return hexString = "0" + hexString
+          pad = ""
 
-          return hexString
+          if hexString.length == 1 
+            pad = "0"
+
+          return pad + hexString
 
         hexFromNumber = (number) ->
           return padString(hexString(number))
