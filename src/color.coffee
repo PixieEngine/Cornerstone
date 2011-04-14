@@ -80,10 +80,13 @@
     else if args.length == 1 && Object.isArray(args.first())
       arr = args.first()
 
-      alpha = if arr[3]? then arr[3] else 1
+      alpha = if arr[3]? then parseFloat arr[3] else 1.0
 
-      parsedColor = arr.map (channel) ->
-        parseFloat(channel) 
+      rgbMap = arr.map (channel) ->
+        parseFloat channel 
+
+      parsedColor = rgbMap.concat(alpha)
+
     else if arguments.length == 2
       c = arguments[0]
       a = arguments[1]
