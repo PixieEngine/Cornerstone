@@ -99,7 +99,7 @@
       parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
     else
       c = arguments[0]
-      parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
+      parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c) || parseHSL(c)
 
     throw "#{args.join(',')} is an unknown color" unless parsedColor
 
