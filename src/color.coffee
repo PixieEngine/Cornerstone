@@ -157,14 +157,14 @@
 
       lighten: (amount) ->
         hsl = self.toHsl()
-        hsl[0] = hsl[0].round()
+        hsl[0] = hsl[0]
         hsl[2] = hsl[2] + amount
 
         return Color(hslToRgb(hsl))
 
       darken: (amount) ->
         hsl = self.toHsl()
-        hsl[0] = hsl[0].round()
+        hsl[0] = hsl[0]
         hsl[2] = hsl[2] - amount
 
         return Color(hslToRgb(hsl))
