@@ -195,6 +195,11 @@ test "should equal colors with the same rbga values", ->
   ok alpha1.equals(alpha4)
   ok alpha1.equals(alpha5)
 
+test "should parse colors input as hsl", ->
+  color = Color("hsl(300, 0.3, 0.6)")
+
+  log color
+
 test "should output proper toString", ->
   color = Color(5, 25, 125, 0.73)
 
@@ -225,15 +230,6 @@ test "#toHsl", ->
   equals hsl[1].toFixed(2), "0.48"
   equals hsl[2].toFixed(2), "0.33"
   equals hsl[3], 1
-
-test "#hslToRgb", ->
-  color = Color(50, 10, 100)
-  hsl = color.toHsl()
-  rgb = color.hslToRgb(hsl)
-
-  equals rgb.r(), color.r()
-  equals rgb.g(), color.g()
-  equals rgb.b(), color.b()
 
 test "#lighten", ->
   color = Color(20, 45, 123)
