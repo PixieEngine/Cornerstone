@@ -208,7 +208,7 @@
 
           hue *= 60
 
-        return [hue.round(), saturation, lightness, channels[3]]    
+        return [hue, saturation, lightness, channels[3]]    
 
       toString: -> self.rgba()
 
