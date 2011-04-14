@@ -121,7 +121,7 @@
       if alpha? then parseFloat(alpha) else 0.0
     ]
 
-    self =
+    self = 
       channels: ->
         channels.copy()
 
@@ -190,9 +190,8 @@
         "##{hexFromNumber(channels[0])}#{hexFromNumber(channels[1])}#{hexFromNumber(channels[2])}"
 
       toHsl: ->
-        r = channels[0] / 255.0
-        g = channels[1] / 255.0
-        b = channels[2] / 255.0
+        [r, g, b] = channels.map (channel) ->
+          channel / 255.0
 
         min = Math.min(r, g, b)
         max = Math.max(r, g, b)
