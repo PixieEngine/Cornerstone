@@ -55,9 +55,9 @@
     else if arguments.length == 2
       c = arguments[0]
       a = arguments[1]
-      if Object.prototype.toString.call(c) == '[object Array]'
+      if Object.isArray(c)
         parsedColor = [parseInt(c[0]), parseInt(c[1]), parseInt(c[2]), parseFloat(a)]
-      else if Object.prototype.toString.call(c) != '[object Array]'
+      else if !Object.isArray(c)
         parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c)
         parsedColor[3] = a
     else if arguments.length > 2
