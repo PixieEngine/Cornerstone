@@ -81,12 +81,9 @@
       arr = args.first()
 
       alpha = if arr[3]? then arr[3] else 1
-      parsedColor = [
-        parseInt(arr[0]),
-        parseInt(arr[1]),
-        parseInt(arr[2]),
-        parseFloat(alpha)
-      ]
+
+      parsedColor = arr.map (channel) ->
+        parseFloat(channel) 
     else if arguments.length == 2
       c = arguments[0]
       a = arguments[1]
