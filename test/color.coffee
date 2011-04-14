@@ -198,11 +198,6 @@ test "should equal colors with the same rbga values", ->
 test "should parse colors input as hsl", ->
   color = Color("hsl(300, 0.3, 0.6)")
 
-  log color.r()
-  log color.g()
-  log color.b()
-  log color.a()
-
   ok color.equals
     r: -> 184
     g: -> 122
