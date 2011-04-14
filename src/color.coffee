@@ -27,9 +27,9 @@
     return undefined unless bits = rgbParser.exec(colorString)
 
     return [
-      parseInt(bits[1])
-      parseInt(bits[2])
-      parseInt(bits[3])
+      parseFloat(bits[1]).round()
+      parseFloat(bits[2]).round()
+      parseFloat(bits[3]).round()
       if bits[4]? then parseFloat(bits[4]) else 1.0
     ]
 
@@ -37,7 +37,7 @@
     return undefined unless bits = hslParser.exec(colorString)
 
     output = hslToRgb [
-      parseInt bits[1] 
+      parseFloat(bits[1]).round() 
       parseFloat bits[2] 
       parseFloat bits[3]
       if bits[4]? then parseFloat(bits[4]) else 1.0
