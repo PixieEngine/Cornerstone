@@ -172,6 +172,35 @@
 
       rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
+      desaturate: (amount) ->
+        hsl = self.toHsl()
+        hsl[1] -= amount
+
+        return Color(hslToRgb(hsl))
+
+      saturate: (amount) ->
+        hsl = self.toHsl()
+        hsl[1] += amount
+
+        return Color(hslToRgb(hsl))
+
+      grayscale: ->
+        hsl = self.toHsl()
+
+        g = hsl[2] * 255
+
+        return Color(g, g, g)
+
+      hue: (degrees) ->
+        hsl = self.toHsl()
+        hsl[0] += degrees
+
+        return Color(hslToRgb(hsl))
+
+      complement: ->
+        hsl = self.toHsl()
+        self.adjust_hue(180)
+
       toHex: ->
         hexString = (number) ->
           number.toString(16)
