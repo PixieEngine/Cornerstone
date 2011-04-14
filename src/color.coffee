@@ -26,12 +26,10 @@
   parseRGB = (colorString) ->
     return undefined unless bits = rgbParser.exec(colorString)
 
-    return [
-      parseFloat(bits[1]).round()
-      parseFloat(bits[2]).round()
-      parseFloat(bits[3]).round()
-      if bits[4]? then parseFloat(bits[4]) else 1.0
-    ]
+    rgbMap = bits.splice(1, 3).map (channel) ->
+      parseFloat(channel).round()
+
+    return (rgbMap).concat(if bits[1]? then parseFloat(bits[1]) else 1.0)
 
   parseHSL = (colorString) ->
     return undefined unless bits = hslParser.exec(colorString)
