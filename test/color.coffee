@@ -251,5 +251,16 @@ test "#darken", ->
   equals darkColor.g(), 24
   equals darkColor.b(), 12
 
+test "Color.mix", ->
+  color1 = Color(33, 55, 100)
+  color2 = Color(50, 90, 200)
+
+  mixedColor = Color.mix(color1, color2)
+
+  ok mixedColor.equals
+    r: -> 41
+    g: -> 72
+    b: -> 150
+
 module()
 
