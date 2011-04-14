@@ -41,7 +41,7 @@
     h = hsl[0] / 360.0
     s = hsl[1]
     l = hsl[2]
-    a = (if hsl[3] then hsl[3] else 1.0)
+    a = (if hsl[3] then parseFloat hsl[3] else 1.0)
 
     r = g = b = null
 
@@ -63,7 +63,10 @@
       g = hueToRgb(p, q, h)
       b = hueToRgb(p, q, h - 1/3)
 
-    return [(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round(), a]
+      rgbMap = [r, g, b].map (channel) ->
+        (channel * 0xFF).round()
+
+    return rgbMap.concat(a)
 
   normalizeKey = (key) ->
     key.toString().toLowerCase().split(' ').join('')
