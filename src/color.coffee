@@ -36,7 +36,7 @@
   parseHSL = (colorString) ->
     return undefined unless bits = hslParser.exec(colorString)
 
-    return hslToRgb(bits)
+    return hslToRgb(bits.splice(1))
 
   hslToRgb = (hsl) ->
     h = hsl[0] / 360.0
@@ -77,7 +77,7 @@
     parsedColor = null
 
     if arguments.length == 0
-      parsedColor = [0, 0, 0, 0]
+      parsedColor = [0, 0, 0, 1]
     else if arguments.length == 1 && Object.isArray(arguments[0])
       alpha = if arguments[0][3]? then arguments[0][3] else 1
       parsedColor = [
