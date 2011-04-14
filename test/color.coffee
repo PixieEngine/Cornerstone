@@ -251,6 +251,11 @@ test "#darken", ->
   equals darkColor.g(), 24
   equals darkColor.b(), 12
 
+test "#saturate", ->
+  color = Color(45, 26, 100)
+
+  ok color.saturate(0.5)
+
 test "Color.mix", ->
   color1 = Color(33, 55, 100, 1)
   color2 = Color(50, 90, 200, 0.5)
