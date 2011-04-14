@@ -274,5 +274,7 @@ test "Color.mix", ->
   equals mixedColor2.b(), (10 + 180).round()
   equals mixedColor2.a(), 0.1 + (0.5 * 0.9)
 
+#TODO: test hsl methods
+
 module()
 
