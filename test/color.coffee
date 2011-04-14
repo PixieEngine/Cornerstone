@@ -230,7 +230,7 @@ test "#toHsl", ->
   color = Color(123, 43, 98)
   hsl = color.toHsl()
 
-  equals hsl[0], 319
+  equals hsl[0].round(), 319
   equals hsl[1].toFixed(2), "0.48"
   equals hsl[2].toFixed(2), "0.33"
   equals hsl[3], 1
@@ -239,9 +239,9 @@ test "#lighten", ->
   color = Color(20, 45, 123)
   lightColor = color.lighten(0.1)
 
-  equals lightColor.r(), 27
-  equals lightColor.g(), 62
-  equals lightColor.b(), 167
+  equals lightColor.r().round(), 27
+  equals lightColor.g().round(), 61
+  equals lightColor.b().round(), 167
 
 test "#darken", ->
   color = Color(34, 58, 29)
