@@ -64,7 +64,7 @@
       g = hueToRgb(p, q, h)
       b = hueToRgb(p, q, h - 1/3)
 
-    return Color([(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round(), a])
+    return [(r * 0xFF).round(), (g * 0xFF).round(), (b * 0xFF).round(), a]
 
   normalizeKey = (key) ->
     key.toString().toLowerCase().split(' ').join('')
