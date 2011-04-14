@@ -37,6 +37,12 @@
 
     return hslToRgb(hslMap.concat(if bits[1]? then parseFloat(bits[1]) else 1.0))
 
+  shiftLightness = (amount, obj) ->
+    hsl = obj.toHsl()
+    hsl[2] = hsl[2] + amount
+
+    return Color(hslToRgb(hsl))
+
   hslToRgb = (hsl) ->
     h = hsl[0] / 360.0
     s = hsl[1]
@@ -159,16 +165,10 @@
           other.a() == self.a()
 
       lighten: (amount) ->
-        hsl = self.toHsl()
-        hsl[2] = hsl[2] + amount
-
-        return Color(hslToRgb(hsl))
+        shiftLightness(amount, self)
 
       darken: (amount) ->
-        hsl = self.toHsl()
-        hsl[2] = hsl[2] - amount
-
-        return Color(hslToRgb(hsl))
+        shiftLightness(-amount, self)
 
       rgba: -> "rgba(#{self.r()}, #{self.g()}, #{self.b()}, #{self.a()})"
 
