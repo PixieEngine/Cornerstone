@@ -95,25 +95,27 @@
           parseFloat channel       
         parsedColor = rgbMap.concat(parseFloat alpha)
       else
-        parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color)
+        parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color) || parseHSL(color)
         parsedColor[3] = alpha
-    else if arguments.length > 2
-      alpha = if arguments[3]? then arguments[3] else 1
-      parsedColor = [parseInt(arguments[0]), parseInt(arguments[1]), parseInt(arguments[2]), parseFloat(alpha)]
+    else if args.length > 2      
+      rgbMap = args.splice(0, 3).map (channel) ->
+        parseFloat channel
+
+      alpha = if args.first()? then args.first() else 1.0        
+
+      parsedColor = rgbMap.concat(parseFloat alpha)
     else
-      c = arguments[0]
-      parsedColor = lookup[normalizeKey(c)] || parseHex(c) || parseRGB(c) || parseHSL(c)
+      color = args.first()
+      parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color) || parseHSL(color)
 
     throw "#{args.join(',')} is an unknown color" unless parsedColor
 
-    alpha = parsedColor[3]
+    rgbMap = parsedColor.splice(0, 3).map (channel) ->
+      channel.round()
 
-    channels = [
-      parsedColor[0]
-      parsedColor[1].round()
-      parsedColor[2].round()
-      if alpha? then parseFloat(alpha) else 1.0
-    ]
+    alpha = (if parsedColor.first()? then parseFloat parsedColor.first() else 1.0)
+
+    channels = rgbMap.concat(alpha)
 
     self = 
       channels: ->
