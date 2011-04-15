@@ -272,7 +272,11 @@ test "#grayscale", ->
 test "#saturate", ->
   color = Color(45, 26, 100)
 
-  ok color.saturate(0.5)
+  saturated = color.saturate(0.3)
+
+  equals saturated.r(), 36
+  equals saturated.g(), 7
+  equals saturated.b(), 119
 
 test "Color.mix", ->
   color1 = Color(33, 55, 100, 1)
