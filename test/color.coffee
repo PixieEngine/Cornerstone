@@ -251,6 +251,15 @@ test "#darken", ->
   equals darkColor.g(), 24
   equals darkColor.b(), 12
 
+test "#grayscale", ->
+  color = Color(59, 200, 1)
+
+  gray = color.grayscale()
+
+  equals gray.r(), (0.3941176470588235 * 255).round()
+  equals gray.g(), (0.3941176470588235 * 255).round()
+  equals gray.b(), (0.39411764705882350 * 255).round()
+
 test "#saturate", ->
   color = Color(45, 26, 100)
 
@@ -273,8 +282,6 @@ test "Color.mix", ->
   equals mixedColor2.g(), (5.5 + 81).round()
   equals mixedColor2.b(), (10 + 180).round()
   equals mixedColor2.a(), 0.1 + (0.5 * 0.9)
-
-#TODO: test hsl methods
-
+cd
 module()
 
