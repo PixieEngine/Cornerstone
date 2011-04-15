@@ -195,13 +195,13 @@
 
       hue: (degrees) ->
         hsl = self.toHsl()
-        hsl[0] += degrees
+        hsl[0] = (hsl[0] + degrees) % 360
 
         return Color(hslToRgb(hsl))
 
       complement: ->
         hsl = self.toHsl()
-        self.adjust_hue(180)
+        self.hue(180)
 
       toHex: ->
         hexString = (number) ->
