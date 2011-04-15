@@ -124,4 +124,17 @@ test "#wrap", ->
   equals array.wrap(-1), 4
   equals array.wrap(2), 2
 
+test "#zip", ->
+  a = [1, 2, 3]
+  b = [4, 5, 6]
+  c = [7, 8]
+
+  output = a.zip(b, c)
+
+  equals output[0][0], 1
+  equals output[0][1], 4
+  equals output[0][2], 7
+
+  equals output[2][2], undefined
+
 module undefined
