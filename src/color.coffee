@@ -2773,12 +2773,10 @@
 
   window.Color.mix = (color1, color2, amount) ->
     amount ||= 0.5
-    new_colors = [
-      (color1.channels()[0] * amount) + (color2.channels()[0] * (1 - amount))
-      (color1.channels()[1] * amount) + (color2.channels()[1] * (1 - amount))
-      (color1.channels()[2] * amount) + (color2.channels()[2] * (1 - amount))
-      (color1.channels()[3] * amount) + (color2.channels()[3] * (1 - amount))
-    ]
 
-    return Color(new_colors)    
+    new_colors = color1.channels().zip(color2.channels()).map (array) ->
+      (array[0] * amount) + (array[1] * (1 - amount))
+
+    return Color(new_colors) 
+
 )()
