@@ -386,3 +386,12 @@ Array::sum = ->
   this.inject 0, (sum, n) ->
     sum + n
 
+Array::zip = (args...) ->
+  this.map (element, index) ->   
+    output = args.map (arr) ->
+      arr[index]
+
+    output.unshift(element)
+
+    return output
+
