@@ -251,6 +251,11 @@ test "#darken", ->
   equals darkColor.g(), 24
   equals darkColor.b(), 12
 
+test "#complement", ->
+  color = Color(40, 39, 210)
+
+  complement = color.complement()
+
 test "#grayscale", ->
   color = Color(59, 200, 1)
 
