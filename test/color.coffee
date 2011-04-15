@@ -256,6 +256,10 @@ test "#complement", ->
 
   complement = color.complement()
 
+  equals complement.r(), 209
+  equals complement.g(), 210
+  equals complement.b(), 39
+
 test "#grayscale", ->
   color = Color(59, 200, 1)
 
@@ -287,6 +291,6 @@ test "Color.mix", ->
   equals mixedColor2.g(), (5.5 + 81).round()
   equals mixedColor2.b(), (10 + 180).round()
   equals mixedColor2.a(), 0.1 + (0.5 * 0.9)
-cd
+
 module()
 
