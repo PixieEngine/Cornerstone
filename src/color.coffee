@@ -187,8 +187,6 @@
       grayscale: ->
         hsl = self.toHsl()
 
-        log hsl
-
         g = hsl[2] * 255
 
         return Color(g, g, g)
