@@ -20,7 +20,7 @@ Core = (I) ->
   self =
     I: I
 
-    ###
+    ###*
     Generates a public jQuery style getter / setter method for each 
     String argument.
 
@@ -36,7 +36,7 @@ Core = (I) ->
           else
             I[attrName]
 
-    ###
+    ###*
     Generates a public jQuery style getter method for each String argument.
 
     @name attrReader
@@ -47,7 +47,7 @@ Core = (I) ->
         self[attrName] = ->
           I[attrName]
 
-    ###
+    ###*
     Extends this object with methods from the passed in object. `before` and 
     `after` are special option names that glue functionality before or after 
     existing methods.
@@ -74,7 +74,16 @@ Core = (I) ->
 
       return self
 
-    # Includes a module
+    ###* 
+    Includes a module in this object.
+
+    @name include
+    @methodOf Core#
+
+    @param {Module} Module the module to include. A module is a constructor 
+    that takes two parameters, I and self, and returns an object containing the 
+    public methods to extend the including object with.
+    ###
     include: (Module) ->
       self.extend Module(I, self)
 
