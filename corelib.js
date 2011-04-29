@@ -2343,6 +2343,34 @@ var __hasProp = Object.prototype.hasOwnProperty, __slice = Array.prototype.slice
   }));
 })(jQuery);;
 /***
+Returns true if this string only contains whitespace characters.
+
+@name blank
+@methodOf String#
+
+@returns Whether or not this string is blank.
+@type Boolean
+*/
+String.prototype.blank = function() {
+  return /^\s*$/.test(this);
+};
+/***
+@name camelize
+@methodOf String#
+*/
+String.prototype.camelize = function() {
+  return this.trim().replace(/(\-|_|\s)+(.)?/g, function(match, separator, chr) {
+    return chr ? chr.toUpperCase() : '';
+  });
+};
+/***
+@name capitalize
+@methodOf String#
+*/
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
+};
+/***
 Return the class or constant named in this string.
 
 @name constantize
@@ -2358,6 +2386,13 @@ String.prototype.constantize = function() {
   } else {
     return undefined;
   }
+};
+/***
+@name humanize
+@methodOf String#
+*/
+String.prototype.humanize = function() {
+  return this.replace(/_id$/, "").replace(/_/g, " ").capitalize();
 };
 /***
 Parse this string as though it is JSON and return the object it represents. If it
@@ -2378,16 +2413,13 @@ String.prototype.parse = function() {
   }
 };
 /***
-Returns true if this string only contains whitespace characters.
-
-@name blank
+@name titleize
 @methodOf String#
-
-@returns Whether or not this string is blank.
-@type Boolean
 */
-String.prototype.blank = function() {
-  return /^\s*$/.test(this);
+String.prototype.titleize = function() {
+  return this.split(/[- ]/).map(function(word) {
+    return word.capitalize();
+  }).join(' ');
 };;
 /***
 Non-standard
