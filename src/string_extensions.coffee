@@ -70,7 +70,7 @@ String::parse = () ->
 @methodOf String#
 ###
 String::titleize = ->
-    this.split(/[- ]/).map (word) ->
-      word.capitalize()
-    .join(' ')
+  this.split(/[- ]/).map (word) ->
+    word.capitalize()
+  .join(' ')
 
