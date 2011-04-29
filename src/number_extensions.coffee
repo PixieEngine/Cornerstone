@@ -160,6 +160,47 @@ Number::snap = (resolution) ->
   n = this / resolution; 1/1; # This is to fix broken regex in doc parser
   n.floor() * resolution
 
+###*
+In number theory, integer factorization or prime factorization is the
+breaking down of a composite number into smaller non-trivial divisors,
+which when multiplied together equal the original integer.
+
+Floors the number for purposes of factorization.
+
+@name primeFactors
+@methodOf Number#
+
+@returns An array containing the factorization of this number.
+@type Array
+###
+Number::primeFactors = ->
+  factors = []
+
+  n = Math.floor(this)
+
+  if n == 0
+    return undefined
+
+  if n < 0
+    factors.push(-1)
+    n /= -1
+
+  i = 2
+  iSquared = i * i
+
+  while iSquared < n
+    while (n % i) == 0
+        factors.push i
+        n /= i
+
+    i += 1
+    iSquared = i * i
+
+  if n != 1
+    factors.push n
+
+  return factors
+
 Number::toColorPart = ->
   s = parseInt(this.clamp(0, 255), 10).toString(16)
 
