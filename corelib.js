@@ -397,6 +397,20 @@ Array.prototype.sum = function() {
     return sum + n;
   });
 };
+/***
+Multiply all the elements in the array.
+
+@name product
+@methodOf Array#
+
+@type Number
+@returns The product of the elements in the array.
+*/
+Array.prototype.product = function() {
+  return this.inject(1, function(product, n) {
+    return product * n;
+  });
+};
 Array.prototype.zip = function() {
   var args;
   args = __slice.call(arguments, 0);
@@ -1715,6 +1729,45 @@ Number.prototype.snap = function(resolution) {
   n = this / resolution;
   1 / 1;
   return n.floor() * resolution;
+};
+/***
+In number theory, integer factorization or prime factorization is the
+breaking down of a composite number into smaller non-trivial divisors,
+which when multiplied together equal the original integer.
+
+Floors the number for purposes of factorization.
+
+@name primeFactors
+@methodOf Number#
+
+@returns An array containing the factorization of this number.
+@type Array
+*/
+Number.prototype.primeFactors = function() {
+  var factors, i, iSquared, n;
+  factors = [];
+  n = Math.floor(this);
+  if (n === 0) {
+    return undefined;
+  }
+  if (n < 0) {
+    factors.push(-1);
+    n /= -1;
+  }
+  i = 2;
+  iSquared = i * i;
+  while (iSquared < n) {
+    while ((n % i) === 0) {
+      factors.push(i);
+      n /= i;
+    }
+    i += 1;
+    iSquared = i * i;
+  }
+  if (n !== 1) {
+    factors.push(n);
+  }
+  return factors;
 };
 Number.prototype.toColorPart = function() {
   var s;
