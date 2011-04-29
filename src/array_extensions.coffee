@@ -386,6 +386,19 @@ Array::sum = ->
   this.inject 0, (sum, n) ->
     sum + n
 
+###*
+Multiply all the elements in the array.
+
+@name product
+@methodOf Array#
+
+@type Number
+@returns The product of the elements in the array.
+###
+Array::product = ->
+  this.inject 1, (product, n) ->
+    product * n
+
 Array::zip = (args...) ->
   this.map (element, index) ->   
     output = args.map (arr) ->
