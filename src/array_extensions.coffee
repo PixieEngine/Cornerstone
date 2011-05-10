@@ -1,5 +1,5 @@
 ###*
-Returns a compact of the array without null and undefined values.
+Returns a copy of the array without null and undefined values.
 
 @name compact
 @methodOf Array#
