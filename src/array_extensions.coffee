@@ -1,4 +1,16 @@
 ###*
+Returns a compact of the array without null and undefined values.
+
+@name compact
+@methodOf Array#
+@type Array
+@returns An array that contains only the non-null values.
+###
+Array::compact = ->
+  this.select (element) ->
+    element?
+
+###*
 Creates and returns a copy of the array. The copy contains
 the same objects.
 
