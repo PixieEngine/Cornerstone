@@ -1,6 +1,19 @@
 ;
 var __slice = Array.prototype.slice;
 /***
+Returns a copy of the array without null and undefined values.
+
+@name compact
+@methodOf Array#
+@type Array
+@returns An array that contains only the non-null values.
+*/
+Array.prototype.compact = function() {
+  return this.select(function(element) {
+    return (typeof element !== "undefined" && element !== null);
+  });
+};
+/***
 Creates and returns a copy of the array. The copy contains
 the same objects.
 
