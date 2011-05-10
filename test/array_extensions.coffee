@@ -1,5 +1,17 @@
 module "Array"
 
+test "#compact", ->
+  a = [0, 1, undefined, 2, null, 3, '', 4]
+
+  compacted = a.compact()
+
+  equals(compacted[0], 0)
+  equals(compacted[1], 1)
+  equals(compacted[2], 2)
+  equals(compacted[3], 3)
+  equals(compacted[4], '')
+  equals(compacted[5], 4)
+
 test "#copy", ->
   a = [1,2,3]
   b = a.copy()
