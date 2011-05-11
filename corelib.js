@@ -3698,3 +3698,6 @@ valueOf()
 @name valueOf
 @methodOf Date#
 */;
+window.requestAnimationFrame || (window.requestAnimationFrame = (window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback, element) {
+  return window.setTimeout(callback, 1000 / 60);
+}));;
