@@ -4,5 +4,7 @@ window.requestAnimationFrame ||=
   window.oRequestAnimationFrame      || 
   window.msRequestAnimationFrame     || 
   (callback, element) ->
-    window.setTimeout(callback, 1000 / 60)
+    window.setTimeout( ->
+      callback(new Date().getTime())
+    , 1000 / 60)
 
