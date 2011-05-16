@@ -113,7 +113,7 @@
 
       parsedColor = rgbMap.concat(parseFloat alpha)
     else
-      color = "#{args.first()}"
+      color = args.first()
       parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color) || parseHSL(color)
 
     throw "#{args.join(',')} is an unknown color" unless parsedColor
