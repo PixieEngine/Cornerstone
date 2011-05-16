@@ -95,7 +95,6 @@
       alpha = if arr[0]? then parseFloat arr[0] else 1.0
 
       parsedColor = rgbMap.concat(alpha)
-
     else if args.length == 2
       color = args[0]
       alpha = args[1]
@@ -114,7 +113,7 @@
 
       parsedColor = rgbMap.concat(parseFloat alpha)
     else
-      color = args.first()
+      color = "#{args.first()}"
       parsedColor = lookup[normalizeKey(color)] || parseHex(color) || parseRGB(color) || parseHSL(color)
 
     throw "#{args.join(',')} is an unknown color" unless parsedColor
