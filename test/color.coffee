@@ -175,7 +175,7 @@ test "should parse first argument string, second argument alpha", ->
     a: -> 0.3 
 
 test "should parse 549E00", ->
-  color = Color('#549E00')
+  color = Color(549E00)
 
 test "should be able to lighten", ->
   color = Color('#f00').lighten(0.1)
