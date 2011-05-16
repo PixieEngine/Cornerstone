@@ -174,14 +174,6 @@ test "should parse first argument string, second argument alpha", ->
     b: -> 210
     a: -> 0.3 
 
-test "should parse 549E00", ->
-  color = Color(549E00)
-
-  equals color.r(), 84
-  equals color.g(), 158
-  equals color.b(), 0
-  equals color.a(), 1
-
 test "should be able to lighten", ->
   color = Color('#f00').lighten(0.1)
 
