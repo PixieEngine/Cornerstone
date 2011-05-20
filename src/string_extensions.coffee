@@ -79,7 +79,7 @@ String::titleize = ->
 @methodOf String#
 
 Assumes the string is something like a file name and returns the 
-contents of the string without the string witouh the extension.
+contents of the string without the extension.
 
 "neat.png".witouthExtension() => "neat"
 ###
