@@ -74,3 +74,15 @@ String::titleize = ->
     word.capitalize()
   .join(' ')
 
+###*
+@name withoutExtension
+@methodOf String#
+
+Assumes the string is something like a file name and returns the 
+contents of the string without the string witouh the extension.
+
+"neat.png".witouthExtension() => "neat"
+###
+String::withoutExtension = ->
+  this.replace(/\.[^\.]*$/, '')
+
