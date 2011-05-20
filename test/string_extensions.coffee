@@ -28,5 +28,9 @@ test "#titleize", ->
   equals "man from the boondocks".titleize(), "Man From The Boondocks"
   equals "x-men: the last stand".titleize(), "X Men: The Last Stand"
 
+test "#withoutExtension", ->
+  equals "neat.png".withoutExtension(), "neat"
+  equals "not a file".withoutExtension(), "not a file"
+
 module()
 
