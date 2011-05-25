@@ -58,7 +58,7 @@ test "#each", ->
 test "#eachWithObject", ->
   array = [1, 2, 3]
 
-  result = array.eachWithObject {}, (hash, element) ->
+  result = array.eachWithObject {}, (element, hash) ->
     hash[element] = (element + 1).toString()
 
   equal result[1], "2"
