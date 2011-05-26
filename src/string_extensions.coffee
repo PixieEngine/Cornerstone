@@ -61,9 +61,9 @@ is not valid JSON returns the string itself.
 ###
 String::parse = () ->
   try
-    return JSON.parse(this)
+    JSON.parse(this)
   catch e
-    return this
+    this.toString()
 
 ###*
 @name titleize
