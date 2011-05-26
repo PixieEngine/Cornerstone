@@ -749,24 +749,27 @@ methods.
 @constructor
 
 @param {Object} I Instance variables
-*/
-/**
-@name I
-@memberOf Core#
 */var Core;
 var __slice = Array.prototype.slice;
 Core = function(I) {
   var self;
   I || (I = {});
   return self = {
+    /**
+      External access to instance variables. Use of this property should be avoided
+      in general, but can come in handy from time to time.
+      
+      @name I
+      @fieldOf Core#
+      */
     I: I,
     /**
-    Generates a public jQuery style getter / setter method for each 
-    String argument.
+      Generates a public jQuery style getter / setter method for each 
+      String argument.
     
-    @name attrAccessor
-    @methodOf Core#
-    */
+      @name attrAccessor
+      @methodOf Core#
+      */
     attrAccessor: function() {
       var attrNames;
       attrNames = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
@@ -1030,8 +1033,20 @@ $(function() {
   The global keydown property lets your query the status of keys.
   
   <pre>
+  # Examples:
+  
   if keydown.left
     moveLeft()
+    
+  if keydown.a or keydown.space
+    attack()
+    
+  if keydown.return
+    confirm()
+    
+  if keydown.esc
+    cancel()
+  
   </pre>
   
   @name keydown
@@ -2210,6 +2225,8 @@ Returns true if this string only contains whitespace characters.
   return /^\s*$/.test(this);
 };
 /**
+Returns a new string that is a camelCase version.
+
 @name camelize
 @methodOf String#
 */
@@ -2223,6 +2240,8 @@ String.prototype.camelize = function() {
   });
 };
 /**
+Returns a new string with the first letter capitalized and the rest lower cased.
+
 @name capitalize
 @methodOf String#
 */
@@ -2247,6 +2266,8 @@ String.prototype.constantize = function() {
   }
 };
 /**
+Returns a new string that is a more human readable version.
+
 @name humanize
 @methodOf String#
 */
@@ -2272,6 +2293,7 @@ String.prototype.parse = function() {
   }
 };
 /**
+Returns a new string in Title Case.
 @name titleize
 @methodOf String#
 */
@@ -2281,13 +2303,13 @@ String.prototype.titleize = function() {
   }).join(' ');
 };
 /**
-@name withoutExtension
-@methodOf String#
-
 Assumes the string is something like a file name and returns the 
 contents of the string without the extension.
 
 "neat.png".witouthExtension() => "neat"
+
+@name withoutExtension
+@methodOf String#
 */
 String.prototype.withoutExtension = function() {
   return this.replace(/\.[^\.]*$/, '');
