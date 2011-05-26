@@ -1791,10 +1791,13 @@ The mathematical circle constant of 1 turn.
 */
 Math.TAU = 2 * Math.PI;;
 /**
-* Checks whether an object is an array.
-*
-* @type Object
-* @returns A boolean expressing whether the object is an instance of Array 
+Checks whether an object is an array.
+@name isArray
+@methodOf Object
+
+@param {Object} object The object to check for array-ness.
+@type Boolean
+@returns A boolean expressing whether the object is an instance of Array 
 */Object.isArray = function(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
 };;
@@ -2083,7 +2086,18 @@ var __slice = Array.prototype.slice;
   };
 })(jQuery);;
 (function($) {
-  window.Random = $.extend(window.Random, {
+  /**
+  @name Random
+  @namespace Some useful methods for generating random things.
+  */  window.Random = $.extend(window.Random, (function() {
+    /**
+    Returns a random angle, uniformly distributed, between 0 and 2pi.
+    
+    @name angle
+    @methodOf Random
+    @type Number
+    */
+  })(), {
     angle: function() {
       return rand() * Math.TAU;
     },
@@ -2101,7 +2115,11 @@ var __slice = Array.prototype.slice;
   Returns random integers from [0, n) if n is given.
   Otherwise returns random float between 0 and 1.
   
+  @name rand
+  @methodOf window
+  
   @param {Number} n
+  @type Number
   */
   return window.rand = function(n) {
     if (n) {
