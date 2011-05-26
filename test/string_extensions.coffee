@@ -24,6 +24,8 @@ test "#parse", ->
 
   equals '{"val": "a string"}'.parse().val, "a string", "even parsing objects works"
 
+  ok ''.parse() == '', "Empty string parses to exactly the empty string"
+
 test "#titleize", ->
   equals "man from the boondocks".titleize(), "Man From The Boondocks"
   equals "x-men: the last stand".titleize(), "X Men: The Last Stand"
