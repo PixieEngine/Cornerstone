@@ -9,15 +9,17 @@ methods.
 @param {Object} I Instance variables
 ###
 
-###*
-@name I
-@memberOf Core#
-###
-
 Core = (I) ->
   I ||= {}
 
   self =
+    ###*
+    External access to instance variables. Use of this property should be avoided
+    in general, but can come in handy from time to time.
+
+    @name I
+    @fieldOf Core#
+    ###
     I: I
 
     ###*
