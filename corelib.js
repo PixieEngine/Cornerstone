@@ -135,7 +135,7 @@ Array.prototype.each = function(iterator, context) {
 };
 /**
 Call the given iterator once for each element in the array,
-passing in the given object as the first argument and the element
+passing in the element as the first argument and the given object
 as the second argument. Additional arguments are passed similar to
 <code>each</code>
 
@@ -144,7 +144,8 @@ as the second argument. Additional arguments are passed similar to
 @name eachWithObject
 @methodOf Array#
 
-@param {Object} object The number of elements in each group.
+@param {Object} object The object to pass to the iterator on each
+visit.
 @param {Function} iterator Function to be called once for 
 each element in the array.
 @param {Object} [context] Optional context parameter to be 
@@ -155,7 +156,7 @@ used as `this` when calling the iterator function.
 */
 Array.prototype.eachWithObject = function(object, iterator, context) {
   this.each(function(element, i, self) {
-    return iterator.call(context, object, element, i, self);
+    return iterator.call(context, element, object, i, self);
   });
   return object;
 };
@@ -2249,7 +2250,7 @@ String.prototype.parse = function() {
   try {
     return JSON.parse(this);
   } catch (e) {
-    return this;
+    return this.toString();
   }
 };
 /**
