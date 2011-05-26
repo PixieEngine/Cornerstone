@@ -11,6 +11,8 @@ String::blank = ->
   /^\s*$/.test(this)
 
 ###*
+Returns a new string that is a camelCase version.
+
 @name camelize
 @methodOf String#
 ###
@@ -19,6 +21,8 @@ String::camelize = ->
     if chr then chr.toUpperCase() else ''
 
 ###*
+Returns a new string with the first letter capitalized and the rest lower cased.
+
 @name capitalize
 @methodOf String#
 ###
@@ -42,6 +46,8 @@ String::constantize = ->
     undefined
 
 ###*
+Returns a new string that is a more human readable version.
+
 @name humanize
 @methodOf String#
 ###
@@ -66,6 +72,7 @@ String::parse = () ->
     this.toString()
 
 ###*
+Returns a new string in Title Case.
 @name titleize
 @methodOf String#
 ###
@@ -75,13 +82,13 @@ String::titleize = ->
   .join(' ')
 
 ###*
-@name withoutExtension
-@methodOf String#
-
 Assumes the string is something like a file name and returns the 
 contents of the string without the extension.
 
 "neat.png".witouthExtension() => "neat"
+
+@name withoutExtension
+@methodOf String#
 ###
 String::withoutExtension = ->
   this.replace(/\.[^\.]*$/, '')
