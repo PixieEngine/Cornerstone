@@ -43,7 +43,7 @@ String::constantize = ->
     eval("var that = #{this}")
     that
   else
-    undefined
+    throw "String#constantize: '#{this}' is not a valid constant name."
 
 ###*
 Returns a new string that is a more human readable version.
