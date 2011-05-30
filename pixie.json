@@ -2,6 +2,7 @@
   "author": "STRd6",
   "main": null,
   "name": "corelib",
+  "library": true,
   "directories": {
     "lib": "lib",
     "source": "src",
