@@ -55,6 +55,17 @@ String::humanize = ->
   this.replace(/_id$/, "").replace(/_/g, " ").capitalize()
 
 ###*
+Returns true.
+
+@name isString
+@methodOf String#
+@type Boolean
+@returns true
+###
+String::isString = ->
+  true
+
+###*
 Parse this string as though it is JSON and return the object it represents. If it
 is not valid JSON returns the string itself.
 
