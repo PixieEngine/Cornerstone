@@ -17,6 +17,11 @@ test "#constantize", ->
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
 
+test "isString", ->
+  equals "".isString?(), true, "Strings are strings"
+  equals {}.isString?(), undefined, "objects are not strings"
+  equals [].isString?(), undefined, "arrays are not strings"
+
 test "#parse", ->
   equals "true".parse(), true, "parsing 'true' should equal boolean true"
   equals "false".parse(), false, "parsing 'true' should equal boolean true"
