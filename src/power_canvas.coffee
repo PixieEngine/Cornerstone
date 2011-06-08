@@ -55,30 +55,30 @@
 
       context: ->
         context
-      
+
       element: ->
         canvas
-        
+
       globalAlpha: (newVal) ->
         if newVal?
           context.globalAlpha = newVal
           return this
         else
           context.globalAlpha
-          
+
       compositeOperation: (newVal) ->
         if newVal?
           context.globalCompositeOperation = newVal
           return this
         else
           context.globalCompositeOperation
-      
+
       createLinearGradient: (x0, y0, x1, y1) ->
         context.createLinearGradient(x0, y0, x1, y1)
-      
+
       createRadialGradient: (x0, y0, r0, x1, y1, r1) ->
         context.createRadialGradient(x0, y0, r0, x1, y1, r1)
-        
+
       buildRadialGradient: (c1, c2, stops) ->
         gradient = context.createRadialGradient(c1.x, c1.y, c1.radius, c2.x, c2.y, c2.radius)
 
@@ -112,7 +112,7 @@
         context.lineTo(x2, y2)
         context.closePath()
         context.stroke()
-        
+
         return this
 
       fill: (color) ->
@@ -148,7 +148,7 @@
        * Fills a rectangle with the current fillColor
        * at the specified position with the specified
        * width and height 
-      
+
        * @name fillRect
        * @methodOf PowerCanvas#
        *
@@ -159,12 +159,12 @@
        * @see PowerCanvas#fillColor 
        * @returns this
       ###
-      
+
       fillRect: (x, y, width, height) ->
         context.fillRect(x, y, width, height)
 
         return this
-    
+
       fillShape: (points...) ->
         context.beginPath()
         points.each (point, i) ->
@@ -178,10 +178,10 @@
       ###*
       * Adapted from http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html
       ###
-      
+
       fillRoundRect: (x, y, width, height, radius, strokeWidth) ->
         radius ||= 5
-        
+
         context.beginPath()
         context.moveTo(x + radius, y)
         context.lineTo(x + width - radius, y)
@@ -197,7 +197,7 @@
         if strokeWidth
           context.lineWidth = strokeWidth
           context.stroke()
-        
+
         context.fill()
 
         return this
@@ -234,7 +234,7 @@
             context.fillStyle = color.toString()
           else
             context.fillStyle = color
-          
+
           return this
         else
           return context.fillStyle
@@ -242,7 +242,7 @@
       font: (font) ->
         if font?
           context.font = font
-          
+
           return this
         else
           context.font
@@ -265,7 +265,16 @@
           return this
         else
           return context.strokeStyle
-      
+
+      strokeCircle: (x, y, radius, color) ->
+        $canvas.strokeColor(color)
+        context.beginPath()
+        context.arc(x, y, radius, 0, Math.TAU, true)
+        context.closePath()
+        context.stroke()
+
+        return this
+
       strokeRect: (x, y, width, height) ->
         context.strokeRect(x, y, width, height)
 
@@ -273,7 +282,7 @@
 
       textAlign: (textAlign) ->
         context.textAlign = textAlign
-        
+
         return this
 
       height: ->
