@@ -1030,41 +1030,6 @@ jQuery.extend({
   }
 });;
 $(function() {
-  /**
-  The global keydown property lets your query the status of keys.
-  
-  <pre>
-  # Examples:
-  
-  if keydown.left
-    moveLeft()
-  
-  if keydown.a or keydown.space
-    attack()
-  
-  if keydown.return
-    confirm()
-  
-  if keydown.esc
-    cancel()
-  
-  </pre>
-  
-  @name keydown
-  @namespace
-  */  var keyName;
-  window.keydown = {};
-  keyName = function(event) {
-    return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
-  };
-  $(document).bind("keydown", function(event) {
-    return keydown[keyName(event)] = true;
-  });
-  return $(document).bind("keyup", function(event) {
-    return keydown[keyName(event)] = false;
-  });
-});;
-$(function() {
   return ["log", "info", "warn", "error"].each(function(name) {
     if (typeof console !== "undefined") {
       return window[name] = function(message) {
