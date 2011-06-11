@@ -93,6 +93,17 @@ String::titleize = ->
   .join(' ')
 
 ###*
+Underscore a word, changing camelCased with under_scored.
+@name underscore
+@methodOf String#
+###
+String::underscore = ->
+  this.replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+    .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+    .replace(/-/g, '_')
+    .toLowerCase()
+
+###*
 Assumes the string is something like a file name and returns the 
 contents of the string without the extension.
 
