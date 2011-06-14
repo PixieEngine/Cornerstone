@@ -36,6 +36,18 @@ Array::clear = ->
   return this
 
 ###*
+Flatten out an array of arrays into a single array of elements.
+
+@name flatten
+@methodOf Array#
+@type Array
+@returns A new array with all the sub-arrays flattened to the top.
+###
+Array::flatten = ->
+  this.inject [], (a, b) ->
+    a.concat b
+
+###*
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
