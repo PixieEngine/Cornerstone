@@ -38,6 +38,19 @@ Array.prototype.clear = function() {
   return this;
 };
 /**
+Flatten out an array of arrays into a single array of elements.
+
+@name flatten
+@methodOf Array#
+@type Array
+@returns A new array with all the sub-arrays flattened to the top.
+*/
+Array.prototype.flatten = function() {
+  return this.inject([], function(a, b) {
+    return a.concat(b);
+  });
+};
+/**
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
