@@ -20,6 +20,15 @@ test "#copy", ->
   ok a.length == b.length, "Both arrays are the same size"
   ok a[0] == b[0] && a[1] == b[1] && a[2] == b[2], "The elements of the two arrays are equal"
 
+test "#flatten", ->
+  array = [[0,1], [2,3], [4,5]]
+
+  flattenedArray = array.flatten()
+
+  equals flattenedArray.length, 6, "Flattened array length should equal number of elements in sub-arrays"
+  equals flattenedArray.first(), 0, "First element should be first element in first sub-array"
+  equals flattenedArray.last(), 5, "Last element should be last element in last sub-array"
+
 test "#rand", ->
   array = [1,2,3]
 
