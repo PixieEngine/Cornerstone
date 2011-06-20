@@ -139,6 +139,37 @@ Array::each = (iterator, context) ->
   return this
 
 ###*
+Call the given iterator once for each pair of objects in the array.
+
+Ex. [1, 2, 3, 4].eachPair (a, b) ->
+  # 1, 2
+  # 1, 3
+  # 1, 4
+  # 2, 3
+  # 2, 4
+  # 3, 4 
+
+@name eachPair
+@methodOf Array#
+@param {Function} iterator Function to be called once for 
+each pair of elements in the array.
+@param {Object} [context] Optional context parameter to be 
+used as `this` when calling the iterator function.
+###
+Array::eachPair = (iterator, context) ->
+  i = 0
+  while i < objects.length
+    a = objects[i]
+    j = i + 1
+    i += 1
+
+    while j < objects.length
+      b = objects[j]
+      j += 1
+
+      iterator.call context, a, b
+
+###*
 Call the given iterator once for each element in the array,
 passing in the element as the first argument and the given object
 as the second argument. Additional arguments are passed similar to
