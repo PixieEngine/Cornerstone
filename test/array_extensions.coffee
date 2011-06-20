@@ -64,6 +64,15 @@ test "#each", ->
   equals array, array.each -> count++
   equals array.length, count
 
+test "#eachPair", ->
+  array = [1, 2, 3]
+  sum = 0
+
+  array.eachPair (a, b) ->
+    sum += a + b
+
+  equals(sum, 12)
+
 test "#eachWithObject", ->
   array = [1, 2, 3]
 
