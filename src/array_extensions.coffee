@@ -157,14 +157,15 @@ each pair of elements in the array.
 used as `this` when calling the iterator function.
 ###
 Array::eachPair = (iterator, context) ->
+  length = this.length
   i = 0
-  while i < objects.length
-    a = objects[i]
+  while i < length
+    a = this[i]
     j = i + 1
     i += 1
 
-    while j < objects.length
-      b = objects[j]
+    while j < length
+      b = this[j]
       j += 1
 
       iterator.call context, a, b
