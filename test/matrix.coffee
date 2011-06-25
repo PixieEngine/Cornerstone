@@ -130,7 +130,7 @@
     m2 = Matrix().concat(Matrix.translation(tx, ty)).concat(Matrix.scale(s)).concat(Matrix.rotation(theta))
 
     matrixEqual(m1, m2)
-  
+
   module "Point"
 
   test "#add", ->
@@ -159,19 +159,24 @@
 
     equals result.x, p1.x * scalar
     equals result.y, p1.y * scalar
-  
+
+  test "#floor", ->
+    p1 = Point(7.2, 6.9)
+
+    ok Point(7, 6).equal(p1.floor())
+
   test "#equal", ->
     ok Point(7, 8).equal(Point(7, 8))
 
   test "#magnitude", ->
     equals Point(3, 4).magnitude(), 5
-  
+
   test ".fromAngle", ->
     p = Point.fromAngle(Math.TAU / 4)
-    
+
     equalEnough p.x, 0, TOLERANCE
     equals p.y, 1
-  
+
   module undefined
 )()
 
