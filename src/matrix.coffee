@@ -57,7 +57,7 @@
     ###
     add: (other) ->
       Point(this.x + other.x, this.y + other.y)
-    
+
     ###*
      * Subtracts a point to this one and returns the new point.
      * @name subtract
@@ -81,6 +81,17 @@
     ###
     scale: (scalar) ->
       Point(this.x * scalar, this.y * scalar)
+
+    ###*
+    Floor the x and y values, returning a new point.
+
+    @name floor
+    @methodOf Point#
+    @returns A new point, with x and y values each floored to the largest previous integer.
+    @type Point
+    ###
+    floor: ->
+      Point(this.x.floor(), this.y.floor())
 
     ###*
      * Determine whether this point is equal to another point.
