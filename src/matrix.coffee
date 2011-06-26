@@ -26,34 +26,36 @@
 ###
 ( ->
   ###*
-   * Create a new point with given x and y coordinates. If no arguments are given
-   * defaults to (0, 0).
-   * @name Point
-   * @param {Number} [x]
-   * @param {Number} [y]
-   * @constructor
+  Create a new point with given x and y coordinates. If no arguments are given
+  defaults to (0, 0).
+  @name Point
+  @param {Number} [x]
+  @param {Number} [y]
+  @constructor
   ###
   Point = (x, y) ->
     ###*
-     * The x coordinate of this point.
-     * @name x
-     * @fieldOf Point#
+    The x coordinate of this point.
+    @name x
+    @fieldOf Point#
     ###
     x: x || 0
     ###*
-     * The y coordinate of this point.
-     * @name y
-     * @fieldOf Point#
+    The y coordinate of this point.
+    @name y
+    @fieldOf Point#
     ###
     y: y || 0
     ###*
-     * Adds a point to this one and returns the new point.
-     * @name add
-     * @methodOf Point#
-     *
-     * @param {Point} other The point to add this point to.
-     * @returns A new point, the sum of both.
-     * @type Point
+    Adds a point to this one and returns the new point. You may
+    also use a two argument call like <code>point.add(x, y)</code>
+    to add x and y values without a second point object.
+    @name add
+    @methodOf Point#
+
+    @param {Point} other The point to add this point to.
+    @returns A new point, the sum of both.
+    @type Point
     ###
     add: (first, second) ->
       if second
@@ -62,13 +64,13 @@
         Point(this.x + first.x, this.y + first.y)
 
     ###*
-     * Subtracts a point to this one and returns the new point.
-     * @name subtract
-     * @methodOf Point#
-     *
-     * @param {Point} other The point to subtract from this point.
-     * @returns A new point, this - other.
-     * @type Point
+    Subtracts a point to this one and returns the new point.
+    @name subtract
+    @methodOf Point#
+
+    @param {Point} other The point to subtract from this point.
+    @returns A new point, this - other.
+    @type Point
     ###
     subtract: (other) ->
       Point(this.x - other.x, this.y - other.y)
