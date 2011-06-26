@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="generator" content="JsDoc Toolkit" />
     
-    <title>JsDoc Reference - Math</title>
+    <title>JsDoc Reference - Random</title>
     <link href="/stylesheets/docs.css" type="text/css" rel="stylesheet" media="all" />
   </head>
 
@@ -62,7 +62,7 @@
       <div class="innerContent">
         <h1 class="classTitle">
           
-          Class <span>Math</span>
+          Class <span>Random</span>
         </h1>
 
         <p class="description summary">
@@ -70,36 +70,32 @@
 
           
 
-          
+          Some useful methods for generating random things.
         </p>
 
         
-
+          <div class="props">
+            <table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Random.">
+              <caption>Class Summary</caption>
+              <tbody>
+                <tr>
+                  <td class="attributes">&nbsp;</td>
+                  <td class="nameDescription" >
+                    <div class="fixedFont">
+                      <b><a href="../symbols/Random.html#constructor">Random</a></b>()
+                    </div>
+                    <div class="description"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="instanceVariables">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         
-          
-          
-            <div class="props">
-              <table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Math.">
-                <caption>Field Summary</caption>
 
-                <tbody>
-                  
-                    <tr>
-                      <td class="attributes"><em>static</em>&nbsp;</td>
-                      <td class="nameDescription">
-                        <div class="fixedFont">
-                        Math.<b><a href="../symbols/Math.html#.TAU">TAU</a></b>
-                        </div>
-                        <div class="description">The mathematical circle constant of 1 turn.</div>
-                      </td>
-                    </tr>
-                  
-                </tbody>
-              </table>
-            </div>
-          
-
-          
         
 
   <!--
@@ -109,7 +105,7 @@
           
           
             <div class="props">
-              <table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Math.">
+              <table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Random.">
                 <caption>Method Summary</caption>
 
                 <tbody>
@@ -117,9 +113,9 @@
                     <tr>
                       <td class="attributes"><em>static</em>&nbsp;</td>
                       <td class="nameDescription">
-                        <div class="fixedFont">Math.<b><a href="../symbols/Math.html#.uuid">uuid</a></b>(length, radix)
+                        <div class="fixedFont">Random.<b><a href="../symbols/Random.html#.angle">angle</a></b>()
                         </div>
-                        <div class="description">Generate a random uuid.</div>
+                        <div class="description">Returns a random angle, uniformly distributed, between 0 and 2pi.</div>
                       </td>
                     </tr>
                   
@@ -140,45 +136,35 @@
   #### CONSTRUCTOR DETAILS
   -->
         
+          <div class="details props">
+            <div class="innerProps">
+              <a name="constructor"></a>
+
+              <div class="sectionTitle">
+                Class Detail
+              </div>
+
+              <div class="fixedFont">
+                <b>Random</b>()
+              </div>
+
+              <div class="description">
+                
+                
+              </div>
+
+              
+
+              
+
+              
+            </div>
+          </div>
+        
 
   <!--
   #### FIELD DETAILS
   -->
-        
-          <div class="details props">
-            <div class="innerProps">
-
-              <div class="sectionTitle">
-                Field Detail
-              </div>
-
-              
-                <a name=".TAU"></a>
-
-                <div class="fixedFont heading">
-                  <span class='lighter'>
-                  <em>static</em>
-                  </span>
-
-                  
-
-                  <span class="light">Math.</span><b>TAU</b>
-                </div>
-
-                <div class="description">
-                  The mathematical circle constant of 1 turn.
-
-                  
-                </div>
-
-                
-
-                
-
-                
-              
-            </div>
-          </div>
         
 
   <!--
@@ -192,62 +178,26 @@
               </div>
 
               
-                <a name=".uuid"></a>
+                <a name=".angle"></a>
 
                 <div class="fixedFont heading">
                   <span class='lighter'>
                   <em>static</em>
                   </span>
 
-                  
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
 
-                  <span class="light">Math.</span><b>uuid</b>(length, radix)
+                  <span class="light">Random.</span><b>angle</b>()
                 </div>
 
                 <div class="description">
-                  Generate a random uuid.
-
-USAGE: Math.uuid(length, radix)
-
-EXAMPLES:
-  // No arguments  - returns RFC4122, version 4 ID
-  Math.uuid()
-  "92329D39-6F5C-4520-ABFC-AAB64544E172"
-
-  // One argument - returns ID of the specified length
-  Math.uuid(15)     // 15 character ID (default base=62)
-  "VcydxgltxrVZSTV"
-
-  // Two arguments - returns ID of the specified length, and radix. (Radix must be <= 62)
-  Math.uuid(8, 2)  // 8 character ID (base=2)
-  "01001010"
-  Math.uuid(8, 10) // 8 character ID (base=10)
-  "47473046"
-  Math.uuid(8, 16) // 8 character ID (base=16)
-  "098F4D35"
+                  Returns a random angle, uniformly distributed, between 0 and 2pi.
 
                   
                 </div>
 
                 
 
-                
-                  <dl class="detailList params">
-                    <dt class="heading">Parameters:</dt>
-                    
-                      <dt>
-                        <b>length</b>
-                        
-                      </dt>
-                      <dd>The desired number of characters</dd>
-                    
-                      <dt>
-                        <b>radix</b>
-                        
-                      </dt>
-                      <dd>The number of allowable values for each character.</dd>
-                    
-                  </dl>
                 
 
                 

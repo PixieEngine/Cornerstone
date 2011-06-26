@@ -55,8 +55,11 @@
      * @returns A new point, the sum of both.
      * @type Point
     ###
-    add: (other) ->
-      Point(this.x + other.x, this.y + other.y)
+    add: (first, second) ->
+      if second
+        Point(this.x + first, this.y + second)
+      else
+        Point(this.x + first.x, this.y + first.y)
 
     ###*
      * Subtracts a point to this one and returns the new point.
