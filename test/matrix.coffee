@@ -142,6 +142,16 @@
     equals result.x, p1.x + p2.x
     equals result.y, p1.y + p2.y
 
+  test "#add two arg", ->
+    point = Point(3, 7)
+    x = 2
+    y = 1
+
+    result = point.add(x, y)
+
+    equals result.x, point.x + x
+    equals result.y, point.y + y
+
   test "#subtract", ->
     p1 = Point(5, 6)
     p2 = Point(7, 5)
