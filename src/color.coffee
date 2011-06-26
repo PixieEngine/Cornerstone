@@ -2761,6 +2761,7 @@
     ["0343df", "blue"]
     ["15b01a", "green"]
     ["7e1e9c", "purple"]
+    ["FF5E99", "paul irish pink"]
     ["00000000", "transparent"]
   ]
 
