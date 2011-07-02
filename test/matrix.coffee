@@ -161,6 +161,15 @@
     equals result.x, p1.x - p2.x
     equals result.y, p1.y - p2.y
 
+  test "#norm", ->
+    p = Point(2, 0)
+
+    normal = p.norm()
+    equals normal.x, 1
+
+    normal = p.norm(5)    
+    equals normal.x, 5
+
   test "#scale", ->
     p1 = Point(5, 6)
     scalar = 2
