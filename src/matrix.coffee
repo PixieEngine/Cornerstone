@@ -158,8 +158,8 @@
      * @returns The unit vector pointing in the same direction as this vector.
      * @type Point
     ###
-    norm: ->
-      this.scale(1.0/this.length())
+    norm: (length=1.0) ->
+      this.scale(length/this.length())
 
     ###*
      * Computed the length of this point as though it were a vector from (0,0) to (x,y)
