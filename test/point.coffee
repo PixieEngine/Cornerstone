@@ -16,6 +16,11 @@
     equals result.x, p1.x + p2.x
     equals result.y, p1.y + p2.y
 
+    equals p1.x, 5
+    equals p1.y, 6
+    equals p2.x, 7
+    equals p2.y, 5
+
   test "#add with two arguments", ->
     point = Point(3, 7)
     x = 2
@@ -34,6 +39,19 @@
     equals result.x, point.x + x
     equals result.y, point.y + y
 
+  test "#add$", ->
+    p = Point(0, 0)
+
+    p.add$(Point(3, 5))
+
+    equals p.x, 3
+    equals p.y, 5
+
+    p.add$(2, 1)
+
+    equals p.x, 5
+    equals p.y, 6
+
   test "#subtract", ->
     p1 = Point(5, 6)
     p2 = Point(7, 5)
@@ -42,6 +60,14 @@
 
     equals result.x, p1.x - p2.x
     equals result.y, p1.y - p2.y
+
+  test "#subtract$", ->
+    p = Point(8, 6)
+
+    p.subtract$(3, 4)
+
+    equals p.x, 5
+    equals p.y, 2
 
   test "#norm", ->
     p = Point(2, 0)
