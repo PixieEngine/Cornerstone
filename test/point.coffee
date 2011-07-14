@@ -1,6 +1,12 @@
 ( ->
   module "Point"
 
+  TOLERANCE = 0.00001
+
+  equalEnough = (expected, actual, tolerance, message) ->
+    message ||= "" + expected + " within " + tolerance + " of " + actual
+    ok(expected + tolerance >= actual && expected - tolerance <= actual, message)
+
   test "#add", ->
     p1 = Point(5, 6)
     p2 = Point(7, 5)
