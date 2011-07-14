@@ -8,6 +8,8 @@
   @constructor
   ###
   Point = (x, y) ->
+    __proto__: Point::
+
     ###*
     The x coordinate of this point.
     @name x
@@ -20,6 +22,8 @@
     @fieldOf Point#
     ###
     y: y || 0
+
+  Point:: =
     ###*
     Creates a copy of this point.
 
