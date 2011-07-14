@@ -24,6 +24,14 @@
     }, Point.instanceMethods
 
   Point.instanceMethods =
+    ###*
+    Creates a copy of this point.
+
+    @name copy
+    @methodOf Point#
+    @returns A new point with the same x and y value as this point.
+    @type Point
+    ###
     copy: ->
       Point(this.x, this.y)
 
