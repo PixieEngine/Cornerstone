@@ -91,7 +91,13 @@
     @type Point
     ###
     scale: (scalar) ->
-      Point(this.x * scalar, this.y * scalar)
+      this.copy().scale$(scalar)
+
+    scale$: (scalar) ->
+      this.x *= scalar
+      this.y *= scalar
+
+      this
 
     ###*
     The norm of a vector is the unit vector pointing in the same direction. This method
@@ -103,7 +109,10 @@
     @type Point
     ###
     norm: (length=1.0) ->
-      this.scale(length/this.length())
+      this.copy().norm$(length)
+
+    norm$: (length=1.0) ->
+      this.scale$(length/this.length())
 
     ###*
     Floor the x and y values, returning a new point.
