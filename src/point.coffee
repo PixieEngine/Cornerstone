@@ -8,18 +8,25 @@
   @constructor
   ###
   Point = (x, y) ->
-    ###*
-    The x coordinate of this point.
-    @name x
-    @fieldOf Point#
-    ###
-    x: x || 0
-    ###*
-    The y coordinate of this point.
-    @name y
-    @fieldOf Point#
-    ###
-    y: y || 0
+    $.extend {
+      ###*
+      The x coordinate of this point.
+      @name x
+      @fieldOf Point#
+      ###
+      x: x || 0
+      ###*
+      The y coordinate of this point.
+      @name y
+      @fieldOf Point#
+      ###
+      y: y || 0
+    }, Point.instanceMethods
+
+  Point.instanceMethods =
+    copy: ->
+      Point(this.x, this.y)
+
     ###*
     Adds a point to this one and returns the new point. You may
     also use a two argument call like <code>point.add(x, y)</code>
@@ -32,10 +39,17 @@
     @type Point
     ###
     add: (first, second) ->
+      this.copy().add$(first, second)
+
+    add$: (first, second) ->
       if second
-        Point(this.x + first, this.y + second)
+        this.x += first
+        this.y += second
       else
-        Point(this.x + first.x, this.y + first.y)
+        this.x += first.x
+        this.y += first.y
+
+      this
 
     ###*
     Subtracts a point to this one and returns the new point.
