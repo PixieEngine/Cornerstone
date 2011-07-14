@@ -68,8 +68,18 @@
     @returns A new point, this - other.
     @type Point
     ###
-    subtract: (other) ->
-      Point(this.x - other.x, this.y - other.y)
+    subtract: (first, second) ->
+      this.copy().subtract$(first, second)
+
+    subtract$: (first, second) ->
+      if second?
+        this.x -= first
+        this.y -= second
+      else
+        this.x -= first.x
+        this.y -= first.y
+
+      this
 
     ###*
     Scale this Point (Vector) by a constant amount.
@@ -82,6 +92,18 @@
     ###
     scale: (scalar) ->
       Point(this.x * scalar, this.y * scalar)
+
+    ###*
+    The norm of a vector is the unit vector pointing in the same direction. This method
+    treats the point as though it is a vector from the origin to (x, y).
+    @name norm
+    @methodOf Point#
+
+    @returns The unit vector pointing in the same direction as this vector.
+    @type Point
+    ###
+    norm: (length=1.0) ->
+      this.scale(length/this.length())
 
     ###*
     Floor the x and y values, returning a new point.
@@ -105,6 +127,17 @@
     ###
     equal: (other) ->
       this.x == other.x && this.y == other.y
+
+    ###*
+    Computed the length of this point as though it were a vector from (0,0) to (x,y)
+    @name length
+    @methodOf Point#
+
+    @returns The length of the vector from the origin to this point.
+    @type Number
+    ###
+    length: ->
+      Math.sqrt(this.dot(this))
 
     ###*
     Calculate the magnitude of this Point (Vector).
@@ -154,29 +187,6 @@
     ###
     cross: (other) ->
       this.x * other.y - other.x * this.y
-
-    ###*
-    The norm of a vector is the unit vector pointing in the same direction. This method
-    treats the point as though it is a vector from the origin to (x, y).
-    @name norm
-    @methodOf Point#
-
-    @returns The unit vector pointing in the same direction as this vector.
-    @type Point
-    ###
-    norm: (length=1.0) ->
-      this.scale(length/this.length())
-
-    ###*
-    Computed the length of this point as though it were a vector from (0,0) to (x,y)
-    @name length
-    @methodOf Point#
-
-    @returns The length of the vector from the origin to this point.
-    @type Number
-    ###
-    length: ->
-      Math.sqrt(this.dot(this))
 
     ###*
     Computed the Euclidean between this point and another point.
