@@ -78,14 +78,34 @@
     normal = p.norm(5)    
     equals normal.x, 5
 
+  test "#norm$", ->
+    p = Point(6, 8)
+
+    p.norm$(5)
+
+    equals p.x, 3
+    equals p.y, 4
+
   test "#scale", ->
-    p1 = Point(5, 6)
+    p = Point(5, 6)
     scalar = 2
 
-    result = p1.scale(scalar)
+    result = p.scale(scalar)
 
-    equals result.x, p1.x * scalar
-    equals result.y, p1.y * scalar
+    equals result.x, p.x * scalar
+    equals result.y, p.y * scalar
+
+    equals p.x, 5
+    equals p.y, 6
+
+  test "#scale$", ->
+    p = Point(0, 1)
+    scalar = 3
+
+    p.scale$(scalar)
+
+    equals p.x, 0
+    equals p.y, 3
 
   test "#floor", ->
     p1 = Point(7.2, 6.9)
