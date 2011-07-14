@@ -16,10 +16,18 @@
     equals result.x, p1.x + p2.x
     equals result.y, p1.y + p2.y
 
-  test "#add two arg", ->
+  test "#add with two arguments", ->
     point = Point(3, 7)
     x = 2
     y = 1
+
+    result = point.add(x, y)
+
+    equals result.x, point.x + x
+    equals result.y, point.y + y
+
+    x = 2
+    y = 0
 
     result = point.add(x, y)
 
