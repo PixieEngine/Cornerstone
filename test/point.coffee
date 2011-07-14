@@ -72,6 +72,10 @@
   test "#magnitude", ->
     equals Point(3, 4).magnitude(), 5
 
+  test "#length", ->
+    equals Point(0, 0).length(), 0
+    equals Point(-1, 0).length(), 1
+
   test ".fromAngle", ->
     p = Point.fromAngle(Math.TAU / 4)
 
