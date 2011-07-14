@@ -115,7 +115,7 @@
     @type Number
     ###
     magnitude: ->
-      Point.distance(Point(0, 0), this)
+      this.length()
 
     ###*
     Returns the direction in radians of this point from the origin.
