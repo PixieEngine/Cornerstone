@@ -112,6 +112,13 @@
 
     ok Point(7, 6).equal(p1.floor())
 
+  test "#floor$", ->
+    p1 = Point(7.2, 6.9)
+
+    p1.floor$()
+
+    ok Point(7, 6).equal(p1)
+
   test "#equal", ->
     ok Point(7, 8).equal(Point(7, 8))
 
