@@ -50,7 +50,7 @@
       this.copy().add$(first, second)
 
     add$: (first, second) ->
-      if second
+      if second?
         this.x += first
         this.y += second
       else
