@@ -123,7 +123,13 @@
     @type Point
     ###
     floor: ->
-      Point(this.x.floor(), this.y.floor())
+      this.copy().floor$()
+
+    floor$: ->
+      this.x = this.x.floor()
+      this.y = this.y.floor()
+
+      this
 
     ###*
     Determine whether this point is equal to another point.
