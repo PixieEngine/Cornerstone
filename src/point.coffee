@@ -8,22 +8,18 @@
   @constructor
   ###
   Point = (x, y) ->
-    $.extend {
-      ###*
-      The x coordinate of this point.
-      @name x
-      @fieldOf Point#
-      ###
-      x: x || 0
-      ###*
-      The y coordinate of this point.
-      @name y
-      @fieldOf Point#
-      ###
-      y: y || 0
-    }, Point.instanceMethods
-
-  Point.instanceMethods =
+    ###*
+    The x coordinate of this point.
+    @name x
+    @fieldOf Point#
+    ###
+    x: x || 0
+    ###*
+    The y coordinate of this point.
+    @name y
+    @fieldOf Point#
+    ###
+    y: y || 0
     ###*
     Creates a copy of this point.
 
