@@ -50,13 +50,13 @@
       Point(this.x - other.x, this.y - other.y)
 
     ###*
-     * Scale this Point (Vector) by a constant amount.
-     * @name scale
-     * @methodOf Point#
-     *
-     * @param {Number} scalar The amount to scale this point by.
-     * @returns A new point, this * scalar.
-     * @type Point
+    Scale this Point (Vector) by a constant amount.
+    @name scale
+    @methodOf Point#
+
+    @param {Number} scalar The amount to scale this point by.
+    @returns A new point, this * scalar.
+    @type Point
     ###
     scale: (scalar) ->
       Point(this.x * scalar, this.y * scalar)
@@ -73,13 +73,13 @@
       Point(this.x.floor(), this.y.floor())
 
     ###*
-     * Determine whether this point is equal to another point.
-     * @name equal
-     * @methodOf Point#
-     *
-     * @param {Point} other The point to check for equality.
-     * @returns true if the other point has the same x, y coordinates, false otherwise.
-     * @type Boolean
+    Determine whether this point is equal to another point.
+    @name equal
+    @methodOf Point#
+
+    @param {Point} other The point to check for equality.
+    @returns true if the other point has the same x, y coordinates, false otherwise.
+    @type Boolean
     ###
     equal: (other) ->
       this.x == other.x && this.y == other.y
@@ -169,31 +169,32 @@
       Point.distance(this, other)
 
   ###*
-   * @param {Point} p1
-   * @param {Point} p2
-   * @type Number
-   * @returns The Euclidean distance between two points.
+  @param {Point} p1
+  @param {Point} p2
+  @type Number
+  @returns The Euclidean distance between two points.
   ###
   Point.distance = (p1, p2) ->
     Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2))
 
   ###*
-   * Construct a point on the unit circle for the given angle.
-   *
-   * @param {Number} angle The angle in radians
-   * @type Point
-   * @returns The point on the unit circle.
+  Construct a point on the unit circle for the given angle.
+
+  @param {Number} angle The angle in radians
+  @type Point
+  @returns The point on the unit circle.
   ###
   Point.fromAngle = (angle) ->
     Point(Math.cos(angle), Math.sin(angle))
 
   ###*
-   * If you have two dudes, one standing at point p1, and the other
-   * standing at point p2, then this method will return the direction
-   * that the dude standing at p1 will need to face to look at p2.
-   * @param {Point} p1 The starting point.
-   * @param {Point} p2 The ending point.
-   * @returns The direction from p1 to p2 in radians.
+  If you have two dudes, one standing at point p1, and the other
+  standing at point p2, then this method will return the direction
+  that the dude standing at p1 will need to face to look at p2.
+
+  @param {Point} p1 The starting point.
+  @param {Point} p2 The ending point.
+  @returns The direction from p1 to p2 in radians.
   ###
   Point.direction = (p1, p2) ->
     Math.atan2(
