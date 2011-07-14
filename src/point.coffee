@@ -7,7 +7,7 @@
   @param {Number} [y]
   @constructor
   ###
-  window.Point = (x, y) ->
+  Point = (x, y) ->
     ###*
     The x coordinate of this point.
     @name x
