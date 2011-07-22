@@ -3,10 +3,9 @@ window.Mouse = (() ->
     left:false
     right:false
     middle:false
-    location: Point(0,0)
-  
+
   buttons = [null, "left", "middle", "right"]
-  
+
   set_button = (index, state) ->
     button_name = buttons[index]
 
@@ -15,7 +14,7 @@ window.Mouse = (() ->
 
   $(document).mousedown (event) ->
     set_button event.which, true
-  
+
   $(document).mouseup (event) ->
     set_button event.which, false
 
@@ -24,7 +23,6 @@ window.Mouse = (() ->
     x = event.pageX
     y = event.pageY
 
-    Mouse.location = Point(x, y)
     Mouse.x = x
     Mouse.y = y
 
