@@ -301,7 +301,6 @@
   Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1)
 
   # Export to window
-  window["Point"] = $.noop #TODO: Figure out why things barf without this line
   window["Matrix"] = Matrix
 )()
 
