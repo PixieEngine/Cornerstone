@@ -112,7 +112,10 @@
       this.copy().norm$(length)
 
     norm$: (length=1.0) ->
-      this.scale$(length/this.length())
+      if m = this.length()
+        this.scale$(length/m)
+      else
+        this
 
     ###*
     Floor the x and y values, returning a new point.
