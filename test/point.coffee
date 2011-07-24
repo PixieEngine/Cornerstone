@@ -78,6 +78,12 @@
     normal = p.norm(5)    
     equals normal.x, 5
 
+    p = Point(0, 0)
+
+    normal = p.norm()
+    equals normal.x, 0, "x value of norm of point(0,0) is 0"
+    equals normal.y, 0, "y value of norm of point(0,0) is 0"
+
   test "#norm$", ->
     p = Point(6, 8)
 
