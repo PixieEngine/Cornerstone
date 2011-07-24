@@ -1188,7 +1188,7 @@ $(function() {
       http://mathworld.wolfram.com/MatrixMultiplication.html
       @name concat
       @methodOf Matrix#
-      
+    
       @param {Matrix} matrix The matrix to multiply this matrix by.
       @returns The result of the matrix multiplication, a new matrix.
       @type Matrix
@@ -1354,7 +1354,6 @@ $(function() {
   @fieldOf Matrix
   */
   Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1);
-  window["Point"] = $.noop;
   return window["Matrix"] = Matrix;
 })();;
 window.Mouse = (function() {
@@ -1362,8 +1361,7 @@ window.Mouse = (function() {
   Mouse = {
     left: false,
     right: false,
-    middle: false,
-    location: Point(0, 0)
+    middle: false
   };
   buttons = [null, "left", "middle", "right"];
   set_button = function(index, state) {
@@ -1383,7 +1381,6 @@ window.Mouse = (function() {
     var x, y;
     x = event.pageX;
     y = event.pageY;
-    Mouse.location = Point(x, y);
     Mouse.x = x;
     return Mouse.y = y;
   });
@@ -1778,10 +1775,15 @@ Checks whether an object is an array.
       return this.copy().norm$(length);
     },
     norm$: function(length) {
+      var m;
       if (length == null) {
         length = 1.0;
       }
-      return this.scale$(length / this.length());
+      if (m = this.length()) {
+        return this.scale$(length / m);
+      } else {
+        return this;
+      }
     },
     /**
     Floor the x and y values, returning a new point.
