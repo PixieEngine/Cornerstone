@@ -1341,19 +1341,19 @@ $(function() {
   @name IDENTITY
   @fieldOf Matrix
   */
-  Matrix.IDENTITY = Matrix();
+  Matrix.IDENTITY = Object.freeze(Matrix());
   /**
   A constant representing the horizontal flip transformation matrix.
   @name HORIZONTAL_FLIP
   @fieldOf Matrix
   */
-  Matrix.HORIZONTAL_FLIP = Matrix(-1, 0, 0, 1);
+  Matrix.HORIZONTAL_FLIP = Object.freeze(Matrix(-1, 0, 0, 1));
   /**
   A constant representing the vertical flip transformation matrix.
   @name VERTICAL_FLIP
   @fieldOf Matrix
   */
-  Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1);
+  Matrix.VERTICAL_FLIP = Object.freeze(Matrix(1, 0, 0, -1));
   return window["Matrix"] = Matrix;
 })();;
 window.Mouse = (function() {
@@ -1886,6 +1886,8 @@ Checks whether an object is an array.
       return Point.distance(this, other);
     }
     /**
+    @name distance
+    @methodOf Point
     @param {Point} p1
     @param {Point} p2
     @type Number
@@ -1897,6 +1899,9 @@ Checks whether an object is an array.
   };
   /**
   Construct a point on the unit circle for the given angle.
+  
+  @name fromAngle
+  @methodOf Point
   
   @param {Number} angle The angle in radians
   @type Point
@@ -1910,13 +1915,24 @@ Checks whether an object is an array.
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
   
+  @name direction
+  @methodOf Point
+  
   @param {Point} p1 The starting point.
   @param {Point} p2 The ending point.
+  @type Number
   @returns The direction from p1 to p2 in radians.
   */
   Point.direction = function(p1, p2) {
     return Math.atan2(p2.y - p1.y, p2.x - p1.x);
   };
+  /**
+  @name ZERO
+  @fieldOf Point
+  
+  @type Point
+  */
+  Point.ZERO = Object.freeze(Point());
   return window["Point"] = Point;
 })();;
 var __slice = Array.prototype.slice;
