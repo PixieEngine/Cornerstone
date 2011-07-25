@@ -219,6 +219,8 @@
       Point.distance(this, other)
 
   ###*
+  @name distance
+  @methodOf Point
   @param {Point} p1
   @param {Point} p2
   @type Number
@@ -229,6 +231,9 @@
 
   ###*
   Construct a point on the unit circle for the given angle.
+
+  @name fromAngle
+  @methodOf Point
 
   @param {Number} angle The angle in radians
   @type Point
@@ -242,8 +247,12 @@
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
 
+  @name direction
+  @methodOf Point
+
   @param {Point} p1 The starting point.
   @param {Point} p2 The ending point.
+  @type Number
   @returns The direction from p1 to p2 in radians.
   ###
   Point.direction = (p1, p2) ->
@@ -251,6 +260,14 @@
       p2.y - p1.y,
       p2.x - p1.x
     )
+
+  ###*
+  @name ZERO
+  @fieldOf Point
+
+  @type Point
+  ###
+  Point.ZERO = Object.freeze Point()
 
   window["Point"] = Point
 )()
