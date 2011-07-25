@@ -141,6 +141,15 @@
     equalEnough p.x, 0, TOLERANCE
     equals p.y, 1
 
+  test "ZERO is immutable", ->
+    zero= Point.ZERO
+
+    zero.x = 5
+    zero.y = 2
+
+    equals zero.x, 0
+    equals zero.y, 0
+
   module undefined
 )()
 
