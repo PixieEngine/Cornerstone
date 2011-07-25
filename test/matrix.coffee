@@ -131,6 +131,13 @@
 
     matrixEqual(m1, m2)
 
+  test "IDENTITY is immutable", ->
+    identity = Matrix.IDENTITY
+
+    identity.a = 5
+
+    equals identity.a, 1
+
   module undefined
 )()
 
