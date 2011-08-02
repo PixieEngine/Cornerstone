@@ -119,6 +119,30 @@ Number::sign = ->
     0
 
 ###*
+Returns true if this number is even (evenly divisible by 2).
+
+@name even
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an even integer, false otherwise.
+###
+Number::even = ->
+  this % 2 == 0
+
+###*
+Returns true if this number is odd (has remainder of 1 when divided by 2).
+
+@name odd
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an odd integer, false otherwise.
+###
+Number::odd = ->
+  this % 2 == 1
+
+###*
 Calls iterator the specified number of times, passing in the number of the 
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
