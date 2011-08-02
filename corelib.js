@@ -1356,36 +1356,6 @@ $(function() {
   Matrix.VERTICAL_FLIP = Object.freeze(Matrix(1, 0, 0, -1));
   return window["Matrix"] = Matrix;
 })();;
-window.Mouse = (function() {
-  var Mouse, buttons, set_button;
-  Mouse = {
-    left: false,
-    right: false,
-    middle: false
-  };
-  buttons = [null, "left", "middle", "right"];
-  set_button = function(index, state) {
-    var button_name;
-    button_name = buttons[index];
-    if (button_name) {
-      return Mouse[button_name] = state;
-    }
-  };
-  $(document).mousedown(function(event) {
-    return set_button(event.which, true);
-  });
-  $(document).mouseup(function(event) {
-    return set_button(event.which, false);
-  });
-  $(document).mousemove(function(event) {
-    var x, y;
-    x = event.pageX;
-    y = event.pageY;
-    Mouse.x = x;
-    return Mouse.y = y;
-  });
-  return Mouse;
-})();;
 /** 
 Returns the absolute value of this number.
 
@@ -1504,6 +1474,34 @@ Number.prototype.sign = function() {
     return -1;
   } else {
     return 0;
+  }
+};
+/**
+Returns true if this number is even (evenly divisible by 2).
+
+@name even
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an even integer, false otherwise.
+*/
+Number.prototype.even = function() {
+  return this % 2 === 0;
+};
+/**
+Returns true if this number is odd (has remainder of 1 when divided by 2).
+
+@name odd
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an odd integer, false otherwise.
+*/
+Number.prototype.odd = function() {
+  if (this > 0) {
+    return this % 2 === 1;
+  } else {
+    return this % 2 === -1;
   }
 };
 /**
