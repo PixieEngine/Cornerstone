@@ -27,6 +27,20 @@ test "#sign", ->
   equals (-3).sign(), -1, "Negative number's sign is -1"
   equals 0.sign(), 0, "Zero's sign is 0"
 
+test "#even", ->
+  [0, 2, -32].each (n) ->
+    ok n.even(), "#{n} is even"
+
+  [1, -1, 2.2, -3.784].each (n) ->
+    equals n.even(), false, "#{n} is not even"
+
+test "#odd", ->
+  [1, 9, -37].each (n) ->
+    ok n.odd(), "#{n} is odd"
+
+  [0, 32, 2.2, -1.1].each (n) ->
+    equals n.odd(), false, "#{n} is not odd"
+
 test "#times", ->
   n = 5
   equals n.times($.noop), n, "returns n"
