@@ -140,7 +140,10 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 @returns true if this number is an odd integer, false otherwise.
 ###
 Number::odd = ->
-  this % 2 == 1
+  if this > 0
+    this % 2 == 1
+  else
+    this % 2 == -1
 
 ###*
 Calls iterator the specified number of times, passing in the number of the 
