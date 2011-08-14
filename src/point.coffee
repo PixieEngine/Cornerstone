@@ -267,7 +267,10 @@
 
   @type Point
   ###
-  Point.ZERO = Object.freeze Point()
+  Point.ZERO = Point()
+
+  if Object.freeze
+    Object.freeze Point.ZERO
 
   window["Point"] = Point
 )()
