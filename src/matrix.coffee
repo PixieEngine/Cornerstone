@@ -284,21 +284,26 @@
   @name IDENTITY
   @fieldOf Matrix
   ###
-  Matrix.IDENTITY = Object.freeze Matrix()
+  Matrix.IDENTITY = Matrix()
 
   ###*
   A constant representing the horizontal flip transformation matrix.
   @name HORIZONTAL_FLIP
   @fieldOf Matrix
   ###
-  Matrix.HORIZONTAL_FLIP = Object.freeze Matrix(-1, 0, 0, 1)
+  Matrix.HORIZONTAL_FLIP = Matrix(-1, 0, 0, 1)
 
   ###*
   A constant representing the vertical flip transformation matrix.
   @name VERTICAL_FLIP
   @fieldOf Matrix
   ###
-  Matrix.VERTICAL_FLIP = Object.freeze Matrix(1, 0, 0, -1)
+  Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1)
+
+  if Object.freeze
+    Object.freeze Matrix.IDENTITY
+    Object.freeze Matrix.HORIZONTAL_FLIP
+    Object.freeze Matrix.VERTICAL_FLIP
 
   # Export to window
   window["Matrix"] = Matrix
