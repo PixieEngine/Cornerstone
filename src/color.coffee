@@ -77,7 +77,7 @@
   normalizeKey = (key) ->
     key.toString().toLowerCase().split(' ').join('')
 
-  window.Color = (args...) ->
+  (exports ? this)["Color"] = Color = (args...) ->
     color = args.first()
     # HAX: checking to see if we are passing in an instance of Color
     return Color(color.channels()) if color?.channels
@@ -2768,10 +2768,10 @@
   names.each (element) ->
     lookup[normalizeKey(element[1])] = parseHex(element[0])
 
-  window.Color.random = ->
+  Color.random = ->
     Color(rand(256), rand(256), rand(256), 1) 
 
-  window.Color.mix = (color1, color2, amount) ->
+  Color.mix = (color1, color2, amount) ->
     amount ||= 0.5
 
     new_colors = color1.channels().zip(color2.channels()).map (array) ->
