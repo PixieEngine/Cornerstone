@@ -138,6 +138,15 @@ Array::each = (iterator, context) ->
 
   return this
 
+Array::map ||= (iterator, context) ->
+  results = []
+
+  for element, i in this
+    results.push iterator.call(context, element, i, this)
+
+  results
+
+
 ###*
 Call the given iterator once for each pair of objects in the array.
 
