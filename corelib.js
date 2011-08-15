@@ -497,14 +497,9 @@ Array.prototype.zip = function() {
     return output;
   });
 };;
-window.requestAnimationFrame || (window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback, element) {
-  return window.setTimeout(function() {
-    return callback(+new Date());
-  }, 1000 / 60);
-});;
 var __slice = Array.prototype.slice;
 (function() {
-  var hslParser, hslToRgb, lookup, names, normalizeKey, parseHSL, parseHex, parseRGB, rgbParser, shiftLightness;
+  var Color, hslParser, hslToRgb, lookup, names, normalizeKey, parseHSL, parseHex, parseRGB, rgbParser, shiftLightness;
   rgbParser = /^rgba?\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),?\s*(\d?\.?\d*)?\)$/;
   hslParser = /^hsla?\((\d{1,3}),\s*(\d?\.?\d*),\s*(\d?\.?\d*),?\s*(\d?\.?\d*)?\)$/;
   parseHex = function(hexString) {
@@ -603,7 +598,7 @@ var __slice = Array.prototype.slice;
   normalizeKey = function(key) {
     return key.toString().toLowerCase().split(' ').join('');
   };
-  window.Color = function() {
+  (typeof exports !== "undefined" && exports !== null ? exports : this)["Color"] = Color = function() {
     var alpha, args, arr, channels, color, parsedColor, rgbMap, self;
     args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     color = args.first();
@@ -782,10 +777,10 @@ var __slice = Array.prototype.slice;
   names.each(function(element) {
     return lookup[normalizeKey(element[1])] = parseHex(element[0]);
   });
-  window.Color.random = function() {
+  Color.random = function() {
     return Color(rand(256), rand(256), rand(256), 1);
   };
-  return window.Color.mix = function(color1, color2, amount) {
+  return Color.mix = function(color1, color2, amount) {
     var new_colors;
     amount || (amount = 0.5);
     new_colors = color1.channels().zip(color2.channels()).map(function(array) {
@@ -862,21 +857,23 @@ Core = function(I) {
     @methodOf Core#
     */
     extend: function(options) {
-      var afterMethods, beforeMethods;
+      var afterMethods, beforeMethods, fn, name;
       afterMethods = options.after;
       beforeMethods = options.before;
       delete options.after;
       delete options.before;
-      $.extend(self, options);
+      Object.extend(self, options);
       if (beforeMethods) {
-        $.each(beforeMethods, function(name, fn) {
-          return self[name] = self[name].withBefore(fn);
-        });
+        for (name in beforeMethods) {
+          fn = beforeMethods[name];
+          self[name] = self[name].withBefore(fn);
+        }
       }
       if (afterMethods) {
-        $.each(afterMethods, function(name, fn) {
-          return self[name] = self[name].withAfter(fn);
-        });
+        for (name in afterMethods) {
+          fn = afterMethods[name];
+          self[name] = self[name].withAfter(fn);
+        }
       }
       return self;
     },
@@ -913,187 +910,16 @@ Function.prototype.withAfter = function(interception) {
     return result;
   };
 };;
-/**
- * jQuery Hotkeys Plugin
- * Copyright 2010, John Resig
- * Dual licensed under the MIT or GPL Version 2 licenses.
- *
- * Based upon the plugin by Tzury Bar Yochay:
- * http://github.com/tzuryby/hotkeys
- *
- * Original idea by:
- * Binny V A, http://www.openjs.com/scripts/events/keyboard_shortcuts/
-*/(function(jQuery) {
-  var keyHandler;
-  jQuery.hotkeys = {
-    version: "0.8",
-    specialKeys: {
-      8: "backspace",
-      9: "tab",
-      13: "return",
-      16: "shift",
-      17: "ctrl",
-      18: "alt",
-      19: "pause",
-      20: "capslock",
-      27: "esc",
-      32: "space",
-      33: "pageup",
-      34: "pagedown",
-      35: "end",
-      36: "home",
-      37: "left",
-      38: "up",
-      39: "right",
-      40: "down",
-      45: "insert",
-      46: "del",
-      96: "0",
-      97: "1",
-      98: "2",
-      99: "3",
-      100: "4",
-      101: "5",
-      102: "6",
-      103: "7",
-      104: "8",
-      105: "9",
-      106: "*",
-      107: "+",
-      109: "-",
-      110: ".",
-      111: "/",
-      112: "f1",
-      113: "f2",
-      114: "f3",
-      115: "f4",
-      116: "f5",
-      117: "f6",
-      118: "f7",
-      119: "f8",
-      120: "f9",
-      121: "f10",
-      122: "f11",
-      123: "f12",
-      144: "numlock",
-      145: "scroll",
-      186: ";",
-      187: "=",
-      188: ",",
-      189: "-",
-      190: ".",
-      191: "/",
-      219: "[",
-      220: "\\",
-      221: "]",
-      222: "'",
-      224: "meta"
-    },
-    shiftNums: {
-      "`": "~",
-      "1": "!",
-      "2": "@",
-      "3": "#",
-      "4": "$",
-      "5": "%",
-      "6": "^",
-      "7": "&",
-      "8": "*",
-      "9": "(",
-      "0": ")",
-      "-": "_",
-      "=": "+",
-      ";": ":",
-      "'": "\"",
-      ",": "<",
-      ".": ">",
-      "/": "?",
-      "\\": "|"
-    }
-  };
-  keyHandler = function(handleObj) {
-    var keys, origHandler;
-    if (typeof handleObj.data !== "string") {
-      return;
-    }
-    origHandler = handleObj.handler;
-    keys = handleObj.data.toLowerCase().split(" ");
-    return handleObj.handler = function(event) {
-      var character, key, modif, possible, special, _i, _len;
-      if (this !== event.target && (/textarea|select/i.test(event.target.nodeName) || event.target.type === "text" || event.target.type === "password")) {
-        return;
-      }
-      special = event.type !== "keypress" && jQuery.hotkeys.specialKeys[event.which];
-      character = String.fromCharCode(event.which).toLowerCase();
-      modif = "";
-      possible = {};
-      if (event.altKey && special !== "alt") {
-        modif += "alt+";
-      }
-      if (event.ctrlKey && special !== "ctrl") {
-        modif += "ctrl+";
-      }
-      if (event.metaKey && !event.ctrlKey && special !== "meta") {
-        modif += "meta+";
-      }
-      if (event.shiftKey && special !== "shift") {
-        modif += "shift+";
-      }
-      if (special) {
-        possible[modif + special] = true;
-      } else {
-        possible[modif + character] = true;
-        possible[modif + jQuery.hotkeys.shiftNums[character]] = true;
-        if (modif === "shift+") {
-          possible[jQuery.hotkeys.shiftNums[character]] = true;
-        }
-      }
-      for (_i = 0, _len = keys.length; _i < _len; _i++) {
-        key = keys[_i];
-        if (possible[key]) {
-          return origHandler.apply(this, arguments);
-        }
+["log", "info", "warn", "error"].each(function(name) {
+  if (typeof console !== "undefined") {
+    return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function(message) {
+      if (console[name]) {
+        return console[name](message);
       }
     };
-  };
-  return jQuery.each(["keydown", "keyup", "keypress"], function() {
-    return jQuery.event.special[this] = {
-      add: keyHandler
-    };
-  });
-})(jQuery);;
-/**
- * Merges properties from objects into target without overiding.
- * First come, first served.
- * @return target
-*/var __slice = Array.prototype.slice;
-jQuery.extend({
-  reverseMerge: function() {
-    var name, object, objects, target, _i, _len;
-    target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-    for (_i = 0, _len = objects.length; _i < _len; _i++) {
-      object = objects[_i];
-      for (name in object) {
-        if (!target.hasOwnProperty(name)) {
-          target[name] = object[name];
-        }
-      }
-    }
-    return target;
+  } else {
+    return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function() {};
   }
-});;
-$(function() {
-  return ["log", "info", "warn", "error"].each(function(name) {
-    if (typeof console !== "undefined") {
-      return window[name] = function(message) {
-        if (console[name]) {
-          return console[name](message);
-        }
-      };
-    } else {
-      return window[name] = $.noop;
-    }
-  });
 });;
 /**
 * Matrix.js v1.3.0pre
@@ -1341,20 +1167,25 @@ $(function() {
   @name IDENTITY
   @fieldOf Matrix
   */
-  Matrix.IDENTITY = Object.freeze(Matrix());
+  Matrix.IDENTITY = Matrix();
   /**
   A constant representing the horizontal flip transformation matrix.
   @name HORIZONTAL_FLIP
   @fieldOf Matrix
   */
-  Matrix.HORIZONTAL_FLIP = Object.freeze(Matrix(-1, 0, 0, 1));
+  Matrix.HORIZONTAL_FLIP = Matrix(-1, 0, 0, 1);
   /**
   A constant representing the vertical flip transformation matrix.
   @name VERTICAL_FLIP
   @fieldOf Matrix
   */
-  Matrix.VERTICAL_FLIP = Object.freeze(Matrix(1, 0, 0, -1));
-  return window["Matrix"] = Matrix;
+  Matrix.VERTICAL_FLIP = Matrix(1, 0, 0, -1);
+  if (Object.freeze) {
+    Object.freeze(Matrix.IDENTITY);
+    Object.freeze(Matrix.HORIZONTAL_FLIP);
+    Object.freeze(Matrix.VERTICAL_FLIP);
+  }
+  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Matrix"] = Matrix;
 })();;
 /** 
 Returns the absolute value of this number.
@@ -1653,8 +1484,53 @@ Checks whether an object is an array.
 @param {Object} object The object to check for array-ness.
 @type Boolean
 @returns A boolean expressing whether the object is an instance of Array 
-*/Object.isArray = function(object) {
+*/var __slice = Array.prototype.slice;
+Object.isArray = function(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
+};
+/**
+Merges properties from objects into target without overiding.
+First come, first served.
+@name reverseMerge
+@methodOf Object
+
+@param {Object} target The object to merge the properties into.
+@type Object
+@returns target
+*/
+Object.reverseMerge = function() {
+  var name, object, objects, target, _i, _len;
+  target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  for (_i = 0, _len = objects.length; _i < _len; _i++) {
+    object = objects[_i];
+    for (name in object) {
+      if (!target.hasOwnProperty(name)) {
+        target[name] = object[name];
+      }
+    }
+  }
+  return target;
+};
+/**
+Merges properties from sources into target with overiding.
+Last in covers earlier properties.
+@name extend
+@methodOf Object
+
+@param {Object} target The object to merge the properties into.
+@type Object
+@returns target
+*/
+Object.extend = function() {
+  var name, source, sources, target, _i, _len;
+  target = arguments[0], sources = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  for (_i = 0, _len = sources.length; _i < _len; _i++) {
+    source = sources[_i];
+    for (name in source) {
+      target[name] = source[name];
+    }
+  }
+  return target;
 };;
 (function() {
   /**
@@ -1930,314 +1806,24 @@ Checks whether an object is an array.
   
   @type Point
   */
-  Point.ZERO = Object.freeze(Point());
-  return window["Point"] = Point;
+  Point.ZERO = Point();
+  if (Object.freeze) {
+    Object.freeze(Point.ZERO);
+  }
+  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Point"] = Point;
 })();;
-var __slice = Array.prototype.slice;
-(function($) {
-  return $.fn.powerCanvas = function(options) {
-    var $canvas, canvas, context;
-    options || (options = {});
-    canvas = this.get(0);
-    context = void 0;
-    /**
-    * PowerCanvas provides a convenient wrapper for working with Context2d.
-    * @name PowerCanvas
-    * @constructor
-    */
-    $canvas = $(canvas).extend((function() {
-      /**
-       * Passes this canvas to the block with the given matrix transformation
-       * applied. All drawing methods called within the block will draw
-       * into the canvas with the transformation applied. The transformation
-       * is removed at the end of the block, even if the block throws an error.
-       *
-       * @name withTransform
-       * @methodOf PowerCanvas#
-       *
-       * @param {Matrix} matrix
-       * @param {Function} block
-       * @returns this
-      */
-    })(), {
-      withTransform: function(matrix, block) {
-        context.save();
-        context.transform(matrix.a, matrix.b, matrix.c, matrix.d, matrix.tx, matrix.ty);
-        try {
-          block(this);
-        } finally {
-          context.restore();
-        }
-        return this;
-      },
-      clear: function() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        return this;
-      },
-      clearRect: function(x, y, width, height) {
-        context.clearRect(x, y, width, height);
-        return this;
-      },
-      context: function() {
-        return context;
-      },
-      element: function() {
-        return canvas;
-      },
-      globalAlpha: function(newVal) {
-        if (newVal != null) {
-          context.globalAlpha = newVal;
-          return this;
-        } else {
-          return context.globalAlpha;
-        }
-      },
-      compositeOperation: function(newVal) {
-        if (newVal != null) {
-          context.globalCompositeOperation = newVal;
-          return this;
-        } else {
-          return context.globalCompositeOperation;
-        }
-      },
-      createLinearGradient: function(x0, y0, x1, y1) {
-        return context.createLinearGradient(x0, y0, x1, y1);
-      },
-      createRadialGradient: function(x0, y0, r0, x1, y1, r1) {
-        return context.createRadialGradient(x0, y0, r0, x1, y1, r1);
-      },
-      buildRadialGradient: function(c1, c2, stops) {
-        var color, gradient, position;
-        gradient = context.createRadialGradient(c1.x, c1.y, c1.radius, c2.x, c2.y, c2.radius);
-        for (position in stops) {
-          color = stops[position];
-          gradient.addColorStop(position, color);
-        }
-        return gradient;
-      },
-      createPattern: function(image, repitition) {
-        return context.createPattern(image, repitition);
-      },
-      drawImage: function(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
-        context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-        return this;
-      },
-      drawLine: function(x1, y1, x2, y2, width) {
-        if (arguments.length === 3) {
-          width = x2;
-          x2 = y1.x;
-          y2 = y1.y;
-          y1 = x1.y;
-          x1 = x1.x;
-        }
-        width || (width = 3);
-        context.lineWidth = width;
-        context.beginPath();
-        context.moveTo(x1, y1);
-        context.lineTo(x2, y2);
-        context.closePath();
-        context.stroke();
-        return this;
-      },
-      fill: function(color) {
-        $canvas.fillColor(color);
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        return this;
-      }
-    }, (function() {
-      /**
-       * Fills a circle at the specified position with the specified
-       * radius and color.
-       *
-       * @name fillCircle
-       * @methodOf PowerCanvas#
-       *
-       * @param {Number} x
-       * @param {Number} y
-       * @param {Number} radius
-       * @param {Number} color
-       * @see PowerCanvas#fillColor 
-       * @returns this
-      */
-    })(), {
-      fillCircle: function(x, y, radius, color) {
-        $canvas.fillColor(color);
-        context.beginPath();
-        context.arc(x, y, radius, 0, Math.TAU, true);
-        context.closePath();
-        context.fill();
-        return this;
-      }
-    }, (function() {
-      /**
-       * Fills a rectangle with the current fillColor
-       * at the specified position with the specified
-       * width and height 
-      
-       * @name fillRect
-       * @methodOf PowerCanvas#
-       *
-       * @param {Number} x
-       * @param {Number} y
-       * @param {Number} width
-       * @param {Number} height
-       * @see PowerCanvas#fillColor 
-       * @returns this
-      */
-    })(), {
-      fillRect: function(x, y, width, height) {
-        context.fillRect(x, y, width, height);
-        return this;
-      },
-      fillShape: function() {
-        var points;
-        points = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-        context.beginPath();
-        points.each(function(point, i) {
-          if (i === 0) {
-            return context.moveTo(point.x, point.y);
-          } else {
-            return context.lineTo(point.x, point.y);
-          }
-        });
-        context.lineTo(points[0].x, points[0].y);
-        return context.fill();
-      }
-    }, (function() {
-      /**
-      * Adapted from http://js-bits.blogspot.com/2010/07/canvas-rounded-corner-rectangles.html
-      */
-    })(), {
-      fillRoundRect: function(x, y, width, height, radius, strokeWidth) {
-        radius || (radius = 5);
-        context.beginPath();
-        context.moveTo(x + radius, y);
-        context.lineTo(x + width - radius, y);
-        context.quadraticCurveTo(x + width, y, x + width, y + radius);
-        context.lineTo(x + width, y + height - radius);
-        context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-        context.lineTo(x + radius, y + height);
-        context.quadraticCurveTo(x, y + height, x, y + height - radius);
-        context.lineTo(x, y + radius);
-        context.quadraticCurveTo(x, y, x + radius, y);
-        context.closePath();
-        if (strokeWidth) {
-          context.lineWidth = strokeWidth;
-          context.stroke();
-        }
-        context.fill();
-        return this;
-      },
-      fillText: function(text, x, y) {
-        context.fillText(text, x, y);
-        return this;
-      },
-      centerText: function(text, y) {
-        var textWidth;
-        textWidth = $canvas.measureText(text);
-        return $canvas.fillText(text, (canvas.width - textWidth) / 2, y);
-      },
-      fillWrappedText: function(text, x, y, width) {
-        var lineHeight, tokens, tokens2;
-        tokens = text.split(" ");
-        tokens2 = text.split(" ");
-        lineHeight = 16;
-        if ($canvas.measureText(text) > width) {
-          if (tokens.length % 2 === 0) {
-            tokens2 = tokens.splice(tokens.length / 2, tokens.length / 2, "");
-          } else {
-            tokens2 = tokens.splice(tokens.length / 2 + 1, (tokens.length / 2) + 1, "");
-          }
-          context.fillText(tokens.join(" "), x, y);
-          return context.fillText(tokens2.join(" "), x, y + lineHeight);
-        } else {
-          return context.fillText(tokens.join(" "), x, y + lineHeight);
-        }
-      },
-      fillColor: function(color) {
-        if (color) {
-          if (color.channels) {
-            context.fillStyle = color.toString();
-          } else {
-            context.fillStyle = color;
-          }
-          return this;
-        } else {
-          return context.fillStyle;
-        }
-      },
-      font: function(font) {
-        if (font != null) {
-          context.font = font;
-          return this;
-        } else {
-          return context.font;
-        }
-      },
-      measureText: function(text) {
-        return context.measureText(text).width;
-      },
-      putImageData: function(imageData, x, y) {
-        context.putImageData(imageData, x, y);
-        return this;
-      },
-      strokeColor: function(color) {
-        if (color) {
-          if (color.channels) {
-            context.strokeStyle = color.toString();
-          } else {
-            context.strokeStyle = color;
-          }
-          return this;
-        } else {
-          return context.strokeStyle;
-        }
-      },
-      strokeCircle: function(x, y, radius, color) {
-        $canvas.strokeColor(color);
-        context.beginPath();
-        context.arc(x, y, radius, 0, Math.TAU, true);
-        context.closePath();
-        context.stroke();
-        return this;
-      },
-      strokeRect: function(x, y, width, height) {
-        context.strokeRect(x, y, width, height);
-        return this;
-      },
-      textAlign: function(textAlign) {
-        context.textAlign = textAlign;
-        return this;
-      },
-      height: function() {
-        return canvas.height;
-      },
-      width: function() {
-        return canvas.width;
-      }
-    });
-    if (canvas != null ? canvas.getContext : void 0) {
-      context = canvas.getContext('2d');
-      if (options.init) {
-        options.init($canvas);
-      }
-      return $canvas;
-    }
-  };
-})(jQuery);;
-(function($) {
+(function() {
   /**
   @name Random
   @namespace Some useful methods for generating random things.
-  */  window.Random = $.extend(window.Random, (function() {
+  */  (typeof exports !== "undefined" && exports !== null ? exports : this)["Random"] = {
     /**
-    Returns a random angle, uniformly distributed, between 0 and 2pi.
+      Returns a random angle, uniformly distributed, between 0 and 2pi.
     
-    @name angle
-    @methodOf Random
-    @type Number
-    */
-  })(), {
+      @name angle
+      @methodOf Random
+      @type Number
+      */
     angle: function() {
       return rand() * Math.TAU;
     },
@@ -2250,26 +1836,26 @@ var __slice = Array.prototype.slice;
     sometimes: function() {
       return !rand(3);
     }
-  });
-  /**
-  Returns random integers from [0, n) if n is given.
-  Otherwise returns random float between 0 and 1.
-  
-  @name rand
-  @methodOf window
-  
-  @param {Number} n
-  @type Number
-  */
-  return window.rand = function(n) {
+    /**
+    Returns random integers from [0, n) if n is given.
+    Otherwise returns random float between 0 and 1.
+    
+    @name rand
+    @methodOf window
+    
+    @param {Number} n
+    @type Number
+    */
+  };
+  return (typeof exports !== "undefined" && exports !== null ? exports : this)["rand"] = function(n) {
     if (n) {
       return Math.floor(n * Math.random());
     } else {
       return Math.random();
     }
   };
-})(jQuery);;
-(function($) {
+})();;
+(function() {
   /**
   @name Local
   @namespace
@@ -2306,11 +1892,10 @@ var __slice = Array.prototype.slice;
       return JSON.parse(value);
     }
   };
-  return window.Local = $.extend(window.Local, {
+  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Local"] = {
     get: retrieve,
     set: store,
-    put: store
-  }, (function() {
+    put: store,
     /**
     Access an instance of Local with a specified prefix.
     
@@ -2321,7 +1906,6 @@ var __slice = Array.prototype.slice;
     @type Local
     @returns An interface to local storage with the given prefix applied.
     */
-  })(), {
     "new": function(prefix) {
       prefix || (prefix = "");
       return {
@@ -2336,8 +1920,8 @@ var __slice = Array.prototype.slice;
         }
       };
     }
-  });
-})(jQuery);;
+  };
+})();;
 /**
 Returns true if this string only contains whitespace characters.
 
