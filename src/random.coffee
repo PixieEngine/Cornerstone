@@ -1,9 +1,9 @@
-( ($) ->
+( ->
   ###*
   @name Random
   @namespace Some useful methods for generating random things.
   ###
-  window.Random = $.extend window.Random,
+  (exports ? this)["Random"] =
     ###*
     Returns a random angle, uniformly distributed, between 0 and 2pi.
 
@@ -30,11 +30,11 @@
   @param {Number} n
   @type Number
   ###
-  window.rand = (n) -> 
+  (exports ? this)["rand"] = (n) -> 
     if n
       Math.floor(n * Math.random())
     else
       Math.random()
 
-)(jQuery)
+)()
 
