@@ -1,4 +1,4 @@
-( ($) ->
+( ->
   ###*
   @name Local
   @namespace
@@ -36,7 +36,8 @@
     if value?
       JSON.parse(value)
 
-  window.Local = $.extend window.Local,
+  # Export
+  (exports ? this)["Local"] =
     get: retrieve
     set: store
     put: store
@@ -60,5 +61,5 @@
       put: (key, value) ->
         store("#{prefix}_key", value)
 
-)(jQuery)
+)()
 
