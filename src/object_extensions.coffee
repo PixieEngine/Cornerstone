@@ -28,3 +28,20 @@ Object.reverseMerge = (target, objects...) ->
 
   return target
 
+###*
+Merges properties from sources into target with overiding.
+Last in covers earlier properties.
+@name extend
+@methodOf Object
+
+@param {Object} target The object to merge the properties into.
+@type Object
+@returns target
+###
+Object.extend = (target, sources...) ->
+  for source in sources
+    for name of source
+      target[name] = source[name]
+
+  return target
+
