@@ -147,6 +147,15 @@ Array.prototype.each = function(iterator, context) {
   }
   return this;
 };
+Array.prototype.map || (Array.prototype.map = function(iterator, context) {
+  var element, i, results, _len;
+  results = [];
+  for (i = 0, _len = this.length; i < _len; i++) {
+    element = this[i];
+    results.push(iterator.call(context, element, i, this));
+  }
+  return results;
+});
 /**
 Call the given iterator once for each pair of objects in the array.
 
