@@ -64,14 +64,14 @@ Core = (I) ->
       delete options.after
       delete options.before
 
-      $.extend self, options
+      Object.extend self, options
 
       if beforeMethods
-        $.each beforeMethods, (name, fn) ->
+        for name, fn of beforeMethods
           self[name] = self[name].withBefore(fn)
 
       if afterMethods
-        $.each afterMethods, (name, fn) ->
+        for name, fn of afterMethods
           self[name] = self[name].withAfter(fn)
 
       return self
