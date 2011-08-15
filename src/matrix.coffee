@@ -306,6 +306,6 @@
     Object.freeze Matrix.VERTICAL_FLIP
 
   # Export to window
-  window["Matrix"] = Matrix
+  (exports ? this)["Matrix"] = Matrix
 )()
 
