@@ -272,6 +272,6 @@
   if Object.freeze
     Object.freeze Point.ZERO
 
-  window["Point"] = Point
+  (exports ? this)["Point"] = Point
 )()
 
