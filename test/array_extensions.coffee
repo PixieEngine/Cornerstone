@@ -79,9 +79,9 @@ test "#eachWithObject", ->
   result = array.eachWithObject {}, (element, hash) ->
     hash[element] = (element + 1).toString()
 
-  equal result[1], "2"
-  equal result[2], "3"
-  equal result[3], "4"
+  equals result[1], "2"
+  equals result[2], "3"
+  equals result[3], "4"
 
 test "#shuffle", ->
   array = [0, 1, 2, 3, 4, 5]
