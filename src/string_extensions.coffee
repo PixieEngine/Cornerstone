@@ -78,7 +78,7 @@ is not valid JSON returns the string itself.
 ###
 String::parse = () ->
   try
-    JSON.parse(this)
+    JSON.parse(this.toString())
   catch e
     this.toString()
 
