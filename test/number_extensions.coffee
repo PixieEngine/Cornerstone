@@ -43,7 +43,7 @@ test "#odd", ->
 
 test "#times", ->
   n = 5
-  equals n.times($.noop), n, "returns n"
+  equals n.times(->), n, "returns n"
 
 test "#times called correct amount", ->
   n = 5
