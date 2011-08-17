@@ -1724,7 +1724,7 @@ is not valid JSON returns the string itself.
 */
 String.prototype.parse = function() {
   try {
-    return JSON.parse(this);
+    return JSON.parse(this.toString());
   } catch (e) {
     return this.toString();
   }
