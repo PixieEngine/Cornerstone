@@ -507,6 +507,72 @@ Array.prototype.zip = function() {
   });
 };;
 /**
+Bindable module
+@name Bindable
+@module
+@constructor
+*/var Bindable;
+var __slice = Array.prototype.slice;
+Bindable = function() {
+  var eventCallbacks;
+  eventCallbacks = {};
+  return {
+    /**
+    The bind method adds a function as an event listener.
+    
+    @name bind
+    @methodOf Bindable#
+    
+    @param {String} event The event to listen to.
+    @param {Function} callback The function to be called when the specified event
+    is triggered.
+    */
+    bind: function(event, callback) {
+      eventCallbacks[event] = eventCallbacks[event] || [];
+      return eventCallbacks[event].push(callback);
+    },
+    /**
+    The unbind method removes a specific event listener, or all event listeners if
+    no specific listener is given.
+    
+    @name unbind
+    @methodOf Bindable#
+    
+    @param {String} event The event to remove the listener from.
+    @param {Function} [callback] The listener to remove.
+    */
+    unbind: function(event, callback) {
+      eventCallbacks[event] = eventCallbacks[event] || [];
+      if (callback) {
+        return eventCallbacks[event].remove(callback);
+      } else {
+        return eventCallbacks[event] = [];
+      }
+    },
+    /**
+    The trigger method calls all listeners attached to the specified event.
+    
+    @name trigger
+    @methodOf Bindable#
+    
+    @param {String} event The event to trigger.
+    @param {Array} [parameters] Additional parameters to pass to the event listener.
+    */
+    trigger: function() {
+      var callbacks, event, parameters, self;
+      event = arguments[0], parameters = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      callbacks = eventCallbacks[event];
+      if (callbacks && callbacks.length) {
+        self = this;
+        return callbacks.each(function(callback) {
+          return callback.apply(self, parameters);
+        });
+      }
+    }
+  };
+};
+(typeof exports !== "undefined" && exports !== null ? exports : this)["Bindable"] = Bindable;;
+/**
 The Core class is used to add extended functionality to objects without
 extending the object class directly. Inherit from Core to gain its utility
 methods.
