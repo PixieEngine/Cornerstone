@@ -53,6 +53,12 @@ test "#times called correct amount", ->
 
   equals n, count, "returns n"
 
+test "#constrainRotation", ->
+  equals (Math.PI * 5).constrainRotation(), Math.PI
+  equals (-Math.PI * 5).constrainRotation(), -Math.PI
+
+  equals (Math.TAU/4 * 5).constrainRotation(), Math.TAU/4
+  equals (Math.TAU/4 * 3).constrainRotation(), -Math.TAU/4
 
 test "#mod should have a positive result when used with a positive base and a negative number", ->
   n = -3
