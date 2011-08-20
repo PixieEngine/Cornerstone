@@ -267,7 +267,7 @@ Number::constrainRotation = ->
     target -= Math.TAU
 
   while target < -Math.PI
-    target += MATH.TAU
+    target += Math.TAU
 
   return target
 
