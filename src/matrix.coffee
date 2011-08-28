@@ -102,12 +102,12 @@
     ###
     concat: (matrix) ->
       Matrix(
-        this.a * matrix.a + this.c * matrix.b,
-        this.b * matrix.a + this.d * matrix.b,
-        this.a * matrix.c + this.c * matrix.d,
-        this.b * matrix.c + this.d * matrix.d,
-        this.a * matrix.tx + this.c * matrix.ty + this.tx,
-        this.b * matrix.tx + this.d * matrix.ty + this.ty
+        @a * matrix.a + @c * matrix.b,
+        @b * matrix.a + @d * matrix.b,
+        @a * matrix.c + @c * matrix.d,
+        @b * matrix.c + @d * matrix.d,
+        @a * matrix.tx + @c * matrix.ty + @tx,
+        @b * matrix.tx + @d * matrix.ty + @ty
       )
 
     ###*
@@ -124,8 +124,8 @@
     ###
     deltaTransformPoint: (point) ->
       Point(
-        this.a * point.x + this.c * point.y,
-        this.b * point.x + this.d * point.y
+        @a * point.x + @c * point.y,
+        @b * point.x + @d * point.y
       )
 
     ###*
@@ -138,15 +138,15 @@
     @type Matrix
     ###
     inverse: ->
-      determinant = this.a * this.d - this.b * this.c
+      determinant = @a * @d - @b * @c
 
       Matrix(
-        this.d / determinant,
-        -this.b / determinant,
-        -this.c / determinant,
-        this.a / determinant,
-        (this.c * this.ty - this.d * this.tx) / determinant,
-        (this.b * this.tx - this.a * this.ty) / determinant
+        @d / determinant,
+        -@b / determinant,
+        -@c / determinant,
+        @a / determinant,
+        (@c * @ty - @d * @tx) / determinant,
+        (@b * @tx - @a * @ty) / determinant
       )
 
     ###*
@@ -162,7 +162,7 @@
     @type Matrix
     ###
     rotate: (theta, aboutPoint) ->
-      this.concat(Matrix.rotation(theta, aboutPoint))
+      @concat(Matrix.rotation(theta, aboutPoint))
 
     ###*
     Returns a new matrix that corresponds this matrix multiplied by a
@@ -177,7 +177,7 @@
     @type Matrix
     ###
     scale: (sx, sy, aboutPoint) ->
-      this.concat(Matrix.scale(sx, sy, aboutPoint))
+      @concat(Matrix.scale(sx, sy, aboutPoint))
 
     ###*
     Returns the result of applying the geometric transformation represented by the 
@@ -191,8 +191,8 @@
     ###
     transformPoint: (point) ->
       Point(
-        this.a * point.x + this.c * point.y + this.tx,
-        this.b * point.x + this.d * point.y + this.ty
+        @a * point.x + @c * point.y + @tx,
+        @b * point.x + @d * point.y + @ty
       )
 
     ###*
@@ -207,7 +207,7 @@
     @type Matrix
     ###
     translate: (tx, ty) ->
-      this.concat(Matrix.translation(tx, ty))
+      @concat(Matrix.translation(tx, ty))
 
 
   ###*
