@@ -47,15 +47,15 @@
     @type Point
     ###
     add: (first, second) ->
-      this.copy().add$(first, second)
+      @copy().add$(first, second)
 
     add$: (first, second) ->
       if second?
-        this.x += first
-        this.y += second
+        @x += first
+        @y += second
       else
-        this.x += first.x
-        this.y += first.y
+        @x += first.x
+        @y += first.y
 
       this
 
@@ -69,15 +69,15 @@
     @type Point
     ###
     subtract: (first, second) ->
-      this.copy().subtract$(first, second)
+      @copy().subtract$(first, second)
 
     subtract$: (first, second) ->
       if second?
-        this.x -= first
-        this.y -= second
+        @x -= first
+        @y -= second
       else
-        this.x -= first.x
-        this.y -= first.y
+        @x -= first.x
+        @y -= first.y
 
       this
 
@@ -91,11 +91,11 @@
     @type Point
     ###
     scale: (scalar) ->
-      this.copy().scale$(scalar)
+      @copy().scale$(scalar)
 
     scale$: (scalar) ->
-      this.x *= scalar
-      this.y *= scalar
+      @x *= scalar
+      @y *= scalar
 
       this
 
@@ -109,11 +109,11 @@
     @type Point
     ###
     norm: (length=1.0) ->
-      this.copy().norm$(length)
+      @copy().norm$(length)
 
     norm$: (length=1.0) ->
       if m = this.length()
-        this.scale$(length/m)
+        @scale$(length/m)
       else
         this
 
@@ -126,11 +126,11 @@
     @type Point
     ###
     floor: ->
-      this.copy().floor$()
+      @copy().floor$()
 
     floor$: ->
-      this.x = this.x.floor()
-      this.y = this.y.floor()
+      @x = @x.floor()
+      @y = @y.floor()
 
       this
 
@@ -144,7 +144,7 @@
     @type Boolean
     ###
     equal: (other) ->
-      this.x == other.x && this.y == other.y
+      @x == other.x && @y == other.y
 
     ###*
     Computed the length of this point as though it were a vector from (0,0) to (x,y)
@@ -155,7 +155,7 @@
     @type Number
     ###
     length: ->
-      Math.sqrt(this.dot(this))
+      Math.sqrt(@dot(this))
 
     ###*
     Calculate the magnitude of this Point (Vector).
@@ -166,7 +166,7 @@
     @type Number
     ###
     magnitude: ->
-      this.length()
+      @length()
 
     ###*
     Returns the direction in radians of this point from the origin.
@@ -176,7 +176,7 @@
     @type Number
     ###
     direction: ->
-      Math.atan2(this.y, this.x)
+      Math.atan2(@y, @x)
 
     ###*
     Calculate the dot product of this point and another point (Vector).
@@ -188,7 +188,7 @@
     @type Number
     ###
     dot: (other) ->
-      this.x * other.x + this.y * other.y
+      @x * other.x + @y * other.y
 
     ###*
     Calculate the cross product of this point and another point (Vector). 
@@ -204,7 +204,7 @@
     @type Number
     ###
     cross: (other) ->
-      this.x * other.y - other.x * this.y
+      @x * other.y - other.x * @y
 
     ###*
     Computed the Euclidean between this point and another point.
