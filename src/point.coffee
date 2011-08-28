@@ -57,7 +57,7 @@
         @x += first.x
         @y += first.y
 
-      this
+      return this
 
     ###*
     Subtracts a point to this one and returns the new point.
@@ -79,7 +79,7 @@
         @x -= first.x
         @y -= first.y
 
-      this
+      return this
 
     ###*
     Scale this Point (Vector) by a constant amount.
@@ -97,7 +97,7 @@
       @x *= scalar
       @y *= scalar
 
-      this
+      return this
 
     ###*
     The norm of a vector is the unit vector pointing in the same direction. This method
@@ -132,7 +132,7 @@
       @x = @x.floor()
       @y = @y.floor()
 
-      this
+      return this
 
     ###*
     Determine whether this point is equal to another point.
