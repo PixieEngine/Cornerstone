@@ -33,7 +33,7 @@
     @type Point
     ###
     copy: ->
-      Point(this.x, this.y)
+      Point(@x, @y)
 
     ###*
     Adds a point to this one and returns the new point. You may
@@ -112,7 +112,7 @@
       @copy().norm$(length)
 
     norm$: (length=1.0) ->
-      if m = this.length()
+      if m = @length()
         @scale$(length/m)
       else
         this
