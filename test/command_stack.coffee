@@ -1,5 +1,15 @@
 module "CommandStack"
 
+test "undo on an empty stack returns undefined", ->
+  commandStack = CommandStack()
+
+  equals commandStack.undo(), undefined
+
+test "redo on an empty stack returns undefined", ->
+  commandStack = CommandStack()
+
+  equals commandStack.redo(), undefined
+
 test "executes commands", 1, ->
   command =
     execute: ->
@@ -31,6 +41,21 @@ test "can redo", 2, ->
 
   commandStack.undo()
   commandStack.redo()
+
+test "executes redone command once on redo", 4, ->
+  command =
+    execute: ->
+      ok true, "command executed"
+    undo: ->
+
+  commandStack = CommandStack()
+  commandStack.execute command
+
+  commandStack.undo()
+  commandStack.redo()
+
+  equals commandStack.redo(), undefined
+  equals commandStack.redo(), undefined
 
 test "command is returned when undone", ->
   command =
