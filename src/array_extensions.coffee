@@ -166,7 +166,7 @@ Array::include = (element) ->
 ###*
 Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and this array as the
+the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
@@ -190,7 +190,7 @@ third argument.
 @param {Function} iterator Function to be called once for 
 each element in the array.
 @param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
+used as <code>this</code> when calling the iterator function.
 
 @type Array
 @returns this to enable method chaining.
@@ -207,7 +207,7 @@ Array::each = (iterator, context) ->
 ###*
 Call the given iterator once for each element in the array, 
 passing in the element as the first argument, the index of 
-the element as the second argument, and this array as the
+the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
@@ -222,7 +222,7 @@ third argument.
 @param {Function} iterator Function to be called once for
 each element in the array.
 @param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
+used as <code>this</code> when calling the iterator function.
 @type Array
 @returns An array of the results of the iterator function
 being called on the original array elements.
