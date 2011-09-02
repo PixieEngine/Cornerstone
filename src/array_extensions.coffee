@@ -302,12 +302,12 @@ passing in the elements in groups of n. Additional argumens are
 passed as in <code>each</each>.
 
 <code><pre>
-  results = []
-  [1, 2, 3, 4].eachSlice 2, (slice) ->
-    results.push(slice)
+   results = []
+   [1, 2, 3, 4].eachSlice 2, (slice) ->
+     results.push(slice)
 => [1, 2, 3, 4]
 
-  results
+   results
 => [[1, 2], [3, 4]] 
 </pre></code>
 
@@ -356,7 +356,7 @@ Array::shuffle = ->
 Returns the first element of the array, undefined if the array is empty.
 
 <code><pre>
-  ["first", "second", "third"].first()
+   ["first", "second", "third"].first()
 => "first"
 </pre></code>
 
@@ -390,7 +390,7 @@ Array::last = ->
 Returns an object containing the extremes of this array.
 
 <code><pre>
-  [-1, 3, 0].extremes()
+   [-1, 3, 0].extremes()
 => {min: -1, max: 3}
 </pre></code>
 
@@ -434,6 +434,17 @@ Array::extremes = (fn) ->
 Pretend the array is a circle and grab a new array containing length elements. 
 If length is not given return the element at start, again assuming the array 
 is a circle.
+
+<code><pre>
+   [1, 2, 3].wrap(-1) 
+=> 3
+
+   [1, 2, 3].wrap(6) 
+=> 1
+
+   ["l", "o", "o", "p"].wrap(0, 16) 
+=> ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
+</pre></code>
 
 @name wrap
 @methodOf Array#
