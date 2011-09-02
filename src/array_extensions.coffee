@@ -119,7 +119,16 @@ Array::rand = ->
 
 ###*
 Remove the first occurrence of the given object from the array if it is
-present.
+present. The array is modified in place.
+
+<code><pre>
+   a = [1, 1, "a", "b"] 
+   a.remove(1) 
+=> 1
+
+   a
+=> [1, "a", "b"]
+</pre></code>
 
 @name remove
 @methodOf Array#
