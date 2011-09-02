@@ -478,7 +478,7 @@ true, and those for which it returns false.
 
 @param {Function} iterator
 @param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
+used as <code>this</code> when calling the iterator function.
 
 @type Array
 @returns An array in the form of [trueCollection, falseCollection]
