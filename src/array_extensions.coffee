@@ -23,11 +23,9 @@ the same objects.
    a = ["a", "b", "c"]
    b = a.copy()
 
-   # their elements are equal
    a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
 => true
 
-   # but they aren't the same object in memory
    a === b
 => false
 </pre></code>
@@ -67,7 +65,6 @@ Flatten out an array of arrays into a single array of elements.
    [[1, 2], [3, 4], 5].flatten()
 => [1, 2, 3, 4, 5]
 
-   # won't flatten twice nested arrays. You can call it twice for that.
    [[1, 2], [3, [4, 5]], 6].flatten()
 => [1, 2, 3, [4, 5], 6]   
 </pre></code>
@@ -166,7 +163,7 @@ Array::include = (element) ->
 ###*
 Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and <code>this</code> array as the
+the element as the second argument, and `this` array as the
 third argument.
 
 <code><pre>
@@ -190,7 +187,7 @@ third argument.
 @param {Function} iterator Function to be called once for 
 each element in the array.
 @param {Object} [context] Optional context parameter to be 
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 
 @type Array
 @returns this to enable method chaining.
@@ -207,7 +204,7 @@ Array::each = (iterator, context) ->
 ###*
 Call the given iterator once for each element in the array, 
 passing in the element as the first argument, the index of 
-the element as the second argument, and <code>this</code> array as the
+the element as the second argument, and `this` array as the
 third argument.
 
 <code><pre>
@@ -222,7 +219,7 @@ third argument.
 @param {Function} iterator Function to be called once for
 each element in the array.
 @param {Object} [context] Optional context parameter to be
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 @type Array
 @returns An array of the results of the iterator function
 being called on the original array elements.
@@ -240,12 +237,6 @@ Call the given iterator once for each pair of objects in the array.
 
 <code><pre>
   [1, 2, 3, 4].eachPair (a, b) ->
-    # 1, 2
-    # 1, 3
-    # 1, 4
-    # 2, 3
-    # 2, 4
-    # 3, 4 
 </pre></code>
 
 @name eachPair
@@ -253,7 +244,7 @@ Call the given iterator once for each pair of objects in the array.
 @param {Function} iterator Function to be called once for 
 each pair of elements in the array.
 @param {Object} [context] Optional context parameter to be 
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 ###
 Array::eachPair = (iterator, context) ->
   length = this.length
@@ -285,7 +276,7 @@ visit.
 @param {Function} iterator Function to be called once for 
 each element in the array.
 @param {Object} [context] Optional context parameter to be 
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 
 @returns this
 @type Array
@@ -320,7 +311,7 @@ passed as in <code>each</each>.
 @param {Function} iterator Function to be called once for 
 each group of elements in the array.
 @param {Object} [context] Optional context parameter to be 
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 
 @returns this
 @type Array
@@ -478,7 +469,7 @@ true, and those for which it returns false.
 
 @param {Function} iterator
 @param {Object} [context] Optional context parameter to be
-used as <code>this</code> when calling the iterator function.
+used as `this` when calling the iterator function.
 
 @type Array
 @returns An array in the form of [trueCollection, falseCollection]
