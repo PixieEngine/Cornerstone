@@ -2,10 +2,8 @@
 Returns a copy of the array without null and undefined values.
 
 <code><pre>
-
    [null, undefined, 3, 3, undefined, 5].compact() 
 => [3, 3, 5]
-
 </pre></code>
 
 @name compact
@@ -22,7 +20,6 @@ Creates and returns a copy of the array. The copy contains
 the same objects.
 
 <code><pre>
-
    a = ["a", "b", "c"]
    b = a.copy()
 
@@ -31,7 +28,6 @@ the same objects.
 
    a === b
 => false
-
 </pre></code>
 
 @name copy
@@ -50,7 +46,6 @@ Empties the array of its contents. It is modified in place.
    fullArray.clear()
    fullArray 
 => []
-
 </pre></code>
 
 @name clear
