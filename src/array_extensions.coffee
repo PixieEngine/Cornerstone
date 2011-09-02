@@ -1,11 +1,6 @@
 ###*
 Returns a copy of the array without null and undefined values.
 
-<code><pre>
-   [null, undefined, 3, 3, undefined, 5].compact() 
-=> [3, 3, 5]
-</pre></code>
-
 @name compact
 @methodOf Array#
 @type Array
@@ -19,17 +14,6 @@ Array::compact = ->
 Creates and returns a copy of the array. The copy contains
 the same objects.
 
-<code><pre>
-   a = ["a", "b", "c"]
-   b = a.copy()
-
-   a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
-=> true
-
-   a === b
-=> false
-</pre></code>
-
 @name copy
 @methodOf Array#
 @type Array
@@ -40,13 +24,6 @@ Array::copy = ->
 
 ###*
 Empties the array of its contents. It is modified in place.
-
-<code><pre>
-   fullArray = [1, 2, 3]
-   fullArray.clear()
-   fullArray 
-=> []
-</pre></code>
 
 @name clear
 @methodOf Array#
@@ -61,14 +38,6 @@ Array::clear = ->
 ###*
 Flatten out an array of arrays into a single array of elements.
 
-<code><pre>
-   [[1, 2], [3, 4], 5].flatten()
-=> [1, 2, 3, 4, 5]
-
-   [[1, 2], [3, [4, 5]], 6].flatten()
-=> [1, 2, 3, [4, 5], 6]   
-</pre></code>
-
 @name flatten
 @methodOf Array#
 @type Array
@@ -81,14 +50,6 @@ Array::flatten = ->
 ###*
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
-
-<code><pre>
-   [1.1, 2.2, 3.3, 4.4].invoke("floor") 
-=> [1, 2, 3, 4]
-
-   ['hello', 'world', 'cool!'].invoke('substring', 0, 3) 
-=> ['hel', 'wor', 'coo']
-</pre></code>
 
 @param {String} method The name of the method to invoke.
 @param [arg...] Optional arguments to pass to the method being invoked.
@@ -118,15 +79,6 @@ Array::rand = ->
 Remove the first occurrence of the given object from the array if it is
 present. The array is modified in place.
 
-<code><pre>
-   a = [1, 1, "a", "b"] 
-   a.remove(1) 
-=> 1
-
-   a
-=> [1, "a", "b"]
-</pre></code>
-
 @name remove
 @methodOf Array#
 @param {Object} object The object to remove from the array if present.
@@ -143,14 +95,6 @@ Array::remove = (object) ->
 ###*
 Returns true if the element is present in the array.
 
-<code><pre>
-   ["a", "b", "c"].include("c") 
-=> true
-
-   [40, "a"].include(700)
-=> false
-</pre></code>
-
 @name include
 @methodOf Array#
 @param {Object} element The element to check if present.
@@ -165,22 +109,6 @@ Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
 the element as the second argument, and `this` array as the
 third argument.
-
-<code><pre>
-   word = ""
-   indices = []
-   ["r", "a", "d"].each (letter, index) ->
-     word += letter
-     indices.push(index)
-
-=> ["r", "a", "d"]
-
-   word
-=> "rad"      
-
-   indices
-=> [0, 1, 2]
-</pre></code>
 
 @name each
 @methodOf Array#
@@ -207,13 +135,6 @@ passing in the element as the first argument, the index of
 the element as the second argument, and `this` array as the
 third argument.
 
-<code><pre>
-   [1, 2, 3].map (number) ->
-     number * number
-
-=> [1, 4, 9]
-</pre></code>
-
 @name map
 @methodOf Array#
 @param {Function} iterator Function to be called once for
@@ -234,10 +155,6 @@ Array::map ||= (iterator, context) ->
 
 ###*
 Call the given iterator once for each pair of objects in the array.
-
-<code><pre>
-  [1, 2, 3, 4].eachPair (a, b) ->
-</pre></code>
 
 @name eachPair
 @methodOf Array#
@@ -292,16 +209,6 @@ Call the given iterator once for each group of elements in the array,
 passing in the elements in groups of n. Additional argumens are
 passed as in <code>each</each>.
 
-<code><pre>
-   results = []
-   [1, 2, 3, 4].eachSlice 2, (slice) ->
-     results.push(slice)
-=> [1, 2, 3, 4]
-
-   results
-=> [[1, 2], [3, 4]] 
-</pre></code>
-
 @see Array#each
 
 @name eachSlice
@@ -346,11 +253,6 @@ Array::shuffle = ->
 ###*
 Returns the first element of the array, undefined if the array is empty.
 
-<code><pre>
-   ["first", "second", "third"].first()
-=> "first"
-</pre></code>
-
 @name first
 @methodOf Array#
 
@@ -363,11 +265,6 @@ Array::first = ->
 ###*
 Returns the last element of the array, undefined if the array is empty.
 
-<code><pre>
-  ["first", "second", "third"].last()
-=> "third"
-</pre></code>
-
 @name last
 @methodOf Array#
 
@@ -379,11 +276,6 @@ Array::last = ->
 
 ###*
 Returns an object containing the extremes of this array.
-
-<code><pre>
-   [-1, 3, 0].extremes()
-=> {min: -1, max: 3}
-</pre></code>
 
 @name extremes
 @methodOf Array#
@@ -425,17 +317,6 @@ Array::extremes = (fn) ->
 Pretend the array is a circle and grab a new array containing length elements. 
 If length is not given return the element at start, again assuming the array 
 is a circle.
-
-<code><pre>
-   [1, 2, 3].wrap(-1) 
-=> 3
-
-   [1, 2, 3].wrap(6) 
-=> 1
-
-   ["l", "o", "o", "p"].wrap(0, 16) 
-=> ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
-</pre></code>
 
 @name wrap
 @methodOf Array#
