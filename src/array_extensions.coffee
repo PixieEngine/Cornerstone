@@ -1,6 +1,12 @@
 ###*
 Returns a copy of the array without null and undefined values.
 
+<code><pre>
+   [1, 1, 1, 3, 4, 5].compact 
+=> [1, 3, 4, 5]
+
+</pre></code>
+
 @name compact
 @methodOf Array#
 @type Array
