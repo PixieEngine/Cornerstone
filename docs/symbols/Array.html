@@ -22,6 +22,8 @@
   
     <li><a href="../symbols/Array.html">Array</a></li>
   
+    <li><a href="../symbols/Bindable.html">Bindable</a></li>
+  
     <li><a href="../symbols/Boolean.html">Boolean</a></li>
   
     <li><a href="../symbols/Core.html">Core</a></li>
@@ -29,10 +31,6 @@
     <li><a href="../symbols/Date.html">Date</a></li>
   
     <li><a href="../symbols/Function.html">Function</a></li>
-  
-    <li><a href="../symbols/keydown.html">keydown</a></li>
-  
-    <li><a href="../symbols/Local.html">Local</a></li>
   
     <li><a href="../symbols/Math.html">Math</a></li>
   
@@ -43,8 +41,6 @@
     <li><a href="../symbols/Object.html">Object</a></li>
   
     <li><a href="../symbols/Point.html">Point</a></li>
-  
-    <li><a href="../symbols/PowerCanvas.html">PowerCanvas</a></li>
   
     <li><a href="../symbols/Random.html">Random</a></li>
   
@@ -141,6 +137,15 @@ third argument.</div>
                     <tr>
                       <td class="attributes">&nbsp;</td>
                       <td class="nameDescription">
+                        <div class="fixedFont"><b><a href="../symbols/Array.html#eachPair">eachPair</a></b>(iterator, context)
+                        </div>
+                        <div class="description">Call the given iterator once for each pair of objects in the array.</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="attributes">&nbsp;</td>
+                      <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Array.html#eachSlice">eachSlice</a></b>(n, iterator, context)
                         </div>
                         <div class="description">Call the given iterator once for each group of elements in the array,
@@ -194,6 +199,15 @@ provided function.</div>
                         <div class="fixedFont"><b><a href="../symbols/Array.html#first">first</a></b>()
                         </div>
                         <div class="description">Returns the first element of the array, undefined if the array is empty.</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="attributes">&nbsp;</td>
+                      <td class="nameDescription">
+                        <div class="fixedFont"><b><a href="../symbols/Array.html#flatten">flatten</a></b>()
+                        </div>
+                        <div class="description">Flatten out an array of arrays into a single array of elements.</div>
                       </td>
                     </tr>
                   
@@ -782,6 +796,59 @@ used as `this` when calling the iterator function.</dd>
 
                 <div class="hr"></div>
               
+                <a name="eachPair"></a>
+
+                <div class="fixedFont heading">
+                  <span class='lighter'>
+                  
+                  </span>
+
+                  
+
+                  <b>eachPair</b>(iterator, context)
+                </div>
+
+                <div class="description">
+                  Call the given iterator once for each pair of objects in the array.
+
+Ex. [1, 2, 3, 4].eachPair (a, b) ->
+  # 1, 2
+  # 1, 3
+  # 1, 4
+  # 2, 3
+  # 2, 4
+  # 3, 4
+
+                  
+                </div>
+
+                
+
+                
+                  <dl class="detailList params">
+                    <dt class="heading">Parameters:</dt>
+                    
+                      <dt>
+                        <span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>iterator</b>
+                        
+                      </dt>
+                      <dd>Function to be called once for 
+each pair of elements in the array.</dd>
+                    
+                      <dt>
+                        <span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>context</b>
+                        <i>Optional</i>
+                      </dt>
+                      <dd>Optional context parameter to be 
+used as `this` when calling the iterator function.</dd>
+                    
+                  </dl>
+                
+
+                
+
+                <div class="hr"></div>
+              
                 <a name="eachSlice"></a>
 
                 <div class="fixedFont heading">
@@ -1121,6 +1188,53 @@ use as this when executing callback.</dd>
                       <dt class="heading">Returns:</dt>
                       
                         <dd>The first element, or undefined if the array is empty.</dd>
+                      
+                    
+
+                    
+
+                    
+
+                  </dl>
+                
+
+                <div class="hr"></div>
+              
+                <a name="flatten"></a>
+
+                <div class="fixedFont heading">
+                  <span class='lighter'>
+                  
+                  </span>
+
+                  <span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
+
+                  <b>flatten</b>()
+                </div>
+
+                <div class="description">
+                  Flatten out an array of arrays into a single array of elements.
+
+                  
+                </div>
+
+                
+
+                
+
+                
+                  <dl class="detailList nomargin">
+
+                    
+
+                    
+
+                    
+
+                    
+                      <dt class="heading">Returns:</dt>
+                      
+                        <dd>A new array with all the sub-arrays flattened to the top.</dd>
                       
                     
 
