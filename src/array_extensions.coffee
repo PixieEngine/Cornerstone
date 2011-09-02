@@ -163,7 +163,6 @@ Returns true if the element is present in the array.
 Array::include = (element) ->
   this.indexOf(element) != -1
 
-
 ###*
 Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
