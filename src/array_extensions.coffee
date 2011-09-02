@@ -174,7 +174,7 @@ third argument.
    indices = []
    ["r", "a", "d"].each (letter, index) ->
      word += letter
-     incides.push(index)
+     indices.push(index)
 
 => ["r", "a", "d"]
 
