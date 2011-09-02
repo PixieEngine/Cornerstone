@@ -171,13 +171,18 @@ third argument.
 
 <code><pre>
    word = ""
-   ["r", "a", "d"].each (letter) ->
+   indices = []
+   ["r", "a", "d"].each (letter, index) ->
      word += letter
+     incides.push(index)
 
 => ["r", "a", "d"]
 
    word
 => "rad"      
+
+   indices
+=> [0, 1, 2]
 </pre></code>
 
 @name each
@@ -199,6 +204,22 @@ Array::each = (iterator, context) ->
 
   return this
 
+###*
+Call the given iterator once for each element in the array, 
+passing in the element as the first argument, the index of 
+the element as the second argument, and this array as the
+third argument.
+
+@name map
+@methodOf Array#
+@param {Function} iterator Function to be called once for
+each element in the array.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+@type Array
+@returns An array of the results of the iterator function
+being called on the original array elements.
+###
 Array::map ||= (iterator, context) ->
   results = []
 
