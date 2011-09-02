@@ -2,6 +2,7 @@
 Returns a copy of the array without null and undefined values.
 
 <code><pre>
+
    [null, undefined, 3, 3, undefined, 5].compact() 
 => [3, 3, 5]
 
@@ -19,6 +20,19 @@ Array::compact = ->
 ###*
 Creates and returns a copy of the array. The copy contains
 the same objects.
+
+<code><pre>
+
+   a = ["a", "b", "c"]
+   b = a.copy()
+
+   a == b
+=> true
+
+   a === b
+=> false
+
+</pre></code>
 
 @name copy
 @methodOf Array#
