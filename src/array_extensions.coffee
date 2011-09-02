@@ -169,6 +169,17 @@ passing in the element as the first argument, the index of
 the element as the second argument, and this array as the
 third argument.
 
+<code><pre>
+   word = ""
+   ["r", "a", "d"].each (letter) ->
+     word += letter
+
+=> ["r", "a", "d"]
+
+   word
+=> "rad"      
+</pre></code>
+
 @name each
 @methodOf Array#
 @param {Function} iterator Function to be called once for 
