@@ -301,6 +301,17 @@ Call the given iterator once for each group of elements in the array,
 passing in the elements in groups of n. Additional argumens are
 passed as in <code>each</each>.
 
+<code><pre>
+  results = []
+  [1, 2, 3, 4].eachSlice 2, (slice) ->
+    results.push(slice)
+=> [1, 2, 3, 4]
+
+  results
+=> [[1, 2], [3, 4]]
+
+</pre></code>
+
 @see Array#each
 
 @name eachSlice
@@ -341,7 +352,6 @@ Array::shuffle = ->
     shuffledArray.splice(rand(shuffledArray.length + 1), 0, element)
 
   return shuffledArray
-
 
 ###*
 Returns the first element of the array, undefined if the array is empty.
