@@ -308,8 +308,7 @@ passed as in <code>each</each>.
 => [1, 2, 3, 4]
 
   results
-=> [[1, 2], [3, 4]]
-
+=> [[1, 2], [3, 4]] 
 </pre></code>
 
 @see Array#each
@@ -355,6 +354,11 @@ Array::shuffle = ->
 
 ###*
 Returns the first element of the array, undefined if the array is empty.
+
+<code><pre>
+  results = ["first", "second", "third"].first()
+=> "first"
+</pre></code>
 
 @name first
 @methodOf Array#
