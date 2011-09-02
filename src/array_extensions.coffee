@@ -251,7 +251,7 @@ Ex. [1, 2, 3, 4].eachPair (a, b) ->
 @param {Function} iterator Function to be called once for 
 each pair of elements in the array.
 @param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
+used as <code>this</code> when calling the iterator function.
 ###
 Array::eachPair = (iterator, context) ->
   length = this.length
