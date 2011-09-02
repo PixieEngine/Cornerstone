@@ -285,7 +285,7 @@ visit.
 @param {Function} iterator Function to be called once for 
 each element in the array.
 @param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
+used as <code>this</code> when calling the iterator function.
 
 @returns this
 @type Array
