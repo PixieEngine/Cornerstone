@@ -118,7 +118,7 @@ Array::rand = ->
   this[rand(this.length)]
 
 ###*
-Remove the first occurance of the given object from the array if it is
+Remove the first occurrence of the given object from the array if it is
 present.
 
 @name remove
