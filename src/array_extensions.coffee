@@ -356,7 +356,7 @@ Array::shuffle = ->
 Returns the first element of the array, undefined if the array is empty.
 
 <code><pre>
-  results = ["first", "second", "third"].first()
+  ["first", "second", "third"].first()
 => "first"
 </pre></code>
 
@@ -371,6 +371,11 @@ Array::first = ->
 
 ###*
 Returns the last element of the array, undefined if the array is empty.
+
+<code><pre>
+  ["first", "second", "third"].last()
+=> "third"
+</pre></code>
 
 @name last
 @methodOf Array#
