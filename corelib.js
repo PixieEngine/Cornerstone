@@ -671,7 +671,7 @@ Bindable = function() {
     
     <code><pre>
     
-    # this will call coolEventHandler when
+    # this will call coolEventHandler after
     # yourObject.trigger "someCustomEvent" is called.
     yourObject.bind "someCustomEvent", coolEventHandler
     
@@ -832,6 +832,29 @@ Core = function(I) {
     /**
     Generates a public jQuery style getter method for each String argument.
     
+    <code><pre>
+    
+    myObject = Core
+      r: 255
+      g: 0
+      b: 100
+    
+    myObject.attrReader "r", "g", "b"
+    
+    myObject.r()
+    
+    => 255
+    
+    myObject.g()
+    
+    => 0
+    
+    myObject.b()
+    
+    => 100
+    
+    </pre></code>    
+    
     @name attrReader
     @methodOf Core#
     */
@@ -875,6 +898,18 @@ Core = function(I) {
     },
     /** 
     Includes a module in this object.
+    
+    <code><pre>
+    
+    myObject = Core()
+    myObject.include(Bindable)
+    
+    # now you can bind handlers to functions and
+    # y you've hardly written any code 
+    myObject.bind "someEvent", ->
+      alert("wow. that was easy.")
+    
+    </pre></code>    
     
     @name include
     @methodOf Core#
