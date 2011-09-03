@@ -408,7 +408,7 @@ Returns the last element of the array, undefined if the array is empty.
 
 <code><pre>
 
-  ["first", "second", "third"].last()
+   ["first", "second", "third"].last()
 => "third"
 
 </pre></code>
@@ -424,6 +424,13 @@ Array.prototype.last = function() {
 };
 /**
 Returns an object containing the extremes of this array.
+
+<code><pre>
+
+   [-1, 3, 0].extremes()
+=> {min: -1, max: 3}
+
+</pre></code>
 
 @name extremes
 @methodOf Array#
