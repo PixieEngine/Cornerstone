@@ -66,6 +66,13 @@ Bindable = ->
   ###*
   The trigger method calls all listeners attached to the specified event.
 
+  <code><pre>
+
+  # calls each event handler bound to "someCustomEvent"
+  yourObject.trigger "someCustomEvent"
+
+  </pre></code>  
+
   @name trigger
   @methodOf Bindable#
 
