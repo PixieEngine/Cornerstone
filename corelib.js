@@ -1244,27 +1244,21 @@ Function.prototype.withAfter = function(interception) {
 /** 
 Returns the absolute value of this number.
 
+<code><pre>
+   (-4).abs()
+=> 4
+</pre></code>
+
 @name abs
 @methodOf Number#
 
 @type Number
 @returns The absolute value of the number.
-
-<code><pre>
-   (-4).abs()
-=> 4
-</pre></code>
 */Number.prototype.abs = function() {
   return Math.abs(this);
 };
 /**
 Returns the mathematical ceiling of this number.
-
-@name ceil
-@methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of greater than or equal value.
 
 <code><pre>
    4.9.ceil() 
@@ -1276,18 +1270,18 @@ Returns the mathematical ceiling of this number.
    (-1.2).ceil()
 => -1
 </pre></code>
+
+@name ceil
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of greater than or equal value.
 */
 Number.prototype.ceil = function() {
   return Math.ceil(this);
 };
 /**
 Returns the mathematical floor of this number.
-
-@name floor
-@methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of less than or equal value.
 
 <code><pre>
    4.9.floor()
@@ -1299,18 +1293,18 @@ Returns the mathematical floor of this number.
    (-1.2).floor()
 => -2
 </pre></code>
+
+@name floor
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of less than or equal value.
 */
 Number.prototype.floor = function() {
   return Math.floor(this);
 };
 /**
 Returns this number rounded to the nearest integer.
-
-@name round
-@methodOf Number#
-
-@type Number
-@returns The number rounded to the nearest integer.
 
 <code><pre>
    4.5.round()
@@ -1319,12 +1313,24 @@ Returns this number rounded to the nearest integer.
    4.4.round()
 => 4
 </pre></code>
+
+@name round
+@methodOf Number#
+
+@type Number
+@returns The number rounded to the nearest integer.
 */
 Number.prototype.round = function() {
   return Math.round(this);
 };
 /**
 Returns a number whose value is limited to the given range.
+
+<code><pre>   
+   # limit the output of this computation to between 0 and 255
+   (2 * 255).clamp(0, 255)
+=> 255
+</pre></code>
 
 @name clamp
 @methodOf Number#
@@ -1334,13 +1340,6 @@ Returns a number whose value is limited to the given range.
 
 @type Number
 @returns A number in the range [min, max]
-
-
-<code><pre>   
-   # limit the output of this computation to between 0 and 255
-   (2 * 255).clamp(0, 255)
-=> 255
-</pre></code>
 */
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -1349,18 +1348,17 @@ Number.prototype.clamp = function(min, max) {
 A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>
+
 @name mod
 @methodOf Number#
 
 @param {Number} base
 @type Number
 @returns An integer between 0 and (base - 1) if base is positive.
-
-
-<code><pre>
-   (-1).mod(5)
-=> 4
-</pre></code>
 */
 Number.prototype.mod = function(base) {
   var result;
@@ -1373,12 +1371,6 @@ Number.prototype.mod = function(base) {
 /**
 Get the sign of this number as an integer (1, -1, or 0).
 
-@name sign
-@methodOf Number#
-
-@type Number
-@returns The sign of this number, 0 if the number is 0.
-
 <code><pre>
    (-5).sign()
 => -1
@@ -1389,6 +1381,12 @@ Get the sign of this number as an integer (1, -1, or 0).
    5.sign()
 => 1
 </pre></code>
+
+@name sign
+@methodOf Number#
+
+@type Number
+@returns The sign of this number, 0 if the number is 0.
 */
 Number.prototype.sign = function() {
   if (this > 0) {
@@ -1402,12 +1400,6 @@ Number.prototype.sign = function() {
 /**
 Returns true if this number is even (evenly divisible by 2).
 
-@name even
-@methodOf Number#
-
-@type Boolean
-@returns true if this number is an even integer, false otherwise.
-
 <code><pre>
    2.even()
 => true
@@ -1418,18 +1410,18 @@ Returns true if this number is even (evenly divisible by 2).
    0.even()
 => true      
 </pre></code>
+
+@name even
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an even integer, false otherwise.
 */
 Number.prototype.even = function() {
   return this % 2 === 0;
 };
 /**
 Returns true if this number is odd (has remainder of 1 when divided by 2).
-
-@name odd
-@methodOf Number#
-
-@type Boolean
-@returns true if this number is an odd integer, false otherwise.
 
 <code><pre>
    2.odd()
@@ -1441,6 +1433,12 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
    0.odd()
 => false     
 </pre></code>
+
+@name odd
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an odd integer, false otherwise.
 */
 Number.prototype.odd = function() {
   if (this > 0) {
@@ -1453,6 +1451,16 @@ Number.prototype.odd = function() {
 Calls iterator the specified number of times, passing in the number of the 
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>
+
 @name times
 @methodOf Number#
 
@@ -1463,16 +1471,6 @@ to treat as <code>this</code> in the iterator block.
 
 @type Number
 @returns The number of times the iterator was called.
-
-<code><pre>
-   output = []
-
-   5.times (n) ->
-     output.push(n)
-
-   output
-=> [0, 1, 2, 3, 4]
-</pre></code>
 */
 Number.prototype.times = function(iterator, context) {
   var i;
@@ -1485,13 +1483,6 @@ Number.prototype.times = function(iterator, context) {
 /**
 Returns the the nearest grid resolution less than or equal to the number. 
 
-@name snap
-@methodOf Number#
-
-@param {Number} resolution The grid resolution to snap to.
-@type Number
-@returns The nearest multiple of resolution lower than the number.
-
 <code><pre>
     7.snap(8) 
 => 0
@@ -1502,6 +1493,13 @@ Returns the the nearest grid resolution less than or equal to the number.
    12.snap(8) 
 => 8
 </pre></code>
+
+@name snap
+@methodOf Number#
+
+@param {Number} resolution The grid resolution to snap to.
+@type Number
+@returns The nearest multiple of resolution lower than the number.
 */
 Number.prototype.snap = function(resolution) {
   var n;
@@ -1516,12 +1514,6 @@ which when multiplied together equal the original integer.
 
 Floors the number for purposes of factorization.
 
-@name primeFactors
-@methodOf Number#
-
-@type Array
-@returns An array containing the factorization of this number.
-
 <code><pre>
    60.primeFactors()
 => [2, 2, 3, 5]
@@ -1529,6 +1521,12 @@ Floors the number for purposes of factorization.
    37.primeFactors()
 => [37]
 </pre></code>
+
+@name primeFactors
+@methodOf Number#
+
+@type Array
+@returns An array containing the factorization of this number.
 */
 Number.prototype.primeFactors = function() {
   var factors, i, iSquared, n;
@@ -1560,12 +1558,6 @@ Number.prototype.primeFactors = function() {
 Returns the two character hexidecimal 
 representation of numbers 0 through 255
 
-@name toColorPart
-@methodOf Number#
-
-@type String
-@returns Hexidecimal representation of the number
-
 <code><pre>
    255.toColorPart()
 => "ff"
@@ -1576,6 +1568,12 @@ representation of numbers 0 through 255
    200.toColorPart()
 => "c8"
 </pre></code>
+
+@name toColorPart
+@methodOf Number#
+
+@type String
+@returns Hexidecimal representation of the number
 */
 Number.prototype.toColorPart = function() {
   var s;
@@ -1588,12 +1586,6 @@ Number.prototype.toColorPart = function() {
 /**
 Returns a number that is maxDelta closer to target
 
-@name approach
-@methodOf Number#
-
-@type Number
-@returns A number maxDelta toward target
-
 <code><pre>
    255.approach(0, 5)
 => 250
@@ -1601,6 +1593,12 @@ Returns a number that is maxDelta closer to target
    5.approach(0, 10)
 => 0
 </pre></code>
+
+@name approach
+@methodOf Number#
+
+@type Number
+@returns A number maxDelta toward target
 */
 Number.prototype.approach = function(target, maxDelta) {
   return (target - this).clamp(-maxDelta, maxDelta) + this;
@@ -1608,16 +1606,16 @@ Number.prototype.approach = function(target, maxDelta) {
 /**
 Returns a number that is closer to the target by the ratio
 
+<code><pre>
+   255.approachByRatio(0, 0.1)
+=> 229.5
+</pre></code>
+
 @name approachByRatio
 @methodOf Number#
 
 @type Number
 @returns A number toward target by the ratio
-
-<code><pre>
-   255.approachByRatio(0, 0.1)
-=> 229.5
-</pre></code>
 */
 Number.prototype.approachByRatio = function(target, ratio) {
   return this.approach(target, this * ratio);
@@ -1625,16 +1623,16 @@ Number.prototype.approachByRatio = function(target, ratio) {
 /**
 Returns a number that is closer to the target angle by the delta
 
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code>
+
 @name approachRotation
 @methodOf Number#
 
 @type Number
 @returns A number toward the target angle by maxDelta
-
-<code><pre>
-   Math.PI.approachRotation(0, Math.PI/4)
-=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
-</pre></code>
 */
 Number.prototype.approachRotation = function(target, maxDelta) {
   while (target > this + Math.PI) {
@@ -1648,16 +1646,16 @@ Number.prototype.approachRotation = function(target, maxDelta) {
 /**
 Constrains a rotation to between -PI and PI.
 
+<code><pre>
+   (9/4 * Math.PI).constrainRotation() 
+=> 0.7853981633974483 # this is (1/4) * Math.PI
+</pre></code>
+
 @name constrainRotation
 @methodOf Number#
 
 @type Number
 @returns This number constrained between -PI and PI.
-
-<code><pre>
-   (9/4 * Math.PI).constrainRotation() 
-=> 0.7853981633974483 # this is (1/4) * Math.PI
-</pre></code>
 */
 Number.prototype.constrainRotation = function() {
   var target;
