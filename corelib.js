@@ -93,6 +93,16 @@ Array.prototype.flatten = function() {
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
+<code><pre>
+
+   [1.1, 2.2, 3.3, 4.4].invoke("floor")
+=> [1, 2, 3, 4]
+
+   ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
+=> ['hel', 'wor', 'coo']
+
+</pre></code>
+
 @param {String} method The name of the method to invoke.
 @param [arg...] Optional arguments to pass to the method being invoked.
 
