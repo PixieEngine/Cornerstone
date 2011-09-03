@@ -97,7 +97,15 @@
                       <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Number.html#approach">approach</a></b>()
                         </div>
-                        <div class="description">Returns a number that is maxDelta closer to target</div>
+                        <div class="description">Returns a number that is maxDelta closer to target
+
+<code><pre>
+   255.approach(0, 5)
+=> 250
+
+   5.approach(0, 10)
+=> 0
+</pre></code></div>
                       </td>
                     </tr>
                   
@@ -106,7 +114,12 @@
                       <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Number.html#approachByRatio">approachByRatio</a></b>()
                         </div>
-                        <div class="description">Returns a number that is closer to the target by the ratio</div>
+                        <div class="description">Returns a number that is closer to the target by the ratio
+
+<code><pre>
+   255.approachByRatio(0, 0.1)
+=> 229.5
+</pre></code></div>
                       </td>
                     </tr>
                   
@@ -115,7 +128,12 @@
                       <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Number.html#approachRotation">approachRotation</a></b>()
                         </div>
-                        <div class="description">Returns a number that is closer to the target angle by the delta</div>
+                        <div class="description">Returns a number that is closer to the target angle by the delta
+
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code></div>
                       </td>
                     </tr>
                   
@@ -245,7 +263,18 @@ current iteration as a parameter: 0 on first call, 1 on the second call, etc.</d
                         <div class="fixedFont"><b><a href="../symbols/Number.html#toColorPart">toColorPart</a></b>()
                         </div>
                         <div class="description">Returns the two character hexidecimal 
-representation of numbers 0 through 255</div>
+representation of numbers 0 through 255
+
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code></div>
                       </td>
                     </tr>
                   
@@ -367,6 +396,11 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns the absolute value of this number.
 
+<code><pre>
+   (-4).abs()
+=> 4
+</pre></code>
+
                   
                 </div>
 
@@ -386,12 +420,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The absolute value of the number.
-
-<code><pre>
-   (-4).abs()
-=> 4
-</pre></code></dd>
+                        <dd>The absolute value of the number.</dd>
                       
                     
 
@@ -417,6 +446,14 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns a number that is maxDelta closer to target
 
+<code><pre>
+   255.approach(0, 5)
+=> 250
+
+   5.approach(0, 10)
+=> 0
+</pre></code>
+
                   
                 </div>
 
@@ -436,15 +473,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>A number maxDelta toward target
-
-<code><pre>
-   255.approach(0, 5)
-=> 250
-
-   5.approach(0, 10)
-=> 0
-</pre></code></dd>
+                        <dd>A number maxDelta toward target</dd>
                       
                     
 
@@ -470,6 +499,11 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns a number that is closer to the target by the ratio
 
+<code><pre>
+   255.approachByRatio(0, 0.1)
+=> 229.5
+</pre></code>
+
                   
                 </div>
 
@@ -489,12 +523,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>A number toward target by the ratio
-
-<code><pre>
-   255.approachByRatio(0, 0.1)
-=> 229.5
-</pre></code></dd>
+                        <dd>A number toward target by the ratio</dd>
                       
                     
 
@@ -520,6 +549,11 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns a number that is closer to the target angle by the delta
 
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code>
+
                   
                 </div>
 
@@ -539,12 +573,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>A number toward the target angle by maxDelta
-
-<code><pre>
-   Math.PI.approachRotation(0, Math.PI/4)
-=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
-</pre></code></dd>
+                        <dd>A number toward the target angle by maxDelta</dd>
                       
                     
 
@@ -570,6 +599,17 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns the mathematical ceiling of this number.
 
+<code><pre>
+   4.9.ceil() 
+=> 5
+
+   4.2.ceil()
+=> 5
+
+   (-1.2).ceil()
+=> -1
+</pre></code>
+
                   
                 </div>
 
@@ -589,18 +629,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The number truncated to the nearest integer of greater than or equal value.
-
-<code><pre>
-   4.9.ceil() 
-=> 5
-
-   4.2.ceil()
-=> 5
-
-   (-1.2).ceil()
-=> -1
-</pre></code></dd>
+                        <dd>The number truncated to the nearest integer of greater than or equal value.</dd>
                       
                     
 
@@ -625,6 +654,12 @@ representation of numbers 0 through 255</div>
 
                 <div class="description">
                   Returns a number whose value is limited to the given range.
+
+<code><pre>   
+   # limit the output of this computation to between 0 and 255
+   (2 * 255).clamp(0, 255)
+=> 255
+</pre></code>
 
                   
                 </div>
@@ -662,14 +697,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>A number in the range [min, max]
-
-
-<code><pre>   
-   # limit the output of this computation to between 0 and 255
-   (2 * 255).clamp(0, 255)
-=> 255
-</pre></code></dd>
+                        <dd>A number in the range [min, max]</dd>
                       
                     
 
@@ -695,6 +723,11 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Constrains a rotation to between -PI and PI.
 
+<code><pre>
+   (9/4 * Math.PI).constrainRotation() 
+=> 0.7853981633974483 # this is (1/4) * Math.PI
+</pre></code>
+
                   
                 </div>
 
@@ -714,12 +747,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>This number constrained between -PI and PI.
-
-<code><pre>
-   (9/4 * Math.PI).constrainRotation() 
-=> 0.7853981633974483 # this is (1/4) * Math.PI
-</pre></code></dd>
+                        <dd>This number constrained between -PI and PI.</dd>
                       
                     
 
@@ -790,6 +818,17 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns true if this number is even (evenly divisible by 2).
 
+<code><pre>
+   2.even()
+=> true
+
+   3.even()
+=> false
+
+   0.even()
+=> true      
+</pre></code>
+
                   
                 </div>
 
@@ -809,18 +848,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>true if this number is an even integer, false otherwise.
-
-<code><pre>
-   2.even()
-=> true
-
-   3.even()
-=> false
-
-   0.even()
-=> true      
-</pre></code></dd>
+                        <dd>true if this number is an even integer, false otherwise.</dd>
                       
                     
 
@@ -846,6 +874,17 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   Returns the mathematical floor of this number.
 
+<code><pre>
+   4.9.floor()
+=> 4
+
+   4.2.floor()
+=> 4
+
+   (-1.2).floor()
+=> -2
+</pre></code>
+
                   
                 </div>
 
@@ -865,18 +904,7 @@ representation of numbers 0 through 255</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The number truncated to the nearest integer of less than or equal value.
-
-<code><pre>
-   4.9.floor()
-=> 4
-
-   4.2.floor()
-=> 4
-
-   (-1.2).floor()
-=> -2
-</pre></code></dd>
+                        <dd>The number truncated to the nearest integer of less than or equal value.</dd>
                       
                     
 
@@ -902,6 +930,11 @@ representation of numbers 0 through 255</div>
                 <div class="description">
                   A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
+
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>
 
                   
                 </div>
@@ -933,13 +966,7 @@ constrained to remain in bounds of array indices.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>An integer between 0 and (base - 1) if base is positive.
-
-
-<code><pre>
-   (-1).mod(5)
-=> 4
-</pre></code></dd>
+                        <dd>An integer between 0 and (base - 1) if base is positive.</dd>
                       
                     
 
@@ -965,6 +992,17 @@ constrained to remain in bounds of array indices.
                 <div class="description">
                   Returns true if this number is odd (has remainder of 1 when divided by 2).
 
+<code><pre>
+   2.odd()
+=> false
+
+   3.odd()
+=> true
+
+   0.odd()
+=> false     
+</pre></code>
+
                   
                 </div>
 
@@ -984,18 +1022,7 @@ constrained to remain in bounds of array indices.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>true if this number is an odd integer, false otherwise.
-
-<code><pre>
-   2.odd()
-=> false
-
-   3.odd()
-=> true
-
-   0.odd()
-=> false     
-</pre></code></dd>
+                        <dd>true if this number is an odd integer, false otherwise.</dd>
                       
                     
 
@@ -1025,6 +1052,14 @@ which when multiplied together equal the original integer.
 
 Floors the number for purposes of factorization.
 
+<code><pre>
+   60.primeFactors()
+=> [2, 2, 3, 5]
+
+   37.primeFactors()
+=> [37]
+</pre></code>
+
                   
                 </div>
 
@@ -1044,15 +1079,7 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>An array containing the factorization of this number.
-
-<code><pre>
-   60.primeFactors()
-=> [2, 2, 3, 5]
-
-   37.primeFactors()
-=> [37]
-</pre></code></dd>
+                        <dd>An array containing the factorization of this number.</dd>
                       
                     
 
@@ -1078,6 +1105,14 @@ Floors the number for purposes of factorization.
                 <div class="description">
                   Returns this number rounded to the nearest integer.
 
+<code><pre>
+   4.5.round()
+=> 5
+
+   4.4.round()
+=> 4
+</pre></code>
+
                   
                 </div>
 
@@ -1097,15 +1132,7 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The number rounded to the nearest integer.
-
-<code><pre>
-   4.5.round()
-=> 5
-
-   4.4.round()
-=> 4
-</pre></code></dd>
+                        <dd>The number rounded to the nearest integer.</dd>
                       
                     
 
@@ -1131,6 +1158,17 @@ Floors the number for purposes of factorization.
                 <div class="description">
                   Get the sign of this number as an integer (1, -1, or 0).
 
+<code><pre>
+   (-5).sign()
+=> -1
+
+   0.sign()
+=> 0
+
+   5.sign()
+=> 1
+</pre></code>
+
                   
                 </div>
 
@@ -1150,18 +1188,7 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The sign of this number, 0 if the number is 0.
-
-<code><pre>
-   (-5).sign()
-=> -1
-
-   0.sign()
-=> 0
-
-   5.sign()
-=> 1
-</pre></code></dd>
+                        <dd>The sign of this number, 0 if the number is 0.</dd>
                       
                     
 
@@ -1185,7 +1212,18 @@ Floors the number for purposes of factorization.
                 </div>
 
                 <div class="description">
-                  Returns the the nearest grid resolution less than or equal to the number.
+                  Returns the the nearest grid resolution less than or equal to the number. 
+
+<code><pre>
+    7.snap(8) 
+=> 0
+
+    4.snap(8) 
+=> 0
+
+   12.snap(8) 
+=> 8
+</pre></code>
 
                   
                 </div>
@@ -1217,18 +1255,7 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The nearest multiple of resolution lower than the number.
-
-<code><pre>
-    7.snap(8) 
-=> 0
-
-    4.snap(8) 
-=> 0
-
-   12.snap(8) 
-=> 8
-</pre></code></dd>
+                        <dd>The nearest multiple of resolution lower than the number.</dd>
                       
                     
 
@@ -1253,7 +1280,17 @@ Floors the number for purposes of factorization.
 
                 <div class="description">
                   Calls iterator the specified number of times, passing in the number of the 
-current iteration as a parameter: 0 on first call, 1 on the second call, etc.
+current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
+
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>
 
                   
                 </div>
@@ -1293,17 +1330,7 @@ to treat as <code>this</code> in the iterator block.</dd>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The number of times the iterator was called.
-
-<code><pre>
-   output = []
-
-   5.times (n) ->
-     output.push(n)
-
-   output
-=> [0, 1, 2, 3, 4]
-</pre></code></dd>
+                        <dd>The number of times the iterator was called.</dd>
                       
                     
 
@@ -1330,6 +1357,17 @@ to treat as <code>this</code> in the iterator block.</dd>
                   Returns the two character hexidecimal 
 representation of numbers 0 through 255
 
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code>
+
                   
                 </div>
 
@@ -1349,18 +1387,7 @@ representation of numbers 0 through 255
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>Hexidecimal representation of the number
-
-<code><pre>
-   255.toColorPart()
-=> "ff"
-
-   0.toColorPart()
-=> "00"
-
-   200.toColorPart()
-=> "c8"
-</pre></code></dd>
+                        <dd>Hexidecimal representation of the number</dd>
                       
                     
 
