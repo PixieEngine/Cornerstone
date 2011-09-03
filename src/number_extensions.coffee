@@ -66,8 +66,12 @@ Returns this number rounded to the nearest integer.
 @type Number
 @returns The number rounded to the nearest integer.
 
-(4.5).round() # => 5
-(4.4).round() # => 4
+<code><pre>
+   (4.5).round()
+=> 5
+   (4.4).round()
+=> 4
+</pre></code>
 ###
 Number::round = ->
   Math.round(this)
