@@ -273,8 +273,8 @@ Floors the number for purposes of factorization.
 @name primeFactors
 @methodOf Number#
 
-@returns An array containing the factorization of this number.
 @type Array
+@returns An array containing the factorization of this number.
 
 <code><pre>
    60.primeFactors()
@@ -327,8 +327,8 @@ representation of numbers 0 through 255
 @name toColorPart
 @methodOf Number#
 
-@returns Hexidecimal representation of the number
 @type String
+@returns Hexidecimal representation of the number
 
 <code><pre>
    255.toColorPart()
@@ -363,8 +363,8 @@ Constrains a rotation to between -PI and PI.
 @name constrainRotation
 @methodOf Number#
 
-@returns This number constrained between -PI and PI.
 @type Number
+@returns This number constrained between -PI and PI.
 ###
 Number::constrainRotation = ->
   target = this
