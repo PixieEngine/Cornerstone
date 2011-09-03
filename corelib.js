@@ -1469,7 +1469,7 @@ to treat as <code>this</code> in the iterator block.
 
    5.times (n) ->
      output.push(n)
-    
+
    output
 => [0, 1, 2, 3, 4]
 </pre></code>
@@ -1706,7 +1706,7 @@ Checks whether an object is an array.
 <code><pre>
    Object.isArray([1, 2, 4])
 => true
-   
+
    Object.isArray({key: "value"})
 => false
 </pre></code>
@@ -1730,14 +1730,14 @@ First come, first served.
      b: 2
      c: 3
    }
-  
+
    Object.reverseMerge I, {
      c: 6
      d: 4
    }   
-  
+
    I
-  
+
 => {a: 1, b:2, c:3, d: 4}
 </pre></code>
 */
@@ -1770,14 +1770,14 @@ Last in covers earlier properties.
      b: 2
      c: 3
    }
-  
+
    Object.extend I, {
      c: 6
      d: 4
    }   
-  
+
    I
-  
+
 => {a: 1, b:2, c:6, d: 4}
 </pre></code>
 */
@@ -1826,14 +1826,14 @@ Object.extend = function() {
       @methodOf Point#
       @type Point
       @returns A new point with the same x and y value as this point.
-      
+    
       <code><pre>
         point = Point(1, 1)
         pointCopy = point.copy()
-        
+    
         point.equal(pointCopy)
         => true
-        
+    
         point == pointCopy
         => false     
       </pre></code>
