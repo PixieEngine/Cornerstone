@@ -106,17 +106,17 @@ Number::clamp = (min, max) ->
 A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
-<pre>
-Example:
-(-1).mod(5) == 4
-</pre>
-
 @name mod
 @methodOf Number#
 
 @param {Number} base
 @returns An integer between 0 and (base - 1) if base is positive.
 @type Number
+
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>
 ###
 Number::mod = (base) ->
   result = this % base;
