@@ -954,7 +954,6 @@ Function.prototype.withAfter = function(interception) {
 };;
 /**
   @name Logging
-  @constructor
   
 <code><pre>
   log "Testing123"
