@@ -1824,8 +1824,19 @@ Object.extend = function() {
     
       @name copy
       @methodOf Point#
-      @returns A new point with the same x and y value as this point.
       @type Point
+      @returns A new point with the same x and y value as this point.
+      
+      <code><pre>
+        point = Point(1, 1)
+        pointCopy = point.copy()
+        
+        point.equal(pointCopy)
+        => true
+        
+        point == pointCopy
+        => false     
+      </pre></code>
       */
     copy: function() {
       return Point(this.x, this.y);
