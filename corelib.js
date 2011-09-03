@@ -805,7 +805,6 @@ Core = function(I) {
       in general, but can come in handy from time to time.
       
       <code><pre>
-    
       I = {
         r: 255
         g: 0
@@ -827,7 +826,6 @@ Core = function(I) {
       myObject.I.b
       
       => 100
-      
       </pre></code>    
     
       @name I
