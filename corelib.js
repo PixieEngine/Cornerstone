@@ -1,12 +1,12 @@
 ;
 ;
 /**
-Returns a copy of the array without null and undefined values.
+Returns a copy of the array without null and undefined values..
 
 @name compact
 @methodOf Array#
 @type Array
-@returns An array that contains only the non-null values.
+@returns A new array that contains only the non-null values.
 */var __slice = Array.prototype.slice;
 Array.prototype.compact = function() {
   return this.select(function(element) {
@@ -54,14 +54,6 @@ Array.prototype.flatten = function() {
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
-<code><pre>
-  [1.1, 2.2, 3.3, 4.4].invoke("floor")
-  => [1, 2, 3, 4]
-
-  ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
-  => ['hel', 'wor', 'coo']
-</pre></code>
-
 @param {String} method The name of the method to invoke.
 @param [arg...] Optional arguments to pass to the method being invoked.
 
@@ -90,8 +82,8 @@ Array.prototype.rand = function() {
   return this[rand(this.length)];
 };
 /**
-Remove the first occurance of the given object from the array if it is
-present.
+Remove the first occurrence of the given object from the array if it is
+present. The array is modified in place.
 
 @name remove
 @methodOf Array#
@@ -122,7 +114,7 @@ Array.prototype.include = function(element) {
 /**
 Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and this array as the
+the element as the second argument, and `this` array as the
 third argument.
 
 @name each
@@ -147,6 +139,22 @@ Array.prototype.each = function(iterator, context) {
   }
   return this;
 };
+/**
+Call the given iterator once for each element in the array, 
+passing in the element as the first argument, the index of 
+the element as the second argument, and `this` array as the
+third argument.
+
+@name map
+@methodOf Array#
+@param {Function} iterator Function to be called once for
+each element in the array.
+@param {Object} [context] Optional context parameter to be
+used as `this` when calling the iterator function.
+@type Array
+@returns An array of the results of the iterator function
+being called on the original array elements.
+*/
 Array.prototype.map || (Array.prototype.map = function(iterator, context) {
   var element, i, results, _len;
   results = [];
@@ -158,14 +166,6 @@ Array.prototype.map || (Array.prototype.map = function(iterator, context) {
 });
 /**
 Call the given iterator once for each pair of objects in the array.
-
-Ex. [1, 2, 3, 4].eachPair (a, b) ->
-  # 1, 2
-  # 1, 3
-  # 1, 4
-  # 2, 3
-  # 2, 4
-  # 3, 4 
 
 @name eachPair
 @methodOf Array#
@@ -296,9 +296,6 @@ Array.prototype.last = function() {
 };
 /**
 Returns an object containing the extremes of this array.
-<pre>
-[-1, 3, 0].extremes() # => {min: -1, max: 3}
-</pre>
 
 @name extremes
 @methodOf Array#
@@ -572,6 +569,43 @@ Bindable = function() {
   };
 };
 (typeof exports !== "undefined" && exports !== null ? exports : this)["Bindable"] = Bindable;;
+var CommandStack;
+CommandStack = function() {
+  var index, stack;
+  stack = [];
+  index = 0;
+  return {
+    execute: function(command) {
+      stack[index] = command;
+      command.execute();
+      return index += 1;
+    },
+    undo: function() {
+      var command;
+      if (this.canUndo()) {
+        index -= 1;
+        command = stack[index];
+        command.undo();
+        return command;
+      }
+    },
+    redo: function() {
+      var command;
+      if (this.canRedo()) {
+        command = stack[index];
+        command.execute();
+        index += 1;
+        return command;
+      }
+    },
+    canUndo: function() {
+      return index > 0;
+    },
+    canRedo: function() {
+      return stack[index] != null;
+    }
+  };
+};;
 /**
 The Core class is used to add extended functionality to objects without
 extending the object class directly. Inherit from Core to gain its utility
