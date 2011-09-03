@@ -479,6 +479,19 @@ Pretend the array is a circle and grab a new array containing length elements.
 If length is not given return the element at start, again assuming the array 
 is a circle.
 
+<code><pre>
+
+   [1, 2, 3].wrap(-1)
+=> 3
+
+   [1, 2, 3].wrap(6)
+=> 1
+
+   ["l", "o", "o", "p"].wrap(0, 16)
+=> ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
+
+</pre></code>
+
 @name wrap
 @methodOf Array#
 
