@@ -35,11 +35,9 @@ Core = (I) ->
 
     myObject.attrAccessor "r", "g", "b"
 
-    myObject.r(myObject.r() - 1)
 
-    => 254
-
-    myObject.I.r
+    myObject.r(254)
+    myObject.r()
 
     => 254
 
@@ -142,4 +140,3 @@ Core = (I) ->
     ###
     include: (Module) ->
       self.extend Module(I, self)
-
