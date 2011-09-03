@@ -26,6 +26,25 @@ Core = (I) ->
     Generates a public jQuery style getter / setter method for each 
     String argument.
 
+    <code><pre>
+
+    myObject = Core
+      r: 255
+      g: 0
+      b: 100
+
+    myObject.attrAccessor "r", "g", "b"
+
+    myObject.r(myObject.r() - 1)
+
+    => 254
+
+    myObject.I.r
+
+    => 254
+
+    </pre></code>       
+
     @name attrAccessor
     @methodOf Core#
     ###
