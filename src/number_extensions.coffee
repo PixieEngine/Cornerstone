@@ -413,6 +413,11 @@ Constrains a rotation to between -PI and PI.
 
 @type Number
 @returns This number constrained between -PI and PI.
+
+<code><pre>
+   (9/4 * Math.PI).constrainRotation() 
+=> 0.7853981633974483 # this is (1/4) * Math.PI
+</pre></code>
 ###
 Number::constrainRotation = ->
   target = this
