@@ -803,6 +803,29 @@ Core = function(I) {
     /**
       External access to instance variables. Use of this property should be avoided
       in general, but can come in handy from time to time.
+      
+      <code><pre>
+      
+      myObject = Core
+        r: 255
+        g: 0
+        b: 100
+      
+      # a bad idea most of the time, but it's 
+      # pretty convenient to have available.
+      myObject.I.r
+      
+      => 255
+      
+      myObject.I.g
+      
+      => 0
+      
+      myObject.I.b
+      
+      => 100
+      
+      </pre></code>    
     
       @name I
       @fieldOf Core#
@@ -811,6 +834,22 @@ Core = function(I) {
     /**
       Generates a public jQuery style getter / setter method for each 
       String argument.
+      
+      <code><pre>
+      
+      myObject = Core
+        r: 255
+        g: 0
+        b: 100
+      
+      myObject.attrAccessor "r", "g", "b"
+    
+      myObject.r(254)
+      myObject.r()
+      
+      => 254
+      
+      </pre></code>       
     
       @name attrAccessor
       @methodOf Core#
@@ -843,15 +882,15 @@ Core = function(I) {
     
     myObject.r()
     
-     => 255
+    => 255
     
     myObject.g()
     
-     => 0
+    => 0
     
     myObject.b()
     
-     => 100
+    => 100
     
     </pre></code>    
     
