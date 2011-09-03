@@ -29,9 +29,11 @@ the same objects.
    a = ["a", "b", "c"]
    b = a.copy()
 
+   # their elements are equal
    a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
 => true
 
+   # but they aren't the same object in memory
    a === b
 => false
 
