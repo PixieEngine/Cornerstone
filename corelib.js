@@ -954,14 +954,14 @@ Function.prototype.withAfter = function(interception) {
 };;
 /**
   @name Logging
-  
+
 <code><pre>
   log "Testing123"
   info "Hey, this is happening"
   warn "Be careful, this might be a problem"
   error "Kaboom!"
 </pre></code>
-  
+
   Gives you some convenience methods for outputting data
   while developing. 
 */["log", "info", "warn", "error"].each(function(name) {
@@ -1267,10 +1267,12 @@ Returns the mathematical ceiling of this number.
 @returns The number truncated to the nearest integer of greater than or equal value.
 
 <code><pre>
-   (4.9).ceil() 
+   4.9.ceil() 
 => 5
-   (4.2).ceil()
+
+   4.2.ceil()
 => 5
+
    (-1.2).ceil()
 => -1
 </pre></code>
@@ -1287,9 +1289,16 @@ Returns the mathematical floor of this number.
 @type Number
 @returns The number truncated to the nearest integer of less than or equal value.
 
-(4.9).floor() # => 4
-(4.2).floor() # => 4
-(-1.2).floor() # => -2
+<code><pre>
+   4.9.floor()
+=> 4
+
+   4.2.floor()
+=> 4
+
+   (-1.2).floor()
+=> -2
+</pre></code>
 */
 Number.prototype.floor = function() {
   return Math.floor(this);
@@ -1303,19 +1312,19 @@ Returns this number rounded to the nearest integer.
 @type Number
 @returns The number rounded to the nearest integer.
 
-(4.5).round() # => 5
-(4.4).round() # => 4
+<code><pre>
+   4.5.round()
+=> 5
+
+   4.4.round()
+=> 4
+</pre></code>
 */
 Number.prototype.round = function() {
   return Math.round(this);
 };
 /**
 Returns a number whose value is limited to the given range.
-
-Example: limit the output of this computation to between 0 and 255
-<pre>
-(x * 255).clamp(0, 255)
-</pre>
 
 @name clamp
 @methodOf Number#
@@ -1325,6 +1334,12 @@ Example: limit the output of this computation to between 0 and 255
 
 @returns A number in the range [min, max]
 @type Number
+
+<code><pre>   
+   # limit the output of this computation to between 0 and 255
+   (2 * 255).clamp(0, 255)
+=> 255
+</pre></code>
 */
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -1333,17 +1348,17 @@ Number.prototype.clamp = function(min, max) {
 A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
-<pre>
-Example:
-(-1).mod(5) == 4
-</pre>
-
 @name mod
 @methodOf Number#
 
 @param {Number} base
 @returns An integer between 0 and (base - 1) if base is positive.
 @type Number
+
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>
 */
 Number.prototype.mod = function(base) {
   var result;
@@ -1361,6 +1376,17 @@ Get the sign of this number as an integer (1, -1, or 0).
 
 @type Number
 @returns The sign of this number, 0 if the number is 0.
+
+<code><pre>
+   (-5).sign()
+=> -1
+
+   0.sign()
+=> 0
+
+   5.sign()
+=> 1
+</pre></code>
 */
 Number.prototype.sign = function() {
   if (this > 0) {
@@ -1379,6 +1405,17 @@ Returns true if this number is even (evenly divisible by 2).
 
 @type Boolean
 @returns true if this number is an even integer, false otherwise.
+
+<code><pre>
+   2.even()
+=> true
+
+   3.even()
+=> false
+
+   0.even()
+=> true      
+</pre></code>
 */
 Number.prototype.even = function() {
   return this % 2 === 0;
@@ -1391,6 +1428,17 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 
 @type Boolean
 @returns true if this number is an odd integer, false otherwise.
+
+<code><pre>
+   2.odd()
+=> false
+
+   3.odd()
+=> true
+
+   0.odd()
+=> false     
+</pre></code>
 */
 Number.prototype.odd = function() {
   if (this > 0) {
@@ -1413,6 +1461,16 @@ to treat as <code>this</code> in the iterator block.
 
 @returns The number of times the iterator was called.
 @type Number
+
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+    
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>
 */
 Number.prototype.times = function(iterator, context) {
   var i;
@@ -1425,17 +1483,23 @@ Number.prototype.times = function(iterator, context) {
 /**
 Returns the the nearest grid resolution less than or equal to the number. 
 
-  EX: 
-   (7).snap(8) => 0
-   (4).snap(8) => 0
-   (12).snap(8) => 8
-
 @name snap
 @methodOf Number#
 
 @param {Number} resolution The grid resolution to snap to.
 @returns The nearest multiple of resolution lower than the number.
 @type Number
+
+<code><pre>
+    7.snap(8) 
+=> 0
+
+    4.snap(8) 
+=> 0
+
+   12.snap(8) 
+=> 8
+</pre></code>
 */
 Number.prototype.snap = function(resolution) {
   var n;
@@ -1455,6 +1519,14 @@ Floors the number for purposes of factorization.
 
 @returns An array containing the factorization of this number.
 @type Array
+
+<code><pre>
+   60.primeFactors()
+=> [2, 2, 3, 5]
+
+   37.primeFactors()
+=> [37]
+</pre></code>
 */
 Number.prototype.primeFactors = function() {
   var factors, i, iSquared, n;
@@ -1490,6 +1562,27 @@ Number.prototype.toColorPart = function() {
   }
   return s;
 };
+/**
+Returns the two character hexidecimal 
+representation of numbers 0 through 255
+
+@name toColorPart
+@methodOf Number#
+
+@returns Hexidecimal representation of the number
+@type String
+
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code>
+*/
 Number.prototype.approach = function(target, maxDelta) {
   return (target - this).clamp(-maxDelta, maxDelta) + this;
 };
