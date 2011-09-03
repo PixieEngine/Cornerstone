@@ -808,7 +808,6 @@ Core = function(I) {
       String argument.
     
       <code><pre>
-    
       myObject = Core
         r: 255
         g: 0
@@ -820,7 +819,6 @@ Core = function(I) {
       myObject.r()
     
       => 254
-    
       </pre></code>       
     
       @name attrAccessor
@@ -844,7 +842,6 @@ Core = function(I) {
     Generates a public jQuery style getter method for each String argument.
     
     <code><pre>
-    
     myObject = Core
       r: 255
       g: 0
@@ -863,7 +860,6 @@ Core = function(I) {
     myObject.b()
     
     => 100
-    
     </pre></code>    
     
     @name attrReader
@@ -911,7 +907,6 @@ Core = function(I) {
     Includes a module in this object.
     
     <code><pre>
-    
     myObject = Core()
     myObject.include(Bindable)
     
@@ -919,7 +914,6 @@ Core = function(I) {
     # y you've hardly written any code 
     myObject.bind "someEvent", ->
       alert("wow. that was easy.")
-    
     </pre></code>    
     
     @name include
