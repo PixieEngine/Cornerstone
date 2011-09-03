@@ -1,5 +1,5 @@
 ###*
-  @name util
+  @name Logging
 
 <code><pre>
   log "Testing123"
