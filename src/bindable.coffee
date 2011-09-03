@@ -13,9 +13,12 @@ Bindable = ->
   <code><pre>
 
   # this will call coolEventHandler when
-  # yourObject.trigger "someCustomEvent" is called
-  # Alternatively you can pass in an anonymous function as the handler
+  # yourObject.trigger "someCustomEvent" is called.
   yourObject.bind "someCustomEvent", coolEventHandler
+
+  #or
+  yourObject.bind "anotherCustomEvent", ->
+    doSomething()
 
   </pre></code>  
 
@@ -37,9 +40,12 @@ Bindable = ->
 
   <code><pre>
 
-  yourObject.unbind "someCustomEvent", ->
-    # this 
-    doSomething()
+  #  removes the handler coolEventHandler from the event
+  # "someCustomEvent" while leaving the other events intact.
+  yourObject.unbind "someCustomEvent", coolEventHandler
+
+  # removes all handlers attached to "anotherCustomEvent" 
+  yourObject.unbind "anotherCustomEvent"
 
   </pre></code>   
 
