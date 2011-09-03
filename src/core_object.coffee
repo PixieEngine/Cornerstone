@@ -79,6 +79,18 @@ Core = (I) ->
     ###* 
     Includes a module in this object.
 
+    <code><pre>
+
+    myObject = Core()
+    myObject.include(Bindable)
+
+    # now you can bind handlers to functions! Look how
+    # easy that was. You've hardly written any code 
+    myObject.bind "someEvent", ->
+      aFunction()
+
+    </pre></code>    
+
     @name include
     @methodOf Core#
 
