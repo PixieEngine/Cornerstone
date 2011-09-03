@@ -6,7 +6,6 @@
   info "Hey, this is happening"
   warn "Be careful, this might be a problem"
   error "Kaboom!"
-
 </pre></code>
 
   Gives you some convenience methods for outputting data
