@@ -843,15 +843,15 @@ Core = function(I) {
     
     myObject.r()
     
-    => 255
+     => 255
     
     myObject.g()
     
-    => 0
+     => 0
     
     myObject.b()
     
-    => 100
+     => 100
     
     </pre></code>    
     
