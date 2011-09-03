@@ -74,6 +74,8 @@ Flatten out an array of arrays into a single array of elements.
    [[1, 2], [3, 4], 5].flatten()
 => [1, 2, 3, 4, 5]
 
+   # won't flatten twice nested arrays call
+   # flatten twice if that is what you want
    [[1, 2], [3, [4, 5]], 6].flatten()
 => [1, 2, 3, [4, 5], 6]
 
