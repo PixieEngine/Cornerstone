@@ -269,17 +269,6 @@ Call the given iterator once for each pair of objects in the array.
   [1, 2, 3, 4].eachPair (a, b) ->
 </pre></code>
 
-<code><pre>
-   results = []
-   [1, 2, 3, 4].eachSlice 2, (slice) ->
-     results.push(slice)
-=> [1, 2, 3, 4]
-
-   results
-=> [[1, 2], [3, 4]]
-
-</pre></code>
-
 @name eachPair
 @methodOf Array#
 @param {Function} iterator Function to be called once for 
@@ -340,6 +329,18 @@ Array.prototype.eachWithObject = function(object, iterator, context) {
 Call the given iterator once for each group of elements in the array,
 passing in the elements in groups of n. Additional argumens are
 passed as in <code>each</each>.
+
+<code><pre>
+
+   results = []
+   [1, 2, 3, 4].eachSlice 2, (slice) ->
+     results.push(slice)
+=> [1, 2, 3, 4]
+
+   results
+=> [[1, 2], [3, 4]]
+
+</pre></code>
 
 @see Array#each
 
