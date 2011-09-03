@@ -239,13 +239,6 @@ Number::times = (iterator, context) ->
 ###*
 Returns the the nearest grid resolution less than or equal to the number. 
 
-@name snap
-@methodOf Number#
-
-@param {Number} resolution The grid resolution to snap to.
-@type Number
-@returns The nearest multiple of resolution lower than the number.
-
 <code><pre>
     7.snap(8) 
 => 0
@@ -256,6 +249,13 @@ Returns the the nearest grid resolution less than or equal to the number.
    12.snap(8) 
 => 8
 </pre></code>
+
+@name snap
+@methodOf Number#
+
+@param {Number} resolution The grid resolution to snap to.
+@type Number
+@returns The nearest multiple of resolution lower than the number.
 ###
 Number::snap = (resolution) ->
   n = this / resolution; 1/1; # This is to fix broken regex in doc parser
@@ -268,12 +268,6 @@ which when multiplied together equal the original integer.
 
 Floors the number for purposes of factorization.
 
-@name primeFactors
-@methodOf Number#
-
-@type Array
-@returns An array containing the factorization of this number.
-
 <code><pre>
    60.primeFactors()
 => [2, 2, 3, 5]
@@ -281,6 +275,12 @@ Floors the number for purposes of factorization.
    37.primeFactors()
 => [37]
 </pre></code>
+
+@name primeFactors
+@methodOf Number#
+
+@type Array
+@returns An array containing the factorization of this number.
 ###
 Number::primeFactors = ->
   factors = []
@@ -314,12 +314,6 @@ Number::primeFactors = ->
 Returns the two character hexidecimal 
 representation of numbers 0 through 255
 
-@name toColorPart
-@methodOf Number#
-
-@type String
-@returns Hexidecimal representation of the number
-
 <code><pre>
    255.toColorPart()
 => "ff"
@@ -330,6 +324,12 @@ representation of numbers 0 through 255
    200.toColorPart()
 => "c8"
 </pre></code>
+
+@name toColorPart
+@methodOf Number#
+
+@type String
+@returns Hexidecimal representation of the number
 ###
 Number::toColorPart = ->
   s = parseInt(this.clamp(0, 255), 10).toString(16)
@@ -342,12 +342,6 @@ Number::toColorPart = ->
 ###*
 Returns a number that is maxDelta closer to target
 
-@name approach
-@methodOf Number#
-
-@type Number
-@returns A number maxDelta toward target
-
 <code><pre>
    255.approach(0, 5)
 => 250
@@ -355,6 +349,12 @@ Returns a number that is maxDelta closer to target
    5.approach(0, 10)
 => 0
 </pre></code>
+
+@name approach
+@methodOf Number#
+
+@type Number
+@returns A number maxDelta toward target
 ###    
 Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
@@ -362,16 +362,16 @@ Number::approach = (target, maxDelta) ->
 ###*
 Returns a number that is closer to the target by the ratio
 
+<code><pre>
+   255.approachByRatio(0, 0.1)
+=> 229.5
+</pre></code>
+
 @name approachByRatio
 @methodOf Number#
 
 @type Number
 @returns A number toward target by the ratio
-
-<code><pre>
-   255.approachByRatio(0, 0.1)
-=> 229.5
-</pre></code>
 ### 
 Number::approachByRatio = (target, ratio) ->
   this.approach(target, this * ratio)
@@ -379,16 +379,16 @@ Number::approachByRatio = (target, ratio) ->
 ###*
 Returns a number that is closer to the target angle by the delta
 
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code>
+
 @name approachRotation
 @methodOf Number#
 
 @type Number
 @returns A number toward the target angle by maxDelta
-
-<code><pre>
-   Math.PI.approachRotation(0, Math.PI/4)
-=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
-</pre></code>
 ### 
 Number::approachRotation = (target, maxDelta) ->
   while target > this + Math.PI
@@ -402,16 +402,16 @@ Number::approachRotation = (target, maxDelta) ->
 ###*
 Constrains a rotation to between -PI and PI.
 
+<code><pre>
+   (9/4 * Math.PI).constrainRotation() 
+=> 0.7853981633974483 # this is (1/4) * Math.PI
+</pre></code>
+
 @name constrainRotation
 @methodOf Number#
 
 @type Number
 @returns This number constrained between -PI and PI.
-
-<code><pre>
-   (9/4 * Math.PI).constrainRotation() 
-=> 0.7853981633974483 # this is (1/4) * Math.PI
-</pre></code>
 ###
 Number::constrainRotation = ->
   target = this
