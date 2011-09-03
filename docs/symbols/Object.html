@@ -199,7 +199,24 @@ Last in covers earlier properties.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>target</dd>
+                        <dd>target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+  
+   Object.extend I, {
+     c: 6
+     d: 4
+   }   
+  
+   I
+  
+=> {a: 1, b:2, c:6, d: 4}
+</pre></code></dd>
                       
                     
 
@@ -363,7 +380,24 @@ First come, first served.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>target</dd>
+                        <dd>target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+  
+   Object.reverseMerge I, {
+     c: 6
+     d: 4
+   }   
+  
+   I
+  
+=> {a: 1, b:2, c:3, d: 4}
+</pre></code></dd>
                       
                     
 
