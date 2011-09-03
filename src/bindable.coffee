@@ -12,7 +12,7 @@ Bindable = ->
 
   <code><pre>
 
-  # this will call coolEventHandler when
+  # this will call coolEventHandler after
   # yourObject.trigger "someCustomEvent" is called.
   yourObject.bind "someCustomEvent", coolEventHandler
 
