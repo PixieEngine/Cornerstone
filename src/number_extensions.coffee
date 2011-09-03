@@ -397,7 +397,7 @@ Returns a number that is closer to the target angle by the delta
 @methodOf Number#
 
 @type Number
-@returns A number toward target by maxDelta
+@returns A number toward the target angle by maxDelta
 
 <code><pre>
    Math.PI.approachRotation(0, Math.PI/4)
