@@ -129,7 +129,7 @@ value(s).</div>
                         </div>
                         <div class="description">Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and this array as the
+the element as the second argument, and `this` array as the
 third argument.</div>
                       </td>
                     </tr>
@@ -289,10 +289,12 @@ if it is not present.</div>
                     <tr>
                       <td class="attributes">&nbsp;</td>
                       <td class="nameDescription">
-                        <div class="fixedFont"><b><a href="../symbols/Array.html#map">map</a></b>(callbackthisObject)
+                        <div class="fixedFont"><b><a href="../symbols/Array.html#map">map</a></b>(iterator, context)
                         </div>
-                        <div class="description">Creates a new array with the results of calling a provided function on every
-element in this array.</div>
+                        <div class="description">Call the given iterator once for each element in the array, 
+passing in the element as the first argument, the index of 
+the element as the second argument, and `this` array as the
+third argument.</div>
                       </td>
                     </tr>
                   
@@ -377,7 +379,7 @@ right-to-left) as to reduce it to a single value.</div>
                       <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Array.html#remove">remove</a></b>(object)
                         </div>
-                        <div class="description">Remove the first occurance of the given object from the array if it is
+                        <div class="description">Remove the first occurrence of the given object from the array if it is
 present.</div>
                       </td>
                     </tr>
@@ -605,7 +607,7 @@ length of the array.</div>
                 </div>
 
                 <div class="description">
-                  Returns a copy of the array without null and undefined values.
+                  Returns a copy of the array without null and undefined values..
 
                   
                 </div>
@@ -626,7 +628,7 @@ length of the array.</div>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>An array that contains only the non-null values.</dd>
+                        <dd>A new array that contains only the non-null values.</dd>
                       
                     
 
@@ -742,7 +744,7 @@ the same objects.
                 <div class="description">
                   Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and this array as the
+the element as the second argument, and `this` array as the
 third argument.
 
                   
@@ -810,14 +812,6 @@ used as `this` when calling the iterator function.</dd>
 
                 <div class="description">
                   Call the given iterator once for each pair of objects in the array.
-
-Ex. [1, 2, 3, 4].eachPair (a, b) ->
-  # 1, 2
-  # 1, 3
-  # 1, 4
-  # 2, 3
-  # 2, 4
-  # 3, 4
 
                   
                 </div>
@@ -1064,9 +1058,6 @@ this when executing callback.</dd>
 
                 <div class="description">
                   Returns an object containing the extremes of this array.
-<pre>
-[-1, 3, 0].extremes() # => {min: -1, max: 3}
-</pre>
 
                   
                 </div>
@@ -1456,14 +1447,6 @@ value (memo) and the element.
                   Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
-<code><pre>
-  [1.1, 2.2, 3.3, 4.4].invoke("floor")
-  => [1, 2, 3, 4]
-
-  ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
-  => ['hel', 'wor', 'coo']
-</pre></code>
-
                   
                 </div>
 
@@ -1655,16 +1638,16 @@ index is less than 0, -1 is returned, i.e. the array will not be searched.</dd>
                   
                   </span>
 
-                  
+                  <span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
 
-                  <b>map</b>(callbackthisObject)
+                  <b>map</b>(iterator, context)
                 </div>
 
                 <div class="description">
-                  Creates a new array with the results of calling a provided function on every
-element in this array.
-
-<code><em>array</em>.map(<em>callback</em>[, <em>thisObject</em>])</code>
+                  Call the given iterator once for each element in the array, 
+passing in the element as the first argument, the index of 
+the element as the second argument, and `this` array as the
+third argument.
 
                   
                 </div>
@@ -1676,16 +1659,44 @@ element in this array.
                     <dt class="heading">Parameters:</dt>
                     
                       <dt>
-                        <b>callbackthisObject</b>
+                        <span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>iterator</b>
                         
                       </dt>
-                      <dd>Function that produces an element of the new Array
-from an element of the current one.Object to use as this when executing
-callback.</dd>
+                      <dd>Function to be called once for
+each element in the array.</dd>
+                    
+                      <dt>
+                        <span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>context</b>
+                        <i>Optional</i>
+                      </dt>
+                      <dd>Optional context parameter to be
+used as `this` when calling the iterator function.</dd>
                     
                   </dl>
                 
 
+                
+                  <dl class="detailList nomargin">
+
+                    
+
+                    
+
+                    
+
+                    
+                      <dt class="heading">Returns:</dt>
+                      
+                        <dd>An array of the results of the iterator function
+being called on the original array elements.</dd>
+                      
+                    
+
+                    
+
+                    
+
+                  </dl>
                 
 
                 <div class="hr"></div>
@@ -2081,8 +2092,8 @@ used as `this` when calling the iterator function.</dd>
                 </div>
 
                 <div class="description">
-                  Remove the first occurance of the given object from the array if it is
-present.
+                  Remove the first occurrence of the given object from the array if it is
+present. The array is modified in place.
 
                   
                 </div>

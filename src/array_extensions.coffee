@@ -1,5 +1,10 @@
 ###*
-Returns a copy of the array without null and undefined values..
+Returns a copy of the array without null and undefined values.
+
+<code><pre>
+   [null, undefined, 3, 3, undefined, 5].compact()
+=> [3, 3, 5]
+</pre></code>
 
 @name compact
 @methodOf Array#
