@@ -93,11 +93,9 @@ Returns a number whose value is limited to the given range.
 @returns A number in the range [min, max]
 @type Number
 
-<code><pre>
-   x = 2
-
+<code><pre>   
    # limit the output of this computation to between 0 and 255
-   (x * 255).clamp(0, 255)
+   (2 * 255).clamp(0, 255)
 => 255
 </pre></code>
 ###
