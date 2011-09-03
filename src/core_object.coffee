@@ -35,7 +35,6 @@ Core = (I) ->
 
     myObject.attrAccessor "r", "g", "b"
 
-
     myObject.r(254)
     myObject.r()
 
