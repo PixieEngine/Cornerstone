@@ -312,7 +312,7 @@ Number::primeFactors = ->
 
 ###*
 Returns the two character hexidecimal 
-representation of numbers 0 through 255
+representation of numbers 0 through 255.
 
 <code><pre>
    255.toColorPart()
@@ -340,7 +340,7 @@ Number::toColorPart = ->
   return s
 
 ###*
-Returns a number that is maxDelta closer to target
+Returns a number that is maxDelta closer to target.
 
 <code><pre>
    255.approach(0, 5)
@@ -360,7 +360,7 @@ Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
 
 ###*
-Returns a number that is closer to the target by the ratio
+Returns a number that is closer to the target by the ratio.
 
 <code><pre>
    255.approachByRatio(0, 0.1)
@@ -377,7 +377,7 @@ Number::approachByRatio = (target, ratio) ->
   this.approach(target, this * ratio)
 
 ###*
-Returns a number that is closer to the target angle by the delta
+Returns a number that is closer to the target angle by the delta.
 
 <code><pre>
    Math.PI.approachRotation(0, Math.PI/4)
