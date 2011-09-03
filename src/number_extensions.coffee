@@ -27,8 +27,10 @@ Returns the mathematical ceiling of this number.
 <code><pre>
    (4.9).ceil() 
 => 5
+
    (4.2).ceil()
 => 5
+
    (-1.2).ceil()
 => -1
 </pre></code>
@@ -48,8 +50,10 @@ Returns the mathematical floor of this number.
 <code><pre>
    (4.9).floor()
 => 4
+
    (4.2).floor()
 => 4
+
    (-1.2).floor()
 => -2
 </pre></code>
@@ -69,6 +73,7 @@ Returns this number rounded to the nearest integer.
 <code><pre>
    (4.5).round()
 => 5
+
    (4.4).round()
 => 4
 </pre></code>
@@ -79,11 +84,6 @@ Number::round = ->
 ###*
 Returns a number whose value is limited to the given range.
 
-Example: limit the output of this computation to between 0 and 255
-<pre>
-(x * 255).clamp(0, 255)
-</pre>
-
 @name clamp
 @methodOf Number#
 
@@ -92,6 +92,14 @@ Example: limit the output of this computation to between 0 and 255
 
 @returns A number in the range [min, max]
 @type Number
+
+<code><pre>
+   x = 2
+
+   # limit the output of this computation to between 0 and 255
+   (x * 255).clamp(0, 255)
+=> 255
+</pre></code>
 ###
 Number::clamp = (min, max) ->
   Math.min(Math.max(this, min), max)
