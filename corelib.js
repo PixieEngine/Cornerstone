@@ -1335,6 +1335,7 @@ Returns a number whose value is limited to the given range.
 @type Number
 @returns A number in the range [min, max]
 
+
 <code><pre>   
    # limit the output of this computation to between 0 and 255
    (2 * 255).clamp(0, 255)
@@ -1352,8 +1353,9 @@ constrained to remain in bounds of array indices.
 @methodOf Number#
 
 @param {Number} base
-@returns An integer between 0 and (base - 1) if base is positive.
 @type Number
+@returns An integer between 0 and (base - 1) if base is positive.
+
 
 <code><pre>
    (-1).mod(5)
@@ -1459,8 +1461,8 @@ of the current iteration.
 @param {Object} [context] The optional context parameter specifies an object
 to treat as <code>this</code> in the iterator block.
 
-@returns The number of times the iterator was called.
 @type Number
+@returns The number of times the iterator was called.
 
 <code><pre>
    output = []
@@ -1487,8 +1489,8 @@ Returns the the nearest grid resolution less than or equal to the number.
 @methodOf Number#
 
 @param {Number} resolution The grid resolution to snap to.
-@returns The nearest multiple of resolution lower than the number.
 @type Number
+@returns The nearest multiple of resolution lower than the number.
 
 <code><pre>
     7.snap(8) 
@@ -1517,8 +1519,8 @@ Floors the number for purposes of factorization.
 @name primeFactors
 @methodOf Number#
 
-@returns An array containing the factorization of this number.
 @type Array
+@returns An array containing the factorization of this number.
 
 <code><pre>
    60.primeFactors()
@@ -1569,8 +1571,8 @@ representation of numbers 0 through 255
 @name toColorPart
 @methodOf Number#
 
-@returns Hexidecimal representation of the number
 @type String
+@returns Hexidecimal representation of the number
 
 <code><pre>
    255.toColorPart()
@@ -1604,8 +1606,8 @@ Constrains a rotation to between -PI and PI.
 @name constrainRotation
 @methodOf Number#
 
-@returns This number constrained between -PI and PI.
 @type Number
+@returns This number constrained between -PI and PI.
 */
 Number.prototype.constrainRotation = function() {
   var target;
