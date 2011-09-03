@@ -2,10 +2,8 @@
 Returns a copy of the array without null and undefined values.
 
 <code><pre>
-
    [null, undefined, 3, 3, undefined, 5].compact()
 => [3, 3, 5]
-
 </pre></code>
 
 @name compact
@@ -22,7 +20,6 @@ Creates and returns a copy of the array. The copy contains
 the same objects.
 
 <code><pre>
-
    a = ["a", "b", "c"]
    b = a.copy()
 
@@ -33,7 +30,6 @@ the same objects.
    # but they aren't the same object in memory
    a === b
 => false
-
 </pre></code>
 
 @name copy
@@ -48,12 +44,10 @@ Array::copy = ->
 Empties the array of its contents. It is modified in place.
 
 <code><pre>
-
    fullArray = [1, 2, 3]
    fullArray.clear()
    fullArray
 => []
-
 </pre></code>
 
 @name clear
@@ -70,7 +64,6 @@ Array::clear = ->
 Flatten out an array of arrays into a single array of elements.
 
 <code><pre>
-
    [[1, 2], [3, 4], 5].flatten()
 => [1, 2, 3, 4, 5]
 
@@ -78,7 +71,6 @@ Flatten out an array of arrays into a single array of elements.
    # flatten twice if that is what you want
    [[1, 2], [3, [4, 5]], 6].flatten()
 => [1, 2, 3, [4, 5], 6]
-
 </pre></code>
 
 @name flatten
@@ -95,13 +87,11 @@ Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
 <code><pre>
-
    [1.1, 2.2, 3.3, 4.4].invoke("floor")
 => [1, 2, 3, 4]
 
    ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
 => ['hel', 'wor', 'coo']
-
 </pre></code>
 
 @param {String} method The name of the method to invoke.
@@ -133,14 +123,12 @@ Remove the first occurrence of the given object from the array if it is
 present. The array is modified in place.
 
 <code><pre>
-
    a = [1, 1, "a", "b"]
    a.remove(1)
 => 1
 
    a
 => [1, "a", "b"]
-
 </pre></code>
 
 @name remove
@@ -160,13 +148,11 @@ Array::remove = (object) ->
 Returns true if the element is present in the array.
 
 <code><pre>
-
    ["a", "b", "c"].include("c")
 => true
 
    [40, "a"].include(700)
 => false
-
 </pre></code>
 
 @name include
@@ -185,7 +171,6 @@ the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
-
    word = ""
    indices = []
    ["r", "a", "d"].each (letter, index) ->
@@ -199,7 +184,6 @@ third argument.
 
    indices
 => [0, 1, 2]
-
 </pre></code>
 
 @name each
@@ -228,12 +212,10 @@ the element as the second argument, and `this` array as the
 third argument.
 
 <code><pre>
-
    [1, 2, 3].map (number) ->
      number * number
 
 => [1, 4, 9]
-
 </pre></code>
 
 @name map
@@ -258,7 +240,6 @@ Array::map ||= (iterator, context) ->
 Call the given iterator once for each pair of objects in the array.
 
 <code><pre>
-
   [1, 2, 3, 4].eachPair (a, b) ->
 </pre></code>
 
@@ -316,7 +297,6 @@ passing in the elements in groups of n. Additional argumens are
 passed as in <code>each</each>.
 
 <code><pre>
-
    results = []
    [1, 2, 3, 4].eachSlice 2, (slice) ->
      results.push(slice)
@@ -324,7 +304,6 @@ passed as in <code>each</each>.
 
    results
 => [[1, 2], [3, 4]]
-
 </pre></code>
 
 @see Array#each
@@ -372,10 +351,8 @@ Array::shuffle = ->
 Returns the first element of the array, undefined if the array is empty.
 
 <code><pre>
-
    ["first", "second", "third"].first()
 => "first"
-
 </pre></code>
 
 @name first
@@ -391,10 +368,8 @@ Array::first = ->
 Returns the last element of the array, undefined if the array is empty.
 
 <code><pre>
-
    ["first", "second", "third"].last()
 => "third"
-
 </pre></code>
 
 @name last
@@ -410,10 +385,8 @@ Array::last = ->
 Returns an object containing the extremes of this array.
 
 <code><pre>
-
    [-1, 3, 0].extremes()
 => {min: -1, max: 3}
-
 </pre></code>
 
 @name extremes
@@ -458,7 +431,6 @@ If length is not given return the element at start, again assuming the array
 is a circle.
 
 <code><pre>
-
    [1, 2, 3].wrap(-1)
 => 3
 
@@ -467,7 +439,6 @@ is a circle.
 
    ["l", "o", "o", "p"].wrap(0, 16)
 => ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
-
 </pre></code>
 
 @name wrap
