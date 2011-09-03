@@ -1723,6 +1723,23 @@ First come, first served.
 @param {Object} target The object to merge the properties into.
 @type Object
 @returns target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+  
+   Object.reverseMerge I, {
+     c: 6
+     d: 4
+   }   
+  
+   I
+  
+=> {a: 1, b:2, c:3, d: 4}
+</pre></code>
 */
 Object.reverseMerge = function() {
   var name, object, objects, target, _i, _len;
@@ -1746,6 +1763,23 @@ Last in covers earlier properties.
 @param {Object} target The object to merge the properties into.
 @type Object
 @returns target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+  
+   Object.extend I, {
+     c: 6
+     d: 4
+   }   
+  
+   I
+  
+=> {a: 1, b:2, c:6, d: 4}
+</pre></code>
 */
 Object.extend = function() {
   var name, source, sources, target, _i, _len;
