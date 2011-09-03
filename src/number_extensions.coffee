@@ -41,12 +41,6 @@ Number::ceil = ->
 ###*
 Returns the mathematical floor of this number.
 
-@name floor
-@methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of less than or equal value.
-
 <code><pre>
    4.9.floor()
 => 4
@@ -57,18 +51,18 @@ Returns the mathematical floor of this number.
    (-1.2).floor()
 => -2
 </pre></code>
+
+@name floor
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of less than or equal value.
 ###
 Number::floor = ->
   Math.floor(this)
 
 ###*
 Returns this number rounded to the nearest integer.
-
-@name round
-@methodOf Number#
-
-@type Number
-@returns The number rounded to the nearest integer.
 
 <code><pre>
    4.5.round()
@@ -77,12 +71,24 @@ Returns this number rounded to the nearest integer.
    4.4.round()
 => 4
 </pre></code>
+
+@name round
+@methodOf Number#
+
+@type Number
+@returns The number rounded to the nearest integer.
 ###
 Number::round = ->
   Math.round(this)
 
 ###*
 Returns a number whose value is limited to the given range.
+
+<code><pre>   
+   # limit the output of this computation to between 0 and 255
+   (2 * 255).clamp(0, 255)
+=> 255
+</pre></code>
 
 @name clamp
 @methodOf Number#
@@ -92,13 +98,6 @@ Returns a number whose value is limited to the given range.
 
 @type Number
 @returns A number in the range [min, max]
-
-
-<code><pre>   
-   # limit the output of this computation to between 0 and 255
-   (2 * 255).clamp(0, 255)
-=> 255
-</pre></code>
 ###
 Number::clamp = (min, max) ->
   Math.min(Math.max(this, min), max)
@@ -107,18 +106,17 @@ Number::clamp = (min, max) ->
 A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>
+
 @name mod
 @methodOf Number#
 
 @param {Number} base
 @type Number
 @returns An integer between 0 and (base - 1) if base is positive.
-
-
-<code><pre>
-   (-1).mod(5)
-=> 4
-</pre></code>
 ###
 Number::mod = (base) ->
   result = this % base;
@@ -131,12 +129,6 @@ Number::mod = (base) ->
 ###*
 Get the sign of this number as an integer (1, -1, or 0).
 
-@name sign
-@methodOf Number#
-
-@type Number
-@returns The sign of this number, 0 if the number is 0.
-
 <code><pre>
    (-5).sign()
 => -1
@@ -147,6 +139,12 @@ Get the sign of this number as an integer (1, -1, or 0).
    5.sign()
 => 1
 </pre></code>
+
+@name sign
+@methodOf Number#
+
+@type Number
+@returns The sign of this number, 0 if the number is 0.
 ###
 Number::sign = ->
   if this > 0
@@ -159,12 +157,6 @@ Number::sign = ->
 ###*
 Returns true if this number is even (evenly divisible by 2).
 
-@name even
-@methodOf Number#
-
-@type Boolean
-@returns true if this number is an even integer, false otherwise.
-
 <code><pre>
    2.even()
 => true
@@ -175,18 +167,18 @@ Returns true if this number is even (evenly divisible by 2).
    0.even()
 => true      
 </pre></code>
+
+@name even
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an even integer, false otherwise.
 ###
 Number::even = ->
   this % 2 == 0
 
 ###*
 Returns true if this number is odd (has remainder of 1 when divided by 2).
-
-@name odd
-@methodOf Number#
-
-@type Boolean
-@returns true if this number is an odd integer, false otherwise.
 
 <code><pre>
    2.odd()
@@ -198,6 +190,12 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
    0.odd()
 => false     
 </pre></code>
+
+@name odd
+@methodOf Number#
+
+@type Boolean
+@returns true if this number is an odd integer, false otherwise.
 ###
 Number::odd = ->
   if this > 0
@@ -209,6 +207,16 @@ Number::odd = ->
 Calls iterator the specified number of times, passing in the number of the 
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>
+
 @name times
 @methodOf Number#
 
@@ -219,16 +227,6 @@ to treat as <code>this</code> in the iterator block.
 
 @type Number
 @returns The number of times the iterator was called.
-
-<code><pre>
-   output = []
-
-   5.times (n) ->
-     output.push(n)
-
-   output
-=> [0, 1, 2, 3, 4]
-</pre></code>
 ###
 Number::times = (iterator, context) ->
   i = -1
