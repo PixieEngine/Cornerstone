@@ -391,6 +391,21 @@ Number::approachRotation = (target, maxDelta) ->
   return (target - this).clamp(-maxDelta, maxDelta) + this
 
 ###*
+Returns a number that is closer to the target angle by the delta
+
+@name approachRotation
+@methodOf Number#
+
+@type Number
+@returns A number toward target by maxDelta
+
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code>
+### 
+
+###*
 Constrains a rotation to between -PI and PI.
 
 @name constrainRotation
