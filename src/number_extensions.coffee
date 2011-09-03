@@ -134,6 +134,17 @@ Get the sign of this number as an integer (1, -1, or 0).
 
 @type Number
 @returns The sign of this number, 0 if the number is 0.
+
+<code><pre>
+   (-5).sign()
+=> -1
+
+   (0).sign()
+=> 0
+
+   (5).sign()
+=> 1
+</pre></code>
 ###
 Number::sign = ->
   if this > 0
