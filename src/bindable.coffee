@@ -14,6 +14,7 @@ Bindable = ->
 
   # this will call coolEventHandler when
   # yourObject.trigger "someCustomEvent" is called
+  # Alternatively you can pass in an anonymous function as the handler
   yourObject.bind "someCustomEvent", coolEventHandler
 
   </pre></code>  
