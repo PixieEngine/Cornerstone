@@ -281,7 +281,6 @@ Floors the number for purposes of factorization.
    37.primeFactors()
 => [37]
 </pre></code>
-
 ###
 Number::primeFactors = ->
   factors = []
@@ -318,6 +317,28 @@ Number::toColorPart = ->
     s = '0' + s
 
   return s
+
+###*
+Returns the two character hexidecimal 
+representation of numbers 0 through 255
+
+@name toColorPart
+@methodOf Number#
+
+@returns Hexidecimal representation of the number
+@type String
+
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code>
+###
 
 Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
@@ -369,4 +390,3 @@ The mathematical circle constant of 1 turn.
 @fieldOf Math
 ###
 Math.TAU = 2 * Math.PI
-
