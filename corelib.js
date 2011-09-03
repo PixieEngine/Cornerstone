@@ -187,6 +187,24 @@ passing in the element as the first argument, the index of
 the element as the second argument, and `this` array as the
 third argument.
 
+<code><pre>
+
+   word = ""
+   indices = []
+   ["r", "a", "d"].each (letter, index) ->
+     word += letter
+     indices.push(index)
+
+=> ["r", "a", "d"]
+
+   word
+=> "rad"
+
+   indices
+=> [0, 1, 2]
+
+</pre></code>
+
 @name each
 @methodOf Array#
 @param {Function} iterator Function to be called once for 
