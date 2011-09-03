@@ -19,7 +19,6 @@ Bindable = ->
   #or
   yourObject.bind "anotherCustomEvent", ->
     doSomething()
-
   </pre></code>  
 
   @name bind
@@ -46,7 +45,6 @@ Bindable = ->
 
   # removes all handlers attached to "anotherCustomEvent" 
   yourObject.unbind "anotherCustomEvent"
-
   </pre></code>   
 
   @name unbind
@@ -70,7 +68,6 @@ Bindable = ->
 
   # calls each event handler bound to "someCustomEvent"
   yourObject.trigger "someCustomEvent"
-
   </pre></code>  
 
   @name trigger
