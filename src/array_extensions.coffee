@@ -45,6 +45,15 @@ Array::copy = ->
 ###*
 Empties the array of its contents. It is modified in place.
 
+<code><pre>
+
+   fullArray = [1, 2, 3]
+   fullArray.clear()
+   fullArray
+=> []
+
+</pre></code>
+
 @name clear
 @methodOf Array#
 @type Array
