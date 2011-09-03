@@ -667,8 +667,10 @@ Bindable = function() {
     
     <code><pre>
     
-      yourObject.bind "someCustomEvent", ->
-        doSomething()
+    yourObject.bind "someCustomEvent", ->
+      # this will be executed when
+      # yourObject.trigger "someCustomEvent" is called
+      doSomething()
     
     </pre></code>  
     
