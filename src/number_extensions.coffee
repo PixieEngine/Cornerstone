@@ -25,10 +25,10 @@ Returns the mathematical ceiling of this number.
 @returns The number truncated to the nearest integer of greater than or equal value.
 
 <code><pre>
-   (4.9).ceil() 
+   4.9.ceil() 
 => 5
 
-   (4.2).ceil()
+   4.2.ceil()
 => 5
 
    (-1.2).ceil()
@@ -48,10 +48,10 @@ Returns the mathematical floor of this number.
 @returns The number truncated to the nearest integer of less than or equal value.
 
 <code><pre>
-   (4.9).floor()
+   4.9.floor()
 => 4
 
-   (4.2).floor()
+   4.2.floor()
 => 4
 
    (-1.2).floor()
@@ -71,10 +71,10 @@ Returns this number rounded to the nearest integer.
 @returns The number rounded to the nearest integer.
 
 <code><pre>
-   (4.5).round()
+   4.5.round()
 => 5
 
-   (4.4).round()
+   4.4.round()
 => 4
 </pre></code>
 ###
@@ -139,10 +139,10 @@ Get the sign of this number as an integer (1, -1, or 0).
    (-5).sign()
 => -1
 
-   (0).sign()
+   0.sign()
 => 0
 
-   (5).sign()
+   5.sign()
 => 1
 </pre></code>
 ###
@@ -162,6 +162,17 @@ Returns true if this number is even (evenly divisible by 2).
 
 @type Boolean
 @returns true if this number is an even integer, false otherwise.
+
+<code><pre>
+   2.even()
+=> true
+
+   3.even()
+=> false
+
+   0.even()
+=> true      
+</pre></code>
 ###
 Number::even = ->
   this % 2 == 0
@@ -174,6 +185,17 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 
 @type Boolean
 @returns true if this number is an odd integer, false otherwise.
+
+<code><pre>
+   2.odd()
+=> false
+
+   3.odd()
+=> true
+
+   0.odd()
+=> false     
+</pre></code>
 ###
 Number::odd = ->
   if this > 0
@@ -195,6 +217,16 @@ to treat as <code>this</code> in the iterator block.
 
 @returns The number of times the iterator was called.
 @type Number
+
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>
 ###
 Number::times = (iterator, context) ->
   i = -1
