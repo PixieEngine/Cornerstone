@@ -84,10 +84,10 @@ Core = (I) ->
     myObject = Core()
     myObject.include(Bindable)
 
-    # now you can bind handlers to functions! Look how
-    # easy that was. You've hardly written any code 
+    # now you can bind handlers to functions and
+    # y you've hardly written any code 
     myObject.bind "someEvent", ->
-      aFunction()
+      alert("wow. that was easy.")
 
     </pre></code>    
 
