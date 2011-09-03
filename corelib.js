@@ -1632,6 +1632,20 @@ Number.prototype.approachRotation = function(target, maxDelta) {
   return (target - this).clamp(-maxDelta, maxDelta) + this;
 };
 /**
+Returns a number that is closer to the target angle by the delta
+
+@name approachRotation
+@methodOf Number#
+
+@type Number
+@returns A number toward the target angle by maxDelta
+
+<code><pre>
+   Math.PI.approachRotation(0, Math.PI/4)
+=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+</pre></code>
+*/
+/**
 Constrains a rotation to between -PI and PI.
 
 @name constrainRotation
@@ -1639,6 +1653,11 @@ Constrains a rotation to between -PI and PI.
 
 @type Number
 @returns This number constrained between -PI and PI.
+
+<code><pre>
+   (9/4 * Math.PI).constrainRotation() 
+=> 0.7853981633974483 # this is (1/4) * Math.PI
+</pre></code>
 */
 Number.prototype.constrainRotation = function() {
   var target;
