@@ -641,7 +641,6 @@ Bindable = function() {
     The bind method adds a function as an event listener.
     
     <code><pre>
-    
     # this will call coolEventHandler after
     # yourObject.trigger "someCustomEvent" is called.
     yourObject.bind "someCustomEvent", coolEventHandler
@@ -667,7 +666,6 @@ Bindable = function() {
     no specific listener is given.
     
     <code><pre>
-    
     #  removes the handler coolEventHandler from the event
     # "someCustomEvent" while leaving the other events intact.
     yourObject.unbind "someCustomEvent", coolEventHandler
@@ -694,7 +692,6 @@ Bindable = function() {
     The trigger method calls all listeners attached to the specified event.
     
     <code><pre>
-    
     # calls each event handler bound to "someCustomEvent"
     yourObject.trigger "someCustomEvent"
     </pre></code>  
