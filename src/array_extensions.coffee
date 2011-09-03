@@ -74,7 +74,7 @@ Flatten out an array of arrays into a single array of elements.
    [[1, 2], [3, 4], 5].flatten()
 => [1, 2, 3, 4, 5]
 
-   # won't flatten twice nested arrays call
+   # won't flatten twice nested arrays. call
    # flatten twice if that is what you want
    [[1, 2], [3, [4, 5]], 6].flatten()
 => [1, 2, 3, [4, 5], 6]
@@ -181,7 +181,7 @@ Array::include = (element) ->
 ###*
 Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and `this` array as the
+the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
