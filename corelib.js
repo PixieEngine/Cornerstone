@@ -784,15 +784,12 @@ Core = function(I) {
      # a bad idea most of the time, but it's 
      # pretty convenient to have available.
      myObject.I.r
-    
     => 255
     
      myObject.I.g
-    
     => 0
     
      myObject.I.b
-    
     => 100
     </pre></code>    
     
@@ -815,7 +812,7 @@ Core = function(I) {
       myObject.r(254)
       myObject.r()
     
-      => 254
+     => 254
       </pre></code>       
     
       @name attrAccessor
@@ -847,16 +844,13 @@ Core = function(I) {
     myObject.attrReader "r", "g", "b"
     
     myObject.r()
-    
-    => 255
+     => 255
     
     myObject.g()
-    
-    => 0
+     => 0
     
     myObject.b()
-    
-    => 100
+     => 100
     </pre></code>    
     
     @name attrReader
