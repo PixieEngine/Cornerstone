@@ -155,6 +155,16 @@ Array::remove = (object) ->
 ###*
 Returns true if the element is present in the array.
 
+<code><pre>
+
+   ["a", "b", "c"].include("c")
+=> true
+
+   [40, "a"].include(700)
+=> false
+
+</pre></code>
+
 @name include
 @methodOf Array#
 @param {Object} element The element to check if present.
