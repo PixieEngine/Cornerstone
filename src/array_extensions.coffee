@@ -388,7 +388,7 @@ Returns the last element of the array, undefined if the array is empty.
 
 <code><pre>
 
-  ["first", "second", "third"].last()
+   ["first", "second", "third"].last()
 => "third"
 
 </pre></code>
