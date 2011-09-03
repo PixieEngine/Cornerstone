@@ -17,7 +17,6 @@ Checks whether an object is an array.
 ###
 Object.isArray = (object)->
   Object::toString.call(object) == '[object Array]'
-
 ###*
 Merges properties from objects into target without overiding.
 First come, first served.
