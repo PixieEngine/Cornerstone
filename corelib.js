@@ -69,6 +69,16 @@ Array.prototype.clear = function() {
 /**
 Flatten out an array of arrays into a single array of elements.
 
+<code><pre>
+
+   [[1, 2], [3, 4], 5].flatten()
+=> [1, 2, 3, 4, 5]
+
+   [[1, 2], [3, [4, 5]], 6].flatten()
+=> [1, 2, 3, [4, 5], 6]
+
+</pre></code>
+
 @name flatten
 @methodOf Array#
 @type Array
