@@ -1332,8 +1332,8 @@ Returns a number whose value is limited to the given range.
 @param {Number} min The lower boundary of the output range
 @param {Number} max The upper boundary of the output range
 
-@returns A number in the range [min, max]
 @type Number
+@returns A number in the range [min, max]
 
 <code><pre>   
    # limit the output of this computation to between 0 and 255
