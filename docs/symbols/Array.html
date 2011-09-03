@@ -12,9 +12,7 @@
     <div class="index">
       <div class="menu">
         <!-- begin publish.classesIndex -->
-        <div align="center"><a href="../index.html">Class Index</a> | <a href="../files.html">File Index</a></div>
-
-<h2 class="heading1">Classes</h2>
+        <h2 class="heading1">Classes</h2>
 
 <ul class="classList">
   
@@ -129,7 +127,7 @@ value(s).</div>
                         </div>
                         <div class="description">Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and `this` array as the
+the element as the second argument, and <code>this</code> array as the
 third argument.</div>
                       </td>
                     </tr>
@@ -775,7 +773,7 @@ the same objects.
                 <div class="description">
                   Call the given iterator once for each element in the array,
 passing in the element as the first argument, the index of 
-the element as the second argument, and `this` array as the
+the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
@@ -1291,7 +1289,7 @@ use as this when executing callback.</dd>
    [[1, 2], [3, 4], 5].flatten()
 => [1, 2, 3, 4, 5]
 
-   # won't flatten twice nested arrays call
+   # won't flatten twice nested arrays. call
    # flatten twice if that is what you want
    [[1, 2], [3, [4, 5]], 6].flatten()
 => [1, 2, 3, [4, 5], 6]

@@ -12,10 +12,9 @@ Bindable = ->
 
   <code><pre>
 
-  yourObject.bind "someCustomEvent", ->
-    # this will be executed when
-    # yourObject.trigger "someCustomEvent" is called
-    doSomething()
+  # this will call coolEventHandler when
+  # yourObject.trigger "someCustomEvent" is called
+  yourObject.bind "someCustomEvent", coolEventHandler
 
   </pre></code>  
 
@@ -34,6 +33,14 @@ Bindable = ->
   ###*
   The unbind method removes a specific event listener, or all event listeners if
   no specific listener is given.
+
+  <code><pre>
+
+  yourObject.unbind "someCustomEvent", ->
+    # this 
+    doSomething()
+
+  </pre></code>   
 
   @name unbind
   @methodOf Bindable#
