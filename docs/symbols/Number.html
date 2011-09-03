@@ -206,6 +206,16 @@ current iteration as a parameter: 0 on first call, 1 on the second call, etc.</d
                     <tr>
                       <td class="attributes">&nbsp;</td>
                       <td class="nameDescription">
+                        <div class="fixedFont"><b><a href="../symbols/Number.html#toColorPart">toColorPart</a></b>()
+                        </div>
+                        <div class="description">Returns the two character hexidecimal 
+representation of numbers 0 through 255</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="attributes">&nbsp;</td>
+                      <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Number.html#toExponential">toExponential</a></b>(fractionDigits)
                         </div>
                         <div class="description">Returns a string representing the Number object in exponential notation
@@ -395,10 +405,12 @@ current iteration as a parameter: 0 on first call, 1 on the second call, etc.</d
                         <dd>The number truncated to the nearest integer of greater than or equal value.
 
 <code><pre>
-   (4.9).ceil() 
+   4.9.ceil() 
 => 5
-   (4.2).ceil()
+
+   4.2.ceil()
 => 5
+
    (-1.2).ceil()
 => -1
 </pre></code></dd>
@@ -421,18 +433,19 @@ current iteration as a parameter: 0 on first call, 1 on the second call, etc.</d
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>
+
+<code><pre>   
+   # limit the output of this computation to between 0 and 255
+   (2 * 255).clamp(0, 255)
+=> 255
+</pre></code>}</span>
 
                   <b>clamp</b>(min, max)
                 </div>
 
                 <div class="description">
                   Returns a number whose value is limited to the given range.
-
-Example: limit the output of this computation to between 0 and 255
-<pre>
-(x * 255).clamp(0, 255)
-</pre>
 
                   
                 </div>
@@ -564,7 +577,18 @@ Example: limit the output of this computation to between 0 and 255
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>true if this number is an even integer, false otherwise.</dd>
+                        <dd>true if this number is an even integer, false otherwise.
+
+<code><pre>
+   2.even()
+=> true
+
+   3.even()
+=> false
+
+   0.even()
+=> true      
+</pre></code></dd>
                       
                     
 
@@ -613,9 +637,16 @@ Example: limit the output of this computation to between 0 and 255
                       
                         <dd>The number truncated to the nearest integer of less than or equal value.
 
-(4.9).floor() # => 4
-(4.2).floor() # => 4
-(-1.2).floor() # => -2</dd>
+<code><pre>
+   4.9.floor()
+=> 4
+
+   4.2.floor()
+=> 4
+
+   (-1.2).floor()
+=> -2
+</pre></code></dd>
                       
                     
 
@@ -635,7 +666,12 @@ Example: limit the output of this computation to between 0 and 255
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>
+
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code>}</span>
 
                   <b>mod</b>(base)
                 </div>
@@ -643,11 +679,6 @@ Example: limit the output of this computation to between 0 and 255
                 <div class="description">
                   A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
-
-<pre>
-Example:
-(-1).mod(5) == 4
-</pre>
 
                   
                 </div>
@@ -726,7 +757,18 @@ Example:
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>true if this number is an odd integer, false otherwise.</dd>
+                        <dd>true if this number is an odd integer, false otherwise.
+
+<code><pre>
+   2.odd()
+=> false
+
+   3.odd()
+=> true
+
+   0.odd()
+=> false     
+</pre></code></dd>
                       
                     
 
@@ -746,7 +788,15 @@ Example:
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
+                  <span class="light">{<a href="../symbols/Array.html">Array</a>
+
+<code><pre>
+   60.primeFactors()
+=> [2, 2, 3, 5]
+
+   37.primeFactors()
+=> [37]
+</pre></code>}</span>
 
                   <b>primeFactors</b>()
                 </div>
@@ -826,8 +876,13 @@ Floors the number for purposes of factorization.
                       
                         <dd>The number rounded to the nearest integer.
 
-(4.5).round() # => 5
-(4.4).round() # => 4</dd>
+<code><pre>
+   4.5.round()
+=> 5
+
+   4.4.round()
+=> 4
+</pre></code></dd>
                       
                     
 
@@ -874,7 +929,18 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The sign of this number, 0 if the number is 0.</dd>
+                        <dd>The sign of this number, 0 if the number is 0.
+
+<code><pre>
+   (-5).sign()
+=> -1
+
+   0.sign()
+=> 0
+
+   5.sign()
+=> 1
+</pre></code></dd>
                       
                     
 
@@ -894,18 +960,24 @@ Floors the number for purposes of factorization.
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>
+
+<code><pre>
+    7.snap(8) 
+=> 0
+
+    4.snap(8) 
+=> 0
+
+   12.snap(8) 
+=> 8
+</pre></code>}</span>
 
                   <b>snap</b>(resolution)
                 </div>
 
                 <div class="description">
-                  Returns the the nearest grid resolution less than or equal to the number. 
-
-  EX: 
-   (7).snap(8) => 0
-   (4).snap(8) => 0
-   (12).snap(8) => 8
+                  Returns the the nearest grid resolution less than or equal to the number.
 
                   
                 </div>
@@ -957,7 +1029,17 @@ Floors the number for purposes of factorization.
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>
+
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+    
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code>}</span>
 
                   <b>times</b>(iterator, context)
                 </div>
@@ -1005,6 +1087,65 @@ to treat as <code>this</code> in the iterator block.</dd>
                       <dt class="heading">Returns:</dt>
                       
                         <dd>The number of times the iterator was called.</dd>
+                      
+                    
+
+                    
+
+                    
+
+                  </dl>
+                
+
+                <div class="hr"></div>
+              
+                <a name="toColorPart"></a>
+
+                <div class="fixedFont heading">
+                  <span class='lighter'>
+                  
+                  </span>
+
+                  <span class="light">{<a href="../symbols/String.html">String</a>
+
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code>}</span>
+
+                  <b>toColorPart</b>()
+                </div>
+
+                <div class="description">
+                  Returns the two character hexidecimal 
+representation of numbers 0 through 255
+
+                  
+                </div>
+
+                
+
+                
+
+                
+                  <dl class="detailList nomargin">
+
+                    
+
+                    
+
+                    
+
+                    
+                      <dt class="heading">Returns:</dt>
+                      
+                        <dd>Hexidecimal representation of the number</dd>
                       
                     
 
