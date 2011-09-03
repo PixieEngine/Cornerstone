@@ -6,6 +6,14 @@ Checks whether an object is an array.
 @param {Object} object The object to check for array-ness.
 @type Boolean
 @returns A boolean expressing whether the object is an instance of Array 
+
+<code><pre>
+   Object.isArray([1, 2, 4])
+=> true
+
+   Object.isArray({key: "value"})
+=> false
+</pre></code>
 ###
 Object.isArray = (object)->
   Object::toString.call(object) == '[object Array]'
