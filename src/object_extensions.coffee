@@ -69,7 +69,7 @@ Last in covers earlier properties.
      c: 3
    }
 
-   Object.reverseMerge I, {
+   Object.extend I, {
      c: 6
      d: 4
    }   
