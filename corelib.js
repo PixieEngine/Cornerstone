@@ -1608,6 +1608,20 @@ Returns a number that is maxDelta closer to target
 Number.prototype.approachByRatio = function(target, ratio) {
   return this.approach(target, this * ratio);
 };
+/**
+Returns a number that is closer to the target by the ratio
+
+@name approachByRatio
+@methodOf Number#
+
+@type Number
+@returns A number toward target by the ratio
+
+<code><pre>
+   255.approachByRatio(0, 0.1)
+=> 229.5
+</pre></code>
+*/
 Number.prototype.approachRotation = function(target, maxDelta) {
   while (target > this + Math.PI) {
     target -= Math.TAU;
