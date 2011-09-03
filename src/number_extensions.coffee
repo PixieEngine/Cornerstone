@@ -239,17 +239,23 @@ Number::times = (iterator, context) ->
 ###*
 Returns the the nearest grid resolution less than or equal to the number. 
 
-  EX: 
-   (7).snap(8) => 0
-   (4).snap(8) => 0
-   (12).snap(8) => 8
-
 @name snap
 @methodOf Number#
 
 @param {Number} resolution The grid resolution to snap to.
 @returns The nearest multiple of resolution lower than the number.
 @type Number
+
+<code><pre>
+    7.snap(8) 
+=> 0
+
+    4.snap(8) 
+=> 0
+
+   12.snap(8) 
+=> 8
+</pre></code>
 ###
 Number::snap = (resolution) ->
   n = this / resolution; 1/1; # This is to fix broken regex in doc parser
@@ -267,6 +273,15 @@ Floors the number for purposes of factorization.
 
 @returns An array containing the factorization of this number.
 @type Array
+
+<code><pre>
+   60.primeFactors()
+=> [2, 2, 3, 5]
+
+   37.primeFactors()
+=> [37]
+</pre></code>
+
 ###
 Number::primeFactors = ->
   factors = []
