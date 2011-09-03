@@ -45,9 +45,11 @@ Returns the mathematical floor of this number.
 @type Number
 @returns The number truncated to the nearest integer of less than or equal value.
 
+<code><pre>
 (4.9).floor() # => 4
 (4.2).floor() # => 4
 (-1.2).floor() # => -2
+</pre></code>
 ###
 Number::floor = ->
   Math.floor(this)
