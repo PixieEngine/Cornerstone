@@ -2,7 +2,7 @@
   @name util
 
 <code><pre>
-  log "testing123"
+  log "Testing123"
   info "Hey, this is happening"
   warn "Be careful, this might be a problem"
   error "Kaboom!"
