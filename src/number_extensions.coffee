@@ -345,6 +345,24 @@ representation of numbers 0 through 255
 Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
 
+###*
+Returns a number that is maxDelta closer to target
+
+@name approach
+@methodOf Number#
+
+@type Number
+@returns A number maxDelta toward target
+
+<code><pre>
+   255.approach(0, 5)
+=> 250
+
+   5.approach(0, 10)
+=> 0
+</pre></code>
+###  
+
 Number::approachByRatio = (target, ratio) ->
   this.approach(target, this * ratio)
 

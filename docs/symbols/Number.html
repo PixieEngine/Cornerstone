@@ -479,6 +479,7 @@ representation of numbers 0 through 255</div>
                       
                         <dd>A number in the range [min, max]
 
+
 <code><pre>   
    # limit the output of this computation to between 0 and 255
    (2 * 255).clamp(0, 255)
@@ -666,12 +667,7 @@ representation of numbers 0 through 255</div>
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>
-
-<code><pre>
-   (-1).mod(5)
-=> 4
-</pre></code>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
 
                   <b>mod</b>(base)
                 </div>
@@ -710,7 +706,13 @@ constrained to remain in bounds of array indices.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>An integer between 0 and (base - 1) if base is positive.</dd>
+                        <dd>An integer between 0 and (base - 1) if base is positive.
+
+
+<code><pre>
+   (-1).mod(5)
+=> 4
+</pre></code></dd>
                       
                     
 
@@ -788,15 +790,7 @@ constrained to remain in bounds of array indices.
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Array.html">Array</a>
-
-<code><pre>
-   60.primeFactors()
-=> [2, 2, 3, 5]
-
-   37.primeFactors()
-=> [37]
-</pre></code>}</span>
+                  <span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
 
                   <b>primeFactors</b>()
                 </div>
@@ -827,7 +821,15 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>An array containing the factorization of this number.</dd>
+                        <dd>An array containing the factorization of this number.
+
+<code><pre>
+   60.primeFactors()
+=> [2, 2, 3, 5]
+
+   37.primeFactors()
+=> [37]
+</pre></code></dd>
                       
                     
 
@@ -960,18 +962,7 @@ Floors the number for purposes of factorization.
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>
-
-<code><pre>
-    7.snap(8) 
-=> 0
-
-    4.snap(8) 
-=> 0
-
-   12.snap(8) 
-=> 8
-</pre></code>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
 
                   <b>snap</b>(resolution)
                 </div>
@@ -1009,7 +1000,18 @@ Floors the number for purposes of factorization.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The nearest multiple of resolution lower than the number.</dd>
+                        <dd>The nearest multiple of resolution lower than the number.
+
+<code><pre>
+    7.snap(8) 
+=> 0
+
+    4.snap(8) 
+=> 0
+
+   12.snap(8) 
+=> 8
+</pre></code></dd>
                       
                     
 
@@ -1029,17 +1031,7 @@ Floors the number for purposes of factorization.
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/Number.html">Number</a>
-
-<code><pre>
-   output = []
-
-   5.times (n) ->
-     output.push(n)
-    
-   output
-=> [0, 1, 2, 3, 4]
-</pre></code>}</span>
+                  <span class="light">{<a href="../symbols/Number.html">Number</a>}</span>
 
                   <b>times</b>(iterator, context)
                 </div>
@@ -1086,7 +1078,17 @@ to treat as <code>this</code> in the iterator block.</dd>
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>The number of times the iterator was called.</dd>
+                        <dd>The number of times the iterator was called.
+
+<code><pre>
+   output = []
+
+   5.times (n) ->
+     output.push(n)
+    
+   output
+=> [0, 1, 2, 3, 4]
+</pre></code></dd>
                       
                     
 
@@ -1106,18 +1108,7 @@ to treat as <code>this</code> in the iterator block.</dd>
                   
                   </span>
 
-                  <span class="light">{<a href="../symbols/String.html">String</a>
-
-<code><pre>
-   255.toColorPart()
-=> "ff"
-
-   0.toColorPart()
-=> "00"
-
-   200.toColorPart()
-=> "c8"
-</pre></code>}</span>
+                  <span class="light">{<a href="../symbols/String.html">String</a>}</span>
 
                   <b>toColorPart</b>()
                 </div>
@@ -1145,7 +1136,18 @@ representation of numbers 0 through 255
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>Hexidecimal representation of the number</dd>
+                        <dd>Hexidecimal representation of the number
+
+<code><pre>
+   255.toColorPart()
+=> "ff"
+
+   0.toColorPart()
+=> "00"
+
+   200.toColorPart()
+=> "c8"
+</pre></code></dd>
                       
                     
 
