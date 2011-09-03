@@ -860,6 +860,22 @@ used as `this` when calling the iterator function.</dd>
                 <div class="description">
                   Call the given iterator once for each pair of objects in the array.
 
+<code><pre>
+
+  [1, 2, 3, 4].eachPair (a, b) ->
+</pre></code>
+
+<code><pre>
+   results = []
+   [1, 2, 3, 4].eachSlice 2, (slice) ->
+     results.push(slice)
+=> [1, 2, 3, 4]
+
+   results
+=> [[1, 2], [3, 4]]
+
+</pre></code>
+
                   
                 </div>
 
