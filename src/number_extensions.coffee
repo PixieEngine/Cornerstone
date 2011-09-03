@@ -312,14 +312,6 @@ Number::primeFactors = ->
 
   return factors
 
-Number::toColorPart = ->
-  s = parseInt(this.clamp(0, 255), 10).toString(16)
-
-  if s.length == 1
-    s = '0' + s
-
-  return s
-
 ###*
 Returns the two character hexidecimal 
 representation of numbers 0 through 255
@@ -341,9 +333,13 @@ representation of numbers 0 through 255
 => "c8"
 </pre></code>
 ###
+Number::toColorPart = ->
+  s = parseInt(this.clamp(0, 255), 10).toString(16)
 
-Number::approach = (target, maxDelta) ->
-  (target - this).clamp(-maxDelta, maxDelta) + this
+  if s.length == 1
+    s = '0' + s
+
+  return s
 
 ###*
 Returns a number that is maxDelta closer to target
@@ -361,10 +357,9 @@ Returns a number that is maxDelta closer to target
    5.approach(0, 10)
 => 0
 </pre></code>
-###  
-
-Number::approachByRatio = (target, ratio) ->
-  this.approach(target, this * ratio)
+###    
+Number::approach = (target, maxDelta) ->
+  (target - this).clamp(-maxDelta, maxDelta) + this
 
 ###*
 Returns a number that is closer to the target by the ratio
@@ -380,15 +375,8 @@ Returns a number that is closer to the target by the ratio
 => 229.5
 </pre></code>
 ### 
-
-Number::approachRotation = (target, maxDelta) ->
-  while target > this + Math.PI
-    target -= Math.TAU
-
-  while target < this - Math.PI
-    target += Math.TAU
-
-  return (target - this).clamp(-maxDelta, maxDelta) + this
+Number::approachByRatio = (target, ratio) ->
+  this.approach(target, this * ratio)
 
 ###*
 Returns a number that is closer to the target angle by the delta
@@ -404,6 +392,14 @@ Returns a number that is closer to the target angle by the delta
 => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
 </pre></code>
 ### 
+Number::approachRotation = (target, maxDelta) ->
+  while target > this + Math.PI
+    target -= Math.TAU
+
+  while target < this - Math.PI
+    target += Math.TAU
+
+  return (target - this).clamp(-maxDelta, maxDelta) + this
 
 ###*
 Constrains a rotation to between -PI and PI.
@@ -430,6 +426,15 @@ Number::constrainRotation = ->
 
   return target
 
+###*
+The mathematical d operator. Useful for simulating dice rolls.
+
+@name d
+@methodOf Number#
+
+@type Number
+@returns A random number between 1 and sides
+###
 Number::d = (sides) ->
   sum = 0
 
