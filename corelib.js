@@ -671,9 +671,12 @@ Bindable = function() {
     
     <code><pre>
     
-    yourObject.bind "someCustomEvent", ->
-      # this will be executed when
-      # yourObject.trigger "someCustomEvent" is called
+    # this will call coolEventHandler when
+    # yourObject.trigger "someCustomEvent" is called.
+    yourObject.bind "someCustomEvent", coolEventHandler
+    
+    #or
+    yourObject.bind "anotherCustomEvent", ->
       doSomething()
     
     </pre></code>  
@@ -693,6 +696,17 @@ Bindable = function() {
     The unbind method removes a specific event listener, or all event listeners if
     no specific listener is given.
     
+    <code><pre>
+    
+    #  removes the handler coolEventHandler from the event
+    # "someCustomEvent" while leaving the other events intact.
+    yourObject.unbind "someCustomEvent", coolEventHandler
+    
+    # removes all handlers attached to "anotherCustomEvent" 
+    yourObject.unbind "anotherCustomEvent"
+    
+    </pre></code>   
+    
     @name unbind
     @methodOf Bindable#
     
@@ -709,6 +723,13 @@ Bindable = function() {
     },
     /**
     The trigger method calls all listeners attached to the specified event.
+    
+    <code><pre>
+    
+    # calls each event handler bound to "someCustomEvent"
+    yourObject.trigger "someCustomEvent"
+    
+    </pre></code>  
     
     @name trigger
     @methodOf Bindable#
