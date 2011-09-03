@@ -253,6 +253,22 @@ Array::map ||= (iterator, context) ->
 ###*
 Call the given iterator once for each pair of objects in the array.
 
+<code><pre>
+
+  [1, 2, 3, 4].eachPair (a, b) ->
+</pre></code>
+
+<code><pre>
+   results = []
+   [1, 2, 3, 4].eachSlice 2, (slice) ->
+     results.push(slice)
+=> [1, 2, 3, 4]
+
+   results
+=> [[1, 2], [3, 4]]
+
+</pre></code>
+
 @name eachPair
 @methodOf Array#
 @param {Function} iterator Function to be called once for 
