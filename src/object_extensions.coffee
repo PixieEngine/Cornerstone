@@ -26,6 +26,23 @@ First come, first served.
 @param {Object} target The object to merge the properties into.
 @type Object
 @returns target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+
+   Object.reverseMerge I, {
+     c: 6
+     d: 4
+   }   
+
+   I
+
+=> {a: 1, b:2, c:3, d: 4}
+</pre></code>
 ###
 Object.reverseMerge = (target, objects...) ->
   for object in objects
@@ -44,6 +61,23 @@ Last in covers earlier properties.
 @param {Object} target The object to merge the properties into.
 @type Object
 @returns target
+
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+
+   Object.reverseMerge I, {
+     c: 6
+     d: 4
+   }   
+
+   I
+
+=> {a: 1, b:2, c:6, d: 4}
+</pre></code>
 ###
 Object.extend = (target, sources...) ->
   for source in sources
