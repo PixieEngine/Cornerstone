@@ -1,5 +1,6 @@
 ###*
   @name Logging
+  @constructor
 
 <code><pre>
   log "Testing123"
