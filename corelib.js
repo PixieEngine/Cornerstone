@@ -1677,7 +1677,7 @@ The mathematical d operator. Useful for simulating dice rolls.
 @methodOf Number#
 
 @type Number
-@returns A random number between 1 and sides
+@returns The sum of rolling <code>this</code> <code>sides</code>-sided dice
 */
 Number.prototype.d = function(sides) {
   var sum;
