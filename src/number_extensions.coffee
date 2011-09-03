@@ -1,28 +1,22 @@
 ###* 
 Returns the absolute value of this number.
 
+<code><pre>
+   (-4).abs()
+=> 4
+</pre></code>
+
 @name abs
 @methodOf Number#
 
 @type Number
 @returns The absolute value of the number.
-
-<code><pre>
-   (-4).abs()
-=> 4
-</pre></code>
 ###
 Number::abs = () ->
   Math.abs(this)
 
 ###*
 Returns the mathematical ceiling of this number.
-
-@name ceil
-@methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of greater than or equal value.
 
 <code><pre>
    4.9.ceil() 
@@ -34,6 +28,12 @@ Returns the mathematical ceiling of this number.
    (-1.2).ceil()
 => -1
 </pre></code>
+
+@name ceil
+@methodOf Number#
+
+@type Number
+@returns The number truncated to the nearest integer of greater than or equal value.
 ###
 Number::ceil = ->
   Math.ceil(this)
