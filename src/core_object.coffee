@@ -19,10 +19,13 @@ Core = (I) ->
 
     <code><pre>
 
-    myObject = Core
+    I = {
       r: 255
       g: 0
       b: 100
+    }
+
+    myObject = Core(I)
 
     # a bad idea most of the time, but it's 
     # pretty convenient to have available.
