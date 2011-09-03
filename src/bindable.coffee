@@ -10,11 +10,6 @@ Bindable = ->
   ###*
   The bind method adds a function as an event listener.
 
-  <code><pre>
-    yourObject.bind "someCustomEvent", ->
-      doSomething()
-  </pre></code>
-
   @name bind
   @methodOf Bindable#
 
