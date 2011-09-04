@@ -1679,12 +1679,6 @@ The mathematical circle constant of 1 turn.
 Math.TAU = 2 * Math.PI;;
 /**
 Checks whether an object is an array.
-@name isArray
-@methodOf Object
-
-@param {Object} object The object to check for array-ness.
-@type Boolean
-@returns A boolean expressing whether the object is an instance of Array 
 
 <code><pre>
    Object.isArray([1, 2, 4])
@@ -1693,6 +1687,14 @@ Checks whether an object is an array.
    Object.isArray({key: "value"})
 => false
 </pre></code>
+
+@name isArray
+@methodOf Object
+
+@param {Object} object The object to check for array-ness.
+@type Boolean
+@returns A boolean expressing whether the object is an instance of Array 
+
 */var __slice = Array.prototype.slice;
 Object.isArray = function(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
@@ -1700,12 +1702,6 @@ Object.isArray = function(object) {
 /**
 Merges properties from objects into target without overiding.
 First come, first served.
-@name reverseMerge
-@methodOf Object
-
-@param {Object} target The object to merge the properties into.
-@type Object
-@returns target
 
 <code><pre>
    I = {
@@ -1723,6 +1719,13 @@ First come, first served.
 
 => {a: 1, b:2, c:3, d: 4}
 </pre></code>
+
+@name reverseMerge
+@methodOf Object
+
+@param {Object} target The object to merge the properties into.
+@type Object
+@returns target
 */
 Object.reverseMerge = function() {
   var name, object, objects, target, _i, _len;
@@ -1740,12 +1743,6 @@ Object.reverseMerge = function() {
 /**
 Merges properties from sources into target with overiding.
 Last in covers earlier properties.
-@name extend
-@methodOf Object
-
-@param {Object} target The object to merge the properties into.
-@type Object
-@returns target
 
 <code><pre>
    I = {
@@ -1763,6 +1760,13 @@ Last in covers earlier properties.
 
 => {a: 1, b:2, c:6, d: 4}
 </pre></code>
+
+@name extend
+@methodOf Object
+
+@param {Object} target The object to merge the properties into.
+@type Object
+@returns target
 */
 Object.extend = function() {
   var name, source, sources, target, _i, _len;
