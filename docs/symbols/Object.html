@@ -167,6 +167,23 @@
                   Merges properties from sources into target with overiding.
 Last in covers earlier properties.
 
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+
+   Object.extend I, {
+     c: 6
+     d: 4
+   }   
+
+   I
+
+=> {a: 1, b:2, c:6, d: 4}
+</pre></code>
+
                   
                 </div>
 
@@ -177,7 +194,7 @@ Last in covers earlier properties.
                     <dt class="heading">Parameters:</dt>
                     
                       <dt>
-                        <span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>target</b>
+                        <b>target</b><span class='light fixedFont'> <a href="../symbols/Object.html">Object</a></span> 
                         
                       </dt>
                       <dd>The object to merge the properties into.</dd>
@@ -197,24 +214,7 @@ Last in covers earlier properties.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>target
-
-<code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
-
-   Object.extend I, {
-     c: 6
-     d: 4
-   }   
-
-   I
-
-=> {a: 1, b:2, c:6, d: 4}
-</pre></code></dd>
+                        <dd>target</dd>
                       
                     
 
@@ -273,6 +273,14 @@ Last in covers earlier properties.
                 <div class="description">
                   Checks whether an object is an array.
 
+<code><pre>
+   Object.isArray([1, 2, 4])
+=> true
+
+   Object.isArray({key: "value"})
+=> false
+</pre></code>
+
                   
                 </div>
 
@@ -283,7 +291,7 @@ Last in covers earlier properties.
                     <dt class="heading">Parameters:</dt>
                     
                       <dt>
-                        <span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>object</b>
+                        <b>object</b><span class='light fixedFont'> <a href="../symbols/Object.html">Object</a></span> 
                         
                       </dt>
                       <dd>The object to check for array-ness.</dd>
@@ -303,15 +311,7 @@ Last in covers earlier properties.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>A boolean expressing whether the object is an instance of Array 
-
-<code><pre>
-   Object.isArray([1, 2, 4])
-=> true
-
-   Object.isArray({key: "value"})
-=> false
-</pre></code></dd>
+                        <dd>A boolean expressing whether the object is an instance of Array</dd>
                       
                     
 
@@ -336,6 +336,23 @@ Last in covers earlier properties.
                   Merges properties from objects into target without overiding.
 First come, first served.
 
+<code><pre>
+   I = {
+     a: 1
+     b: 2
+     c: 3
+   }
+
+   Object.reverseMerge I, {
+     c: 6
+     d: 4
+   }   
+
+   I
+
+=> {a: 1, b:2, c:3, d: 4}
+</pre></code>
+
                   
                 </div>
 
@@ -346,7 +363,7 @@ First come, first served.
                     <dt class="heading">Parameters:</dt>
                     
                       <dt>
-                        <span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>target</b>
+                        <b>target</b><span class='light fixedFont'> <a href="../symbols/Object.html">Object</a></span> 
                         
                       </dt>
                       <dd>The object to merge the properties into.</dd>
@@ -366,24 +383,7 @@ First come, first served.
                     
                       <dt class="heading">Returns:</dt>
                       
-                        <dd>target
-
-<code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
-
-   Object.reverseMerge I, {
-     c: 6
-     d: 4
-   }   
-
-   I
-
-=> {a: 1, b:2, c:3, d: 4}
-</pre></code></dd>
+                        <dd>target</dd>
                       
                     
 

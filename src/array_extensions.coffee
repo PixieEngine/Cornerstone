@@ -268,7 +268,7 @@ Array::eachPair = (iterator, context) ->
 Call the given iterator once for each element in the array,
 passing in the element as the first argument and the given object
 as the second argument. Additional arguments are passed similar to
-<code>each</code>
+<code>each</code>.
 
 @see Array#each
 
