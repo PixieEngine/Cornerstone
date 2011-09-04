@@ -5,7 +5,7 @@
   @name Point
   @param {Number} [x]
   @param {Number} [y]
-  @constructor ASFsdfASD
+  @constructor
   ###
   Point = (x, y) ->
     __proto__: Point::
