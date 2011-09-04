@@ -1792,7 +1792,7 @@ Object.extend = function() {
   @name Point
   @param {Number} [x]
   @param {Number} [y]
-  @constructor
+  @constructor ASFsdfASD
   */  var Point;
   Point = function(x, y) {
     return {
