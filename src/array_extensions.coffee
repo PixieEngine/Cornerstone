@@ -294,7 +294,7 @@ Array::eachWithObject = (object, iterator, context) ->
 ###*
 Call the given iterator once for each group of elements in the array,
 passing in the elements in groups of n. Additional argumens are
-passed as in <code>each</each>.
+passed as in each.
 
 <code><pre>
    results = []
