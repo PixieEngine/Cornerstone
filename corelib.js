@@ -639,7 +639,7 @@ Bindable module.
 player = Core
   x: 5
   y: 10
-  
+
 player.bind "update", ->
   updatePlayer()
 => Uncaught TypeError: Object has no method 'bind'
@@ -962,6 +962,7 @@ Function.prototype.withAfter = function(interception) {
 };;
 /**
   @name Logging
+  @namespace
 
 <code><pre>
   log "Testing123"
