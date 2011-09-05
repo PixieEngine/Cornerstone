@@ -967,12 +967,14 @@ Function.prototype.withAfter = function(interception) {
   Gives you some convenience methods for outputting data
   while developing. 
 
-  <code><pre>
+<code>
+  <pre>
     log "Testing123"
     info "Hey, this is happening"
     warn "Be careful, this might be a problem"
     error "Kaboom!"
-  </pre></code>
+  </pre>
+</code>
 */["log", "info", "warn", "error"].each(function(name) {
   if (typeof console !== "undefined") {
     return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function(message) {
