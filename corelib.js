@@ -633,7 +633,7 @@ Array.prototype.zip = function() {
   });
 };;
 /**
-Bindable module
+Bindable module.
 
 <code><pre>
 player = Core
@@ -650,13 +650,6 @@ player.bind "update", ->
   updatePlayer()
 => this will call updatePlayer each time through the main loop
 </pre></code>  
-
-@name bind
-@methodOf Bindable#
-
-@param {String} event The event to listen to.
-@param {Function} callback The function to be called when the specified event
-is triggered.
 
 @name Bindable
 @module
