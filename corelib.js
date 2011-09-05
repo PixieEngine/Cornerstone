@@ -634,6 +634,30 @@ Array.prototype.zip = function() {
 };;
 /**
 Bindable module
+
+<code><pre>
+player = Core
+  x: 5
+  y: 10
+  
+player.bind "update", ->
+  updatePlayer()
+=> Uncaught TypeError: Object has no method 'bind'
+
+player.include(Bindable)
+
+player.bind "update", ->
+  updatePlayer()
+=> this will call updatePlayer each time through the main loop
+</pre></code>  
+
+@name bind
+@methodOf Bindable#
+
+@param {String} event The event to listen to.
+@param {Function} callback The function to be called when the specified event
+is triggered.
+
 @name Bindable
 @module
 @constructor
@@ -1792,7 +1816,7 @@ Object.extend = function() {
   @name Point
   @param {Number} [x]
   @param {Number} [y]
-  @constructor ASFsdfASD
+  @constructor
   */  var Point;
   Point = function(x, y) {
     return {
