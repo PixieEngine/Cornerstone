@@ -73,16 +73,14 @@
               <caption>Module Summary</caption>
               <tbody>
                 <tr>
-                  <td class="attributes">&nbsp;</td>
                   <td class="nameDescription" >
                     <div class="fixedFont">
                       <b><a href="../symbols/Bindable.html#constructor">Bindable</a></b>()
                     </div>
-                    <div class="description">Bindable module</div>
+                    <div class="description">Bindable module.</div>
                   </td>
                 </tr>
                 <tr>
-                  <td></td>
                   <td class="instanceVariables">&nbsp;</td>
                 </tr>
               </tbody>
@@ -155,7 +153,23 @@
               </div>
 
               <div class="description">
-                Bindable module
+                Bindable module.
+
+<code><pre>
+player = Core
+  x: 5
+  y: 10
+  
+player.bind "update", ->
+  updatePlayer()
+=> Uncaught TypeError: Object has no method 'bind'
+
+player.include(Bindable)
+
+player.bind "update", ->
+  updatePlayer()
+=> this will call updatePlayer each time through the main loop
+</pre></code>
                 
               </div>
 

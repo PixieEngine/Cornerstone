@@ -1,5 +1,6 @@
 ###*
   @name Logging
+  @namespace
 
 <code><pre>
   log "Testing123"
