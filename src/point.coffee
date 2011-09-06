@@ -383,6 +383,19 @@
 
     ###*
     Determine whether this point is equal to another point.
+
+    <code><pre>
+       pointA = Point(2, 3)
+       pointB = Point(2, 3)
+       pointC = Point(4, 5)
+
+       pointA.equal(pointB)
+    => true
+
+       pointA.equal(pointC)
+    => false
+    </pre></code>
+
     @name equal
     @methodOf Point#
 
