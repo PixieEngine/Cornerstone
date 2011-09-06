@@ -309,15 +309,7 @@
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
 
     <code><pre>
-       point = Point(2, 3)
-
-       point.x
-    => 2
-
-       point.y
-    => 3
-
-       point.norm$()
+       point = Point(2, 3).norm$()
 
        point.x
     => 0.5547001962252291
@@ -325,7 +317,7 @@
        point.y  
     => 0.8320502943378437
 
-       anotherPoint = Point(2, 3).norm(2)
+       anotherPoint = Point(2, 3).norm$(2)
 
        anotherPoint.x
     => 1.1094003924504583
@@ -348,14 +340,41 @@
     ###*
     Floor the x and y values, returning a new point.
 
+    <code><pre>
+       point = Point(3.4, 5.8).floor()
+
+       point.x
+    => 3
+
+       point.y
+    => 5
+    </pre></code>
+
     @name floor
     @methodOf Point#
-    @returns A new point, with x and y values each floored to the largest previous integer.
-    @type Point
+    @returns {Point} A new point, with x and y values each floored to the largest previous integer.
     ###
     floor: ->
       @copy().floor$()
 
+    ###*
+    Floor the x and y values, returning a modified point.
+
+    <code><pre>
+       point = Point(3.4, 5.8)
+       point.floor()
+
+       point.x
+    => 3
+
+       point.y
+    => 5
+    </pre></code>
+
+    @name floor
+    @methodOf Point#
+    @returns {Point} A new point, with x and y values each floored to the largest previous integer.
+    ###
     floor$: ->
       @x = @x.floor()
       @y = @y.floor()
