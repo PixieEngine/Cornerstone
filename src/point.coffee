@@ -2,6 +2,25 @@
   ###*
   Create a new point with given x and y coordinates. If no arguments are given
   defaults to (0, 0).
+
+  <code><pre>
+     point = Point()
+
+     p.x
+  => 0
+
+     p.y
+  => 0
+
+     point = Point(-2, 5)
+
+     p.x
+  => -2
+
+     p.y
+  => 5
+  </pre></code>
+
   @name Point
   @param {Number} [x]
   @param {Number} [y]
