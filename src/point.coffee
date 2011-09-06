@@ -362,7 +362,7 @@
 
     <code><pre>
        point = Point(3.4, 5.8)
-       point.floor()
+       point.floor$()
 
        point.x
     => 3
@@ -371,9 +371,9 @@
     => 5
     </pre></code>
 
-    @name floor
+    @name floor$
     @methodOf Point#
-    @returns {Point} A new point, with x and y values each floored to the largest previous integer.
+    @returns {Point} A modified point, with x and y values each floored to the largest previous integer.
     ###
     floor$: ->
       @x = @x.floor()
@@ -387,8 +387,7 @@
     @methodOf Point#
 
     @param {Point} other The point to check for equality.
-    @returns true if the other point has the same x, y coordinates, false otherwise.
-    @type Boolean
+    @returns {Boolean} true if the other point has the same x, y coordinates, false otherwise.
     ###
     equal: (other) ->
       @x == other.x && @y == other.y
