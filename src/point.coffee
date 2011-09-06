@@ -528,6 +528,16 @@
   ###*
   Construct a point on the unit circle for the given angle.
 
+  <code><pre>
+     point = Point.fromAngle(Math.PI / 2)
+
+     point.x
+  => 0
+
+     point.y
+  => 1
+  </pre></code>
+
   @name fromAngle
   @fieldOf Point
 
@@ -541,6 +551,14 @@
   If you have two dudes, one standing at point p1, and the other
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
+
+  <code><pre>
+     p1 = Point(0, 0)
+     p2 = Point(7, 3)
+
+     Point.direction(p1, p2)
+  => 0.40489178628508343
+  </pre></code>
 
   @name direction
   @fieldOf Point
@@ -559,7 +577,7 @@
   @name ZERO
   @fieldOf Point
 
-  @type Point
+  @returns {Point} The point (0, 0)
   ###
   Point.ZERO = Point()
 
