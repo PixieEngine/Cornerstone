@@ -258,12 +258,11 @@
   that the dude standing at p1 will need to face to look at p2.
 
   @name direction
-  @methodOf Point
+  @fieldOf Point
 
   @param {Point} p1 The starting point.
   @param {Point} p2 The ending point.
-  @type Number
-  @returns The direction from p1 to p2 in radians.
+  @returns {Number} The direction from p1 to p2 in radians.
   ###
   Point.direction = (p1, p2) ->
     Math.atan2(
