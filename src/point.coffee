@@ -277,6 +277,25 @@
     ###*
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y).
+
+    <code><pre>
+       point = Point(2, 3).norm()
+
+       point.x
+    => 0.5547001962252291
+
+       point.y  
+    => 0.8320502943378437
+
+       anotherPoint = Point(2, 3).norm(2)
+
+       anotherPoint.x
+    => 1.1094003924504583
+
+       anotherPoint.y   
+    => 1.6641005886756874    
+    </pre></code>
+
     @name norm
     @methodOf Point#
 
