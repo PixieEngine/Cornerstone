@@ -1834,6 +1834,25 @@ Object.extend = function() {
   /**
   Create a new point with given x and y coordinates. If no arguments are given
   defaults to (0, 0).
+  
+  <code><pre>
+     point = Point()
+  
+     p.x
+  => 0
+  
+     p.y
+  => 0
+  
+     point = Point(-2, 5)
+     
+     p.x
+  => -2
+  
+     p.y
+  => 5
+  </pre></code>
+  
   @name Point
   @param {Number} [x]
   @param {Number} [y]
@@ -1883,16 +1902,70 @@ Object.extend = function() {
     Adds a point to this one and returns the new point. You may
     also use a two argument call like <code>point.add(x, y)</code>
     to add x and y values without a second point object.
+    
+    <code><pre>
+       point = Point(2, 3).add(Point(3, 4))
+       
+       point.x
+    => 5
+    
+       point.y
+    => 7
+    
+       anotherPoint = Point(2, 3).add(3, 4)
+       
+       anotherPoint.x
+    => 5
+    
+       anotherPoint.y
+    => 7
+    </pre></code>
+    
     @name add
     @methodOf Point#
-    
     @param {Point} other The point to add this point to.
-    @returns A new point, the sum of both.
-    @type Point
+    @returns {Point} A new point, the sum of both.
     */
     add: function(first, second) {
       return this.copy().add$(first, second);
     },
+    /**
+    Adds a point to this one, returning a modified point. You may
+    also use a two argument call like <code>point.add(x, y)</code>
+    to add x and y values without a second point object.
+    
+    <code><pre>
+       point = Point(2, 3)
+       
+       point.x
+    => 2
+    
+       point.y
+    => 3
+       
+       point.add$(Point(3, 4))
+       
+       point.x
+    => 5
+    
+       point.y
+    => 7
+    
+       anotherPoint = Point(2, 3)
+       anotherPoint.add$(3, 4)
+       
+       anotherPoint.x
+    => 5
+    
+       anotherPoint.y
+    => 7
+    </pre></code>
+    
+    @name add$
+    @methodOf Point#
+    @param {Point} other The point to add this point to.
+    @returns {Point} The sum of both points.
+    */
     add$: function(first, second) {
       if (second != null) {
         this.x += first;
@@ -1905,16 +1978,70 @@ Object.extend = function() {
     },
     /**
     Subtracts a point to this one and returns the new point.
+    
+    <code><pre>
+       point = Point(1, 2).subtract(Point(2, 0))
+       
+       point.x
+    => -1
+    
+       point.y
+    => 2
+       
+       anotherPoint = Point(1, 2).subtract(2, 0)
+    
+       anotherPoint.x
+    => -1
+    
+       anotherPoint.y
+    => 2
+    </pre></code>
+    
     @name subtract
     @methodOf Point#
     
     @param {Point} other The point to subtract from this point.
-    @returns A new point, this - other.
-    @type Point
+    @returns {Point} A new point, this - other.
     */
     subtract: function(first, second) {
       return this.copy().subtract$(first, second);
     },
+    /**
+    Subtracts a point to this one and returns the new point.
+    
+    <code><pre>
+       point = Point(1, 2)
+       
+       point.x
+    => 1
+    
+       point.y
+    => 2
+       
+       point.subtract$(Point(2, 0))
+    
+       point.x
+    => -1
+    
+       point.y
+    => 2
+    
+       anotherPoint = Point(1, 2)
+       anotherPoint.subtract$(2, 0)
+    
+       anotherPoint.x
+    => -1
+    
+       anotherPoint.y
+    => 2
+    </pre></code>
+    
+    @name subtract$
+    @methodOf Point#
+    
+    @param {Point} other The point to subtract from this point.
+    @returns {Point} The difference of the two points.
+    */
     subtract$: function(first, second) {
       if (second != null) {
         this.x -= first;
