@@ -243,11 +243,10 @@
   Construct a point on the unit circle for the given angle.
 
   @name fromAngle
-  @methodOf Point
+  @fieldOf Point
 
   @param {Number} angle The angle in radians
-  @type Point
-  @returns The point on the unit circle.
+  @returns {Point} The point on the unit circle.
   ###
   Point.fromAngle = (angle) ->
     Point(Math.cos(angle), Math.sin(angle))
