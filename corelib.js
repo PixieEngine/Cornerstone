@@ -2054,16 +2054,53 @@ Object.extend = function() {
     },
     /**
     Scale this Point (Vector) by a constant amount.
+    
+    <code><pre>
+       point = Point(5, 6).scale(2)
+       
+       point.x
+    => 10
+    
+       point.y
+    => 12
+    </pre></code>
+    
     @name scale
     @methodOf Point#
     
     @param {Number} scalar The amount to scale this point by.
-    @returns A new point, this * scalar.
-    @type Point
+    @returns {Point} A new point, this * scalar.
     */
     scale: function(scalar) {
       return this.copy().scale$(scalar);
     },
+    /**
+    Scale this Point (Vector) by a constant amount. Modifies the point in place.
+    
+    <code><pre>
+       point = Point(5, 6)
+       
+       point.x
+    => 5
+    
+       point.y
+    => 6
+       
+       point.scale$(2)
+       
+       point.x
+    => 10
+    
+       point.y
+    => 12
+    </pre></code>
+    
+    @name scale$
+    @methodOf Point#
+    
+    @param {Number} scalar The amount to scale this point by.
+    @returns {Point} this * scalar.
+    */
     scale$: function(scalar) {
       this.x *= scalar;
       this.y *= scalar;
@@ -2072,11 +2109,29 @@ Object.extend = function() {
     /**
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y).
+    
+    <code><pre>
+       point = Point(2, 3).norm()
+       
+       point.x
+    => 0.5547001962252291
+       
+       point.y  
+    => 0.8320502943378437
+       
+       anotherPoint = Point(2, 3).norm(2)
+       
+       anotherPoint.x
+    => 1.1094003924504583
+     
+       anotherPoint.y   
+    => 1.6641005886756874    
+    </pre></code>
+    
     @name norm
     @methodOf Point#
     
-    @returns The unit vector pointing in the same direction as this vector.
-    @type Point
+    @returns {Point} The unit vector pointing in the same direction as this vector.
     */
     norm: function(length) {
       if (length == null) {
@@ -2084,6 +2139,33 @@ Object.extend = function() {
       }
       return this.copy().norm$(length);
     },
+    /**
+    The norm of a vector is the unit vector pointing in the same direction. This method
+    treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
+    
+    <code><pre>
+       point = Point(2, 3).norm$()
+       
+       point.x
+    => 0.5547001962252291
+       
+       point.y  
+    => 0.8320502943378437
+       
+       anotherPoint = Point(2, 3).norm$(2)
+       
+       anotherPoint.x
+    => 1.1094003924504583
+     
+       anotherPoint.y   
+    => 1.6641005886756874    
+    </pre></code>
+    
+    @name norm$
+    @methodOf Point#
+    
+    @returns {Point} The unit vector pointing in the same direction as this vector.
+    */
     norm$: function(length) {
       var m;
       if (length == null) {
@@ -2098,14 +2180,41 @@ Object.extend = function() {
     /**
     Floor the x and y values, returning a new point.
     
+    <code><pre>
+       point = Point(3.4, 5.8).floor()
+       
+       point.x
+    => 3
+    
+       point.y
+    => 5
+    </pre></code>
+    
     @name floor
     @methodOf Point#
-    @returns A new point, with x and y values each floored to the largest previous integer.
-    @type Point
+    @returns {Point} A new point, with x and y values each floored to the largest previous integer.
     */
     floor: function() {
       return this.copy().floor$();
     },
+    /**
+    Floor the x and y values, returning a modified point.
+    
+    <code><pre>
+       point = Point(3.4, 5.8)
+       point.floor$()
+       
+       point.x
+    => 3
+    
+       point.y
+    => 5
+    </pre></code>
+    
+    @name floor$
+    @methodOf Point#
+    @returns {Point} A modified point, with x and y values each floored to the largest previous integer.
+    */
     floor$: function() {
       this.x = this.x.floor();
       this.y = this.y.floor();
@@ -2113,44 +2222,78 @@ Object.extend = function() {
     },
     /**
     Determine whether this point is equal to another point.
+    
+    <code><pre>
+       pointA = Point(2, 3)
+       pointB = Point(2, 3)
+       pointC = Point(4, 5)
+       
+       pointA.equal(pointB)
+    => true
+    
+       pointA.equal(pointC)
+    => false
+    </pre></code>
+    
     @name equal
     @methodOf Point#
     
     @param {Point} other The point to check for equality.
-    @returns true if the other point has the same x, y coordinates, false otherwise.
-    @type Boolean
+    @returns {Boolean} true if the other point has the same x, y coordinates, false otherwise.
     */
     equal: function(other) {
       return this.x === other.x && this.y === other.y;
     },
     /**
     Computed the length of this point as though it were a vector from (0,0) to (x,y)
+    
+    <code><pre>
+       point = Point(5, 7)
+       
+       point.length()
+    => 8.602325267042627
+    </pre></code>
+    
     @name length
     @methodOf Point#
     
-    @returns The length of the vector from the origin to this point.
-    @type Number
+    @returns {Number} The length of the vector from the origin to this point.
     */
     length: function() {
       return Math.sqrt(this.dot(this));
     },
     /**
     Calculate the magnitude of this Point (Vector).
+    
+    <code><pre>
+       point = Point(5, 7)
+       
+       point.magnitude()
+    => 8.602325267042627
+    </pre></code>
+    
     @name magnitude
     @methodOf Point#
     
-    @returns The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
-    @type Number
+    @returns {Number} The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
     */
     magnitude: function() {
       return this.length();
     },
     /**
     Returns the direction in radians of this point from the origin.
+    
+    <code><pre>
+       point = Point(0, 1)
+       
+       point.direction()
+    => 1.5707963267948966 # Math.PI / 2
+    </pre></code>
+    
     @name direction
     @methodOf Point#
     
-    @type Number
+    @returns {Number} The direction in radians of this point from the origin
     */
     direction: function() {
       return Math.atan2(this.y, this.x);
@@ -2161,8 +2304,7 @@ Object.extend = function() {
     @methodOf Point#
     
     @param {Point} other The point to dot with this point.
-    @returns The dot product of this point dot other as a scalar value.
-    @type Number
+    @returns {Number} The dot product of this point dot other as a scalar value.
     */
     dot: function(other) {
       return this.x * other.x + this.y * other.y;
@@ -2177,25 +2319,42 @@ Object.extend = function() {
     @methodOf Point#
     
     @param {Point} other The point to cross with this point.
-    @returns The cross product of this point with the other point as scalar value.
-    @type Number
+    @returns {Number} The cross product of this point with the other point as scalar value.
     */
     cross: function(other) {
       return this.x * other.y - other.x * this.y;
     },
     /**
-    Computed the Euclidean between this point and another point.
+    Compute the Euclidean distance between this point and another point.
+    
+    <code><pre>
+       pointA = Point(2, 3)
+       pointB = Point(9, 2)
+       
+       pointA.distance(pointB)
+    => 7.0710678118654755 # Math.sqrt(50)
+    </pre></code>
+    
     @name distance
     @methodOf Point#
     
     @param {Point} other The point to compute the distance to.
-    @returns The distance between this point and another point.
-    @type Number
+    @returns {Number} The distance between this point and another point.
     */
     distance: function(other) {
       return Point.distance(this, other);
     }
     /**
+    Compute the Euclidean distance between two points.
+    
+    <code><pre>
+       pointA = Point(2, 3)
+       pointB = Point(9, 2)
+       
+       Point.distance(pointA, pointB)
+    => 7.0710678118654755 # Math.sqrt(50)
+    </pre></code>
+    
     @name distance
     @fieldOf Point
     @param {Point} p1
@@ -2208,6 +2367,16 @@ Object.extend = function() {
   };
   /**
   Construct a point on the unit circle for the given angle.
+  
+  <code><pre>
+     point = Point.fromAngle(Math.PI / 2)
+  
+     point.x
+  => 0
+  
+     point.y
+  => 1
+  </pre></code>
   
   @name fromAngle
   @fieldOf Point
@@ -2223,6 +2392,14 @@ Object.extend = function() {
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
   
+  <code><pre>
+     p1 = Point(0, 0)
+     p2 = Point(7, 3)
+     
+     Point.direction(p1, p2)
+  => 0.40489178628508343
+  </pre></code>
+  
   @name direction
   @fieldOf Point
   
@@ -2237,7 +2414,7 @@ Object.extend = function() {
   @name ZERO
   @fieldOf Point
   
-  @type Point
+  @returns {Point} The point (0, 0)
   */
   Point.ZERO = Point();
   if (Object.freeze) {
