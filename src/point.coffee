@@ -231,11 +231,10 @@
 
   ###*
   @name distance
-  @methodOf Point
+  @fieldOf Point
   @param {Point} p1
   @param {Point} p2
-  @type Number
-  @returns The Euclidean distance between two points.
+  @returns {Number} The Euclidean distance between two points.
   ###
   Point.distance = (p1, p2) ->
     Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2))
