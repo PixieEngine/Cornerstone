@@ -131,7 +131,7 @@
     @name add$
     @methodOf Point#
     @param {Point} other The point to add this point to.
-    @returns {Point} A new point, the sum of both.
+    @returns {Point} The sum of both points.
     ###
     add$: (first, second) ->
       if second?
@@ -147,7 +147,21 @@
     Subtracts a point to this one and returns the new point.
 
     <code><pre>
+       point = Point(1, 2).subtract(Point(2, 0))
 
+       point.x
+    => -1
+
+       point.y
+    => 2
+
+       anotherPoint = Point(1, 2).subtract(2, 0)
+
+       anotherPoint.x
+    => -1
+
+       anotherPoint.y
+    => 2
     </pre></code>
 
     @name subtract
@@ -159,6 +173,42 @@
     subtract: (first, second) ->
       @copy().subtract$(first, second)
 
+    ###*
+    Subtracts a point to this one and returns the new point.
+
+    <code><pre>
+       point = Point(1, 2)
+
+       point.x
+    => 1
+
+       point.y
+    => 2
+
+       point.subtract$(Point(2, 0))
+
+       point.x
+    => -1
+
+       point.y
+    => 2
+
+       anotherPoint = Point(1, 2)
+       anotherPoint.subtract$(2, 0)
+
+       anotherPoint.x
+    => -1
+
+       anotherPoint.y
+    => 2
+    </pre></code>
+
+    @name subtract$
+    @methodOf Point#
+
+    @param {Point} other The point to subtract from this point.
+    @returns {Point} The difference of the two points.
+    ###
     subtract$: (first, second) ->
       if second?
         @x -= first
@@ -171,16 +221,53 @@
 
     ###*
     Scale this Point (Vector) by a constant amount.
+
+    <code><pre>
+       point = Point(5, 6).scale(2)
+
+       point.x
+    => 10
+
+       point.y
+    => 12
+    </pre></code>
+
     @name scale
     @methodOf Point#
 
     @param {Number} scalar The amount to scale this point by.
-    @returns A new point, this * scalar.
-    @type Point
+    @returns {Point} A new point, this * scalar.
     ###
     scale: (scalar) ->
       @copy().scale$(scalar)
 
+    ###*
+    Scale this Point (Vector) by a constant amount. Modifies the point in place.
+
+    <code><pre>
+       point = Point(5, 6)
+
+       point.x
+    => 5
+
+       point.y
+    => 6
+
+       point.scale$(2)
+
+       point.x
+    => 10
+
+       point.y
+    => 12
+    </pre></code>
+
+    @name scale$
+    @methodOf Point#
+
+    @param {Number} scalar The amount to scale this point by.
+    @returns {Point} this * scalar.
+    ###
     scale$: (scalar) ->
       @x *= scalar
       @y *= scalar
