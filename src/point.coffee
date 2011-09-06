@@ -418,29 +418,43 @@
     @name length
     @methodOf Point#
 
-    @returns The length of the vector from the origin to this point.
-    @type Number
+    @returns {Number} The length of the vector from the origin to this point.
     ###
     length: ->
       Math.sqrt(@dot(this))
 
     ###*
     Calculate the magnitude of this Point (Vector).
+
+    <code><pre>
+       point = Point(5, 7)
+
+       point.magnitude()
+    => 8.602325267042627
+    </pre></code>
+
     @name magnitude
     @methodOf Point#
 
-    @returns The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
-    @type Number
+    @returns {Number} The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
     ###
     magnitude: ->
       @length()
 
     ###*
     Returns the direction in radians of this point from the origin.
+
+    <code><pre>
+       point = Point(0, 1)
+
+       point.direction()
+    => 1.5707963267948966 # Math.PI / 2
+    </pre></code>
+
     @name direction
     @methodOf Point#
 
-    @type Number
+    @returns {Number} The direction in radians of this point from the origin
     ###
     direction: ->
       Math.atan2(@y, @x)
@@ -451,8 +465,7 @@
     @methodOf Point#
 
     @param {Point} other The point to dot with this point.
-    @returns The dot product of this point dot other as a scalar value.
-    @type Number
+    @returns {Number} The dot product of this point dot other as a scalar value.
     ###
     dot: (other) ->
       @x * other.x + @y * other.y
@@ -467,25 +480,42 @@
     @methodOf Point#
 
     @param {Point} other The point to cross with this point.
-    @returns The cross product of this point with the other point as scalar value.
-    @type Number
+    @returns {Number} The cross product of this point with the other point as scalar value.
     ###
     cross: (other) ->
       @x * other.y - other.x * @y
 
     ###*
-    Computed the Euclidean between this point and another point.
+    Compute the Euclidean distance between this point and another point.
+
+    <code><pre>
+       pointA = Point(2, 3)
+       pointB = Point(9, 2)
+
+       pointA.distance(pointB)
+    => 7.0710678118654755 # Math.sqrt(50)
+    </pre></code>
+
     @name distance
     @methodOf Point#
 
     @param {Point} other The point to compute the distance to.
-    @returns The distance between this point and another point.
-    @type Number
+    @returns {Number} The distance between this point and another point.
     ###
     distance: (other) ->
       Point.distance(this, other)
 
   ###*
+  Compute the Euclidean distance between two points.
+
+  <code><pre>
+     pointA = Point(2, 3)
+     pointB = Point(9, 2)
+
+     Point.distance(pointA, pointB)
+  => 7.0710678118654755 # Math.sqrt(50)
+  </pre></code>
+
   @name distance
   @fieldOf Point
   @param {Point} p1
