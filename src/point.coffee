@@ -406,7 +406,7 @@
       @x == other.x && @y == other.y
 
     ###*
-    Computed the length of this point as though it were a vector from (0,0) to (x,y)
+    Computed the length of this point as though it were a vector from (0,0) to (x,y).
 
     <code><pre>
        point = Point(5, 7)
