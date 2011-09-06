@@ -96,6 +96,43 @@
     add: (first, second) ->
       @copy().add$(first, second)
 
+    ###*
+    Adds a point to this one, returning a modified point. You may
+    also use a two argument call like <code>point.add(x, y)</code>
+    to add x and y values without a second point object.
+
+    <code><pre>
+       point = Point(2, 3)
+
+       point.x
+    => 2
+
+       point.y
+    => 3
+
+       point.add$(Point(3, 4))
+
+       point.x
+    => 5
+
+       point.y
+    => 7
+
+       anotherPoint = Point(2, 3)
+       anotherPoint.add$(3, 4)
+
+       anotherPoint.x
+    => 5
+
+       anotherPoint.y
+    => 7
+    </pre></code>
+
+    @name add$
+    @methodOf Point#
+    @param {Point} other The point to add this point to.
+    @returns {Point} A new point, the sum of both.
+    ###
     add$: (first, second) ->
       if second?
         @x += first
@@ -108,12 +145,16 @@
 
     ###*
     Subtracts a point to this one and returns the new point.
+
+    <code><pre>
+
+    </pre></code>
+
     @name subtract
     @methodOf Point#
 
     @param {Point} other The point to subtract from this point.
-    @returns A new point, this - other.
-    @type Point
+    @returns {Point} A new point, this - other.
     ###
     subtract: (first, second) ->
       @copy().subtract$(first, second)
