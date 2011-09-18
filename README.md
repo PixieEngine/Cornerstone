@@ -18,4 +18,3 @@ String Extensions
 
 String is one of the classes that default JavaScript does the most with, but why stop there. Inspired by the Rails inflector, there are many methods provided to alter strings such as `titleize`, `underscore`, and `humanize`. Some especially powerful methods like `parse` and `constantize` will no doubt come in handy.
 
-Coooool test!
