@@ -2,11 +2,11 @@
 Checks whether an object is an array.
 
 <code><pre>
-   Object.isArray([1, 2, 4])
-=> true
+  Object.isArray([1, 2, 4])
+  # => true
 
-   Object.isArray({key: "value"})
-=> false
+  Object.isArray({key: "value"})
+  # => false
 </pre></code>
 
 @name isArray
@@ -15,29 +15,25 @@ Checks whether an object is an array.
 @param {Object} object The object to check for array-ness.
 @type Boolean
 @returns A boolean expressing whether the object is an instance of Array 
-
 ###
 Object.isArray = (object)->
   Object::toString.call(object) == '[object Array]'
+
 ###*
 Merges properties from objects into target without overiding.
 First come, first served.
 
 <code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
+  I =
+    a: 1
+    b: 2
+    c: 3
 
-   Object.reverseMerge I, {
-     c: 6
-     d: 4
-   }   
+  Object.reverseMerge I,
+    c: 6
+    d: 4   
 
-   I
-
-=> {a: 1, b:2, c:3, d: 4}
+  I # => {a: 1, b:2, c:3, d: 4}
 </pre></code>
 
 @name reverseMerge
@@ -60,20 +56,18 @@ Merges properties from sources into target with overiding.
 Last in covers earlier properties.
 
 <code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
+  I =
+    a: 1
+    b: 2
+    c: 3
 
-   Object.extend I, {
-     c: 6
-     d: 4
-   }   
+  Object.extend I,
+    c: 6
+    d: 4
 
-   I
+  I
 
-=> {a: 1, b:2, c:6, d: 4}
+  # => {a: 1, b:2, c:6, d: 4}
 </pre></code>
 
 @name extend
@@ -89,4 +83,23 @@ Object.extend = (target, sources...) ->
       target[name] = source[name]
 
   return target
+
+###*
+Helper method that tells you if something is an object.
+
+<code><pre>
+  object = {a: 1}
+
+  Object.isObject(object)
+  # => true
+</pre></code>
+
+@name isObject
+@methodOf Object
+
+@param {Object} object Maybe this guy is an object.
+@returns {Boolean} true if this guy is an object.
+###
+Object.isObject = (object) ->
+  Object.prototype.toString.call(object) == '[object Object]'
 
