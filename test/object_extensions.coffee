@@ -39,5 +39,10 @@ test "extend", ->
   equals object.b, "b"
   equals object.c, "c"
 
+test "isObject", ->
+  object = {}
+
+  equals Object.isObject(object), true
+
 module()
 
