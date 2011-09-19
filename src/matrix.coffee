@@ -189,11 +189,9 @@
     @name translate
     @methodOf Matrix#
     @see Matrix.translation
-
     @param {Number} tx The translation along the x axis.
     @param {Number} ty The translation along the y axis.
-    @returns A new matrix with the translation applied.
-    @type Matrix
+    @returns {Matrix} A new matrix with the translation applied.
     ###
     translate: (tx, ty) ->
       @concat(Matrix.translation(tx, ty))
