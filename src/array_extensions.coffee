@@ -209,10 +209,10 @@ the element as the second argument, and `this` array as the
 third argument.
 
 <code><pre>
-   [1, 2, 3].map (number) ->
-     number * number
+[1, 2, 3].map (number) ->
+  number * number
 
-=> [1, 4, 9]
+# => [1, 4, 9]
 </pre></code>
 
 @name map
@@ -221,8 +221,7 @@ third argument.
 each element in the array.
 @param {Object} [context] Optional context parameter to be
 used as `this` when calling the iterator function.
-@type Array
-@returns An array of the results of the iterator function
+@returns {Array} An array of the results of the iterator function
 being called on the original array elements.
 ###
 Array::map ||= (iterator, context) ->
