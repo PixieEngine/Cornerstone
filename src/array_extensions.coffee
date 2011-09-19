@@ -133,7 +133,7 @@ a
 @name remove
 @methodOf Array#
 @param {Object} object The object to remove from the array if present.
-@returns The removed object if present otherwise undefined.
+@returns {Object} The removed object if present otherwise undefined.
 ###
 Array::remove = (object) ->
   index = this.indexOf(object)
