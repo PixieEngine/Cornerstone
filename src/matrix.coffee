@@ -149,11 +149,9 @@
     @name rotate
     @methodOf Matrix#
     @see Matrix.rotation
-
     @param {Number} theta Amount to rotate in radians.
     @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
-    @returns A new matrix, rotated by the specified amount.
-    @type Matrix
+    @returns {Matrix} A new matrix, rotated by the specified amount.
     ###
     rotate: (theta, aboutPoint) ->
       @concat(Matrix.rotation(theta, aboutPoint))
