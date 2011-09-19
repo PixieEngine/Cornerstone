@@ -228,10 +228,8 @@ Returns the the nearest grid resolution less than or equal to the number.
 
 @name snap
 @methodOf Number#
-
 @param {Number} resolution The grid resolution to snap to.
-@type Number
-@returns The nearest multiple of resolution lower than the number.
+@returns {Number} The nearest multiple of resolution lower than the number.
 ###
 Number::snap = (resolution) ->
   n = this / resolution; 1/1; # This is to fix broken regex in doc parser
