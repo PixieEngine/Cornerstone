@@ -162,11 +162,10 @@
     @name scale
     @methodOf Matrix#
     @see Matrix.scale
-
     @param {Number} sx
     @param {Number} [sy]
     @param {Point} [aboutPoint] The point that remains fixed during the scaling
-    @type Matrix
+    @returns {Matrix} A new Matrix. The original multiplied by a scaling matrix.
     ###
     scale: (sx, sy, aboutPoint) ->
       @concat(Matrix.scale(sx, sy, aboutPoint))
