@@ -4,21 +4,21 @@
   defaults to (0, 0).
 
   <code><pre>
-     point = Point()
+  point = Point()
 
-     p.x
-  => 0
+  p.x
+  # => 0
 
-     p.y
-  => 0
+  p.y
+  # => 0
 
-     point = Point(-2, 5)
+  point = Point(-2, 5)
 
-     p.x
-  => -2
+  p.x
+  # => -2
 
-     p.y
-  => 5
+  p.y
+  # => 5
   </pre></code>
 
   @name Point
@@ -48,8 +48,7 @@
 
     @name copy
     @methodOf Point#
-    @type Point
-    @returns A new point with the same x and y value as this point.
+    @returns {Point} A new point with the same x and y value as this point.
 
     <code><pre>
       point = Point(1, 1)
