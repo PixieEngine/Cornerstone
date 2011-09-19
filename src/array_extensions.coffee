@@ -337,15 +337,13 @@ Array::shuffle = ->
 Returns the first element of the array, undefined if the array is empty.
 
 <code><pre>
-   ["first", "second", "third"].first()
-=> "first"
+["first", "second", "third"].first()
+# => "first"
 </pre></code>
 
 @name first
 @methodOf Array#
-
-@returns The first element, or undefined if the array is empty.
-@type Object
+@returns {Object} The first element, or undefined if the array is empty.
 ###
 Array::first = ->
   this[0]
