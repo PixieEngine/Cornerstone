@@ -331,8 +331,8 @@ Number::approach = (target, maxDelta) ->
 Returns a number that is closer to the target by the ratio.
 
 <code><pre>
-   255.approachByRatio(0, 0.1)
-=> 229.5
+255.approachByRatio(0, 0.1)
+# => 229.5
 </pre></code>
 
 @name approachByRatio
