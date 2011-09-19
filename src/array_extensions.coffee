@@ -312,6 +312,15 @@ Array::eachSlice = (n, iterator, context) ->
 ###*
 Returns a new array with the elements all shuffled up.
 
+<code><pre>
+a = [1, 2, 3]
+
+a.shuffle()
+# => [2, 3, 1]
+
+a # => [1, 2, 3]
+</pre></code>
+
 @name shuffle
 @methodOf Array#
 @returns {Array} A new array that is randomly shuffled.
