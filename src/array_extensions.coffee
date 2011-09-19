@@ -216,12 +216,9 @@ third argument.
 
 @name map
 @methodOf Array#
-@param {Function} iterator Function to be called once for
-each element in the array.
-@param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
-@returns {Array} An array of the results of the iterator function
-being called on the original array elements.
+@param {Function} iterator Function to be called once for each element in the array.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} An array of the results of the iterator function being called on the original array elements.
 ###
 Array::map ||= (iterator, context) ->
   results = []
@@ -246,10 +243,8 @@ Call the given iterator once for each pair of objects in the array.
 
 @name eachPair
 @methodOf Array#
-@param {Function} iterator Function to be called once for 
-each pair of elements in the array.
-@param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
+@param {Function} iterator Function to be called once for each pair of elements in the array.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
 ###
 Array::eachPair = (iterator, context) ->
   length = this.length
