@@ -38,21 +38,19 @@ Number::ceil = ->
 Returns the mathematical floor of this number.
 
 <code><pre>
-   4.9.floor()
-=> 4
+4.9.floor()
+# => 4
 
-   4.2.floor()
-=> 4
+4.2.floor()
+# => 4
 
-   (-1.2).floor()
-=> -2
+(-1.2).floor()
+# => -2
 </pre></code>
 
 @name floor
 @methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of less than or equal value.
+@returns {Number} The number truncated to the nearest integer of less than or equal value.
 ###
 Number::floor = ->
   Math.floor(this)
