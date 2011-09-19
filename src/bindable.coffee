@@ -35,7 +35,7 @@ Bindable = ->
   #or
   yourObject.bind "anotherCustomEvent", ->
     doSomething()
-  </pre></code>  
+  </pre></code>
 
   @name bind
   @methodOf Bindable#
