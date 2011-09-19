@@ -435,15 +435,14 @@
     Returns the direction in radians of this point from the origin.
 
     <code><pre>
-       point = Point(0, 1)
+    point = Point(0, 1)
 
-       point.direction()
-    => 1.5707963267948966 # Math.PI / 2
+    point.direction()
+    # => 1.5707963267948966 # Math.PI / 2
     </pre></code>
 
     @name direction
     @methodOf Point#
-
     @returns {Number} The direction in radians of this point from the origin
     ###
     direction: ->
