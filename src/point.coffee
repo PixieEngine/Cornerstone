@@ -409,7 +409,6 @@
 
     @name length
     @methodOf Point#
-
     @returns {Number} The length of the vector from the origin to this point.
     ###
     length: ->
