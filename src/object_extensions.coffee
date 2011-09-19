@@ -68,10 +68,8 @@ Last in covers earlier properties.
 
 @name extend
 @methodOf Object
-
 @param {Object} target The object to merge the properties into.
-@type Object
-@returns target
+@returns {Object} target
 ###
 Object.extend = (target, sources...) ->
   for source in sources
