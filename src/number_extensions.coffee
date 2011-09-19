@@ -367,8 +367,8 @@ Number::approachRotation = (target, maxDelta) ->
 Constrains a rotation to between -PI and PI.
 
 <code><pre>
-   (9/4 * Math.PI).constrainRotation() 
-=> 0.7853981633974483 # this is (1/4) * Math.PI
+(9/4 * Math.PI).constrainRotation() 
+# => 0.7853981633974483 # this is (1/4) * Math.PI
 </pre></code>
 
 @name constrainRotation
