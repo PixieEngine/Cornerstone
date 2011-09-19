@@ -36,10 +36,8 @@ First come, first served.
 
 @name reverseMerge
 @methodOf Object
-
 @param {Object} target The object to merge the properties into.
-@type Object
-@returns target
+@returns {Object} target
 ###
 Object.reverseMerge = (target, objects...) ->
   for object in objects
