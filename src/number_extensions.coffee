@@ -84,12 +84,9 @@ Returns a number whose value is limited to the given range.
 
 @name clamp
 @methodOf Number#
-
 @param {Number} min The lower boundary of the output range
 @param {Number} max The upper boundary of the output range
-
-@type Number
-@returns A number in the range [min, max]
+@returns {Number} A number in the range [min, max]
 ###
 Number::clamp = (min, max) ->
   Math.min(Math.max(this, min), max)
