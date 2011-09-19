@@ -220,18 +220,17 @@
     Scale this Point (Vector) by a constant amount.
 
     <code><pre>
-       point = Point(5, 6).scale(2)
+    point = Point(5, 6).scale(2)
 
-       point.x
-    => 10
+    point.x
+    # => 10
 
-       point.y
-    => 12
+    point.y
+    # => 12
     </pre></code>
 
     @name scale
     @methodOf Point#
-
     @param {Number} scalar The amount to scale this point by.
     @returns {Point} A new point, this * scalar.
     ###
