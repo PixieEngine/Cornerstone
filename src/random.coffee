@@ -48,9 +48,8 @@
 
   @name rand
   @methodOf window
-
   @param {Number} n
-  @type Number
+  @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1. 
   ###
   (exports ? this)["rand"] = (n) -> 
     if n
