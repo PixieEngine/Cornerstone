@@ -91,7 +91,7 @@ Returns a new string that is a more human readable version.
 
 @name humanize
 @methodOf String#
-@returns {String} A new string. Removes _id and _ with "" and capitalizes the word.
+@returns {String} A new string. Replaces _id and _ with "" and capitalizes the word.
 ###
 String::humanize = ->
   this.replace(/_id$/, "").replace(/_/g, " ").capitalize()
