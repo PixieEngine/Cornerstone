@@ -367,17 +367,14 @@ Array::last = ->
 Returns an object containing the extremes of this array.
 
 <code><pre>
-   [-1, 3, 0].extremes()
-=> {min: -1, max: 3}
+[-1, 3, 0].extremes()
+# => {min: -1, max: 3}
 </pre></code>
 
 @name extremes
 @methodOf Array#
-
-@param {Function} [fn] An optional funtion used to evaluate 
-each element to calculate its value for determining extremes.
-@returns {min: minElement, max: maxElement}
-@type Object
+@param {Function} [fn] An optional funtion used to evaluate each element to calculate its value for determining extremes.
+@returns {Object} {min: minElement, max: maxElement}
 ### 
 Array::extremes = (fn) ->
   fn ||= (n) -> n
