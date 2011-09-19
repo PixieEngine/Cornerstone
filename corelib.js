@@ -1217,15 +1217,13 @@ Gives you some convenience methods for outputting data while developing.
 Returns the absolute value of this number.
 
 <code><pre>
-   (-4).abs()
-=> 4
+(-4).abs()
+# => 4
 </pre></code>
 
 @name abs
 @methodOf Number#
-
-@type Number
-@returns The absolute value of the number.
+@returns {Number} The absolute value of the number.
 */Number.prototype.abs = function() {
   return Math.abs(this);
 };
@@ -1233,21 +1231,19 @@ Returns the absolute value of this number.
 Returns the mathematical ceiling of this number.
 
 <code><pre>
-   4.9.ceil() 
-=> 5
+4.9.ceil() 
+# => 5
 
-   4.2.ceil()
-=> 5
+4.2.ceil()
+# => 5
 
-   (-1.2).ceil()
-=> -1
+(-1.2).ceil()
+# => -1
 </pre></code>
 
 @name ceil
 @methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of greater than or equal value.
+@returns {Number} The number truncated to the nearest integer of greater than or equal value.
 */
 Number.prototype.ceil = function() {
   return Math.ceil(this);
@@ -1256,21 +1252,19 @@ Number.prototype.ceil = function() {
 Returns the mathematical floor of this number.
 
 <code><pre>
-   4.9.floor()
-=> 4
+4.9.floor()
+# => 4
 
-   4.2.floor()
-=> 4
+4.2.floor()
+# => 4
 
-   (-1.2).floor()
-=> -2
+(-1.2).floor()
+# => -2
 </pre></code>
 
 @name floor
 @methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of less than or equal value.
+@returns {Number} The number truncated to the nearest integer of less than or equal value.
 */
 Number.prototype.floor = function() {
   return Math.floor(this);
@@ -1279,18 +1273,16 @@ Number.prototype.floor = function() {
 Returns this number rounded to the nearest integer.
 
 <code><pre>
-   4.5.round()
-=> 5
+4.5.round()
+# => 5
 
-   4.4.round()
-=> 4
+4.4.round()
+# => 4
 </pre></code>
 
 @name round
 @methodOf Number#
-
-@type Number
-@returns The number rounded to the nearest integer.
+@returns {Number} The number rounded to the nearest integer.
 */
 Number.prototype.round = function() {
   return Math.round(this);
@@ -1298,20 +1290,17 @@ Number.prototype.round = function() {
 /**
 Returns a number whose value is limited to the given range.
 
-<code><pre>   
-   # limit the output of this computation to between 0 and 255
-   (2 * 255).clamp(0, 255)
-=> 255
+<code><pre>
+# limit the output of this computation to between 0 and 255
+(2 * 255).clamp(0, 255)
+# => 255
 </pre></code>
 
 @name clamp
 @methodOf Number#
-
 @param {Number} min The lower boundary of the output range
 @param {Number} max The upper boundary of the output range
-
-@type Number
-@returns A number in the range [min, max]
+@returns {Number} A number in the range [min, max]
 */
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -1321,16 +1310,14 @@ A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
 <code><pre>
-   (-1).mod(5)
-=> 4
+(-1).mod(5)
+# => 4
 </pre></code>
 
 @name mod
 @methodOf Number#
-
 @param {Number} base
-@type Number
-@returns An integer between 0 and (base - 1) if base is positive.
+@returns {Number} An integer between 0 and (base - 1) if base is positive.
 */
 Number.prototype.mod = function(base) {
   var result;
@@ -1344,21 +1331,19 @@ Number.prototype.mod = function(base) {
 Get the sign of this number as an integer (1, -1, or 0).
 
 <code><pre>
-   (-5).sign()
-=> -1
+(-5).sign()
+# => -1
 
-   0.sign()
-=> 0
+0.sign()
+# => 0
 
-   5.sign()
-=> 1
+5.sign()
+# => 1
 </pre></code>
 
 @name sign
 @methodOf Number#
-
-@type Number
-@returns The sign of this number, 0 if the number is 0.
+@returns {Number} The sign of this number, 0 if the number is 0.
 */
 Number.prototype.sign = function() {
   if (this > 0) {
@@ -1373,21 +1358,19 @@ Number.prototype.sign = function() {
 Returns true if this number is even (evenly divisible by 2).
 
 <code><pre>
-   2.even()
-=> true
+2.even()
+# => true
 
-   3.even()
-=> false
+3.even()
+# => false
 
-   0.even()
-=> true      
+0.even()
+# => true      
 </pre></code>
 
 @name even
 @methodOf Number#
-
-@type Boolean
-@returns true if this number is an even integer, false otherwise.
+@returns {Boolean} true if this number is an even integer, false otherwise.
 */
 Number.prototype.even = function() {
   return this % 2 === 0;
@@ -1396,21 +1379,19 @@ Number.prototype.even = function() {
 Returns true if this number is odd (has remainder of 1 when divided by 2).
 
 <code><pre>
-   2.odd()
-=> false
+2.odd()
+# => false
 
-   3.odd()
-=> true
+3.odd()
+# => true
 
-   0.odd()
-=> false     
+0.odd()
+# => false     
 </pre></code>
 
 @name odd
 @methodOf Number#
-
-@type Boolean
-@returns true if this number is an odd integer, false otherwise.
+@returns {Boolean} true if this number is an odd integer, false otherwise.
 */
 Number.prototype.odd = function() {
   if (this > 0) {
@@ -1424,25 +1405,20 @@ Calls iterator the specified number of times, passing in the number of the
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
 <code><pre>
-   output = []
+output = []
 
-   5.times (n) ->
-     output.push(n)
+5.times (n) ->
+  output.push(n)
 
-   output
-=> [0, 1, 2, 3, 4]
+output
+# => [0, 1, 2, 3, 4]
 </pre></code>
 
 @name times
 @methodOf Number#
-
-@param {Function} iterator The iterator takes a single parameter, the number 
-of the current iteration.
-@param {Object} [context] The optional context parameter specifies an object
-to treat as <code>this</code> in the iterator block.
-
-@type Number
-@returns The number of times the iterator was called.
+@param {Function} iterator The iterator takes a single parameter, the number of the current iteration.
+@param {Object} [context] The optional context parameter specifies an object to treat as <code>this</code> in the iterator block.
+@returns {Number} The number of times the iterator was called.
 */
 Number.prototype.times = function(iterator, context) {
   var i;
@@ -1456,22 +1432,20 @@ Number.prototype.times = function(iterator, context) {
 Returns the the nearest grid resolution less than or equal to the number. 
 
 <code><pre>
-    7.snap(8) 
-=> 0
+7.snap(8) 
+# => 0
 
-    4.snap(8) 
-=> 0
+4.snap(8) 
+# => 0
 
-   12.snap(8) 
-=> 8
+12.snap(8) 
+# => 8
 </pre></code>
 
 @name snap
 @methodOf Number#
-
 @param {Number} resolution The grid resolution to snap to.
-@type Number
-@returns The nearest multiple of resolution lower than the number.
+@returns {Number} The nearest multiple of resolution lower than the number.
 */
 Number.prototype.snap = function(resolution) {
   var n;
@@ -1487,18 +1461,16 @@ which when multiplied together equal the original integer.
 Floors the number for purposes of factorization.
 
 <code><pre>
-   60.primeFactors()
-=> [2, 2, 3, 5]
+60.primeFactors()
+# => [2, 2, 3, 5]
 
-   37.primeFactors()
-=> [37]
+37.primeFactors()
+# => [37]
 </pre></code>
 
 @name primeFactors
 @methodOf Number#
-
-@type Array
-@returns An array containing the factorization of this number.
+@returns {Array} An array containing the factorization of this number.
 */
 Number.prototype.primeFactors = function() {
   var factors, i, iSquared, n;
@@ -1531,21 +1503,19 @@ Returns the two character hexidecimal
 representation of numbers 0 through 255.
 
 <code><pre>
-   255.toColorPart()
-=> "ff"
+255.toColorPart()
+# => "ff"
 
-   0.toColorPart()
-=> "00"
+0.toColorPart()
+# => "00"
 
-   200.toColorPart()
-=> "c8"
+200.toColorPart()
+# => "c8"
 </pre></code>
 
 @name toColorPart
 @methodOf Number#
-
-@type String
-@returns Hexidecimal representation of the number
+@returns {String} Hexidecimal representation of the number
 */
 Number.prototype.toColorPart = function() {
   var s;
@@ -1559,18 +1529,16 @@ Number.prototype.toColorPart = function() {
 Returns a number that is maxDelta closer to target.
 
 <code><pre>
-   255.approach(0, 5)
-=> 250
+255.approach(0, 5)
+# => 250
 
-   5.approach(0, 10)
-=> 0
+5.approach(0, 10)
+# => 0
 </pre></code>
 
 @name approach
 @methodOf Number#
-
-@type Number
-@returns A number maxDelta toward target
+@returns {Number} A number maxDelta toward target
 */
 Number.prototype.approach = function(target, maxDelta) {
   return (target - this).clamp(-maxDelta, maxDelta) + this;
@@ -1579,15 +1547,13 @@ Number.prototype.approach = function(target, maxDelta) {
 Returns a number that is closer to the target by the ratio.
 
 <code><pre>
-   255.approachByRatio(0, 0.1)
-=> 229.5
+255.approachByRatio(0, 0.1)
+# => 229.5
 </pre></code>
 
 @name approachByRatio
 @methodOf Number#
-
-@type Number
-@returns A number toward target by the ratio
+@returns {Number} A number toward target by the ratio
 */
 Number.prototype.approachByRatio = function(target, ratio) {
   return this.approach(target, this * ratio);
@@ -1596,15 +1562,13 @@ Number.prototype.approachByRatio = function(target, ratio) {
 Returns a number that is closer to the target angle by the delta.
 
 <code><pre>
-   Math.PI.approachRotation(0, Math.PI/4)
-=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+Math.PI.approachRotation(0, Math.PI/4)
+# => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
 </pre></code>
 
 @name approachRotation
 @methodOf Number#
-
-@type Number
-@returns A number toward the target angle by maxDelta
+@returns {Number} A number toward the target angle by maxDelta
 */
 Number.prototype.approachRotation = function(target, maxDelta) {
   while (target > this + Math.PI) {
@@ -1619,15 +1583,13 @@ Number.prototype.approachRotation = function(target, maxDelta) {
 Constrains a rotation to between -PI and PI.
 
 <code><pre>
-   (9/4 * Math.PI).constrainRotation() 
-=> 0.7853981633974483 # this is (1/4) * Math.PI
+(9/4 * Math.PI).constrainRotation() 
+# => 0.7853981633974483 # this is (1/4) * Math.PI
 </pre></code>
 
 @name constrainRotation
 @methodOf Number#
-
-@type Number
-@returns This number constrained between -PI and PI.
+@returns {Number} This number constrained between -PI and PI.
 */
 Number.prototype.constrainRotation = function() {
   var target;
@@ -1645,9 +1607,7 @@ The mathematical d operator. Useful for simulating dice rolls.
 
 @name d
 @methodOf Number#
-
-@type Number
-@returns The sum of rolling <code>this</code> many <code>sides</code>-sided dice
+@returns {Number} The sum of rolling <code>this</code> many <code>sides</code>-sided dice
 */
 Number.prototype.d = function(sides) {
   var sum;
