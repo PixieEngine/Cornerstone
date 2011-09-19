@@ -2,15 +2,13 @@
 Returns the absolute value of this number.
 
 <code><pre>
-   (-4).abs()
+(-4).abs()
 => 4
 </pre></code>
 
 @name abs
 @methodOf Number#
-
-@type Number
-@returns The absolute value of the number.
+@returns {Number} The absolute value of the number.
 ###
 Number::abs = () ->
   Math.abs(this)
