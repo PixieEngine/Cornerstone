@@ -3,9 +3,7 @@ Returns true if this string only contains whitespace characters.
 
 @name blank
 @methodOf String#
-
-@returns Whether or not this string is blank.
-@type Boolean
+@returns {Boolean} Whether or not this string is blank.
 ###
 String::blank = ->
   /^\s*$/.test(this)
@@ -15,6 +13,7 @@ Returns a new string that is a camelCase version.
 
 @name camelize
 @methodOf String#
+@returns {String} A new string. camelCase version of `this`. 
 ###
 String::camelize = ->
   this.trim().replace /(\-|_|\s)+(.)?/g, (match, separator, chr) ->
@@ -25,6 +24,7 @@ Returns a new string with the first letter capitalized and the rest lower cased.
 
 @name capitalize
 @methodOf String#
+@returns {String} A new string. Capitalized version of `this`
 ###
 String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
