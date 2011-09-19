@@ -164,21 +164,19 @@ Number::even = ->
 Returns true if this number is odd (has remainder of 1 when divided by 2).
 
 <code><pre>
-   2.odd()
-=> false
+2.odd()
+# => false
 
-   3.odd()
-=> true
+3.odd()
+# => true
 
-   0.odd()
-=> false     
+0.odd()
+# => false     
 </pre></code>
 
 @name odd
 @methodOf Number#
-
-@type Boolean
-@returns true if this number is an odd integer, false otherwise.
+@returns {Boolean} true if this number is an odd integer, false otherwise.
 ###
 Number::odd = ->
   if this > 0
