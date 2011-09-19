@@ -944,20 +944,18 @@ Function.prototype.withAfter = function(interception) {
   };
 };;
 /**
-  @name Logging
-  @namespace
+Gives you some convenience methods for outputting data
+while developing. 
 
-  Gives you some convenience methods for outputting data
-  while developing. 
+@name Logging
+@namespace
 
-<code>
-  <pre>
-    log "Testing123"
-    info "Hey, this is happening"
-    warn "Be careful, this might be a problem"
-    error "Kaboom!"
-  </pre>
-</code>
+<code><pre>
+  log "Testing123"
+  info "Hey, this is happening"
+  warn "Be careful, this might be a problem"
+  error "Kaboom!"
+</pre></code>
 */["log", "info", "warn", "error"].each(function(name) {
   if (typeof console !== "undefined") {
     return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function(message) {
@@ -1062,10 +1060,8 @@ Function.prototype.withAfter = function(interception) {
       http://mathworld.wolfram.com/MatrixMultiplication.html
       @name concat
       @methodOf Matrix#
-    
       @param {Matrix} matrix The matrix to multiply this matrix by.
-      @returns The result of the matrix multiplication, a new matrix.
-      @type Matrix
+      @returns {Matrix} The result of the matrix multiplication, a new matrix.
       */
     concat: function(matrix) {
       return Matrix(this.a * matrix.a + this.c * matrix.b, this.b * matrix.a + this.d * matrix.b, this.a * matrix.c + this.c * matrix.d, this.b * matrix.c + this.d * matrix.d, this.a * matrix.tx + this.c * matrix.ty + this.tx, this.b * matrix.tx + this.d * matrix.ty + this.ty);
@@ -1078,9 +1074,7 @@ Function.prototype.withAfter = function(interception) {
     @name deltaTransformPoint
     @methodOf Matrix#
     @see #transformPoint
-    
-    @return A new point transformed by this matrix ignoring tx and ty.
-    @type Point
+    @return {Point} A new point transformed by this matrix ignoring tx and ty.
     */
     deltaTransformPoint: function(point) {
       return Point(this.a * point.x + this.c * point.y, this.b * point.x + this.d * point.y);
@@ -1090,9 +1084,7 @@ Function.prototype.withAfter = function(interception) {
     http://mathworld.wolfram.com/MatrixInverse.html
     @name inverse
     @methodOf Matrix#
-    
-    @returns A new matrix that is the inverse of this matrix.
-    @type Matrix
+    @returns {Matrix} A new matrix that is the inverse of this matrix.
     */
     inverse: function() {
       var determinant;
@@ -1105,11 +1097,9 @@ Function.prototype.withAfter = function(interception) {
     @name rotate
     @methodOf Matrix#
     @see Matrix.rotation
-    
     @param {Number} theta Amount to rotate in radians.
     @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
-    @returns A new matrix, rotated by the specified amount.
-    @type Matrix
+    @returns {Matrix} A new matrix, rotated by the specified amount.
     */
     rotate: function(theta, aboutPoint) {
       return this.concat(Matrix.rotation(theta, aboutPoint));
@@ -1120,11 +1110,10 @@ Function.prototype.withAfter = function(interception) {
     @name scale
     @methodOf Matrix#
     @see Matrix.scale
-    
     @param {Number} sx
     @param {Number} [sy]
     @param {Point} [aboutPoint] The point that remains fixed during the scaling
-    @type Matrix
+    @returns {Matrix} A new Matrix. The original multiplied by a scaling matrix.
     */
     scale: function(sx, sy, aboutPoint) {
       return this.concat(Matrix.scale(sx, sy, aboutPoint));
@@ -1135,9 +1124,7 @@ Function.prototype.withAfter = function(interception) {
     @name transformPoint
     @methodOf Matrix#
     @see #deltaTransformPoint
-    
-    @returns A new point with the transformation applied.
-    @type Point
+    @returns {Point} A new point with the transformation applied.
     */
     transformPoint: function(point) {
       return Point(this.a * point.x + this.c * point.y + this.tx, this.b * point.x + this.d * point.y + this.ty);
@@ -1147,11 +1134,9 @@ Function.prototype.withAfter = function(interception) {
     @name translate
     @methodOf Matrix#
     @see Matrix.translation
-    
     @param {Number} tx The translation along the x axis.
     @param {Number} ty The translation along the y axis.
-    @returns A new matrix with the translation applied.
-    @type Matrix
+    @returns {Matrix} A new matrix with the translation applied.
     */
     translate: function(tx, ty) {
       return this.concat(Matrix.translation(tx, ty));
@@ -1160,11 +1145,9 @@ Function.prototype.withAfter = function(interception) {
     Creates a matrix transformation that corresponds to the given rotation,
     around (0,0) or the specified point.
     @see Matrix#rotate
-    
     @param {Number} theta Rotation in radians.
     @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
-    @returns 
-    @type Matrix
+    @returns {Matrix} A new matrix rotated by the given amount.
     */
   };
   Matrix.rotate = Matrix.rotation = function(theta, aboutPoint) {
@@ -1182,12 +1165,10 @@ Function.prototype.withAfter = function(interception) {
   If the optional aboutPoint parameter is given the scaling takes place
   about the given point.
   @see Matrix#scale
-  
   @param {Number} sx The amount to scale by along the x axis or uniformly if no sy is given.
   @param {Number} [sy] The amount to scale by along the y axis.
   @param {Point} [aboutPoint] The point about which the scaling occurs. Defaults to (0,0).
-  @returns A matrix transformation representing scaling by sx and sy.
-  @type Matrix
+  @returns {Matrix} A matrix transformation representing scaling by sx and sy.
   */
   Matrix.scale = function(sx, sy, aboutPoint) {
     var scaleMatrix;
@@ -1201,11 +1182,9 @@ Function.prototype.withAfter = function(interception) {
   /**
   Returns a matrix that corresponds to a translation of tx, ty.
   @see Matrix#translate
-  
   @param {Number} tx The amount to translate in the x direction.
   @param {Number} ty The amount to translate in the y direction.
-  @return A matrix transformation representing a translation by tx and ty.
-  @type Matrix
+  @return {Matrix} A matrix transformation representing a translation by tx and ty.
   */
   Matrix.translate = Matrix.translation = function(tx, ty) {
     return Matrix(1, 0, 0, 1, tx, ty);
