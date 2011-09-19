@@ -107,27 +107,27 @@ Core = (I) ->
     existing methods.
 
     <code><pre>
-       I =
-         x: 30
-         y: 40
-         maxSpeed: 5
+    I =
+      x: 30
+      y: 40
+      maxSpeed: 5
 
-       # we are using extend to give player
-       # additional methods that Core doesn't have
-       player = Core(I).extend
-         increaseSpeed: ->
-           I.maxSpeed += 1
+    # we are using extend to give player
+    # additional methods that Core doesn't have
+    player = Core(I).extend
+      increaseSpeed: ->
+        I.maxSpeed += 1
 
-         # this will execute before the update method
-         beforeUpdate: ->
-           checkPowerupStatus()
+      # this will execute before the update method
+      beforeUpdate: ->
+        checkPowerupStatus()
 
-       player.I.maxSpeed
+    player.I.maxSpeed
     => 5
 
-       player.increaseSpeed()
+    player.increaseSpeed()
 
-       player.I.maxSpeed
+    player.I.maxSpeed
     => 6
     </pre></code>
 
