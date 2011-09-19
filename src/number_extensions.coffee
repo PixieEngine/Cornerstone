@@ -337,9 +337,7 @@ Returns a number that is closer to the target by the ratio.
 
 @name approachByRatio
 @methodOf Number#
-
-@type Number
-@returns A number toward target by the ratio
+@returns {Number} A number toward target by the ratio
 ### 
 Number::approachByRatio = (target, ratio) ->
   this.approach(target, this * ratio)
