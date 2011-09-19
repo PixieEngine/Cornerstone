@@ -72,8 +72,7 @@ Flatten out an array of arrays into a single array of elements.
 
 @name flatten
 @methodOf Array#
-@type Array
-@returns A new array with all the sub-arrays flattened to the top.
+@returns {Array} A new array with all the sub-arrays flattened to the top.
 ###
 Array::flatten = ->
   this.inject [], (a, b) ->
