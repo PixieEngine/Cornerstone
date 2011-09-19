@@ -39,7 +39,6 @@ Bindable = ->
 
   @name bind
   @methodOf Bindable#
-
   @param {String} event The event to listen to.
   @param {Function} callback The function to be called when the specified event
   is triggered.
@@ -60,11 +59,10 @@ Bindable = ->
 
   # removes all handlers attached to "anotherCustomEvent" 
   yourObject.unbind "anotherCustomEvent"
-  </pre></code>   
+  </pre></code>
 
   @name unbind
   @methodOf Bindable#
-
   @param {String} event The event to remove the listener from.
   @param {Function} [callback] The listener to remove.
   ###
@@ -82,11 +80,10 @@ Bindable = ->
   <code><pre>
   # calls each event handler bound to "someCustomEvent"
   yourObject.trigger "someCustomEvent"
-  </pre></code>  
+  </pre></code>
 
   @name trigger
   @methodOf Bindable#
-
   @param {String} event The event to trigger.
   @param {Array} [parameters] Additional parameters to pass to the event listener.
   ###
