@@ -303,26 +303,25 @@
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
 
     <code><pre>
-       point = Point(2, 3).norm$()
+    point = Point(2, 3).norm$()
 
-       point.x
-    => 0.5547001962252291
+    point.x
+    # => 0.5547001962252291
 
-       point.y  
-    => 0.8320502943378437
+    point.y  
+    # => 0.8320502943378437
 
-       anotherPoint = Point(2, 3).norm$(2)
+    anotherPoint = Point(2, 3).norm$(2)
 
-       anotherPoint.x
-    => 1.1094003924504583
+    anotherPoint.x
+    # => 1.1094003924504583
 
-       anotherPoint.y   
-    => 1.6641005886756874    
+    anotherPoint.y   
+    # => 1.6641005886756874    
     </pre></code>
 
     @name norm$
     @methodOf Point#
-
     @returns {Point} The unit vector pointing in the same direction as this vector.
     ###
     norm$: (length=1.0) ->
