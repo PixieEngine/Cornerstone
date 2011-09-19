@@ -155,9 +155,7 @@ Returns true if this number is even (evenly divisible by 2).
 
 @name even
 @methodOf Number#
-
-@type Boolean
-@returns true if this number is an even integer, false otherwise.
+@returns {Boolean} true if this number is an even integer, false otherwise.
 ###
 Number::even = ->
   this % 2 == 0
