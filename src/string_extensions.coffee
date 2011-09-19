@@ -1,6 +1,17 @@
 ###*
 Returns true if this string only contains whitespace characters.
 
+<code><pre>
+"".blank()
+# => true
+
+"hello".blank()
+# => false
+
+"   ".blank()
+# => true
+</pre></code>
+
 @name blank
 @methodOf String#
 @returns {Boolean} Whether or not this string is blank.
