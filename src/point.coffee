@@ -452,7 +452,6 @@
     Calculate the dot product of this point and another point (Vector).
     @name dot
     @methodOf Point#
-
     @param {Point} other The point to dot with this point.
     @returns {Number} The dot product of this point dot other as a scalar value.
     ###
