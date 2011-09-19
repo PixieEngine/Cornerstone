@@ -243,11 +243,11 @@ which when multiplied together equal the original integer.
 Floors the number for purposes of factorization.
 
 <code><pre>
-   60.primeFactors()
-=> [2, 2, 3, 5]
+60.primeFactors()
+# => [2, 2, 3, 5]
 
-   37.primeFactors()
-=> [37]
+37.primeFactors()
+# => [37]
 </pre></code>
 
 @name primeFactors
