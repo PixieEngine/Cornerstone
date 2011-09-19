@@ -82,10 +82,10 @@ Object.extend = (target, sources...) ->
 Helper method that tells you if something is an object.
 
 <code><pre>
-  object = {a: 1}
+object = {a: 1}
 
-  Object.isObject(object)
-  # => true
+Object.isObject(object)
+# => true
 </pre></code>
 
 @name isObject
