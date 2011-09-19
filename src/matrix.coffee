@@ -95,10 +95,8 @@
     http://mathworld.wolfram.com/MatrixMultiplication.html
     @name concat
     @methodOf Matrix#
-
     @param {Matrix} matrix The matrix to multiply this matrix by.
-    @returns The result of the matrix multiplication, a new matrix.
-    @type Matrix
+    @returns {Matrix} The result of the matrix multiplication, a new matrix.
     ###
     concat: (matrix) ->
       Matrix(
