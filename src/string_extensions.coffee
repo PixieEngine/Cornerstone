@@ -110,6 +110,17 @@ String::isString = ->
 Parse this string as though it is JSON and return the object it represents. If it
 is not valid JSON returns the string itself.
 
+<code><pre>
+# this is valid json, so an object is returned
+'{"a": 3}'.parse()
+# => {a: 3}
+
+# double quoting instead isn't valid JSON so a string is returned
+"{'a': 3}".parse()
+# => "{'a': 3}"
+
+</pre></code>
+
 @name parse
 @methodOf String#
 @returns {Object} Returns an object from the JSON this string contains. If it is not valid JSON returns the string itself.
