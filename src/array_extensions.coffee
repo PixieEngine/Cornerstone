@@ -147,18 +147,17 @@ Array::remove = (object) ->
 Returns true if the element is present in the array.
 
 <code><pre>
-   ["a", "b", "c"].include("c")
-=> true
+["a", "b", "c"].include("c")
+# => true
 
-   [40, "a"].include(700)
-=> false
+[40, "a"].include(700)
+# => false
 </pre></code>
 
 @name include
 @methodOf Array#
 @param {Object} element The element to check if present.
-@returns true if the element is in the array, false otherwise.
-@type Boolean
+@returns {Boolean} true if the element is in the array, false otherwise.
 ###
 Array::include = (element) ->
   this.indexOf(element) != -1
