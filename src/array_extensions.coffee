@@ -33,8 +33,7 @@ a === b
 
 @name copy
 @methodOf Array#
-@type Array
-@returns A new array that is a copy of the array
+@returns {Array} A new array that is a copy of the array
 ###
 Array::copy = ->
   this.concat()
