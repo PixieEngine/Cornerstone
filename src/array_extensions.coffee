@@ -206,7 +206,6 @@ third argument.
 <code><pre>
 [1, 2, 3].map (number) ->
   number * number
-
 # => [1, 4, 9]
 </pre></code>
 
