@@ -185,6 +185,7 @@ contents of the string without the extension.
 
 @name withoutExtension
 @methodOf String#
+@returns {String} A new string without the extension name.
 ###
 String::withoutExtension = ->
   this.replace(/\.[^\.]*$/, '')
