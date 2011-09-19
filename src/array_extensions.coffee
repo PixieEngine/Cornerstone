@@ -489,14 +489,9 @@ Return the group of elements for which the return value of the iterator is false
 
 @name reject
 @methodOf Array#
-
-@param {Function} iterator The iterator receives each element in turn as 
-the first agument.
-@param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
-
-@type Array
-@returns An array containing the elements for which the iterator returned false.
+@param {Function} iterator The iterator receives each element in turn as the first agument.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} An array containing the elements for which the iterator returned false.
 ###
 Array::reject = (iterator, context) ->
   this.partition(iterator, context)[1]
