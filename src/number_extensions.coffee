@@ -96,8 +96,8 @@ A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
 <code><pre>
-   (-1).mod(5)
-=> 4
+(-1).mod(5)
+# => 4
 </pre></code>
 
 @name mod
