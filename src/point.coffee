@@ -418,10 +418,10 @@
     Calculate the magnitude of this Point (Vector).
 
     <code><pre>
-       point = Point(5, 7)
+    point = Point(5, 7)
 
-       point.magnitude()
-    => 8.602325267042627
+    point.magnitude()
+    # => 8.602325267042627
     </pre></code>
 
     @name magnitude
