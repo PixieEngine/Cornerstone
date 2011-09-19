@@ -87,7 +87,6 @@ Returns a new string that is a more human readable version.
 
 "player_ammo".humanize()
 # => "Player ammo"
-
 </pre></code>
 
 @name humanize
