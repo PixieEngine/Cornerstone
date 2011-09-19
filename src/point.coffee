@@ -391,7 +391,6 @@
 
     @name equal
     @methodOf Point#
-
     @param {Point} other The point to check for equality.
     @returns {Boolean} true if the other point has the same x, y coordinates, false otherwise.
     ###
@@ -402,10 +401,10 @@
     Computed the length of this point as though it were a vector from (0,0) to (x,y).
 
     <code><pre>
-       point = Point(5, 7)
+    point = Point(5, 7)
 
-       point.length()
-    => 8.602325267042627
+    point.length()
+    # => 8.602325267042627
     </pre></code>
 
     @name length
