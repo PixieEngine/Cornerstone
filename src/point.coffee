@@ -260,7 +260,6 @@
 
     @name scale$
     @methodOf Point#
-
     @param {Number} scalar The amount to scale this point by.
     @returns {Point} this * scalar.
     ###
