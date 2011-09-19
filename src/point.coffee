@@ -70,21 +70,21 @@
     to add x and y values without a second point object.
 
     <code><pre>
-       point = Point(2, 3).add(Point(3, 4))
+    point = Point(2, 3).add(Point(3, 4))
 
-       point.x
-    => 5
+    point.x
+    # => 5
 
-       point.y
-    => 7
+    point.y
+    # => 7
 
-       anotherPoint = Point(2, 3).add(3, 4)
+    anotherPoint = Point(2, 3).add(3, 4)
 
-       anotherPoint.x
-    => 5
+    anotherPoint.x
+    # => 5
 
-       anotherPoint.y
-    => 7
+    anotherPoint.y
+    # => 7
     </pre></code>
 
     @name add
