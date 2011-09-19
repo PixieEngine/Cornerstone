@@ -426,7 +426,6 @@
 
     @name magnitude
     @methodOf Point#
-
     @returns {Number} The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
     ###
     magnitude: ->
