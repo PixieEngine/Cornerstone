@@ -95,8 +95,7 @@ and return a new array containing the results of the invocation.
 
 @name invoke
 @methodOf Array#
-@type Array
-@returns A new array containing the results of invoking the 
+@returns {Array} A new array containing the results of invoking the 
 named method on each element.
 ###
 Array::invoke = (method, args...) ->
