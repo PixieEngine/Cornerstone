@@ -1735,21 +1735,21 @@ Object.isObject = function(object) {
   defaults to (0, 0).
   
   <code><pre>
-     point = Point()
+  point = Point()
   
-     p.x
-  => 0
+  p.x
+  # => 0
   
-     p.y
-  => 0
+  p.y
+  # => 0
   
-     point = Point(-2, 5)
+  point = Point(-2, 5)
   
-     p.x
-  => -2
+  p.x
+  # => -2
   
-     p.y
-  => 5
+  p.y
+  # => 5
   </pre></code>
   
   @name Point
@@ -1780,18 +1780,17 @@ Object.isObject = function(object) {
     
       @name copy
       @methodOf Point#
-      @type Point
-      @returns A new point with the same x and y value as this point.
+      @returns {Point} A new point with the same x and y value as this point.
     
       <code><pre>
-        point = Point(1, 1)
-        pointCopy = point.copy()
+      point = Point(1, 1)
+      pointCopy = point.copy()
     
-        point.equal(pointCopy)
-        => true
+      point.equal(pointCopy)
+      # => true
     
-        point == pointCopy
-        => false     
+      point == pointCopy
+      # => false     
       </pre></code>
       */
     copy: function() {
@@ -1803,21 +1802,21 @@ Object.isObject = function(object) {
     to add x and y values without a second point object.
     
     <code><pre>
-       point = Point(2, 3).add(Point(3, 4))
+    point = Point(2, 3).add(Point(3, 4))
     
-       point.x
-    => 5
+    point.x
+    # => 5
     
-       point.y
-    => 7
+    point.y
+    # => 7
     
-       anotherPoint = Point(2, 3).add(3, 4)
+    anotherPoint = Point(2, 3).add(3, 4)
     
-       anotherPoint.x
-    => 5
+    anotherPoint.x
+    # => 5
     
-       anotherPoint.y
-    => 7
+    anotherPoint.y
+    # => 7
     </pre></code>
     
     @name add
@@ -1834,30 +1833,30 @@ Object.isObject = function(object) {
     to add x and y values without a second point object.
     
     <code><pre>
-       point = Point(2, 3)
+    point = Point(2, 3)
     
-       point.x
-    => 2
+    point.x
+    # => 2
     
-       point.y
-    => 3
+    point.y
+    # => 3
     
-       point.add$(Point(3, 4))
+    point.add$(Point(3, 4))
     
-       point.x
-    => 5
+    point.x
+    # => 5
     
-       point.y
-    => 7
+    point.y
+    # => 7
     
-       anotherPoint = Point(2, 3)
-       anotherPoint.add$(3, 4)
+    anotherPoint = Point(2, 3)
+    anotherPoint.add$(3, 4)
     
-       anotherPoint.x
-    => 5
+    anotherPoint.x
+    # => 5
     
-       anotherPoint.y
-    => 7
+    anotherPoint.y
+    # => 7
     </pre></code>
     
     @name add$
@@ -1879,26 +1878,25 @@ Object.isObject = function(object) {
     Subtracts a point to this one and returns the new point.
     
     <code><pre>
-       point = Point(1, 2).subtract(Point(2, 0))
+    point = Point(1, 2).subtract(Point(2, 0))
     
-       point.x
-    => -1
+    point.x
+    # => -1
     
-       point.y
-    => 2
+    point.y
+    # => 2
     
-       anotherPoint = Point(1, 2).subtract(2, 0)
+    anotherPoint = Point(1, 2).subtract(2, 0)
     
-       anotherPoint.x
-    => -1
+    anotherPoint.x
+    # => -1
     
-       anotherPoint.y
-    => 2
+    anotherPoint.y
+    # => 2
     </pre></code>
     
     @name subtract
     @methodOf Point#
-    
     @param {Point} other The point to subtract from this point.
     @returns {Point} A new point, this - other.
     */
@@ -1909,35 +1907,34 @@ Object.isObject = function(object) {
     Subtracts a point to this one and returns the new point.
     
     <code><pre>
-       point = Point(1, 2)
+    point = Point(1, 2)
     
-       point.x
-    => 1
+    point.x
+    # => 1
     
-       point.y
-    => 2
+    point.y
+    # => 2
     
-       point.subtract$(Point(2, 0))
+    point.subtract$(Point(2, 0))
     
-       point.x
-    => -1
+    point.x
+    # => -1
     
-       point.y
-    => 2
+    point.y
+    # => 2
     
-       anotherPoint = Point(1, 2)
-       anotherPoint.subtract$(2, 0)
+    anotherPoint = Point(1, 2)
+    anotherPoint.subtract$(2, 0)
     
-       anotherPoint.x
-    => -1
+    anotherPoint.x
+    # => -1
     
-       anotherPoint.y
-    => 2
+    anotherPoint.y
+    # => 2
     </pre></code>
     
     @name subtract$
     @methodOf Point#
-    
     @param {Point} other The point to subtract from this point.
     @returns {Point} The difference of the two points.
     */
@@ -1955,18 +1952,17 @@ Object.isObject = function(object) {
     Scale this Point (Vector) by a constant amount.
     
     <code><pre>
-       point = Point(5, 6).scale(2)
+    point = Point(5, 6).scale(2)
     
-       point.x
-    => 10
+    point.x
+    # => 10
     
-       point.y
-    => 12
+    point.y
+    # => 12
     </pre></code>
     
     @name scale
     @methodOf Point#
-    
     @param {Number} scalar The amount to scale this point by.
     @returns {Point} A new point, this * scalar.
     */
@@ -1977,26 +1973,25 @@ Object.isObject = function(object) {
     Scale this Point (Vector) by a constant amount. Modifies the point in place.
     
     <code><pre>
-       point = Point(5, 6)
+    point = Point(5, 6)
     
-       point.x
-    => 5
+    point.x
+    # => 5
     
-       point.y
-    => 6
+    point.y
+    # => 6
     
-       point.scale$(2)
+    point.scale$(2)
     
-       point.x
-    => 10
+    point.x
+    # => 10
     
-       point.y
-    => 12
+    point.y
+    # => 12
     </pre></code>
     
     @name scale$
     @methodOf Point#
-    
     @param {Number} scalar The amount to scale this point by.
     @returns {Point} this * scalar.
     */
@@ -2010,26 +2005,25 @@ Object.isObject = function(object) {
     treats the point as though it is a vector from the origin to (x, y).
     
     <code><pre>
-       point = Point(2, 3).norm()
+    point = Point(2, 3).norm()
     
-       point.x
-    => 0.5547001962252291
+    point.x
+    # => 0.5547001962252291
     
-       point.y  
-    => 0.8320502943378437
+    point.y  
+    # => 0.8320502943378437
     
-       anotherPoint = Point(2, 3).norm(2)
+    anotherPoint = Point(2, 3).norm(2)
     
-       anotherPoint.x
-    => 1.1094003924504583
+    anotherPoint.x
+    # => 1.1094003924504583
     
-       anotherPoint.y   
-    => 1.6641005886756874    
+    anotherPoint.y   
+    # => 1.6641005886756874    
     </pre></code>
     
     @name norm
     @methodOf Point#
-    
     @returns {Point} The unit vector pointing in the same direction as this vector.
     */
     norm: function(length) {
@@ -2043,26 +2037,25 @@ Object.isObject = function(object) {
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
     
     <code><pre>
-       point = Point(2, 3).norm$()
+    point = Point(2, 3).norm$()
     
-       point.x
-    => 0.5547001962252291
+    point.x
+    # => 0.5547001962252291
     
-       point.y  
-    => 0.8320502943378437
+    point.y  
+    # => 0.8320502943378437
     
-       anotherPoint = Point(2, 3).norm$(2)
+    anotherPoint = Point(2, 3).norm$(2)
     
-       anotherPoint.x
-    => 1.1094003924504583
+    anotherPoint.x
+    # => 1.1094003924504583
     
-       anotherPoint.y   
-    => 1.6641005886756874    
+    anotherPoint.y   
+    # => 1.6641005886756874    
     </pre></code>
     
     @name norm$
     @methodOf Point#
-    
     @returns {Point} The unit vector pointing in the same direction as this vector.
     */
     norm$: function(length) {
@@ -2080,13 +2073,13 @@ Object.isObject = function(object) {
     Floor the x and y values, returning a new point.
     
     <code><pre>
-       point = Point(3.4, 5.8).floor()
+    point = Point(3.4, 5.8).floor()
     
-       point.x
-    => 3
+    point.x
+    # => 3
     
-       point.y
-    => 5
+    point.y
+    # => 5
     </pre></code>
     
     @name floor
@@ -2100,14 +2093,14 @@ Object.isObject = function(object) {
     Floor the x and y values, returning a modified point.
     
     <code><pre>
-       point = Point(3.4, 5.8)
-       point.floor$()
+    point = Point(3.4, 5.8)
+    point.floor$()
     
-       point.x
-    => 3
+    point.x
+    # => 3
     
-       point.y
-    => 5
+    point.y
+    # => 5
     </pre></code>
     
     @name floor$
@@ -2123,20 +2116,19 @@ Object.isObject = function(object) {
     Determine whether this point is equal to another point.
     
     <code><pre>
-       pointA = Point(2, 3)
-       pointB = Point(2, 3)
-       pointC = Point(4, 5)
+    pointA = Point(2, 3)
+    pointB = Point(2, 3)
+    pointC = Point(4, 5)
     
-       pointA.equal(pointB)
-    => true
+    pointA.equal(pointB)
+    # => true
     
-       pointA.equal(pointC)
-    => false
+    pointA.equal(pointC)
+    # => false
     </pre></code>
     
     @name equal
     @methodOf Point#
-    
     @param {Point} other The point to check for equality.
     @returns {Boolean} true if the other point has the same x, y coordinates, false otherwise.
     */
@@ -2147,15 +2139,14 @@ Object.isObject = function(object) {
     Computed the length of this point as though it were a vector from (0,0) to (x,y).
     
     <code><pre>
-       point = Point(5, 7)
+    point = Point(5, 7)
     
-       point.length()
-    => 8.602325267042627
+    point.length()
+    # => 8.602325267042627
     </pre></code>
     
     @name length
     @methodOf Point#
-    
     @returns {Number} The length of the vector from the origin to this point.
     */
     length: function() {
@@ -2165,15 +2156,14 @@ Object.isObject = function(object) {
     Calculate the magnitude of this Point (Vector).
     
     <code><pre>
-       point = Point(5, 7)
+    point = Point(5, 7)
     
-       point.magnitude()
-    => 8.602325267042627
+    point.magnitude()
+    # => 8.602325267042627
     </pre></code>
     
     @name magnitude
     @methodOf Point#
-    
     @returns {Number} The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
     */
     magnitude: function() {
@@ -2183,15 +2173,14 @@ Object.isObject = function(object) {
     Returns the direction in radians of this point from the origin.
     
     <code><pre>
-       point = Point(0, 1)
+    point = Point(0, 1)
     
-       point.direction()
-    => 1.5707963267948966 # Math.PI / 2
+    point.direction()
+    # => 1.5707963267948966 # Math.PI / 2
     </pre></code>
     
     @name direction
     @methodOf Point#
-    
     @returns {Number} The direction in radians of this point from the origin
     */
     direction: function() {
@@ -2201,7 +2190,6 @@ Object.isObject = function(object) {
     Calculate the dot product of this point and another point (Vector).
     @name dot
     @methodOf Point#
-    
     @param {Point} other The point to dot with this point.
     @returns {Number} The dot product of this point dot other as a scalar value.
     */
@@ -2214,9 +2202,9 @@ Object.isObject = function(object) {
     but z can be treated as zero. The result of this method is interpreted as the magnitude 
     of the vector result of the cross product between [x1, y1, 0] x [x2, y2, 0]
     perpendicular to the xy plane.
+    
     @name cross
     @methodOf Point#
-    
     @param {Point} other The point to cross with this point.
     @returns {Number} The cross product of this point with the other point as scalar value.
     */
@@ -2227,16 +2215,15 @@ Object.isObject = function(object) {
     Compute the Euclidean distance between this point and another point.
     
     <code><pre>
-       pointA = Point(2, 3)
-       pointB = Point(9, 2)
+    pointA = Point(2, 3)
+    pointB = Point(9, 2)
     
-       pointA.distance(pointB)
-    => 7.0710678118654755 # Math.sqrt(50)
+    pointA.distance(pointB)
+    # => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
     
     @name distance
     @methodOf Point#
-    
     @param {Point} other The point to compute the distance to.
     @returns {Number} The distance between this point and another point.
     */
@@ -2247,11 +2234,11 @@ Object.isObject = function(object) {
     Compute the Euclidean distance between two points.
     
     <code><pre>
-       pointA = Point(2, 3)
-       pointB = Point(9, 2)
+    pointA = Point(2, 3)
+    pointB = Point(9, 2)
     
-       Point.distance(pointA, pointB)
-    => 7.0710678118654755 # Math.sqrt(50)
+    Point.distance(pointA, pointB)
+    # => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
     
     @name distance
@@ -2268,18 +2255,17 @@ Object.isObject = function(object) {
   Construct a point on the unit circle for the given angle.
   
   <code><pre>
-     point = Point.fromAngle(Math.PI / 2)
+  point = Point.fromAngle(Math.PI / 2)
   
-     point.x
-  => 0
+  point.x
+  # => 0
   
-     point.y
-  => 1
+  point.y
+  # => 1
   </pre></code>
   
   @name fromAngle
   @fieldOf Point
-  
   @param {Number} angle The angle in radians
   @returns {Point} The point on the unit circle.
   */
@@ -2292,16 +2278,15 @@ Object.isObject = function(object) {
   that the dude standing at p1 will need to face to look at p2.
   
   <code><pre>
-     p1 = Point(0, 0)
-     p2 = Point(7, 3)
+  p1 = Point(0, 0)
+  p2 = Point(7, 3)
   
-     Point.direction(p1, p2)
-  => 0.40489178628508343
+  Point.direction(p1, p2)
+  # => 0.40489178628508343
   </pre></code>
   
   @name direction
   @fieldOf Point
-  
   @param {Point} p1 The starting point.
   @param {Point} p2 The ending point.
   @returns {Number} The direction from p1 to p2 in radians.
@@ -2312,7 +2297,6 @@ Object.isObject = function(object) {
   /**
   @name ZERO
   @fieldOf Point
-  
   @returns {Point} The point (0, 0)
   */
   Point.ZERO = Point();
