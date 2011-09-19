@@ -3,7 +3,7 @@ Returns the absolute value of this number.
 
 <code><pre>
 (-4).abs()
-=> 4
+# => 4
 </pre></code>
 
 @name abs
