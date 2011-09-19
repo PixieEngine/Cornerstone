@@ -287,21 +287,19 @@ Returns the two character hexidecimal
 representation of numbers 0 through 255.
 
 <code><pre>
-   255.toColorPart()
-=> "ff"
+255.toColorPart()
+# => "ff"
 
-   0.toColorPart()
-=> "00"
+0.toColorPart()
+# => "00"
 
-   200.toColorPart()
-=> "c8"
+200.toColorPart()
+# => "c8"
 </pre></code>
 
 @name toColorPart
 @methodOf Number#
-
-@type String
-@returns Hexidecimal representation of the number
+@returns {String} Hexidecimal representation of the number
 ###
 Number::toColorPart = ->
   s = parseInt(this.clamp(0, 255), 10).toString(16)
