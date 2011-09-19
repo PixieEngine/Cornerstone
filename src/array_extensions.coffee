@@ -352,15 +352,13 @@ Array::first = ->
 Returns the last element of the array, undefined if the array is empty.
 
 <code><pre>
-   ["first", "second", "third"].last()
-=> "third"
+["first", "second", "third"].last()
+# => "third"
 </pre></code>
 
 @name last
 @methodOf Array#
-
-@returns The last element, or undefined if the array is empty.
-@type Object
+@returns {Object} The last element, or undefined if the array is empty.
 ###
 Array::last = ->
   this[this.length - 1]
