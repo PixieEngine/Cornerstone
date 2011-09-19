@@ -29,9 +29,7 @@ Returns the mathematical ceiling of this number.
 
 @name ceil
 @methodOf Number#
-
-@type Number
-@returns The number truncated to the nearest integer of greater than or equal value.
+@returns {Number} The number truncated to the nearest integer of greater than or equal value.
 ###
 Number::ceil = ->
   Math.ceil(this)
