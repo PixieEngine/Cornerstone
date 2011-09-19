@@ -2,11 +2,11 @@
 Checks whether an object is an array.
 
 <code><pre>
-  Object.isArray([1, 2, 4])
-  # => true
+Object.isArray([1, 2, 4])
+# => true
 
-  Object.isArray({key: "value"})
-  # => false
+Object.isArray({key: "value"})
+# => false
 </pre></code>
 
 @name isArray
