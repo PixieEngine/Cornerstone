@@ -50,8 +50,7 @@ fullArray
 
 @name clear
 @methodOf Array#
-@type Array
-@returns this, now emptied.
+@returns {Array} this, now emptied.
 ###
 Array::clear = ->
   this.length = 0
