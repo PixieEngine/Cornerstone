@@ -90,7 +90,6 @@ Object.isObject(object)
 
 @name isObject
 @methodOf Object
-
 @param {Object} object Maybe this guy is an object.
 @returns {Boolean} true if this guy is an object.
 ###
