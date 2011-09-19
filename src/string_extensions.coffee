@@ -133,8 +133,18 @@ String::parse = () ->
 
 ###*
 Returns a new string in Title Case.
+
+<code><pre>
+"title-case".titleize()
+# => "Title Case"
+
+"title case".titleize()
+# => "Title Case"
+</pre></code>
+
 @name titleize
 @methodOf String#
+@returns {String} A new string. Title Cased.
 ###
 String::titleize = ->
   this.split(/[- ]/).map (word) ->
