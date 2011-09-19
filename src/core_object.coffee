@@ -164,7 +164,7 @@ Core = (I) ->
     # y you've hardly written any code 
     myObject.bind "someEvent", ->
       alert("wow. that was easy.")
-    </pre></code>    
+    </pre></code>
 
     @name include
     @methodOf Core#
