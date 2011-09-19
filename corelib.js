@@ -1628,19 +1628,17 @@ Math.TAU = 2 * Math.PI;;
 Checks whether an object is an array.
 
 <code><pre>
-  Object.isArray([1, 2, 4])
-  # => true
+Object.isArray([1, 2, 4])
+# => true
 
-  Object.isArray({key: "value"})
-  # => false
+Object.isArray({key: "value"})
+# => false
 </pre></code>
 
 @name isArray
 @methodOf Object
-
 @param {Object} object The object to check for array-ness.
-@type Boolean
-@returns A boolean expressing whether the object is an instance of Array 
+@returns {Boolean} A boolean expressing whether the object is an instance of Array 
 */var __slice = Array.prototype.slice;
 Object.isArray = function(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
@@ -1664,10 +1662,8 @@ First come, first served.
 
 @name reverseMerge
 @methodOf Object
-
 @param {Object} target The object to merge the properties into.
-@type Object
-@returns target
+@returns {Object} target
 */
 Object.reverseMerge = function() {
   var name, object, objects, target, _i, _len;
@@ -1703,10 +1699,8 @@ Last in covers earlier properties.
 
 @name extend
 @methodOf Object
-
 @param {Object} target The object to merge the properties into.
-@type Object
-@returns target
+@returns {Object} target
 */
 Object.extend = function() {
   var name, source, sources, target, _i, _len;
@@ -1723,15 +1717,14 @@ Object.extend = function() {
 Helper method that tells you if something is an object.
 
 <code><pre>
-  object = {a: 1}
+object = {a: 1}
 
-  Object.isObject(object)
-  # => true
+Object.isObject(object)
+# => true
 </pre></code>
 
 @name isObject
 @methodOf Object
-
 @param {Object} object Maybe this guy is an object.
 @returns {Boolean} true if this guy is an object.
 */
