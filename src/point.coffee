@@ -334,13 +334,13 @@
     Floor the x and y values, returning a new point.
 
     <code><pre>
-       point = Point(3.4, 5.8).floor()
+    point = Point(3.4, 5.8).floor()
 
-       point.x
-    => 3
+    point.x
+    # => 3
 
-       point.y
-    => 5
+    point.y
+    # => 5
     </pre></code>
 
     @name floor
