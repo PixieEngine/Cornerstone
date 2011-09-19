@@ -102,10 +102,8 @@ constrained to remain in bounds of array indices.
 
 @name mod
 @methodOf Number#
-
 @param {Number} base
-@type Number
-@returns An integer between 0 and (base - 1) if base is positive.
+@returns {Number} An integer between 0 and (base - 1) if base is positive.
 ###
 Number::mod = (base) ->
   result = this % base;
