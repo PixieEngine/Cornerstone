@@ -191,8 +191,7 @@ each element in the array.
 @param {Object} [context] Optional context parameter to be 
 used as `this` when calling the iterator function.
 
-@type Array
-@returns this to enable method chaining.
+@returns {Array} this to enable method chaining.
 ###
 Array::each = (iterator, context) ->
   if this.forEach
