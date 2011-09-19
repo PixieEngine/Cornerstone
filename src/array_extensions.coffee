@@ -105,6 +105,11 @@ Array::invoke = (method, args...) ->
 ###*
 Randomly select an element from the array.
 
+<code><pre>
+[1, 2, 3].rand()
+# => 2
+</pre></code>
+
 @name rand
 @methodOf Array#
 @returns {Object} A random element from an array
@@ -117,12 +122,12 @@ Remove the first occurrence of the given object from the array if it is
 present. The array is modified in place.
 
 <code><pre>
-   a = [1, 1, "a", "b"]
-   a.remove(1)
-=> 1
+a = [1, 1, "a", "b"]
+a.remove(1)
+# => 1
 
-   a
-=> [1, "a", "b"]
+a
+# => [1, "a", "b"]
 </pre></code>
 
 @name remove
