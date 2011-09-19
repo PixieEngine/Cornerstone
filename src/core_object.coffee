@@ -17,25 +17,25 @@ Core = (I) ->
     External access to instance variables. Use of this property should be avoided
     in general, but can come in handy from time to time.
 
-<code><pre>
-I =
-  r: 255
-  g: 0
-  b: 100
+    <code><pre>
+    I =
+      r: 255
+      g: 0
+      b: 100
 
-myObject = Core(I)
+    myObject = Core(I)
 
-# a bad idea most of the time, but it's 
-# pretty convenient to have available.
-myObject.I.r
-# => 255
+    # a bad idea most of the time, but it's 
+    # pretty convenient to have available.
+    myObject.I.r
+    # => 255
 
-myObject.I.g
-# => 0
+    myObject.I.g
+    # => 0
 
-myObject.I.b
-# => 100
-</pre></code>
+    myObject.I.b
+    # => 100
+    </pre></code>
 
     @name I
     @fieldOf Core#
@@ -57,8 +57,8 @@ myObject.I.b
     myObject.r(254)
     myObject.r()
 
- => 254
-    </pre></code>       
+    => 254
+    </pre></code>
 
     @name attrAccessor
     @methodOf Core#
