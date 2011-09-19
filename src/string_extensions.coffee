@@ -180,7 +180,8 @@ Assumes the string is something like a file name and returns the
 contents of the string without the extension.
 
 <code><pre>
-"neat.png".witouthExtension() => "neat"
+"neat.png".witouthExtension() 
+# => "neat"
 </pre></code>
 
 @name withoutExtension
