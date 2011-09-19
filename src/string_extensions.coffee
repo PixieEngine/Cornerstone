@@ -81,8 +81,18 @@ String::constantize = ->
 ###*
 Returns a new string that is a more human readable version.
 
+<code><pre>
+"player_id".humanize()
+# => "Player"
+
+"player_ammo".humanize()
+# => "Player ammo"
+
+</pre></code>
+
 @name humanize
 @methodOf String#
+@returns {String} A new string. Removes _id and _ with "" and capitalizes the word.
 ###
 String::humanize = ->
   this.replace(/_id$/, "").replace(/_/g, " ").capitalize()
