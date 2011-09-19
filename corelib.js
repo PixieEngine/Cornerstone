@@ -216,7 +216,6 @@ third argument.
 <code><pre>
 [1, 2, 3].map (number) ->
   number * number
-
 # => [1, 4, 9]
 </pre></code>
 
@@ -609,14 +608,14 @@ player = Core
 
 player.bind "update", ->
   updatePlayer()
-=> Uncaught TypeError: Object has no method 'bind'
+# => Uncaught TypeError: Object has no method 'bind'
 
 player.include(Bindable)
 
 player.bind "update", ->
   updatePlayer()
-=> this will call updatePlayer each time through the main loop
-</pre></code>  
+# => this will call updatePlayer each time through the main loop
+</pre></code>
 
 @name Bindable
 @module
@@ -638,11 +637,10 @@ Bindable = function() {
     #or
     yourObject.bind "anotherCustomEvent", ->
       doSomething()
-    </pre></code>  
+    </pre></code>
     
     @name bind
     @methodOf Bindable#
-    
     @param {String} event The event to listen to.
     @param {Function} callback The function to be called when the specified event
     is triggered.
@@ -662,11 +660,10 @@ Bindable = function() {
     
     # removes all handlers attached to "anotherCustomEvent" 
     yourObject.unbind "anotherCustomEvent"
-    </pre></code>   
+    </pre></code>
     
     @name unbind
     @methodOf Bindable#
-    
     @param {String} event The event to remove the listener from.
     @param {Function} [callback] The listener to remove.
     */
@@ -684,11 +681,10 @@ Bindable = function() {
     <code><pre>
     # calls each event handler bound to "someCustomEvent"
     yourObject.trigger "someCustomEvent"
-    </pre></code>  
+    </pre></code>
     
     @name trigger
     @methodOf Bindable#
-    
     @param {String} event The event to trigger.
     @param {Array} [parameters] Additional parameters to pass to the event listener.
     */
