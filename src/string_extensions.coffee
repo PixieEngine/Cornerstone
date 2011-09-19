@@ -101,8 +101,7 @@ Returns true.
 
 @name isString
 @methodOf String#
-@type Boolean
-@returns true
+@returns {Boolean} true
 ###
 String::isString = ->
   true
