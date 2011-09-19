@@ -168,10 +168,7 @@ Core = (I) ->
 
     @name include
     @methodOf Core#
-
-    @param {Module} Module the module to include. A module is a constructor 
-    that takes two parameters, I and self, and returns an object containing the 
-    public methods to extend the including object with.
+    @param {Module} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
     ###
     include: (Module) ->
       self.extend Module(I, self)
