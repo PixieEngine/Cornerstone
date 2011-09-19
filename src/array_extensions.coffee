@@ -292,18 +292,12 @@ results
 </pre></code>
 
 @see Array#each
-
 @name eachSlice
 @methodOf Array#
-
 @param {Number} n The number of elements in each group.
-@param {Function} iterator Function to be called once for 
-each group of elements in the array.
-@param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
-
-@returns this
-@type Array
+@param {Function} iterator Function to be called once for each group of elements in the array.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} this
 ###
 Array::eachSlice = (n, iterator, context) ->
   if n > 0
