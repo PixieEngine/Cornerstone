@@ -129,9 +129,7 @@
     http://mathworld.wolfram.com/MatrixInverse.html
     @name inverse
     @methodOf Matrix#
-
-    @returns A new matrix that is the inverse of this matrix.
-    @type Matrix
+    @returns {Matrix} A new matrix that is the inverse of this matrix.
     ###
     inverse: ->
       determinant = @a * @d - @b * @c
