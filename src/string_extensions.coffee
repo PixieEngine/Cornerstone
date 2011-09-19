@@ -60,9 +60,15 @@ String::capitalize = ->
 ###*
 Return the class or constant named in this string.
 
+<code><pre>
+
+"Constant".constantize()
+# => Constant
+# notice this isn't a string. Useful for calling methods on class named Constant
+</pre></code>
+
 @name constantize
 @methodOf String#
-
 @returns {Object} The class or constant named in this string.
 ###
 String::constantize = ->
