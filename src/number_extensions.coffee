@@ -143,14 +143,14 @@ Number::sign = ->
 Returns true if this number is even (evenly divisible by 2).
 
 <code><pre>
-   2.even()
-=> true
+2.even()
+# => true
 
-   3.even()
-=> false
+3.even()
+# => false
 
-   0.even()
-=> true      
+0.even()
+# => true      
 </pre></code>
 
 @name even
