@@ -169,19 +169,19 @@ the element as the second argument, and <code>this</code> array as the
 third argument.
 
 <code><pre>
-   word = ""
-   indices = []
-   ["r", "a", "d"].each (letter, index) ->
-     word += letter
-     indices.push(index)
+word = ""
+indices = []
+["r", "a", "d"].each (letter, index) ->
+  word += letter
+  indices.push(index)
 
-=> ["r", "a", "d"]
+# => ["r", "a", "d"]
 
-   word
-=> "rad"
+word
+# => "rad"
 
-   indices
-=> [0, 1, 2]
+indices
+# => [0, 1, 2]
 </pre></code>
 
 @name each
