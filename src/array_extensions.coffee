@@ -477,11 +477,8 @@ Return the group of elements that are not in the passed in set.
 
 @name without
 @methodOf Array#
-
 @param {Array} values List of elements to exclude.
-
-@type Array
-@returns An array containing the elements that are not passed in.
+@returns {Array} An array containing the elements that are not passed in.
 ###
 Array::without = (values) ->
   this.reject (element) ->
