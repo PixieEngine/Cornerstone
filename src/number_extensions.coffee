@@ -216,14 +216,14 @@ Number::times = (iterator, context) ->
 Returns the the nearest grid resolution less than or equal to the number. 
 
 <code><pre>
-    7.snap(8) 
-=> 0
+7.snap(8) 
+# => 0
 
-    4.snap(8) 
-=> 0
+4.snap(8) 
+# => 0
 
-   12.snap(8) 
-=> 8
+12.snap(8) 
+# => 8
 </pre></code>
 
 @name snap
