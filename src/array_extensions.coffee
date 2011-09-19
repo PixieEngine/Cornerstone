@@ -92,11 +92,9 @@ and return a new array containing the results of the invocation.
 
 @param {String} method The name of the method to invoke.
 @param [arg...] Optional arguments to pass to the method being invoked.
-
 @name invoke
 @methodOf Array#
-@returns {Array} A new array containing the results of invoking the 
-named method on each element.
+@returns {Array} A new array containing the results of invoking the named method on each element.
 ###
 Array::invoke = (method, args...) ->
   this.map (element) ->
