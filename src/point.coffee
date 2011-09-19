@@ -241,21 +241,21 @@
     Scale this Point (Vector) by a constant amount. Modifies the point in place.
 
     <code><pre>
-       point = Point(5, 6)
+    point = Point(5, 6)
 
-       point.x
-    => 5
+    point.x
+    # => 5
 
-       point.y
-    => 6
+    point.y
+    # => 6
 
-       point.scale$(2)
+    point.scale$(2)
 
-       point.x
-    => 10
+    point.x
+    # => 10
 
-       point.y
-    => 12
+    point.y
+    # => 12
     </pre></code>
 
     @name scale$
