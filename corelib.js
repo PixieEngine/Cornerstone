@@ -758,26 +758,25 @@ Core = function(I) {
       External access to instance variables. Use of this property should be avoided
       in general, but can come in handy from time to time.
     
-    <code><pre>
-     I = {
-       r: 255
-       g: 0
-       b: 100
-     }
-    
-     myObject = Core(I)
-    
-     # a bad idea most of the time, but it's 
-     # pretty convenient to have available.
-     myObject.I.r
-    => 255
-    
-     myObject.I.g
-    => 0
-    
-     myObject.I.b
-    => 100
-    </pre></code>    
+      <code><pre>
+      I =
+        r: 255
+        g: 0
+        b: 100
+      
+      myObject = Core(I)
+      
+      # a bad idea most of the time, but it's 
+      # pretty convenient to have available.
+      myObject.I.r
+      # => 255
+      
+      myObject.I.g
+      # => 0
+      
+      myObject.I.b
+      # => 100
+      </pre></code>
     
       @name I
       @fieldOf Core#
@@ -798,8 +797,8 @@ Core = function(I) {
       myObject.r(254)
       myObject.r()
     
-     => 254
-      </pre></code>       
+      => 254
+      </pre></code>
     
       @name attrAccessor
       @methodOf Core#
@@ -830,14 +829,14 @@ Core = function(I) {
     myObject.attrReader "r", "g", "b"
     
     myObject.r()
-     => 255
+    => 255
     
     myObject.g()
-     => 0
+    => 0
     
     myObject.b()
-     => 100
-    </pre></code>    
+    => 100
+    </pre></code>
     
     @name attrReader
     @methodOf Core#
@@ -857,27 +856,27 @@ Core = function(I) {
     existing methods.
     
     <code><pre>
-       I =
-         x: 30
-         y: 40
-         maxSpeed: 5
+    I =
+      x: 30
+      y: 40
+      maxSpeed: 5
     
-       # we are using extend to give player
-       # additional methods that Core doesn't have
-       player = Core(I).extend
-         increaseSpeed: ->
-           I.maxSpeed += 1
+    # we are using extend to give player
+    # additional methods that Core doesn't have
+    player = Core(I).extend
+      increaseSpeed: ->
+        I.maxSpeed += 1
     
-         # this will execute before the update method
-         beforeUpdate: ->
-           checkPowerupStatus()
+      # this will execute before the update method
+      beforeUpdate: ->
+        checkPowerupStatus()
     
-       player.I.maxSpeed
+    player.I.maxSpeed
     => 5
     
-       player.increaseSpeed()
+    player.increaseSpeed()
     
-       player.I.maxSpeed
+    player.I.maxSpeed
     => 6
     </pre></code>
     
@@ -912,18 +911,14 @@ Core = function(I) {
     myObject = Core()
     myObject.include(Bindable)
     
-    # now you can bind handlers to functions and
-    # y you've hardly written any code 
+    # now you can bind handlers to functions
     myObject.bind "someEvent", ->
       alert("wow. that was easy.")
-    </pre></code>    
+    </pre></code>
     
     @name include
     @methodOf Core#
-    
-    @param {Module} Module the module to include. A module is a constructor 
-    that takes two parameters, I and self, and returns an object containing the 
-    public methods to extend the including object with.
+    @param {Module} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
     */
     include: function(Module) {
       return self.extend(Module(I, self));
