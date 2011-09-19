@@ -314,9 +314,7 @@ Returns a new array with the elements all shuffled up.
 
 @name shuffle
 @methodOf Array#
-
-@returns A new array that is randomly shuffled.
-@type Array
+@returns {Array} A new array that is randomly shuffled.
 ###
 Array::shuffle = ->
   shuffledArray = []
