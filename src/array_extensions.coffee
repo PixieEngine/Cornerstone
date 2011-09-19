@@ -235,13 +235,13 @@ Array::map ||= (iterator, context) ->
 Call the given iterator once for each pair of objects in the array.
 
 <code><pre>
-  [1, 2, 3, 4].eachPair (a, b) ->
-    # 1, 2
-    # 1, 3
-    # 1, 4
-    # 2, 3
-    # 2, 4
-    # 3, 4
+[1, 2, 3, 4].eachPair (a, b) ->
+  # 1, 2
+  # 1, 3
+  # 1, 4
+  # 2, 3
+  # 2, 4
+  # 3, 4
 </pre></code>
 
 @name eachPair
@@ -275,16 +275,10 @@ as the second argument. Additional arguments are passed similar to
 
 @name eachWithObject
 @methodOf Array#
-
-@param {Object} object The object to pass to the iterator on each
-visit.
-@param {Function} iterator Function to be called once for 
-each element in the array.
-@param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
-
-@returns this
-@type Array
+@param {Object} object The object to pass to the iterator on each visit.
+@param {Function} iterator Function to be called once for each element in the array.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} this
 ###
 Array::eachWithObject = (object, iterator, context) ->
   this.each (element, i, self) ->
