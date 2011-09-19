@@ -944,8 +944,7 @@ Function.prototype.withAfter = function(interception) {
   };
 };;
 /**
-Gives you some convenience methods for outputting data
-while developing. 
+Gives you some convenience methods for outputting data while developing. 
 
 @name Logging
 @namespace
