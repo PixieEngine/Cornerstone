@@ -354,14 +354,14 @@
     Floor the x and y values, returning a modified point.
 
     <code><pre>
-       point = Point(3.4, 5.8)
-       point.floor$()
+    point = Point(3.4, 5.8)
+    point.floor$()
 
-       point.x
-    => 3
+    point.x
+    # => 3
 
-       point.y
-    => 5
+    point.y
+    # => 5
     </pre></code>
 
     @name floor$
