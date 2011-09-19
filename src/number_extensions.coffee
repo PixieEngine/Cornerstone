@@ -76,10 +76,10 @@ Number::round = ->
 ###*
 Returns a number whose value is limited to the given range.
 
-<code><pre>   
-   # limit the output of this computation to between 0 and 255
-   (2 * 255).clamp(0, 255)
-=> 255
+<code><pre>
+# limit the output of this computation to between 0 and 255
+(2 * 255).clamp(0, 255)
+# => 255
 </pre></code>
 
 @name clamp
