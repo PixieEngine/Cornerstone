@@ -532,9 +532,7 @@ Multiply all the elements in the array.
 
 @name product
 @methodOf Array#
-
-@type Number
-@returns The product of the elements in the array.
+@returns {Number} The product of the elements in the array.
 ###
 Array::product = ->
   this.inject 1, (product, n) ->
