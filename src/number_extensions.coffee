@@ -391,9 +391,7 @@ The mathematical d operator. Useful for simulating dice rolls.
 
 @name d
 @methodOf Number#
-
-@type Number
-@returns The sum of rolling <code>this</code> many <code>sides</code>-sided dice
+@returns {Number} The sum of rolling <code>this</code> many <code>sides</code>-sided dice
 ###
 Number::d = (sides) ->
   sum = 0
