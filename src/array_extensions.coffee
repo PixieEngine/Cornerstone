@@ -503,9 +503,7 @@ value (memo) and the element.
 
 @name inject
 @methodOf Array#
-
-@type Object
-@returns The result of a
+@returns {Object} The result of a
 ###
 Array::inject = (initial, iterator) ->
   this.each (element) ->
