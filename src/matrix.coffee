@@ -196,16 +196,13 @@
     translate: (tx, ty) ->
       @concat(Matrix.translation(tx, ty))
 
-
   ###*
   Creates a matrix transformation that corresponds to the given rotation,
   around (0,0) or the specified point.
   @see Matrix#rotate
-
   @param {Number} theta Rotation in radians.
   @param {Point} [aboutPoint] The point about which this rotation occurs. Defaults to (0,0).
-  @returns 
-  @type Matrix
+  @returns {Matrix} A new matrix rotated by the given amount.
   ###
   Matrix.rotate = Matrix.rotation = (theta, aboutPoint) ->
     rotationMatrix = Matrix(
@@ -232,12 +229,10 @@
   If the optional aboutPoint parameter is given the scaling takes place
   about the given point.
   @see Matrix#scale
-
   @param {Number} sx The amount to scale by along the x axis or uniformly if no sy is given.
   @param {Number} [sy] The amount to scale by along the y axis.
   @param {Point} [aboutPoint] The point about which the scaling occurs. Defaults to (0,0).
-  @returns A matrix transformation representing scaling by sx and sy.
-  @type Matrix
+  @returns {Matrix} A matrix transformation representing scaling by sx and sy.
   ###
   Matrix.scale = (sx, sy, aboutPoint) ->
     sy = sy || sx
