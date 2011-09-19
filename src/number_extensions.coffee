@@ -189,25 +189,20 @@ Calls iterator the specified number of times, passing in the number of the
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
 <code><pre>
-   output = []
+output = []
 
-   5.times (n) ->
-     output.push(n)
+5.times (n) ->
+  output.push(n)
 
-   output
-=> [0, 1, 2, 3, 4]
+output
+# => [0, 1, 2, 3, 4]
 </pre></code>
 
 @name times
 @methodOf Number#
-
-@param {Function} iterator The iterator takes a single parameter, the number 
-of the current iteration.
-@param {Object} [context] The optional context parameter specifies an object
-to treat as <code>this</code> in the iterator block.
-
-@type Number
-@returns The number of times the iterator was called.
+@param {Function} iterator The iterator takes a single parameter, the number of the current iteration.
+@param {Object} [context] The optional context parameter specifies an object to treat as <code>this</code> in the iterator block.
+@returns {Number} The number of times the iterator was called.
 ###
 Number::times = (iterator, context) ->
   i = -1
