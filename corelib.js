@@ -628,17 +628,17 @@ Bindable = function() {
   return {
     /**
     The bind method adds a function as an event listener.
-    
+
     <code><pre>
     # this will call coolEventHandler after
     # yourObject.trigger "someCustomEvent" is called.
     yourObject.bind "someCustomEvent", coolEventHandler
-    
+
     #or
     yourObject.bind "anotherCustomEvent", ->
       doSomething()
     </pre></code>
-    
+
     @name bind
     @methodOf Bindable#
     @param {String} event The event to listen to.
@@ -652,16 +652,16 @@ Bindable = function() {
     /**
     The unbind method removes a specific event listener, or all event listeners if
     no specific listener is given.
-    
+
     <code><pre>
     #  removes the handler coolEventHandler from the event
     # "someCustomEvent" while leaving the other events intact.
     yourObject.unbind "someCustomEvent", coolEventHandler
-    
+
     # removes all handlers attached to "anotherCustomEvent" 
     yourObject.unbind "anotherCustomEvent"
     </pre></code>
-    
+
     @name unbind
     @methodOf Bindable#
     @param {String} event The event to remove the listener from.
@@ -677,12 +677,12 @@ Bindable = function() {
     },
     /**
     The trigger method calls all listeners attached to the specified event.
-    
+
     <code><pre>
     # calls each event handler bound to "someCustomEvent"
     yourObject.trigger "someCustomEvent"
     </pre></code>
-    
+
     @name trigger
     @methodOf Bindable#
     @param {String} event The event to trigger.
@@ -757,27 +757,27 @@ Core = function(I) {
     /**
       External access to instance variables. Use of this property should be avoided
       in general, but can come in handy from time to time.
-    
+
       <code><pre>
       I =
         r: 255
         g: 0
         b: 100
-      
+
       myObject = Core(I)
-      
+
       # a bad idea most of the time, but it's 
       # pretty convenient to have available.
       myObject.I.r
       # => 255
-      
+
       myObject.I.g
       # => 0
-      
+
       myObject.I.b
       # => 100
       </pre></code>
-    
+
       @name I
       @fieldOf Core#
       */
@@ -785,21 +785,21 @@ Core = function(I) {
     /**
       Generates a public jQuery style getter / setter method for each 
       String argument.
-    
+
       <code><pre>
       myObject = Core
         r: 255
         g: 0
         b: 100
-    
+
       myObject.attrAccessor "r", "g", "b"
-    
+
       myObject.r(254)
       myObject.r()
-    
+
       => 254
       </pre></code>
-    
+
       @name attrAccessor
       @methodOf Core#
       */
@@ -819,25 +819,25 @@ Core = function(I) {
     },
     /**
     Generates a public jQuery style getter method for each String argument.
-    
+
     <code><pre>
     myObject = Core
       r: 255
       g: 0
       b: 100
-    
+
     myObject.attrReader "r", "g", "b"
-    
+
     myObject.r()
     => 255
-    
+
     myObject.g()
     => 0
-    
+
     myObject.b()
     => 100
     </pre></code>
-    
+
     @name attrReader
     @methodOf Core#
     */
@@ -854,32 +854,32 @@ Core = function(I) {
     Extends this object with methods from the passed in object. `before` and 
     `after` are special option names that glue functionality before or after 
     existing methods.
-    
+
     <code><pre>
     I =
       x: 30
       y: 40
       maxSpeed: 5
-    
+
     # we are using extend to give player
     # additional methods that Core doesn't have
     player = Core(I).extend
       increaseSpeed: ->
         I.maxSpeed += 1
-    
+
       # this will execute before the update method
       beforeUpdate: ->
         checkPowerupStatus()
-    
+
     player.I.maxSpeed
     => 5
-    
+
     player.increaseSpeed()
-    
+
     player.I.maxSpeed
     => 6
     </pre></code>
-    
+
     @name extend
     @methodOf Core#
     */
@@ -906,16 +906,16 @@ Core = function(I) {
     },
     /** 
     Includes a module in this object.
-    
+
     <code><pre>
     myObject = Core()
     myObject.include(Bindable)
-    
+
     # now you can bind handlers to functions
     myObject.bind "someEvent", ->
       alert("wow. that was easy.")
     </pre></code>
-    
+
     @name include
     @methodOf Core#
     @param {Module} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
@@ -1000,12 +1000,12 @@ Gives you some convenience methods for outputting data while developing.
     |_0  0  1 _|
   </pre>
   Creates a matrix for 2d affine transformations.
-  
+
   concat, inverse, rotate, scale and translate return new matrices with the
   transformations applied. The matrix is not modified in place.
-  
+
   Returns the identity matrix when called with no arguments.
-  
+
   @name Matrix
   @param {Number} [a]
   @param {Number} [b]
@@ -1733,25 +1733,25 @@ Object.isObject = function(object) {
   /**
   Create a new point with given x and y coordinates. If no arguments are given
   defaults to (0, 0).
-  
+
   <code><pre>
   point = Point()
-  
+
   p.x
   # => 0
-  
+
   p.y
   # => 0
-  
+
   point = Point(-2, 5)
-  
+
   p.x
   # => -2
-  
+
   p.y
   # => 5
   </pre></code>
-  
+
   @name Point
   @param {Number} [x]
   @param {Number} [y]
@@ -1777,18 +1777,18 @@ Object.isObject = function(object) {
   Point.prototype = {
     /**
       Creates a copy of this point.
-    
+
       @name copy
       @methodOf Point#
       @returns {Point} A new point with the same x and y value as this point.
-    
+
       <code><pre>
       point = Point(1, 1)
       pointCopy = point.copy()
-    
+
       point.equal(pointCopy)
       # => true
-    
+
       point == pointCopy
       # => false     
       </pre></code>
@@ -1800,25 +1800,25 @@ Object.isObject = function(object) {
     Adds a point to this one and returns the new point. You may
     also use a two argument call like <code>point.add(x, y)</code>
     to add x and y values without a second point object.
-    
+
     <code><pre>
     point = Point(2, 3).add(Point(3, 4))
-    
+
     point.x
     # => 5
-    
+
     point.y
     # => 7
-    
+
     anotherPoint = Point(2, 3).add(3, 4)
-    
+
     anotherPoint.x
     # => 5
-    
+
     anotherPoint.y
     # => 7
     </pre></code>
-    
+
     @name add
     @methodOf Point#
     @param {Point} other The point to add this point to.
@@ -1831,34 +1831,34 @@ Object.isObject = function(object) {
     Adds a point to this one, returning a modified point. You may
     also use a two argument call like <code>point.add(x, y)</code>
     to add x and y values without a second point object.
-    
+
     <code><pre>
     point = Point(2, 3)
-    
+
     point.x
     # => 2
-    
+
     point.y
     # => 3
-    
+
     point.add$(Point(3, 4))
-    
+
     point.x
     # => 5
-    
+
     point.y
     # => 7
-    
+
     anotherPoint = Point(2, 3)
     anotherPoint.add$(3, 4)
-    
+
     anotherPoint.x
     # => 5
-    
+
     anotherPoint.y
     # => 7
     </pre></code>
-    
+
     @name add$
     @methodOf Point#
     @param {Point} other The point to add this point to.
@@ -1876,25 +1876,25 @@ Object.isObject = function(object) {
     },
     /**
     Subtracts a point to this one and returns the new point.
-    
+
     <code><pre>
     point = Point(1, 2).subtract(Point(2, 0))
-    
+
     point.x
     # => -1
-    
+
     point.y
     # => 2
-    
+
     anotherPoint = Point(1, 2).subtract(2, 0)
-    
+
     anotherPoint.x
     # => -1
-    
+
     anotherPoint.y
     # => 2
     </pre></code>
-    
+
     @name subtract
     @methodOf Point#
     @param {Point} other The point to subtract from this point.
@@ -1905,34 +1905,34 @@ Object.isObject = function(object) {
     },
     /**
     Subtracts a point to this one and returns the new point.
-    
+
     <code><pre>
     point = Point(1, 2)
-    
+
     point.x
     # => 1
-    
+
     point.y
     # => 2
-    
+
     point.subtract$(Point(2, 0))
-    
+
     point.x
     # => -1
-    
+
     point.y
     # => 2
-    
+
     anotherPoint = Point(1, 2)
     anotherPoint.subtract$(2, 0)
-    
+
     anotherPoint.x
     # => -1
-    
+
     anotherPoint.y
     # => 2
     </pre></code>
-    
+
     @name subtract$
     @methodOf Point#
     @param {Point} other The point to subtract from this point.
@@ -1950,17 +1950,17 @@ Object.isObject = function(object) {
     },
     /**
     Scale this Point (Vector) by a constant amount.
-    
+
     <code><pre>
     point = Point(5, 6).scale(2)
-    
+
     point.x
     # => 10
-    
+
     point.y
     # => 12
     </pre></code>
-    
+
     @name scale
     @methodOf Point#
     @param {Number} scalar The amount to scale this point by.
@@ -1971,25 +1971,25 @@ Object.isObject = function(object) {
     },
     /**
     Scale this Point (Vector) by a constant amount. Modifies the point in place.
-    
+
     <code><pre>
     point = Point(5, 6)
-    
+
     point.x
     # => 5
-    
+
     point.y
     # => 6
-    
+
     point.scale$(2)
-    
+
     point.x
     # => 10
-    
+
     point.y
     # => 12
     </pre></code>
-    
+
     @name scale$
     @methodOf Point#
     @param {Number} scalar The amount to scale this point by.
@@ -2003,25 +2003,25 @@ Object.isObject = function(object) {
     /**
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y).
-    
+
     <code><pre>
     point = Point(2, 3).norm()
-    
+
     point.x
     # => 0.5547001962252291
-    
+
     point.y  
     # => 0.8320502943378437
-    
+
     anotherPoint = Point(2, 3).norm(2)
-    
+
     anotherPoint.x
     # => 1.1094003924504583
-    
+
     anotherPoint.y   
     # => 1.6641005886756874    
     </pre></code>
-    
+
     @name norm
     @methodOf Point#
     @returns {Point} The unit vector pointing in the same direction as this vector.
@@ -2035,25 +2035,25 @@ Object.isObject = function(object) {
     /**
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
-    
+
     <code><pre>
     point = Point(2, 3).norm$()
-    
+
     point.x
     # => 0.5547001962252291
-    
+
     point.y  
     # => 0.8320502943378437
-    
+
     anotherPoint = Point(2, 3).norm$(2)
-    
+
     anotherPoint.x
     # => 1.1094003924504583
-    
+
     anotherPoint.y   
     # => 1.6641005886756874    
     </pre></code>
-    
+
     @name norm$
     @methodOf Point#
     @returns {Point} The unit vector pointing in the same direction as this vector.
@@ -2071,17 +2071,17 @@ Object.isObject = function(object) {
     },
     /**
     Floor the x and y values, returning a new point.
-    
+
     <code><pre>
     point = Point(3.4, 5.8).floor()
-    
+
     point.x
     # => 3
-    
+
     point.y
     # => 5
     </pre></code>
-    
+
     @name floor
     @methodOf Point#
     @returns {Point} A new point, with x and y values each floored to the largest previous integer.
@@ -2091,18 +2091,18 @@ Object.isObject = function(object) {
     },
     /**
     Floor the x and y values, returning a modified point.
-    
+
     <code><pre>
     point = Point(3.4, 5.8)
     point.floor$()
-    
+
     point.x
     # => 3
-    
+
     point.y
     # => 5
     </pre></code>
-    
+
     @name floor$
     @methodOf Point#
     @returns {Point} A modified point, with x and y values each floored to the largest previous integer.
@@ -2114,19 +2114,19 @@ Object.isObject = function(object) {
     },
     /**
     Determine whether this point is equal to another point.
-    
+
     <code><pre>
     pointA = Point(2, 3)
     pointB = Point(2, 3)
     pointC = Point(4, 5)
-    
+
     pointA.equal(pointB)
     # => true
-    
+
     pointA.equal(pointC)
     # => false
     </pre></code>
-    
+
     @name equal
     @methodOf Point#
     @param {Point} other The point to check for equality.
@@ -2137,14 +2137,14 @@ Object.isObject = function(object) {
     },
     /**
     Computed the length of this point as though it were a vector from (0,0) to (x,y).
-    
+
     <code><pre>
     point = Point(5, 7)
-    
+
     point.length()
     # => 8.602325267042627
     </pre></code>
-    
+
     @name length
     @methodOf Point#
     @returns {Number} The length of the vector from the origin to this point.
@@ -2154,14 +2154,14 @@ Object.isObject = function(object) {
     },
     /**
     Calculate the magnitude of this Point (Vector).
-    
+
     <code><pre>
     point = Point(5, 7)
-    
+
     point.magnitude()
     # => 8.602325267042627
     </pre></code>
-    
+
     @name magnitude
     @methodOf Point#
     @returns {Number} The magnitude of this point as if it were a vector from (0, 0) -> (x, y).
@@ -2171,14 +2171,14 @@ Object.isObject = function(object) {
     },
     /**
     Returns the direction in radians of this point from the origin.
-    
+
     <code><pre>
     point = Point(0, 1)
-    
+
     point.direction()
     # => 1.5707963267948966 # Math.PI / 2
     </pre></code>
-    
+
     @name direction
     @methodOf Point#
     @returns {Number} The direction in radians of this point from the origin
@@ -2202,7 +2202,7 @@ Object.isObject = function(object) {
     but z can be treated as zero. The result of this method is interpreted as the magnitude 
     of the vector result of the cross product between [x1, y1, 0] x [x2, y2, 0]
     perpendicular to the xy plane.
-    
+
     @name cross
     @methodOf Point#
     @param {Point} other The point to cross with this point.
@@ -2213,15 +2213,15 @@ Object.isObject = function(object) {
     },
     /**
     Compute the Euclidean distance between this point and another point.
-    
+
     <code><pre>
     pointA = Point(2, 3)
     pointB = Point(9, 2)
-    
+
     pointA.distance(pointB)
     # => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
-    
+
     @name distance
     @methodOf Point#
     @param {Point} other The point to compute the distance to.
@@ -2232,15 +2232,15 @@ Object.isObject = function(object) {
     }
     /**
     Compute the Euclidean distance between two points.
-    
+
     <code><pre>
     pointA = Point(2, 3)
     pointB = Point(9, 2)
-    
+
     Point.distance(pointA, pointB)
     # => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
-    
+
     @name distance
     @fieldOf Point
     @param {Point} p1
@@ -2253,17 +2253,17 @@ Object.isObject = function(object) {
   };
   /**
   Construct a point on the unit circle for the given angle.
-  
+
   <code><pre>
   point = Point.fromAngle(Math.PI / 2)
-  
+
   point.x
   # => 0
-  
+
   point.y
   # => 1
   </pre></code>
-  
+
   @name fromAngle
   @fieldOf Point
   @param {Number} angle The angle in radians
@@ -2276,15 +2276,15 @@ Object.isObject = function(object) {
   If you have two dudes, one standing at point p1, and the other
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
-  
+
   <code><pre>
   p1 = Point(0, 0)
   p2 = Point(7, 3)
-  
+
   Point.direction(p1, p2)
   # => 0.40489178628508343
   </pre></code>
-  
+
   @name direction
   @fieldOf Point
   @param {Point} p1 The starting point.
@@ -2312,7 +2312,7 @@ Object.isObject = function(object) {
   */  (typeof exports !== "undefined" && exports !== null ? exports : this)["Random"] = {
     /**
       Returns a random angle, uniformly distributed, between 0 and 2pi.
-    
+
       @name angle
       @methodOf Random
       @returns {Number} A random angle between 0 and 2pi
@@ -2322,7 +2322,7 @@ Object.isObject = function(object) {
     },
     /**
     Returns a random color.
-    
+
     @name color
     @methodOf Random
     @returns {Color} A random color
@@ -2332,7 +2332,7 @@ Object.isObject = function(object) {
     },
     /**
     Happens often.
-    
+
     @name often
     @methodOf Random
     */
@@ -2341,7 +2341,7 @@ Object.isObject = function(object) {
     },
     /**
     Happens sometimes.
-    
+
     @name sometimes
     @methodOf Random
     */
@@ -2351,7 +2351,7 @@ Object.isObject = function(object) {
     /**
     Returns random integers from [0, n) if n is given.
     Otherwise returns random float between 0 and 1.
-    
+
     @name rand
     @methodOf window
     @param {Number} n
@@ -2369,19 +2369,37 @@ Object.isObject = function(object) {
 /**
 Returns true if this string only contains whitespace characters.
 
+<code><pre>
+"".blank()
+# => true
+
+"hello".blank()
+# => false
+
+"   ".blank()
+# => true
+</pre></code>
+
 @name blank
 @methodOf String#
-
-@returns Whether or not this string is blank.
-@type Boolean
+@returns {Boolean} Whether or not this string is blank.
 */String.prototype.blank = function() {
   return /^\s*$/.test(this);
 };
 /**
 Returns a new string that is a camelCase version.
 
+<code><pre>
+"camel_case".camelize()
+"camel-case".camelize()
+"camel case".camelize()
+
+# => "camelCase"
+</pre></code>
+
 @name camelize
 @methodOf String#
+@returns {String} A new string. camelCase version of `this`. 
 */
 String.prototype.camelize = function() {
   return this.trim().replace(/(\-|_|\s)+(.)?/g, function(match, separator, chr) {
@@ -2395,8 +2413,18 @@ String.prototype.camelize = function() {
 /**
 Returns a new string with the first letter capitalized and the rest lower cased.
 
+<code><pre>
+"capital".capitalize()
+"cAPITAL".capitalize()
+"cApItAl".capitalize()
+"CAPITAL".capitalize()
+
+# => "Capital"
+</pre></code>
+
 @name capitalize
 @methodOf String#
+@returns {String} A new string. Capitalized version of `this`
 */
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.substring(1).toLowerCase();
@@ -2404,11 +2432,16 @@ String.prototype.capitalize = function() {
 /**
 Return the class or constant named in this string.
 
+<code><pre>
+
+"Constant".constantize()
+# => Constant
+# notice this isn't a string. Useful for calling methods on class with the same name as `this`.
+</pre></code>
+
 @name constantize
 @methodOf String#
-
-@returns The class or constant named in this string.
-@type Object
+@returns {Object} The class or constant named in this string.
 */
 String.prototype.constantize = function() {
   if (this.match(/[A-Z][A-Za-z0-9]*/)) {
@@ -2421,8 +2454,17 @@ String.prototype.constantize = function() {
 /**
 Returns a new string that is a more human readable version.
 
+<code><pre>
+"player_id".humanize()
+# => "Player"
+
+"player_ammo".humanize()
+# => "Player ammo"
+</pre></code>
+
 @name humanize
 @methodOf String#
+@returns {String} A new string. Replaces _id and _ with "" and capitalizes the word.
 */
 String.prototype.humanize = function() {
   return this.replace(/_id$/, "").replace(/_/g, " ").capitalize();
@@ -2432,8 +2474,7 @@ Returns true.
 
 @name isString
 @methodOf String#
-@type Boolean
-@returns true
+@returns {Boolean} true
 */
 String.prototype.isString = function() {
   return true;
@@ -2442,12 +2483,20 @@ String.prototype.isString = function() {
 Parse this string as though it is JSON and return the object it represents. If it
 is not valid JSON returns the string itself.
 
+<code><pre>
+# this is valid json, so an object is returned
+'{"a": 3}'.parse()
+# => {a: 3}
+
+# double quoting instead isn't valid JSON so a string is returned
+"{'a': 3}".parse()
+# => "{'a': 3}"
+
+</pre></code>
+
 @name parse
 @methodOf String#
-
-@returns Returns an object from the JSON this string contains. If it
-is not valid JSON returns the string itself.
-@type Object
+@returns {Object} Returns an object from the JSON this string contains. If it is not valid JSON returns the string itself.
 */
 String.prototype.parse = function() {
   try {
@@ -2458,8 +2507,18 @@ String.prototype.parse = function() {
 };
 /**
 Returns a new string in Title Case.
+
+<code><pre>
+"title-case".titleize()
+# => "Title Case"
+
+"title case".titleize()
+# => "Title Case"
+</pre></code>
+
 @name titleize
 @methodOf String#
+@returns {String} A new string. Title Cased.
 */
 String.prototype.titleize = function() {
   return this.split(/[- ]/).map(function(word) {
@@ -2468,8 +2527,21 @@ String.prototype.titleize = function() {
 };
 /**
 Underscore a word, changing camelCased with under_scored.
+
+<code><pre>
+"UNDERScore".underscore()
+# => "under_score"
+
+"UNDER-SCORE".underscore()
+# => "under_score"
+
+"UnDEr-SCorE".underscore()
+# => "un_d_er_s_cor_e"
+</pre></code>
+
 @name underscore
 @methodOf String#
+@returns {String} A new string. Separated by _.
 */
 String.prototype.underscore = function() {
   return this.replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2').replace(/([a-z\d])([A-Z])/g, '$1_$2').replace(/-/g, '_').toLowerCase();
@@ -2478,18 +2550,19 @@ String.prototype.underscore = function() {
 Assumes the string is something like a file name and returns the 
 contents of the string without the extension.
 
+<code><pre>
 "neat.png".witouthExtension() => "neat"
+</pre></code>
 
 @name withoutExtension
 @methodOf String#
+@returns {String} A new string without the extension name.
 */
 String.prototype.withoutExtension = function() {
   return this.replace(/\.[^\.]*$/, '');
 };;
 /**
 Non-standard
-
-
 
 @name toSource
 @methodOf Boolean#
@@ -2534,8 +2607,6 @@ support a larger range of values. If this argument is omitted, it is treated as
 /**
 number.toLocaleString();
 
-
-
 @name toLocaleString
 @methodOf Number#
 */
@@ -2549,8 +2620,6 @@ Returns a string representing the Number object to the specified precision.
 */
 /**
 Non-standard
-
-
 
 @name toSource
 @methodOf Number#
@@ -2568,8 +2637,6 @@ numeric values.
 /**
 Returns the primitive value of a Number object.
 
-
-
 @name valueOf
 @methodOf Number#
 */
@@ -2577,7 +2644,7 @@ Returns the primitive value of a Number object.
 Returns the specified character from a string.
 
 <code><em>string</em>.charAt(<em>index</em>)</code>
-@param index  An integer between 0 and 1 less than the length of the string.
+@param index  An integer between 0 and 1 less than the length of the string.
 @name charAt
 @methodOf String#
 */
@@ -2586,7 +2653,7 @@ Returns the numeric Unicode value of the character at the given index (except
 for unicode codepoints > 0x10000).
 
 
-@param index  An integer greater than 0 and less than the length of the string;
+@param index  An integer greater than 0 and less than the length of the string;
 if it is not a number, it defaults to 0.
 @name charCodeAt
 @methodOf String#
@@ -2595,7 +2662,7 @@ if it is not a number, it defaults to 0.
 Combines the text of two or more strings and returns a new string.
 
 <code><em>string</em>.concat(<em>string2</em>, <em>string3</em>[, ..., <em>stringN</em>])</code>
-@param string2...stringN  Strings to concatenate to this string.
+@param string2...stringN  Strings to concatenate to this string.
 @name concat
 @methodOf String#
 */
@@ -2605,8 +2672,8 @@ the specified value, starting the search at fromIndex,
 returns -1 if the value is not found.
 
 <code><em>string</em>.indexOf(<em>searchValue</em>[, <em>fromIndex</em>]</code>
-@param searchValue  A string representing the value to search for.
-@param fromIndex  The location within the calling string to start the search
+@param searchValue  A string representing the value to search for.
+@param fromIndex  The location within the calling string to start the search
 from. It can be any integer between 0 and the length of the string. The default
 value is 0.
 @name indexOf
@@ -2618,8 +2685,8 @@ specified value, or -1 if not found. The calling string is searched backward,
 starting at fromIndex.
 
 <code><em>string</em>.lastIndexOf(<em>searchValue</em>[, <em>fromIndex</em>])</code>
-@param searchValue  A string representing the value to search for.
-@param fromIndex  The location within the calling string to start the search
+@param searchValue  A string representing the value to search for.
+@param fromIndex  The location within the calling string to start the search
 from, indexed from left to right. It can be any integer between 0 and the length
 of the string. The default value is the length of the string.
 @name lastIndexOf
@@ -2654,21 +2721,21 @@ Non-standard
 */
 /**
 Returns a new string with some or all matches of a pattern replaced by a
-replacement.  The pattern can be a string or a RegExp, and the replacement can
+replacement.  The pattern can be a string or a RegExp, and the replacement can
 be a string or a function to be called for each match.
 
 <code><em>str</em>.replace(<em>regexp|substr</em>, <em>newSubStr|function[</em>, </code><code><em>flags]</em>);</code>
-@param regexp  A RegExp object. The match is replaced by the return value of
+@param regexp  A RegExp object. The match is replaced by the return value of
 parameter #2.
-@param substr  A String that is to be replaced by newSubStr.
-@param newSubStr  The String that replaces the substring received from parameter
+@param substr  A String that is to be replaced by newSubStr.
+@param newSubStr  The String that replaces the substring received from parameter
 #1. A number of special replacement patterns are supported; see the "Specifying
 a string as a parameter" section below.
-@param function  A function to be invoked to create the new substring (to put in
+@param function  A function to be invoked to create the new substring (to put in
 place of the substring received from parameter #1). The arguments supplied to
 this function are described in the "Specifying a function as a parameter"
 section below.
-@param flags gimy 
+@param flags gimy 
 
 Non-standardThe use of the flags parameter in the String.replace method is
 non-standard. For cross-browser compatibility, use a RegExp object with
@@ -2683,7 +2750,7 @@ Executes the search for a match between a regular expression and this String
 object.
 
 <code><em>string</em>.search(<em>regexp</em>)</code>
-@param regexp  A  regular expression object. If a non-RegExp object obj is
+@param regexp  A  regular expression object. If a non-RegExp object obj is
 passed, it is implicitly converted to a RegExp by using new RegExp(obj).
 @name search
 @methodOf String#
@@ -2692,8 +2759,8 @@ passed, it is implicitly converted to a RegExp by using new RegExp(obj).
 Extracts a section of a string and returns a new string.
 
 <code><em>string</em>.slice(<em>beginslice</em>[, <em>endSlice</em>])</code>
-@param beginSlice  The zero-based index at which to begin extraction.
-@param endSlice  The zero-based index at which to end extraction. If omitted,
+@param beginSlice  The zero-based index at which to begin extraction.
+@param endSlice  The zero-based index at which to end extraction. If omitted,
 slice extracts to the end of the string.
 @name slice
 @methodOf String#
@@ -2703,11 +2770,11 @@ Splits a String object into an array of strings by separating the string into
 substrings.
 
 <code><em>string</em>.split([<em>separator</em>][, <em>limit</em>])</code>
-@param separator  Specifies the character to use for separating the string. The
+@param separator  Specifies the character to use for separating the string. The
 separator is treated as a string or a regular expression. If separator is
 omitted, the array returned contains one element consisting of the entire
 string.
-@param limit  Integer specifying a limit on the number of splits to be found.
+@param limit  Integer specifying a limit on the number of splits to be found.
 @name split
 @methodOf String#
 */
@@ -2716,8 +2783,8 @@ Returns the characters in a string beginning at the specified location through
 the specified number of characters.
 
 <code><em>string</em>.substr(<em>start</em>[, <em>length</em>])</code>
-@param start  Location at which to begin extracting characters.
-@param length  The number of characters to extract.
+@param start  Location at which to begin extracting characters.
+@param length  The number of characters to extract.
 @name substr
 @methodOf String#
 */
@@ -2726,8 +2793,8 @@ Returns a subset of a string between one index and another, or through the end
 of the string.
 
 <code><em>string</em>.substring(<em>indexA</em>[, <em>indexB</em>])</code>
-@param indexA  An integer between 0 and one less than the length of the string.
-@param indexB  (optional) An integer between 0 and the length of the string.
+@param indexA  An integer between 0 and one less than the length of the string.
+@param indexB  (optional) An integer between 0 and the length of the string.
 @name substring
 @methodOf String#
 */
@@ -2937,7 +3004,7 @@ the array.
 @methodOf Array#
 */
 /**
-Reverses an array in place.  The first array element becomes the last and the
+Reverses an array in place.  The first array element becomes the last and the
 last becomes the first.
 
 <code><em>array</em>.reverse()</code>
@@ -2958,7 +3025,7 @@ changes the length of the array.
 Sorts the elements of an array in place.
 
 <code><em>array</em>.sort([<em>compareFunction</em>])</code>
-@param compareFunction  Specifies a function that defines the sort order. If
+@param compareFunction  Specifies a function that defines the sort order. If
 omitted, the array is sorted lexicographically (in dictionary order) according
 to the string conversion of each element.
 @name sort
@@ -2969,14 +3036,14 @@ Changes the content of an array, adding new elements while removing old
 elements.
 
 <code><em>array</em>.splice(<em>index</em>, <em>howMany</em>[, <em>element1</em>[, ...[, <em>elementN</em>]]])</code>
-@param index  Index at which to start changing the array. If negative, will
+@param index  Index at which to start changing the array. If negative, will
 begin that many elements from the end.
-@param howMany  An integer indicating the number of old array elements to
+@param howMany  An integer indicating the number of old array elements to
 remove. If howMany is 0, no elements are removed. In this case, you should
 specify at least one new element. If no howMany parameter is specified (second
 syntax above, which is a SpiderMonkey extension), all elements after index are
 removed.
-@param element1, ..., elementN  The elements to add to the array. If you don't
+@param element1, ..., elementN  The elements to add to the array. If you don't
 specify any elements, splice simply removes elements from the array.
 @name splice
 @methodOf Array#
@@ -2995,7 +3062,7 @@ Returns a new array comprised of this array joined with other array(s) and/or
 value(s).
 
 <code><em>array</em>.concat(<em>value1</em>, <em>value2</em>, ..., <em>valueN</em>)</code>
-@param valueN  Arrays and/or values to concatenate to the resulting array.
+@param valueN  Arrays and/or values to concatenate to the resulting array.
 @name concat
 @methodOf Array#
 */
@@ -3003,7 +3070,7 @@ value(s).
 Joins all elements of an array into a string.
 
 <code><em>array</em>.join(<em>separator</em>)</code>
-@param separator  Specifies a string to separate each element of the array. The
+@param separator  Specifies a string to separate each element of the array. The
 separator is converted to a string if necessary. If omitted, the array elements
 are separated with a comma.
 @name join
@@ -3013,10 +3080,10 @@ are separated with a comma.
 Returns a one-level deep copy of a portion of an array.
 
 <code><em>array</em>.slice(<em>begin</em>[, <em>end</em>])</code>
-@param begin  Zero-based index at which to begin extraction.As a negative index,
+@param begin  Zero-based index at which to begin extraction.As a negative index,
 start indicates an offset from the end of the sequence. slice(-2) extracts the
 second-to-last element and the last element in the sequence.
-@param end  Zero-based index at which to end extraction. slice extracts up to
+@param end  Zero-based index at which to end extraction. slice extracts up to
 but not including end.slice(1,4) extracts the second element through the fourth
 element (elements indexed 1, 2, and 3).As a negative index, end indicates an
 offset from the end of the sequence. slice(2,-1) extracts the third element
@@ -3046,7 +3113,7 @@ Returns the first index at which a given element can be found in the array, or
 -1 if it is not present.
 
 <code><em>array</em>.indexOf(<em>searchElement</em>[, <em>fromIndex</em>])</code>
-@param searchElement fromIndex  Element to locate in the array.The index at
+@param searchElement fromIndex  Element to locate in the array.The index at
 which to begin the search. Defaults to 0, i.e. the whole array will be searched.
 If the index is greater than or equal to the length of the array, -1 is
 returned, i.e. the array will not be searched. If negative, it is taken as the
@@ -3061,7 +3128,7 @@ Returns the last index at which a given element can be found in the array, or -1
 if it is not present. The array is searched backwards, starting at fromIndex.
 
 <code><em>array</em>.lastIndexOf(<em>searchElement</em>[, <em>fromIndex</em>])</code>
-@param searchElement fromIndex  Element to locate in the array.The index at
+@param searchElement fromIndex  Element to locate in the array.The index at
 which to start searching backwards. Defaults to the array's length, i.e. the
 whole array will be searched. If the index is greater than or equal to the
 length of the array, the whole array will be searched. If negative, it is taken
@@ -3076,7 +3143,7 @@ Creates a new array with all elements that pass the test implemented by the
 provided function.
 
 <code><em>array</em>.filter(<em>callback</em>[, <em>thisObject</em>])</code>
-@param callback thisObject  Function to test each element of the array.Object to
+@param callback thisObject  Function to test each element of the array.Object to
 use as this when executing callback.
 @name filter
 @methodOf Array#
@@ -3085,7 +3152,7 @@ use as this when executing callback.
 Executes a provided function once per array element.
 
 <code><em>array</em>.forEach(<em>callback</em>[, <em>thisObject</em>])</code>
-@param callback thisObject  Function to execute for each element.Object to use
+@param callback thisObject  Function to execute for each element.Object to use
 as this when executing callback.
 @name forEach
 @methodOf Array#
@@ -3116,7 +3183,7 @@ Tests whether some element in the array passes the test implemented by the
 provided function.
 
 <code><em>array</em>.some(<em>callback</em>[, <em>thisObject</em>])</code>
-@param callback thisObject  Function to test for each element.Object to use as
+@param callback thisObject  Function to test for each element.Object to use as
 this when executing callback.
 @name some
 @methodOf Array#
@@ -3136,7 +3203,7 @@ Apply a function simultaneously against two values of the array (from
 right-to-left) as to reduce it to a single value.
 
 <code><em>array</em>.reduceRight(<em>callback</em>[, <em>initialValue</em>])</code>
-@param callback initialValue  Function to execute on each value in the
+@param callback initialValue  Function to execute on each value in the
 array.Object to use as the first argument to the first call of the callback.
 @name reduceRight
 @methodOf Array#
@@ -3153,13 +3220,13 @@ Returns a boolean indicating whether the object has the specified property.
 Calls a function with a given this value and arguments provided as an array.
 
 <code><em>fun</em>.apply(<em>thisArg</em>[, <em>argsArray</em>])</code>
-@param thisArg  Determines the value of this inside fun. If thisArg is null or
+@param thisArg  Determines the value of this inside fun. If thisArg is null or
 undefined, this will be the global object. Otherwise, this will be equal to
 Object(thisArg) (which is thisArg if thisArg is already an object, or a String,
 Boolean, or Number if thisArg is a primitive value of the corresponding type).
 Therefore, it is always true that typeof this == "object" when the function
 executes.
-@param argsArray  An argument array for the object, specifying the arguments
+@param argsArray  An argument array for the object, specifying the arguments
 with which fun should be called, or null or undefined if no arguments should be
 provided to the function.
 @name apply
@@ -3172,7 +3239,7 @@ any provided when the new function was called.
 
 <code><em>fun</em>.bind(<em>thisArg</em>[, <em>arg1</em>[, <em>arg2</em>[, ...]]])</code>
 @param thisValuearg1, arg2, ... The value to be passed as the this parameter to
-the target function when the bound function is called.  The value is ignored if
+the target function when the bound function is called.  The value is ignored if
 the bound function is constructed using the new operator.Arguments to prepend to
 arguments provided to the bound function when invoking the target function.
 @name bind
@@ -3182,13 +3249,13 @@ arguments provided to the bound function when invoking the target function.
 Calls a function with a given this value and arguments provided individually.
 
 <code><em>fun</em>.call(<em>thisArg</em>[, <em>arg1</em>[, <em>arg2</em>[, ...]]])</code>
-@param thisArg  Determines the value of this inside fun. If thisArg is null or
+@param thisArg  Determines the value of this inside fun. If thisArg is null or
 undefined, this will be the global object. Otherwise, this will be equal to
 Object(thisArg) (which is thisArg if thisArg is already an object, or a String,
 Boolean, or Number if thisArg is a primitive value of the corresponding type).
 Therefore, it is always true that typeof this == "object" when the function
 executes.
-@param arg1, arg2, ...  Arguments for the object.
+@param arg1, arg2, ...  Arguments for the object.
 @name call
 @methodOf Function#
 */
@@ -3215,9 +3282,9 @@ Executes a search for a match in a specified string. Returns a result array, or
 null.
 
 
-@param regexp  The name of the regular expression. It can be a variable name or
+@param regexp  The name of the regular expression. It can be a variable name or
 a literal.
-@param str  The string against which to match the regular expression.
+@param str  The string against which to match the regular expression.
 @name exec
 @methodOf RegExp#
 */
@@ -3226,9 +3293,9 @@ Executes the search for a match between a regular expression and a specified
 string. Returns true or false.
 
 <code> <em>regexp</em>.test([<em>str</em>]) </code>
-@param regexp  The name of the regular expression. It can be a variable name or
+@param regexp  The name of the regular expression. It can be a variable name or
 a literal.
-@param str  The string against which to match the regular expression.
+@param str  The string against which to match the regular expression.
 @name test
 @methodOf RegExp#
 */
@@ -3448,7 +3515,7 @@ Deprecated
 Sets the day of the month for a specified date according to local time.
 
 <code> setDate(<em>dayValue</em>) </code>
-@param dayValue  An integer from 1 to 31, representing the day of the month.
+@param dayValue  An integer from 1 to 31, representing the day of the month.
 @name setDate
 @methodOf Date#
 */
@@ -3458,11 +3525,11 @@ Sets the full year for a specified date according to local time.
 <code>
 setFullYear(<i>yearValue</i>[, <i>monthValue</i>[, <em>dayValue</em>]])
 </code>
-@param  yearValue   An integer specifying the numeric value of the year, for
+@param  yearValue   An integer specifying the numeric value of the year, for
 example, 1995.
-@param  monthValue   An integer between 0 and 11 representing the months January
+@param  monthValue   An integer between 0 and 11 representing the months January
 through December.
-@param  dayValue   An integer between 1 and 31 representing the day of the
+@param  dayValue   An integer between 1 and 31 representing the day of the
 month. If you specify the dayValue parameter, you must also specify the
 monthValue.
 @name setFullYear
@@ -3474,11 +3541,11 @@ Sets the hours for a specified date according to local time.
 <code>
 setHours(<i>hoursValue</i>[, <i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]]])
 </code>
-@param  hoursValue   An integer between 0 and 23, representing the hour. 
-@param  minutesValue   An integer between 0 and 59, representing the minutes. 
-@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+@param  hoursValue   An integer between 0 and 23, representing the hour. 
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
 you specify the secondsValue parameter, you must also specify the minutesValue.
-@param  msValue   A number between 0 and 999, representing the milliseconds. If
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
 you specify the msValue parameter, you must also specify the minutesValue and
 secondsValue.
 @name setHours
@@ -3490,7 +3557,7 @@ Sets the milliseconds for a specified date according to local time.
 <code>
 setMilliseconds(<i>millisecondsValue</i>)
 </code>
-@param  millisecondsValue   A number between 0 and 999, representing the
+@param  millisecondsValue   A number between 0 and 999, representing the
 milliseconds.
 @name setMilliseconds
 @methodOf Date#
@@ -3501,10 +3568,10 @@ Sets the minutes for a specified date according to local time.
 <code>
 setMinutes(<i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]])
 </code>
-@param  minutesValue   An integer between 0 and 59, representing the minutes. 
-@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
 you specify the secondsValue parameter, you must also specify the minutesValue.
-@param  msValue   A number between 0 and 999, representing the milliseconds. If
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
 you specify the msValue parameter, you must also specify the minutesValue and
 secondsValue.
 @name setMinutes
@@ -3516,9 +3583,9 @@ Set the month for a specified date according to local time.
 <code>
 setMonth(<i>monthValue</i>[, <em>dayValue</em>])
 </code>
-@param  monthValue   An integer between 0 and 11 (representing the months
+@param  monthValue   An integer between 0 and 11 (representing the months
 January through December).
-@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
 @name setMonth
 @methodOf Date#
 */
@@ -3528,8 +3595,8 @@ Sets the seconds for a specified date according to local time.
 <code>
 setSeconds(<i>secondsValue</i>[, <em>msValue</em>])
 </code>
-@param  secondsValue   An integer between 0 and 59. 
-@param  msValue   A number between 0 and 999, representing the milliseconds.
+@param  secondsValue   An integer between 0 and 59. 
+@param  msValue   A number between 0 and 999, representing the milliseconds.
 @name setSeconds
 @methodOf Date#
 */
@@ -3540,7 +3607,7 @@ January 1, 1970, 00:00:00 UTC.
 <code>
 setTime(<i>timeValue</i>)
 </code>
-@param  timeValue   An integer representing the number of milliseconds since 1
+@param  timeValue   An integer representing the number of milliseconds since 1
 January 1970, 00:00:00 UTC.
 @name setTime
 @methodOf Date#
@@ -3551,7 +3618,7 @@ Sets the day of the month for a specified date according to universal time.
 <code>
 setUTCDate(<i>dayValue</i>)
 </code>
-@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
 @name setUTCDate
 @methodOf Date#
 */
@@ -3561,11 +3628,11 @@ Sets the full year for a specified date according to universal time.
 <code>
 setUTCFullYear(<i>yearValue</i>[, <i>monthValue</i>[, <em>dayValue</em>]])
 </code>
-@param  yearValue   An integer specifying the numeric value of the year, for
+@param  yearValue   An integer specifying the numeric value of the year, for
 example, 1995.
-@param  monthValue   An integer between 0 and 11 representing the months January
+@param  monthValue   An integer between 0 and 11 representing the months January
 through December.
-@param  dayValue   An integer between 1 and 31 representing the day of the
+@param  dayValue   An integer between 1 and 31 representing the day of the
 month. If you specify the dayValue parameter, you must also specify the
 monthValue.
 @name setUTCFullYear
@@ -3577,11 +3644,11 @@ Sets the hour for a specified date according to universal time.
 <code>
 setUTCHours(<i>hoursValue</i>[, <i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]]])
 </code>
-@param  hoursValue   An integer between 0 and 23, representing the hour. 
-@param  minutesValue   An integer between 0 and 59, representing the minutes. 
-@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+@param  hoursValue   An integer between 0 and 23, representing the hour. 
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
 you specify the secondsValue parameter, you must also specify the minutesValue.
-@param  msValue   A number between 0 and 999, representing the milliseconds. If
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
 you specify the msValue parameter, you must also specify the minutesValue and
 secondsValue.
 @name setUTCHours
@@ -3593,7 +3660,7 @@ Sets the milliseconds for a specified date according to universal time.
 <code>
 setUTCMilliseconds(<i>millisecondsValue</i>)
 </code>
-@param  millisecondsValue   A number between 0 and 999, representing the
+@param  millisecondsValue   A number between 0 and 999, representing the
 milliseconds.
 @name setUTCMilliseconds
 @methodOf Date#
@@ -3604,10 +3671,10 @@ Sets the minutes for a specified date according to universal time.
 <code>
 setUTCMinutes(<i>minutesValue</i>[, <i>secondsValue</i>[, <em>msValue</em>]])
 </code>
-@param  minutesValue   An integer between 0 and 59, representing the minutes. 
-@param  secondsValue   An integer between 0 and 59, representing the seconds. If
+@param  minutesValue   An integer between 0 and 59, representing the minutes. 
+@param  secondsValue   An integer between 0 and 59, representing the seconds. If
 you specify the secondsValue parameter, you must also specify the minutesValue.
-@param  msValue   A number between 0 and 999, representing the milliseconds. If
+@param  msValue   A number between 0 and 999, representing the milliseconds. If
 you specify the msValue parameter, you must also specify the minutesValue and
 secondsValue.
 @name setUTCMinutes
@@ -3619,9 +3686,9 @@ Sets the month for a specified date according to universal time.
 <code>
 setUTCMonth(<i>monthValue</i>[, <em>dayValue</em>])
 </code>
-@param  monthValue   An integer between 0 and 11, representing the months
+@param  monthValue   An integer between 0 and 11, representing the months
 January through December.
-@param  dayValue   An integer from 1 to 31, representing the day of the month.
+@param  dayValue   An integer from 1 to 31, representing the day of the month.
 @name setUTCMonth
 @methodOf Date#
 */
@@ -3631,8 +3698,8 @@ Sets the seconds for a specified date according to universal time.
 <code>
 setUTCSeconds(<i>secondsValue</i>[, <em>msValue</em>])
 </code>
-@param  secondsValue   An integer between 0 and 59. 
-@param  msValue   A number between 0 and 999, representing the milliseconds.
+@param  secondsValue   An integer between 0 and 59. 
+@param  msValue   A number between 0 and 999, representing the milliseconds.
 @name setUTCSeconds
 @methodOf Date#
 */
