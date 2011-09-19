@@ -153,8 +153,21 @@ String::titleize = ->
 
 ###*
 Underscore a word, changing camelCased with under_scored.
+
+<code><pre>
+"UNDERScore".underscore()
+# => "under_score"
+
+"UNDER-SCORE".underscore()
+# => "under_score"
+
+"UnDEr-SCorE".underscore()
+# => "un_d_er_s_cor_e"
+</pre></code>
+
 @name underscore
 @methodOf String#
+@returns {String} A new string. Separated by _.
 ###
 String::underscore = ->
   this.replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
