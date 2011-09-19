@@ -8,8 +8,7 @@ Returns a copy of the array without null and undefined values.
 
 @name compact
 @methodOf Array#
-@type Array
-@returns A new array that contains only the non-null values.
+@returns {Array} A new array that contains only the non-null values.
 ###
 Array::compact = ->
   this.select (element) ->
@@ -87,11 +86,11 @@ Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
 <code><pre>
-   [1.1, 2.2, 3.3, 4.4].invoke("floor")
-=> [1, 2, 3, 4]
+[1.1, 2.2, 3.3, 4.4].invoke("floor")
+# => [1, 2, 3, 4]
 
-   ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
-=> ['hel', 'wor', 'coo']
+['hello', 'world', 'cool!'].invoke('substring', 0, 3)
+# => ['hel', 'wor', 'coo']
 </pre></code>
 
 @param {String} method The name of the method to invoke.
