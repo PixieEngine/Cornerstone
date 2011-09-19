@@ -186,10 +186,8 @@ indices
 
 @name each
 @methodOf Array#
-@param {Function} iterator Function to be called once for 
-each element in the array.
-@param {Object} [context] Optional context parameter to be 
-used as `this` when calling the iterator function.
+@param {Function} iterator Function to be called once for each element in the array.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
 @returns {Array} this to enable method chaining.
 ###
 Array::each = (iterator, context) ->
