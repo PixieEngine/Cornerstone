@@ -252,9 +252,7 @@ Floors the number for purposes of factorization.
 
 @name primeFactors
 @methodOf Number#
-
-@type Array
-@returns An array containing the factorization of this number.
+@returns {Array} An array containing the factorization of this number.
 ###
 Number::primeFactors = ->
   factors = []
