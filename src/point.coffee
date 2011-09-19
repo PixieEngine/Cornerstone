@@ -464,9 +464,9 @@
     but z can be treated as zero. The result of this method is interpreted as the magnitude 
     of the vector result of the cross product between [x1, y1, 0] x [x2, y2, 0]
     perpendicular to the xy plane.
+
     @name cross
     @methodOf Point#
-
     @param {Point} other The point to cross with this point.
     @returns {Number} The cross product of this point with the other point as scalar value.
     ###
@@ -477,16 +477,15 @@
     Compute the Euclidean distance between this point and another point.
 
     <code><pre>
-       pointA = Point(2, 3)
-       pointB = Point(9, 2)
+    pointA = Point(2, 3)
+    pointB = Point(9, 2)
 
-       pointA.distance(pointB)
-    => 7.0710678118654755 # Math.sqrt(50)
+    pointA.distance(pointB)
+    # => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
 
     @name distance
     @methodOf Point#
-
     @param {Point} other The point to compute the distance to.
     @returns {Number} The distance between this point and another point.
     ###
@@ -497,11 +496,11 @@
   Compute the Euclidean distance between two points.
 
   <code><pre>
-     pointA = Point(2, 3)
-     pointB = Point(9, 2)
+  pointA = Point(2, 3)
+  pointB = Point(9, 2)
 
-     Point.distance(pointA, pointB)
-  => 7.0710678118654755 # Math.sqrt(50)
+  Point.distance(pointA, pointB)
+  # => 7.0710678118654755 # Math.sqrt(50)
   </pre></code>
 
   @name distance
@@ -517,13 +516,13 @@
   Construct a point on the unit circle for the given angle.
 
   <code><pre>
-     point = Point.fromAngle(Math.PI / 2)
+  point = Point.fromAngle(Math.PI / 2)
 
-     point.x
-  => 0
+  point.x
+  # => 0
 
-     point.y
-  => 1
+  point.y
+  # => 1
   </pre></code>
 
   @name fromAngle
