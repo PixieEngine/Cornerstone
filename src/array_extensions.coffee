@@ -465,14 +465,9 @@ Return the group of elements for which the return value of the iterator is true.
 
 @name select
 @methodOf Array#
-
-@param {Function} iterator The iterator receives each element in turn as 
-the first agument.
-@param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
-
-@type Array
-@returns An array containing the elements for which the iterator returned true.
+@param {Function} iterator The iterator receives each element in turn as the first agument.
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} An array containing the elements for which the iterator returned true.
 ###
 Array::select = (iterator, context) ->
   return this.partition(iterator, context)[0]
