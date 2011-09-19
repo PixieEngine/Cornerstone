@@ -527,7 +527,6 @@
 
   @name fromAngle
   @fieldOf Point
-
   @param {Number} angle The angle in radians
   @returns {Point} The point on the unit circle.
   ###
@@ -540,16 +539,15 @@
   that the dude standing at p1 will need to face to look at p2.
 
   <code><pre>
-     p1 = Point(0, 0)
-     p2 = Point(7, 3)
+  p1 = Point(0, 0)
+  p2 = Point(7, 3)
 
-     Point.direction(p1, p2)
-  => 0.40489178628508343
+  Point.direction(p1, p2)
+  # => 0.40489178628508343
   </pre></code>
 
   @name direction
   @fieldOf Point
-
   @param {Point} p1 The starting point.
   @param {Point} p2 The ending point.
   @returns {Number} The direction from p1 to p2 in radians.
@@ -563,7 +561,6 @@
   ###*
   @name ZERO
   @fieldOf Point
-
   @returns {Point} The point (0, 0)
   ###
   Point.ZERO = Point()
