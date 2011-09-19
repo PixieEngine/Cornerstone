@@ -107,8 +107,7 @@ Randomly select an element from the array.
 
 @name rand
 @methodOf Array#
-@type Object
-@returns A random element from an array
+@returns {Object} A random element from an array
 ###
 Array::rand = ->
   this[rand(this.length)]
