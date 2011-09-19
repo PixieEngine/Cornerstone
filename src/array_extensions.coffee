@@ -410,26 +410,21 @@ If length is not given return the element at start, again assuming the array
 is a circle.
 
 <code><pre>
-   [1, 2, 3].wrap(-1)
-=> 3
+[1, 2, 3].wrap(-1)
+# => 3
 
-   [1, 2, 3].wrap(6)
-=> 1
+[1, 2, 3].wrap(6)
+# => 1
 
-   ["l", "o", "o", "p"].wrap(0, 16)
-=> ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
+["l", "o", "o", "p"].wrap(0, 16)
+# => ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
 </pre></code>
 
 @name wrap
 @methodOf Array#
-
-@param {Number} start The index to start wrapping at, or the index of the 
-sole element to return if no length is given.
-@param {Number} [length] Optional length determines how long result 
-array should be.
-@returns The element at start mod array.length, or an array of length elements, 
-starting from start and wrapping.
-@type Object or Array
+@param {Number} start The index to start wrapping at, or the index of the sole element to return if no length is given.
+@param {Number} [length] Optional length determines how long result array should be.
+@returns {Object} or {Array} The element at start mod array.length, or an array of length elements, starting from start and wrapping.
 ###
 Array::wrap = (start, length) ->
   if length?
@@ -449,13 +444,9 @@ true, and those for which it returns false.
 
 @name partition
 @methodOf Array#
-
 @param {Function} iterator
-@param {Object} [context] Optional context parameter to be
-used as `this` when calling the iterator function.
-
-@type Array
-@returns An array in the form of [trueCollection, falseCollection]
+@param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
+@returns {Array} An array in the form of [trueCollection, falseCollection]
 ###
 Array::partition = (iterator, context) ->
   trueCollection = []
