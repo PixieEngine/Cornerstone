@@ -165,7 +165,6 @@
 
     @name subtract
     @methodOf Point#
-
     @param {Point} other The point to subtract from this point.
     @returns {Point} A new point, this - other.
     ###
@@ -204,7 +203,6 @@
 
     @name subtract$
     @methodOf Point#
-
     @param {Point} other The point to subtract from this point.
     @returns {Point} The difference of the two points.
     ###
