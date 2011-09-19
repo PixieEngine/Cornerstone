@@ -112,10 +112,7 @@ is not valid JSON returns the string itself.
 
 @name parse
 @methodOf String#
-
-@returns Returns an object from the JSON this string contains. If it
-is not valid JSON returns the string itself.
-@type Object
+@returns {Object} Returns an object from the JSON this string contains. If it is not valid JSON returns the string itself.
 ###
 String::parse = () ->
   try
