@@ -352,9 +352,7 @@ Math.PI.approachRotation(0, Math.PI/4)
 
 @name approachRotation
 @methodOf Number#
-
-@type Number
-@returns A number toward the target angle by maxDelta
+@returns {Number} A number toward the target angle by maxDelta
 ### 
 Number::approachRotation = (target, maxDelta) ->
   while target > this + Math.PI
