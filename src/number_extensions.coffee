@@ -313,18 +313,16 @@ Number::toColorPart = ->
 Returns a number that is maxDelta closer to target.
 
 <code><pre>
-   255.approach(0, 5)
-=> 250
+255.approach(0, 5)
+# => 250
 
-   5.approach(0, 10)
-=> 0
+5.approach(0, 10)
+# => 0
 </pre></code>
 
 @name approach
 @methodOf Number#
-
-@type Number
-@returns A number maxDelta toward target
+@returns {Number} A number maxDelta toward target
 ###    
 Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
