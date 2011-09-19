@@ -20,16 +20,16 @@ Creates and returns a copy of the array. The copy contains
 the same objects.
 
 <code><pre>
-   a = ["a", "b", "c"]
-   b = a.copy()
+a = ["a", "b", "c"]
+b = a.copy()
 
-   # their elements are equal
-   a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
-=> true
+# their elements are equal
+a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+# => true
 
-   # but they aren't the same object in memory
-   a === b
-=> false
+# but they aren't the same object in memory
+a === b
+# => false
 </pre></code>
 
 @name copy
@@ -44,10 +44,10 @@ Array::copy = ->
 Empties the array of its contents. It is modified in place.
 
 <code><pre>
-   fullArray = [1, 2, 3]
-   fullArray.clear()
-   fullArray
-=> []
+fullArray = [1, 2, 3]
+fullArray.clear()
+fullArray
+# => []
 </pre></code>
 
 @name clear
@@ -64,13 +64,13 @@ Array::clear = ->
 Flatten out an array of arrays into a single array of elements.
 
 <code><pre>
-   [[1, 2], [3, 4], 5].flatten()
-=> [1, 2, 3, 4, 5]
+[[1, 2], [3, 4], 5].flatten()
+# => [1, 2, 3, 4, 5]
 
-   # won't flatten twice nested arrays. call
-   # flatten twice if that is what you want
-   [[1, 2], [3, [4, 5]], 6].flatten()
-=> [1, 2, 3, [4, 5], 6]
+# won't flatten twice nested arrays. call
+# flatten twice if that is what you want
+[[1, 2], [3, [4, 5]], 6].flatten()
+# => [1, 2, 3, [4, 5], 6]
 </pre></code>
 
 @name flatten
