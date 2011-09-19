@@ -9,14 +9,36 @@
 
     @name angle
     @methodOf Random
-    @type Number
+    @returns {Number} A random angle between 0 and 2pi
     ###
     angle: ->
       rand() * Math.TAU
+
+    ###*
+    Returns a random color.
+
+    @name color
+    @methodOf Random
+    @returns {Color} A random color
+    ###
     color: ->
       Color.random()
+
+    ###*
+    Happens often.
+
+    @name often
+    @methodOf Random
+    ###
     often: ->
       return rand(3)
+
+    ###*
+    Happens sometimes.
+
+    @name sometimes
+    @methodOf Random
+    ###
     sometimes: ->
       !rand(3)
 
