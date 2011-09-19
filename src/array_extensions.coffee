@@ -530,6 +530,11 @@ Array::sum = ->
 ###*
 Multiply all the elements in the array.
 
+<code><pre>
+[1, 2, 3, 4].product()
+# => 24
+</pre></code>
+
 @name product
 @methodOf Array#
 @returns {Number} The product of the elements in the array.
