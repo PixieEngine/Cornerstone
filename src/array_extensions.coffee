@@ -516,9 +516,7 @@ Add all the elements in the array.
 
 @name sum
 @methodOf Array#
-
-@type Number
-@returns The sum of the elements in the array.
+@returns {Number} The sum of the elements in the array.
 ###
 Array::sum = ->
   this.inject 0, (sum, n) ->
