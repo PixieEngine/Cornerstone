@@ -2315,17 +2315,36 @@ Object.isObject = function(object) {
     
       @name angle
       @methodOf Random
-      @type Number
+      @returns {Number} A random angle between 0 and 2pi
       */
     angle: function() {
       return rand() * Math.TAU;
     },
+    /**
+    Returns a random color.
+    
+    @name color
+    @methodOf Random
+    @returns {Color} A random color
+    */
     color: function() {
       return Color.random();
     },
+    /**
+    Happens often.
+    
+    @name often
+    @methodOf Random
+    */
     often: function() {
       return rand(3);
     },
+    /**
+    Happens sometimes.
+    
+    @name sometimes
+    @methodOf Random
+    */
     sometimes: function() {
       return !rand(3);
     }
@@ -2335,9 +2354,8 @@ Object.isObject = function(object) {
     
     @name rand
     @methodOf window
-    
     @param {Number} n
-    @type Number
+    @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1. 
     */
   };
   return (typeof exports !== "undefined" && exports !== null ? exports : this)["rand"] = function(n) {
