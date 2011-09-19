@@ -41,6 +41,15 @@ String::camelize = ->
 ###*
 Returns a new string with the first letter capitalized and the rest lower cased.
 
+<code><pre>
+"capital".capitalize()
+"cAPITAL".capitalize()
+"cApItAl".capitalize()
+"CAPITAL".capitalize()
+
+# => "Capital"
+</pre></code>
+
 @name capitalize
 @methodOf String#
 @returns {String} A new string. Capitalized version of `this`
