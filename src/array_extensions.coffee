@@ -514,6 +514,11 @@ Array::inject = (initial, iterator) ->
 ###*
 Add all the elements in the array.
 
+<code><pre>
+[1, 2, 3, 4].sum()
+# => 10
+</pre></code>
+
 @name sum
 @methodOf Array#
 @returns {Number} The sum of the elements in the array.
