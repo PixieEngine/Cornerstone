@@ -51,14 +51,14 @@
     @returns {Point} A new point with the same x and y value as this point.
 
     <code><pre>
-      point = Point(1, 1)
-      pointCopy = point.copy()
+    point = Point(1, 1)
+    pointCopy = point.copy()
 
-      point.equal(pointCopy)
-      => true
+    point.equal(pointCopy)
+    # => true
 
-      point == pointCopy
-      => false     
+    point == pointCopy
+    # => false     
     </pre></code>
     ###
     copy: ->
