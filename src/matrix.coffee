@@ -116,9 +116,7 @@
     @name deltaTransformPoint
     @methodOf Matrix#
     @see #transformPoint
-
-    @return A new point transformed by this matrix ignoring tx and ty.
-    @type Point
+    @return {Point} A new point transformed by this matrix ignoring tx and ty.
     ###
     deltaTransformPoint: (point) ->
       Point(
