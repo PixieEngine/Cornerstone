@@ -64,7 +64,7 @@ Return the class or constant named in this string.
 
 "Constant".constantize()
 # => Constant
-# notice this isn't a string. Useful for calling methods on class named Constant
+# notice this isn't a string. Useful for calling methods on class named Constant.
 </pre></code>
 
 @name constantize
