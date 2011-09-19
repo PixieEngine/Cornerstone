@@ -35,8 +35,7 @@ Return the class or constant named in this string.
 @name constantize
 @methodOf String#
 
-@returns The class or constant named in this string.
-@type Object
+@returns {Object} The class or constant named in this string.
 ###
 String::constantize = ->
   if this.match /[A-Z][A-Za-z0-9]*/
