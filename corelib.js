@@ -1732,11 +1732,11 @@ Math.TAU = 2 * Math.PI;;
 Checks whether an object is an array.
 
 <code><pre>
-   Object.isArray([1, 2, 4])
-=> true
+  Object.isArray([1, 2, 4])
+  # => true
 
-   Object.isArray({key: "value"})
-=> false
+  Object.isArray({key: "value"})
+  # => false
 </pre></code>
 
 @name isArray
@@ -1745,7 +1745,6 @@ Checks whether an object is an array.
 @param {Object} object The object to check for array-ness.
 @type Boolean
 @returns A boolean expressing whether the object is an instance of Array 
-
 */var __slice = Array.prototype.slice;
 Object.isArray = function(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
@@ -1755,20 +1754,16 @@ Merges properties from objects into target without overiding.
 First come, first served.
 
 <code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
+  I =
+    a: 1
+    b: 2
+    c: 3
 
-   Object.reverseMerge I, {
-     c: 6
-     d: 4
-   }   
+  Object.reverseMerge I,
+    c: 6
+    d: 4   
 
-   I
-
-=> {a: 1, b:2, c:3, d: 4}
+  I # => {a: 1, b:2, c:3, d: 4}
 </pre></code>
 
 @name reverseMerge
@@ -1796,20 +1791,18 @@ Merges properties from sources into target with overiding.
 Last in covers earlier properties.
 
 <code><pre>
-   I = {
-     a: 1
-     b: 2
-     c: 3
-   }
+  I =
+    a: 1
+    b: 2
+    c: 3
 
-   Object.extend I, {
-     c: 6
-     d: 4
-   }   
+  Object.extend I,
+    c: 6
+    d: 4
 
-   I
+  I
 
-=> {a: 1, b:2, c:6, d: 4}
+  # => {a: 1, b:2, c:6, d: 4}
 </pre></code>
 
 @name extend
@@ -1829,6 +1822,25 @@ Object.extend = function() {
     }
   }
   return target;
+};
+/**
+Helper method that tells you if something is an object.
+
+<code><pre>
+  object = {a: 1}
+
+  Object.isObject(object)
+  # => true
+</pre></code>
+
+@name isObject
+@methodOf Object
+
+@param {Object} object Maybe this guy is an object.
+@returns {Boolean} true if this guy is an object.
+*/
+Object.isObject = function(object) {
+  return Object.prototype.toString.call(object) === '[object Object]';
 };;
 (function() {
   /**
@@ -1845,7 +1857,7 @@ Object.extend = function() {
   => 0
   
      point = Point(-2, 5)
-     
+  
      p.x
   => -2
   
@@ -1905,7 +1917,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(2, 3).add(Point(3, 4))
-       
+    
        point.x
     => 5
     
@@ -1913,7 +1925,7 @@ Object.extend = function() {
     => 7
     
        anotherPoint = Point(2, 3).add(3, 4)
-       
+    
        anotherPoint.x
     => 5
     
@@ -1936,15 +1948,15 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(2, 3)
-       
+    
        point.x
     => 2
     
        point.y
     => 3
-       
+    
        point.add$(Point(3, 4))
-       
+    
        point.x
     => 5
     
@@ -1953,7 +1965,7 @@ Object.extend = function() {
     
        anotherPoint = Point(2, 3)
        anotherPoint.add$(3, 4)
-       
+    
        anotherPoint.x
     => 5
     
@@ -1981,13 +1993,13 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(1, 2).subtract(Point(2, 0))
-       
+    
        point.x
     => -1
     
        point.y
     => 2
-       
+    
        anotherPoint = Point(1, 2).subtract(2, 0)
     
        anotherPoint.x
@@ -2011,13 +2023,13 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(1, 2)
-       
+    
        point.x
     => 1
     
        point.y
     => 2
-       
+    
        point.subtract$(Point(2, 0))
     
        point.x
@@ -2057,7 +2069,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(5, 6).scale(2)
-       
+    
        point.x
     => 10
     
@@ -2079,15 +2091,15 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(5, 6)
-       
+    
        point.x
     => 5
     
        point.y
     => 6
-       
+    
        point.scale$(2)
-       
+    
        point.x
     => 10
     
@@ -2112,18 +2124,18 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(2, 3).norm()
-       
+    
        point.x
     => 0.5547001962252291
-       
+    
        point.y  
     => 0.8320502943378437
-       
+    
        anotherPoint = Point(2, 3).norm(2)
-       
+    
        anotherPoint.x
     => 1.1094003924504583
-     
+    
        anotherPoint.y   
     => 1.6641005886756874    
     </pre></code>
@@ -2145,18 +2157,18 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(2, 3).norm$()
-       
+    
        point.x
     => 0.5547001962252291
-       
+    
        point.y  
     => 0.8320502943378437
-       
+    
        anotherPoint = Point(2, 3).norm$(2)
-       
+    
        anotherPoint.x
     => 1.1094003924504583
-     
+    
        anotherPoint.y   
     => 1.6641005886756874    
     </pre></code>
@@ -2182,7 +2194,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(3.4, 5.8).floor()
-       
+    
        point.x
     => 3
     
@@ -2203,7 +2215,7 @@ Object.extend = function() {
     <code><pre>
        point = Point(3.4, 5.8)
        point.floor$()
-       
+    
        point.x
     => 3
     
@@ -2227,7 +2239,7 @@ Object.extend = function() {
        pointA = Point(2, 3)
        pointB = Point(2, 3)
        pointC = Point(4, 5)
-       
+    
        pointA.equal(pointB)
     => true
     
@@ -2249,7 +2261,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(5, 7)
-       
+    
        point.length()
     => 8.602325267042627
     </pre></code>
@@ -2267,7 +2279,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(5, 7)
-       
+    
        point.magnitude()
     => 8.602325267042627
     </pre></code>
@@ -2285,7 +2297,7 @@ Object.extend = function() {
     
     <code><pre>
        point = Point(0, 1)
-       
+    
        point.direction()
     => 1.5707963267948966 # Math.PI / 2
     </pre></code>
@@ -2330,7 +2342,7 @@ Object.extend = function() {
     <code><pre>
        pointA = Point(2, 3)
        pointB = Point(9, 2)
-       
+    
        pointA.distance(pointB)
     => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
@@ -2350,7 +2362,7 @@ Object.extend = function() {
     <code><pre>
        pointA = Point(2, 3)
        pointB = Point(9, 2)
-       
+    
        Point.distance(pointA, pointB)
     => 7.0710678118654755 # Math.sqrt(50)
     </pre></code>
@@ -2395,7 +2407,7 @@ Object.extend = function() {
   <code><pre>
      p1 = Point(0, 0)
      p2 = Point(7, 3)
-     
+  
      Point.direction(p1, p2)
   => 0.40489178628508343
   </pre></code>
