@@ -263,7 +263,6 @@ as the second argument. Additional arguments are passed similar to
 <code>each</code>.
 
 @see Array#each
-
 @name eachWithObject
 @methodOf Array#
 @param {Object} object The object to pass to the iterator on each visit.
@@ -283,13 +282,13 @@ passing in the elements in groups of n. Additional argumens are
 passed as in each.
 
 <code><pre>
-   results = []
-   [1, 2, 3, 4].eachSlice 2, (slice) ->
-     results.push(slice)
-=> [1, 2, 3, 4]
+results = []
+[1, 2, 3, 4].eachSlice 2, (slice) ->
+  results.push(slice)
+# => [1, 2, 3, 4]
 
-   results
-=> [[1, 2], [3, 4]]
+results
+# => [[1, 2], [3, 4]]
 </pre></code>
 
 @see Array#each
