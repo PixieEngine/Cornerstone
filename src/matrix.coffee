@@ -176,9 +176,7 @@
     @name transformPoint
     @methodOf Matrix#
     @see #deltaTransformPoint
-
-    @returns A new point with the transformation applied.
-    @type Point
+    @returns {Point} A new point with the transformation applied.
     ###
     transformPoint: (point) ->
       Point(
