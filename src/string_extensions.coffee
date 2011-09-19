@@ -22,6 +22,14 @@ String::blank = ->
 ###*
 Returns a new string that is a camelCase version.
 
+<code><pre>
+"camel_case".camelize()
+"camel-case".camelize()
+"camel case".camelize()
+
+# => "camelCase"
+</pre></code>
+
 @name camelize
 @methodOf String#
 @returns {String} A new string. camelCase version of `this`. 
