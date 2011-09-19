@@ -101,30 +101,30 @@
     to add x and y values without a second point object.
 
     <code><pre>
-       point = Point(2, 3)
+    point = Point(2, 3)
 
-       point.x
-    => 2
+    point.x
+    # => 2
 
-       point.y
-    => 3
+    point.y
+    # => 3
 
-       point.add$(Point(3, 4))
+    point.add$(Point(3, 4))
 
-       point.x
-    => 5
+    point.x
+    # => 5
 
-       point.y
-    => 7
+    point.y
+    # => 7
 
-       anotherPoint = Point(2, 3)
-       anotherPoint.add$(3, 4)
+    anotherPoint = Point(2, 3)
+    anotherPoint.add$(3, 4)
 
-       anotherPoint.x
-    => 5
+    anotherPoint.x
+    # => 5
 
-       anotherPoint.y
-    => 7
+    anotherPoint.y
+    # => 7
     </pre></code>
 
     @name add$
@@ -146,21 +146,21 @@
     Subtracts a point to this one and returns the new point.
 
     <code><pre>
-       point = Point(1, 2).subtract(Point(2, 0))
+    point = Point(1, 2).subtract(Point(2, 0))
 
-       point.x
-    => -1
+    point.x
+    # => -1
 
-       point.y
-    => 2
+    point.y
+    # => 2
 
-       anotherPoint = Point(1, 2).subtract(2, 0)
+    anotherPoint = Point(1, 2).subtract(2, 0)
 
-       anotherPoint.x
-    => -1
+    anotherPoint.x
+    # => -1
 
-       anotherPoint.y
-    => 2
+    anotherPoint.y
+    # => 2
     </pre></code>
 
     @name subtract
@@ -176,30 +176,30 @@
     Subtracts a point to this one and returns the new point.
 
     <code><pre>
-       point = Point(1, 2)
+    point = Point(1, 2)
 
-       point.x
-    => 1
+    point.x
+    # => 1
 
-       point.y
-    => 2
+    point.y
+    # => 2
 
-       point.subtract$(Point(2, 0))
+    point.subtract$(Point(2, 0))
 
-       point.x
-    => -1
+    point.x
+    # => -1
 
-       point.y
-    => 2
+    point.y
+    # => 2
 
-       anotherPoint = Point(1, 2)
-       anotherPoint.subtract$(2, 0)
+    anotherPoint = Point(1, 2)
+    anotherPoint.subtract$(2, 0)
 
-       anotherPoint.x
-    => -1
+    anotherPoint.x
+    # => -1
 
-       anotherPoint.y
-    => 2
+    anotherPoint.y
+    # => 2
     </pre></code>
 
     @name subtract$
