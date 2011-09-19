@@ -59,18 +59,16 @@ Number::floor = ->
 Returns this number rounded to the nearest integer.
 
 <code><pre>
-   4.5.round()
-=> 5
+4.5.round()
+# => 5
 
-   4.4.round()
-=> 4
+4.4.round()
+# => 4
 </pre></code>
 
 @name round
 @methodOf Number#
-
-@type Number
-@returns The number rounded to the nearest integer.
+@returns {Number} The number rounded to the nearest integer.
 ###
 Number::round = ->
   Math.round(this)
