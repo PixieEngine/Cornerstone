@@ -1692,9 +1692,7 @@ Last in covers earlier properties.
     c: 6
     d: 4
 
-  I
-
-  # => {a: 1, b:2, c:6, d: 4}
+  I # => {a: 1, b:2, c:6, d: 4}
 </pre></code>
 
 @name extend
