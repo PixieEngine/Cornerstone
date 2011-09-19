@@ -543,6 +543,18 @@ Array::product = ->
   this.inject 1, (product, n) ->
     product * n
 
+###*
+Merges together the values of each of the arrays with the values at the corresponding position.
+
+<code><pre>
+['a', 'b', 'c'].zip([1, 2, 3])
+# => [['a', 1], ['b', 2], ['c', 3]]
+</pre></code>
+###
+
+@name zip
+@methodOf Array#
+@returns {Array} Array groupings whose values are arranged by their positions in the original input arrays.
 Array::zip = (args...) ->
   this.map (element, index) ->   
     output = args.map (arr) ->
