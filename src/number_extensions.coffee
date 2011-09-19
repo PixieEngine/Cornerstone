@@ -17,14 +17,14 @@ Number::abs = () ->
 Returns the mathematical ceiling of this number.
 
 <code><pre>
-   4.9.ceil() 
-=> 5
+4.9.ceil() 
+# => 5
 
-   4.2.ceil()
-=> 5
+4.2.ceil()
+# => 5
 
-   (-1.2).ceil()
-=> -1
+(-1.2).ceil()
+# => -1
 </pre></code>
 
 @name ceil
