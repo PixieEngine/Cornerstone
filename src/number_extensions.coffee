@@ -346,8 +346,8 @@ Number::approachByRatio = (target, ratio) ->
 Returns a number that is closer to the target angle by the delta.
 
 <code><pre>
-   Math.PI.approachRotation(0, Math.PI/4)
-=> 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+Math.PI.approachRotation(0, Math.PI/4)
+# => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
 </pre></code>
 
 @name approachRotation
