@@ -373,9 +373,7 @@ Constrains a rotation to between -PI and PI.
 
 @name constrainRotation
 @methodOf Number#
-
-@type Number
-@returns This number constrained between -PI and PI.
+@returns {Number} This number constrained between -PI and PI.
 ###
 Number::constrainRotation = ->
   target = this
