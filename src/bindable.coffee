@@ -8,14 +8,14 @@ player = Core
 
 player.bind "update", ->
   updatePlayer()
-=> Uncaught TypeError: Object has no method 'bind'
+# => Uncaught TypeError: Object has no method 'bind'
 
 player.include(Bindable)
 
 player.bind "update", ->
   updatePlayer()
-=> this will call updatePlayer each time through the main loop
-</pre></code>  
+# => this will call updatePlayer each time through the main loop
+</pre></code>
 
 @name Bindable
 @module
