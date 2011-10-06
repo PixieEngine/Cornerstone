@@ -485,6 +485,11 @@ Array::select = (iterator, context) ->
 ###*
 Return the group of elements that are not in the passed in set.
 
+<code><pre>
+[1, 2, 3, 4].without ([2, 3])
+# => [1, 4]
+</pre></code>
+
 @name without
 @methodOf Array#
 @param {Array} values List of elements to exclude.
