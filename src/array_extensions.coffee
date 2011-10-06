@@ -441,6 +441,17 @@ Array::wrap = (start, length) ->
 Partitions the elements into two groups: those for which the iterator returns
 true, and those for which it returns false.
 
+<code><pre>
+[evens, odds] = [1, 2, 3, 4].partition (n) ->
+  n % 2 == 0
+
+evens
+# => [2, 4]
+
+odds
+# => [1, 3]
+</pre></code>
+
 @name partition
 @methodOf Array#
 @param {Function} iterator
