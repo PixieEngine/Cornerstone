@@ -443,7 +443,7 @@ true, and those for which it returns false.
 
 <code><pre>
 [evens, odds] = [1, 2, 3, 4].partition (n) ->
-  n % 2 == 0
+  n.even()
 
 evens
 # => [2, 4]
