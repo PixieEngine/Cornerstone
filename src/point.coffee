@@ -531,6 +531,18 @@
     Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)
 
   ###*
+  @name interpolate
+  @fieldOf Point
+
+  @param {Point} p1
+  @param {Point} p2
+  @param {Number} t
+  @returns {Point} A point along the path from p1 to p2
+  ###
+  Point.interpolate = (p1, p2, t) ->
+    p2.subtract(p1).scale(t).add(p1)
+
+  ###*
   Construct a point on the unit circle for the given angle.
 
   <code><pre>
