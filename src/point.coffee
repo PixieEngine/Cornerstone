@@ -510,7 +510,25 @@
   @returns {Number} The Euclidean distance between two points.
   ###
   Point.distance = (p1, p2) ->
-    Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2))
+    Math.sqrt(Point.distanceSquared(p1, p2))
+
+  ###*
+  <code><pre>
+  pointA = Point(2, 3)
+  pointB = Point(9, 2)
+
+  Point.distanceSquared(pointA, pointB)
+  # => 50
+  </pre></code>
+
+  @name distanceSquared
+  @fieldOf Point
+  @param {Point} p1
+  @param {Point} p2
+  @returns {Number} The square of the Euclidean distance between two points.
+  ###
+  Point.distanceSquared = (p1, p2) ->
+    Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)
 
   ###*
   Construct a point on the unit circle for the given angle.
