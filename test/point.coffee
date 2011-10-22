@@ -141,6 +141,13 @@
     equalEnough p.x, 0, TOLERANCE
     equals p.y, 1
 
+  test ".interpolate", ->
+    p1 = Point(10, 7)
+    p2 = Point(-6, 29)
+
+    ok p1.equal(Point.interpolate(p1, p2, 0))
+    ok p2.equal(Point.interpolate(p1, p2, 1))
+
   test "ZERO is immutable", ->
     zero= Point.ZERO
 
