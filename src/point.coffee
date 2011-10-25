@@ -492,6 +492,14 @@
     distance: (other) ->
       Point.distance(this, other)
 
+    ###*
+    @name toString
+    @methodOf Point#
+    @returns {String} A string representation of this point.
+    ###
+    toString: ->
+      "Point(#{@x}, #{@y})"
+
   ###*
   Compute the Euclidean distance between two points.
 
