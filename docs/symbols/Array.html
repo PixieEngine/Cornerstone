@@ -1695,6 +1695,17 @@ third argument.
                   Partitions the elements into two groups: those for which the iterator returns
 true, and those for which it returns false.
 
+<code><pre>
+[evens, odds] = [1, 2, 3, 4].partition (n) ->
+  n.even()
+
+evens
+# => [2, 4]
+
+odds
+# => [1, 3]
+</pre></code>
+
                   
                 </div>
 
@@ -2557,6 +2568,11 @@ length of the array.
 
                 <div class="description">
                   Return the group of elements that are not in the passed in set.
+
+<code><pre>
+[1, 2, 3, 4].without ([2, 3])
+# => [1, 4]
+</pre></code>
 
                   
                 </div>
