@@ -102,10 +102,14 @@
     equals(matrix.tx, 0, "tx")
     equals(matrix.ty, 0, "ty")
 
-  test "Matrix#concat", ->
+  test "#concat", ->
     matrix = Matrix.rotation(Math.PI / 2).concat(Matrix.rotation(-Math.PI / 2))
 
     matrixEqual(matrix, Matrix.IDENTITY)
+
+  test "#toString", ->
+    matrix = Matrix(0.5, 2, 0.5, -2, 3, 4.5)
+    matrixEqual eval(matrix.toString()), matrix
 
   test "Maths", ->
     a = Matrix(12, 3, 3, 1, 7, 9)
