@@ -135,6 +135,10 @@
     equals Point(0, 0).length(), 0
     equals Point(-1, 0).length(), 1
 
+  test "#toString", ->
+    p = Point(7, 5)
+    ok eval(p.toString()).equal(p)
+
   test ".fromAngle", ->
     p = Point.fromAngle(Math.TAU / 4)
 
