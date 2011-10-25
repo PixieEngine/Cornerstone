@@ -171,6 +171,16 @@
       @concat(Matrix.scale(sx, sy, aboutPoint))
 
     ###*
+    Returns a string representation of this matrix.
+
+    @name toString
+    @methodOf Matrix#
+    @returns {String} A string reperesentation of this matrix.
+    ###
+    toString: ->
+      "Matrix(#{@a}, #{@b}, #{@c}, #{@d}, #{@tx}, #{@ty})"
+
+    ###*
     Returns the result of applying the geometric transformation represented by the 
     Matrix object to the specified point.
     @name transformPoint
