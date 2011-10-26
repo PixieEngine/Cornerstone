@@ -14,8 +14,30 @@ Object.isArray({key: "value"})
 @param {Object} object The object to check for array-ness.
 @returns {Boolean} A boolean expressing whether the object is an instance of Array 
 ###
-Object.isArray = (object)->
-  Object::toString.call(object) == '[object Array]'
+Object.isArray = (object) ->
+  Object::toString.call(object) == "[object Array]"
+
+###*
+Checks whether an object is a string.
+
+<code><pre>
+Object.isString("a string")
+# => true
+
+Object.isString([1, 2, 4])
+# => false
+
+Object.isString({key: "value"})
+# => false
+</pre></code>
+
+@name isString
+@methodOf Object
+@param {Object} object The object to check for string-ness.
+@returns {Boolean} A boolean expressing whether the object is an instance of String 
+###
+Object.isString = (object) ->
+  Object::toString.call(object) == "[object String]"
 
 ###*
 Merges properties from objects into target without overiding.
