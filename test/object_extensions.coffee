@@ -14,6 +14,11 @@ test "isArray", ->
   ok !Object.isArray(number), "a number is not an array"
   ok !Object.isArray(string), "a string is not array"
 
+test "isString", ->
+  ok Object.isString("a string"), "'a string' is a string"
+  ok !Object.isString([1, 2, 4]), "an array is not a string"
+  ok !Object.isString({key: "value"}), "an object literal is not a string"
+
 test "reverseMerge", ->
   object =
     test: true
