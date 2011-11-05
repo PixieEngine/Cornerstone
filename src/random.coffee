@@ -58,7 +58,7 @@
       Math.random()
 
   ###*
-  Returns random float from (-n / 2, n / 2) if n is given.
+  Returns random float from [-n / 2, n / 2] if n is given.
   Otherwise returns random float between -0.5 and 0.5.
 
   @name signedRand
@@ -68,7 +68,7 @@
   ###
   (exports ? this)["signedRand"] = (n) ->
     if n
-      rand(n) - (n / 2)
+      (n * Math.random()) - (n / 2)
     else
       Math.random() - 0.5
 
