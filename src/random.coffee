@@ -57,5 +57,20 @@
     else
       Math.random()
 
+  ###*
+  Returns random float from (-n / 2, n / 2) if n is given.
+  Otherwise returns random float between -0.5 and 0.5.
+
+  @name signedRand
+  @methodOf window
+  @param {Number} n
+  @returns {Number} A random float from -n / 2 to n / 2 if n is given. If n is not given, a random float between -0.5 and 0.5. 
+  ###
+  (exports ? this)["signedRand"] = (n) ->
+    if n
+      rand(n) - (n / 2)
+    else
+      Math.random() - 0.5
+
 )()
 
