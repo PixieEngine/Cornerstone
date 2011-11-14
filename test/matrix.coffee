@@ -37,6 +37,18 @@
     equals(matrix.tx, 0, "tx")
     equals(matrix.ty, 0, "ty")
 
+  test "#copy", ->
+    matrix = Matrix(2, 0, 0, 2)
+
+    copyMatrix = matrix.copy()
+
+    matrixEqual copyMatrix, matrix
+
+    copyMatrix.a = 4
+
+    equals copyMatrix.a, 4
+    equals matrix.a, 2, "Old 'a' value is unchanged"
+
   test ".scale", ->
     matrix = Matrix.scale(2, 2)
 
