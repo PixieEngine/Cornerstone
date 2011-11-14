@@ -19,16 +19,16 @@
       @x == other.x && @y == other.y &&
       @width == other.width && @height == other.height
 
-  Rectangle::.__defineGetter__ 'left', ->
+  Rectangle::__defineGetter__ 'left', ->
     @x
 
-  Rectangle::.__defineGetter__ 'right', ->
+  Rectangle::__defineGetter__ 'right', ->
     @x + @width
 
-  Rectangle::.__defineGetter__ 'top', ->
+  Rectangle::__defineGetter__ 'top', ->
     @y
 
-  Rectangle::.__defineGetter__ 'bottom', ->
+  Rectangle::__defineGetter__ 'bottom', ->
     @y + @height
 
   (exports ? this)["Rectangle"] = Rectangle
