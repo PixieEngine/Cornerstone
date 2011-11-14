@@ -109,6 +109,15 @@
       )
 
     ###*
+    Copy this matrix.
+    @name copy
+    @methodOf Matrix#
+    @returns {Matrix} A copy of this matrix.
+    ###
+    copy: ->
+      Matrix(@a, @b, @c, @d, @tx, @ty)
+
+    ###*
     Given a point in the pretransform coordinate space, returns the coordinates of 
     that point after the transformation occurs. Unlike the standard transformation 
     applied using the transformPoint() method, the deltaTransformPoint() method 
