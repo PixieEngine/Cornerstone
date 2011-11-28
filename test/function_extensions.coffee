@@ -21,5 +21,13 @@ test "#before and #after", ->
   testFn()
   ok calledAfter, "Called after"
 
+asyncTest "#debounce", 1, ->
+  fn = (-> ok true; start()).debounce(50)
+
+  # Though called multiple times the function is only triggered once
+  fn()
+  fn()
+  fn()
+
 module()
 
