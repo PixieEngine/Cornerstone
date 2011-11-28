@@ -41,6 +41,5 @@ Function::debounce = (wait) ->
       func.apply(context, args)
 
     clearTimeout(timeout)
-
     timeout = setTimeout(later, wait)
 
