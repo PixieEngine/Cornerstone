@@ -597,6 +597,18 @@
     )
 
   ###*
+  The centroid of a set of points is their arithmetic mean.
+
+  @name centroid
+  @methodOf Point
+  @param points... The points to find the centroid of.
+  ###
+  Point.centroid = (points...) ->
+    points.inject Point(0, 0), (sumPoint, point) ->
+      sumPoint.add(point)
+    .scale(1/points.length)
+
+  ###*
   @name ZERO
   @fieldOf Point
   @returns {Point} The point (0, 0)

@@ -139,6 +139,17 @@
     p = Point(7, 5)
     ok eval(p.toString()).equal(p)
 
+  test ".centroid", ->
+    centroid = Point.centroid(
+      Point(0, 0),
+      Point(10, 10),
+      Point(10, 0),
+      Point(0, 10)
+    )
+
+    equals centroid.x, 5
+    equals centroid.y, 5
+
   test ".fromAngle", ->
     p = Point.fromAngle(Math.TAU / 4)
 
