@@ -325,6 +325,14 @@ true, and those for which it returns false.</div>
                   
                     <tr>
                       <td class="nameDescription">
+                        <div class="fixedFont"><b><a href="../symbols/Array.html#pipeline">pipeline</a></b>(input)
+                        </div>
+                        <div class="description">Pipe the input through each function in the array in turn.</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Array.html#pop">pop</a></b>()
                         </div>
                         <div class="description">Removes the last element from an array and returns that element.</div>
@@ -1743,6 +1751,63 @@ odds
                       
                         <dt class="heading">Returns <span class="light fixedFont"><a href="../symbols/Array.html">Array</a></span> :</dt>
                         <dd>An array in the form of [trueCollection, falseCollection]</dd>
+                      
+                    
+
+                    
+
+                    
+
+                  </dl>
+                
+              
+                <div class="fixedFont heading">
+                  <a name="pipeline"></a>
+                  <span class='lighter'>
+                  
+                  </span>
+
+                  <b>pipeline</b>(input)
+                </div>
+
+                <div class="description">
+                  Pipe the input through each function in the array in turn. For example, if you have a
+list of objects you can perform a series of selection, sorting, and other processing
+methods and then receive the processed list. This array must contain functions that
+accept a single input and return the processed input. The output of the first function
+is fed to the input of the second and so on until the final processed output is returned.
+
+                  
+                </div>
+
+                
+
+                
+                  <dl class="detailList params">
+                    <dt class="heading">Parameters:</dt>
+                    
+                      <dt>
+                        <b>input</b><span class='light fixedFont'> <a href="../symbols/Object.html">Object</a></span> 
+                        
+                      </dt>
+                      <dd>The initial input to pass to the first function in the pipeline.</dd>
+                    
+                  </dl>
+                
+
+                
+                  <dl class="detailList nomargin">
+
+                    
+
+                    
+
+                    
+
+                    
+                      
+                        <dt class="heading">Returns <span class="light fixedFont"><a href="../symbols/Object.html">Object</a></span> :</dt>
+                        <dd>The result of processing the input by each function in the array.</dd>
                       
                     
 
