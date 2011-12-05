@@ -151,6 +151,16 @@ any provided when the new function was called.</div>
                   
                     <tr>
                       <td class="nameDescription">
+                        <div class="fixedFont"><b><a href="../symbols/Function.html#debounce">debounce</a></b>()
+                        </div>
+                        <div class="description">Calling a debounced function will postpone its execution until after 
+wait milliseconds have elapsed since the last time the function was 
+invoked.</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Function.html#toSource">toSource</a></b>()
                         </div>
                         <div class="description">Non-standard</div>
@@ -324,6 +334,58 @@ executes.</dd>
                   </dl>
                 
 
+                
+              
+                <div class="fixedFont heading">
+                  <a name="debounce"></a>
+                  <span class='lighter'>
+                  
+                  </span>
+
+                  <b>debounce</b>()
+                </div>
+
+                <div class="description">
+                  Calling a debounced function will postpone its execution until after 
+wait milliseconds have elapsed since the last time the function was 
+invoked. Useful for implementing behavior that should only happen after 
+the input has stopped arriving. For example: rendering a preview of a 
+Markdown comment, recalculating a layout after the window has stopped 
+being resized...
+
+<code><pre>
+lazyLayout = calculateLayout.debounce(300)
+$(window).resize(lazyLayout)
+</pre></code>
+
+                  
+                </div>
+
+                
+
+                
+
+                
+                  <dl class="detailList nomargin">
+
+                    
+
+                    
+
+                    
+
+                    
+                      
+                        <dt class="heading">Returns <span class="light fixedFont"><a href="../symbols/Function.html">Function</a></span> :</dt>
+                        <dd>The debounced version of this function.</dd>
+                      
+                    
+
+                    
+
+                    
+
+                  </dl>
                 
               
                 <div class="fixedFont heading">

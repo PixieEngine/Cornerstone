@@ -327,6 +327,14 @@
                   
                     <tr>
                       <td class="nameDescription">
+                        <div class="fixedFont">Point.<b><a href="../symbols/Point.html#.centroid">centroid</a></b>()
+                        </div>
+                        <div class="description">The centroid of a set of points is their arithmetic mean.</div>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="nameDescription">
                         <div class="fixedFont"><b><a href="../symbols/Point.html#copy">copy</a></b>()
                         </div>
                         <div class="description">Creates a copy of this point.</div>
@@ -586,13 +594,13 @@
                 <div class="description">
                   Compute the Euclidean distance between two points.
 
-    <code><pre>
-    pointA = Point(2, 3)
-    pointB = Point(9, 2)
+  <code><pre>
+  pointA = Point(2, 3)
+  pointB = Point(9, 2)
 
-    Point.distance(pointA, pointB)
-    # => 7.0710678118654755 # Math.sqrt(50)
-    </pre></code>
+  Point.distance(pointA, pointB)
+  # => 7.0710678118654755 # Math.sqrt(50)
+  </pre></code>
 
                   
                 </div>
@@ -984,6 +992,38 @@
                 
               
                 <div class="fixedFont heading">
+                  <a name=".centroid"></a>
+                  <span class='lighter'>
+                  <em>static</em>
+                  </span>
+
+                  <span class="light">Point.</span><b>centroid</b>()
+                </div>
+
+                <div class="description">
+                  The centroid of a set of points is their arithmetic mean.
+
+                  
+                </div>
+
+                
+
+                
+                  <dl class="detailList params">
+                    <dt class="heading">Parameters:</dt>
+                    
+                      <dt>
+                        <b>points...</b>
+                        
+                      </dt>
+                      <dd>The points to find the centroid of.</dd>
+                    
+                  </dl>
+                
+
+                
+              
+                <div class="fixedFont heading">
                   <a name="copy"></a>
                   <span class='lighter'>
                   
@@ -1016,16 +1056,16 @@
                         <dt class="heading">Returns <span class="light fixedFont"><a href="../symbols/Point.html">Point</a></span> :</dt>
                         <dd>A new point with the same x and y value as this point.
 
-      <code><pre>
-      point = Point(1, 1)
-      pointCopy = point.copy()
+    <code><pre>
+    point = Point(1, 1)
+    pointCopy = point.copy()
 
-      point.equal(pointCopy)
-      # => true
+    point.equal(pointCopy)
+    # => true
 
-      point == pointCopy
-      # => false     
-      </pre></code></dd>
+    point == pointCopy
+    # => false     
+    </pre></code></dd>
                       
                     
 
