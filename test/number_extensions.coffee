@@ -93,5 +93,9 @@ test "#primeFactors", ->
   equals factors.first(), -1
   equals factors.product(), -3
 
+test "#seconds", ->
+  equals 1.second, 1000
+  equals 3.seconds, 3000
+
 module undefined
 
