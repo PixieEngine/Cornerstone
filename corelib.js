@@ -1819,6 +1819,87 @@ Number.prototype.d = function(sides) {
   return sum;
 };
 
+/**
+Utility method to convert a number to a duration of seconds.
+
+<code><pre>
+3.seconds
+# => 3000
+
+setTimout doSometing, 3.seconds
+</pre></code>
+
+@name seconds
+@propertyOf Number#
+@returns {Number} This number as a duration of seconds
+*/
+
+Object.defineProperty(Number.prototype, 'seconds', {
+  get: function() {
+    return this * 1000;
+  }
+});
+
+Object.defineProperty(Number.prototype, 'second', {
+  get: function() {
+    return this * 1000;
+  }
+});
+
+/**
+Utility method to convert a number to an amount of rotations.
+
+<code><pre>
+0.5.rotations
+# => 3.141592653589793
+
+I.rotation = 0.25.rotations
+</pre></code>
+
+@name rotations
+@propertyOf Number#
+@returns {Number} This number as an amount of rotations
+*/
+
+Object.defineProperty(Number.prototype, 'rotations', {
+  get: function() {
+    return this * Math.TAU;
+  }
+});
+
+Object.defineProperty(Number.prototype, 'rotation', {
+  get: function() {
+    return this * Math.TAU;
+  }
+});
+
+/**
+Utility method to convert a number to an amount of degrees.
+
+<code><pre>
+180.degrees
+# => 3.141592653589793
+
+I.rotation = 90.degrees
+</pre></code>
+
+@name degrees
+@propertyOf Number#
+@returns {Number} This number as an amount of degrees
+*/
+
+Object.defineProperty(Number.prototype, 'degrees', {
+  get: function() {
+    return this * Math.TAU / 360;
+  }
+});
+
+Object.defineProperty(Number.prototype, 'degree', {
+  get: function() {
+    return this * Math.TAU / 360;
+  }
+});
+
 /** 
 The mathematical circle constant of 1 turn.
 
