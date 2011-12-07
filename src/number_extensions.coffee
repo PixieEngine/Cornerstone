@@ -401,6 +401,27 @@ Number::d = (sides) ->
 
   return sum
 
+###*
+Utility method to convert a number to a duration of seconds.
+
+<code><pre>
+3.seconds
+# => 3000
+
+setTimout doSometing, 3.seconds
+</pre></code>
+
+@name seconds
+@propertyOf Number#
+@returns {Number} This number as a duration of seconds
+###
+Object.defineProperty Number::, 'seconds',
+  get: -> 
+    @ * 1000
+Object.defineProperty Number::, 'second',
+  get: -> 
+    @ * 1000
+
 ###* 
 The mathematical circle constant of 1 turn.
 
