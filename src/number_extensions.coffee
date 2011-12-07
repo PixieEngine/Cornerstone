@@ -422,6 +422,48 @@ Object.defineProperty Number::, 'second',
   get: -> 
     @ * 1000
 
+###*
+Utility method to convert a number to an amount of rotations.
+
+<code><pre>
+0.5.rotations
+# => 3.141592653589793
+
+I.rotation = 0.25.rotations
+</pre></code>
+
+@name rotations
+@propertyOf Number#
+@returns {Number} This number as an amount of rotations
+###
+Object.defineProperty Number::, 'rotations',
+  get: -> 
+    @ * Math.TAU
+Object.defineProperty Number::, 'rotation',
+  get: -> 
+    @ * Math.TAU
+
+###*
+Utility method to convert a number to an amount of degrees.
+
+<code><pre>
+180.degrees
+# => 3.141592653589793
+
+I.rotation = 90.degrees
+</pre></code>
+
+@name degrees
+@propertyOf Number#
+@returns {Number} This number as an amount of degrees
+###
+Object.defineProperty Number::, 'degrees',
+  get: -> 
+    @ * Math.TAU / 360
+Object.defineProperty Number::, 'degree',
+  get: -> 
+    @ * Math.TAU / 360
+
 ###* 
 The mathematical circle constant of 1 turn.
 
