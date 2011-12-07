@@ -97,5 +97,13 @@ test "#seconds", ->
   equals 1.second, 1000
   equals 3.seconds, 3000
 
+test "#degrees", ->
+  equals 180.degrees, Math.PI
+  equals 1.degree, Math.TAU / 360
+
+test "#rotations", ->
+  equals 1.rotation, Math.TAU
+  equals 0.5.rotations, Math.TAU / 2
+
 module undefined
 
