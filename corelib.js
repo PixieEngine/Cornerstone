@@ -859,7 +859,7 @@ var __slice = Array.prototype.slice;
 
 Core = function(I) {
   var self;
-  I || (I = {});
+  if (I == null) I = {};
   return self = {
     /**
     External access to instance variables. Use of this property should be avoided
@@ -991,27 +991,10 @@ Core = function(I) {
     @methodOf Core#
     */
     extend: function(options) {
-      var afterMethods, beforeMethods, fn, name;
-      afterMethods = options.after;
-      beforeMethods = options.before;
-      delete options.after;
-      delete options.before;
       Object.extend(self, options);
-      if (beforeMethods) {
-        for (name in beforeMethods) {
-          fn = beforeMethods[name];
-          self[name] = self[name].withBefore(fn);
-        }
-      }
-      if (afterMethods) {
-        for (name in afterMethods) {
-          fn = afterMethods[name];
-          self[name] = self[name].withAfter(fn);
-        }
-      }
       return self;
     },
-    /** 
+    /**
     Includes a module in this object.
 
     <code><pre>
@@ -1086,6 +1069,15 @@ Function.prototype.debounce = function(wait) {
     };
     clearTimeout(timeout);
     return timeout = setTimeout(later, wait);
+  };
+};
+
+Function.prototype.returning = function(x) {
+  var func;
+  func = this;
+  return function() {
+    func.apply(this, arguments);
+    return x;
   };
 };
 ;
