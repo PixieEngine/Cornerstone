@@ -9,9 +9,7 @@ methods.
 @param {Object} I Instance variables
 ###
 
-Core = (I) ->
-  I ||= {}
-
+Core = (I={}) ->
   self =
     ###*
     External access to instance variables. Use of this property should be avoided
