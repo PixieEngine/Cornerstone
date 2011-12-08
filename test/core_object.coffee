@@ -8,26 +8,6 @@ test "#extend", ->
 
   equals o.test, "jawsome"
 
-  o.test = () ->
-    equals calledBefore, true
-    equals calledAfter, false
-
-  calledBefore = false
-  calledAfter = false
-
-  o.extend
-    before:
-      test: () ->
-        calledBefore = true
-    after:
-      test: () ->
-        calledAfter = true
-
-  o.test()
-
-  equals calledBefore, true
-  equals calledAfter, true
-
 test "#attrAccessor", ->
   o = Core
     test: "my_val"

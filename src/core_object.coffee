@@ -133,25 +133,11 @@ Core = (I={}) ->
     @methodOf Core#
     ###
     extend: (options) ->
-      afterMethods = options.after
-      beforeMethods = options.before
-
-      delete options.after
-      delete options.before
-
       Object.extend self, options
-
-      if beforeMethods
-        for name, fn of beforeMethods
-          self[name] = self[name].withBefore(fn)
-
-      if afterMethods
-        for name, fn of afterMethods
-          self[name] = self[name].withAfter(fn)
 
       return self
 
-    ###* 
+    ###*
     Includes a module in this object.
 
     <code><pre>
