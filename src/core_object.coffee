@@ -100,9 +100,8 @@ Core = (I={}) ->
           I[attrName]
 
     ###*
-    Extends this object with methods from the passed in object. `before` and 
-    `after` are special option names that glue functionality before or after 
-    existing methods.
+    Extends this object with methods from the passed in object. A shortcut for
+    <code>Object.extend(self, methods)</code>
 
     <code><pre>
     I =
@@ -116,10 +115,6 @@ Core = (I={}) ->
       increaseSpeed: ->
         I.maxSpeed += 1
 
-      # this will execute before the update method
-      beforeUpdate: ->
-        checkPowerupStatus()
-
     player.I.maxSpeed
     => 5
 
@@ -131,6 +126,8 @@ Core = (I={}) ->
 
     @name extend
     @methodOf Core#
+    @see Object.extend
+    @returns self
     ###
     extend: (options) ->
       Object.extend self, options
