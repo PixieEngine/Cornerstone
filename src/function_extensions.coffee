@@ -43,3 +43,11 @@ Function::debounce = (wait) ->
     clearTimeout(timeout)
     timeout = setTimeout(later, wait)
 
+# Not sure about the future of this, but trying it out
+Function::returning = (x) ->
+  func = this
+
+  ->
+    func.apply(this, arguments)
+    return x
+

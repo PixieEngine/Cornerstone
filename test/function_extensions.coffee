@@ -21,6 +21,16 @@ test "#before and #after", ->
   testFn()
   ok calledAfter, "Called after"
 
+test "#returning", ->
+  x = 0
+  sideEffectsAdd = (a) ->
+    x += a
+
+  returnValue = sideEffectsAdd.returning(-1)(4)
+
+  equals x, 4
+  equals returnValue, -1
+
 asyncTest "#debounce", 1, ->
   fn = (-> ok true; start()).debounce(50)
 
