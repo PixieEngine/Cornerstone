@@ -39,5 +39,20 @@ asyncTest "#debounce", 1, ->
   fn()
   fn()
 
+asyncTest "#delay", 2, ->
+  fn = (x, y) ->
+    equals x, 3
+    equals y, "testy"
+    start()
+
+  fn.delay 25, 3, "testy"
+
+asyncTest "#defer", 1, ->
+  fn = (x) -> 
+    equals x, 3
+    start()
+
+  fn.defer 3
+
 module()
 
