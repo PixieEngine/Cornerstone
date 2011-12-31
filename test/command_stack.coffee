@@ -78,4 +78,22 @@ test "command is returned when redone", ->
 
   equals commandStack.redo(), command, "Redone command is returned"
 
+test "cannot redo an obsolete future", ->
+  Command = ->
+    execute: ->
+    undo: ->
+
+  commandStack = CommandStack()
+  commandStack.execute Command()
+  commandStack.execute Command()
+
+  commandStack.undo()
+  commandStack.undo()
+
+  equals commandStack.canRedo(), true
+
+  commandStack.execute Command()
+
+  equals commandStack.canRedo(), false
+
 module()
