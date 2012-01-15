@@ -813,7 +813,7 @@ CommandStack = function() {
     execute: function(command) {
       stack[index] = command;
       command.execute();
-      return index += 1;
+      return stack.length = index += 1;
     },
     undo: function() {
       var command;
@@ -1013,6 +1013,7 @@ Core = function(I) {
   };
 };
 ;
+var __slice = Array.prototype.slice;
 
 Function.prototype.withBefore = function(interception) {
   var method;
@@ -1076,6 +1077,21 @@ Function.prototype.returning = function(x) {
     func.apply(this, arguments);
     return x;
   };
+};
+
+Function.prototype.delay = function() {
+  var args, func, wait;
+  wait = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  func = this;
+  return setTimeout(function() {
+    return func.apply(null, args);
+  }, wait);
+};
+
+Function.prototype.defer = function() {
+  var args;
+  args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+  return this.delay.apply(this, [1].concat(args));
 };
 ;
 
@@ -3024,6 +3040,47 @@ contents of the string without the extension.
 
 String.prototype.withoutExtension = function() {
   return this.replace(/\.[^\.]*$/, '');
+};
+
+String.prototype.parseHex = function() {
+  var alpha, hexString, i, rgb;
+  hexString = this.replace(/#/, '');
+  switch (hexString.length) {
+    case 3:
+    case 4:
+      if (hexString.length === 4) {
+        alpha = (parseInt(hexString.substr(3, 1), 16) * 0x11) / 255;
+      } else {
+        alpha = 1;
+      }
+      rgb = (function() {
+        var _results;
+        _results = [];
+        for (i = 0; i <= 2; i++) {
+          _results.push(parseInt(hexString.substr(i, 1), 16) * 0x11);
+        }
+        return _results;
+      })();
+      rgb.push(alpha);
+      return rgb;
+    case 6:
+    case 8:
+      if (hexString.length === 8) {
+        alpha = parseInt(hexString.substr(6, 2), 16) / 255;
+      } else {
+        alpha = 1;
+      }
+      rgb = (function() {
+        var _results;
+        _results = [];
+        for (i = 0; i <= 2; i++) {
+          _results.push(parseInt(hexString.substr(2 * i, 2), 16));
+        }
+        return _results;
+      })();
+      rgb.push(alpha);
+      return rgb;
+  }
 };
 ;
 
