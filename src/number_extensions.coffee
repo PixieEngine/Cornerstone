@@ -415,12 +415,15 @@ setTimout doSometing, 3.seconds
 @propertyOf Number#
 @returns {Number} This number as a duration of seconds
 ###
-Object.defineProperty Number::, 'seconds',
-  get: -> 
-    @ * 1000
-Object.defineProperty Number::, 'second',
-  get: -> 
-    @ * 1000
+unless 5.seconds
+  Object.defineProperty Number::, 'seconds',
+    get: -> 
+      this * 1000
+
+unless 1.second
+  Object.defineProperty Number::, 'second',
+    get: -> 
+      this * 1000
 
 ###*
 Utility method to convert a number to an amount of rotations.
@@ -436,12 +439,15 @@ I.rotation = 0.25.rotations
 @propertyOf Number#
 @returns {Number} This number as an amount of rotations
 ###
-Object.defineProperty Number::, 'rotations',
-  get: -> 
-    @ * Math.TAU
-Object.defineProperty Number::, 'rotation',
-  get: -> 
-    @ * Math.TAU
+unless 5.rotations
+  Object.defineProperty Number::, 'rotations',
+    get: -> 
+      this * Math.TAU
+
+unless 1.rotation
+  Object.defineProperty Number::, 'rotation',
+    get: -> 
+      this * Math.TAU
 
 ###*
 Utility method to convert a number to an amount of degrees.
@@ -457,12 +463,15 @@ I.rotation = 90.degrees
 @propertyOf Number#
 @returns {Number} This number as an amount of degrees
 ###
-Object.defineProperty Number::, 'degrees',
-  get: -> 
-    @ * Math.TAU / 360
-Object.defineProperty Number::, 'degree',
-  get: -> 
-    @ * Math.TAU / 360
+unless 2.degrees
+  Object.defineProperty Number::, 'degrees',
+    get: -> 
+      this * Math.TAU / 360
+
+unless 1.degree
+  Object.defineProperty Number::, 'degree',
+    get: -> 
+      this * Math.TAU / 360
 
 ###* 
 The mathematical circle constant of 1 turn.
