@@ -8,7 +8,7 @@ Calculate the average value of an array.
 
 @name average
 @methodOf Array#
-@returns {Number} The average (arithmetic mean) of the list o.
+@returns {Number} The average (arithmetic mean) of the list of numbers.
 ###
 Array::average = ->
   @sum()/@length
