@@ -6,7 +6,7 @@ Calculate the average value of an array.
 # => 4
 </pre></code>
 
-@name compact
+@name average
 @methodOf Array#
 @returns {Array} A new array that contains only the non-null values.
 ###
