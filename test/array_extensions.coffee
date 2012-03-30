@@ -1,7 +1,7 @@
 module "Array"
 
 test "#average", ->
-
+  []
 
 test "#compact", ->
   a = [0, 1, undefined, 2, null, 3, '', 4]
