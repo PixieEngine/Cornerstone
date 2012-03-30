@@ -1,4 +1,4 @@
-Array::average
+Array::average = ->
 
 ###*
 Returns a copy of the array without null and undefined values.
