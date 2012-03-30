@@ -1,7 +1,7 @@
 module "Array"
 
 test "#average", ->
-  e[1, 3, 5, 7].average()
+  equals, [1, 3, 5, 7].average()
 
 test "#compact", ->
   a = [0, 1, undefined, 2, null, 3, '', 4]
