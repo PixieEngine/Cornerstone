@@ -1,5 +1,5 @@
 ###*
-Calculate the a
+Calculate the average value
 
 <code><pre>
 [null, undefined, 3, 3, undefined, 5].compact()
