@@ -1,5 +1,5 @@
 ###*
-Calculate the average value of an arr
+Calculate the average value of an array.
 
 <code><pre>
 [null, undefined, 3, 3, undefined, 5].compact()
