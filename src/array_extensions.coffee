@@ -8,7 +8,7 @@ Calculate the average value of an array.
 
 @name average
 @methodOf Array#
-@returns {Number} A new array that contains only the non-null values.
+@returns {Number} The ari.
 ###
 Array::average = ->
   @sum()/@length
