@@ -1,5 +1,5 @@
 ###*
-Returns a copy of the array without null and undefined values.
+Calcu
 
 <code><pre>
 [null, undefined, 3, 3, undefined, 5].compact()
