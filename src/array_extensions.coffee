@@ -1,5 +1,5 @@
 ###*
-Calculate the aerage 
+Calculate the a
 
 <code><pre>
 [null, undefined, 3, 3, undefined, 5].compact()
