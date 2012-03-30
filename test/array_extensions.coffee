@@ -1,6 +1,6 @@
 module "Array"
 
-test ""
+test "#aver"
 
 test "#compact", ->
   a = [0, 1, undefined, 2, null, 3, '', 4]
