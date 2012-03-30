@@ -3,7 +3,7 @@ Calculate the average value of an array.
 
 <code><pre>
 [1, 3, 5, 7].average()
-# => [3, 3, 5]
+# => 4
 </pre></code>
 
 @name compact
