@@ -2,7 +2,7 @@
 Calculate the average value of an array.
 
 <code><pre>
-[1].average()
+[1, 3, ].average()
 # => [3, 3, 5]
 </pre></code>
 
