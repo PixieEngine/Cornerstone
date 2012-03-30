@@ -1,5 +1,5 @@
 ###*
-Calculate the average value of an array.
+Calculate the average value of an array. Re
 
 <code><pre>
 [1, 3, 5, 7].average()
