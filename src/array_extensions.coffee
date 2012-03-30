@@ -1,6 +1,6 @@
 ###*
 Calculate the average value of an array. Returns undefined if some elements
-are no
+are not numbers
 
 <code><pre>
 [1, 3, 5, 7].average()
