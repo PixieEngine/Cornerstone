@@ -1,5 +1,5 @@
 Array::average = ->
-  @sum()/@leng
+  @sum()/@length
 
 ###*
 Returns a copy of the array without null and undefined values.
