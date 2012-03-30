@@ -1,3 +1,4 @@
+
 Array::average = ->
   @sum()/@length
 
