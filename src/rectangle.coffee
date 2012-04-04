@@ -43,7 +43,7 @@
       x: x || 0
       y: y || 0
 
-      halfWidth: width || 0
+      halfWidth: halfWidth || 0
       halfHeight: halfHeight || 0
     } 
 
