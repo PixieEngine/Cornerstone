@@ -31,6 +31,7 @@ test "#once", ->
   onceScore()
   onceScore()
 
+  expect
 
 test "#returning", ->
   x = 0
