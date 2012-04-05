@@ -1,3 +1,5 @@
+Function
+
 Function::withBefore = (interception) -> 
   method = this
   () ->
