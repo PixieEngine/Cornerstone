@@ -6,7 +6,7 @@ Function::once = ->
     return memo if ran
     ran = true
 
-    return memo = this.apply(thisarguments)
+    return memo = this.apply(this, arguments)
 
 Function::withBefore = (interception) -> 
   method = this
