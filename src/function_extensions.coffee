@@ -1,4 +1,4 @@
-Function::once = (function)->
+Function::once = ->
   _.once = function(func) {
     var ran = false, memo;
     return function() {
