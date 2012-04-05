@@ -1,6 +1,7 @@
 Function::once = ->
   ran = false
 
+
   _.once = function(func) {
     var ran = false, memo;
     return function() {
