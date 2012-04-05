@@ -6,7 +6,7 @@ Function::once = ->
     return memo if ran
     ran = true
 
-    return memo = this.apply()
+    return memo = this.apply(this, arguments)
 
   _.once = function(func) {
     var ran = false, memo;
