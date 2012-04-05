@@ -1,4 +1,4 @@
-Function::once 
+Function::once = ->
 
 Function::withBefore = (interception) -> 
   method = this
