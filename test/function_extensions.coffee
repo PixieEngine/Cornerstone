@@ -23,7 +23,7 @@ test "#before and #after", ->
 
 test "#once", ->
   onceScore = ->
-
+    ( ->
 
 test "#returning", ->
   x = 0
