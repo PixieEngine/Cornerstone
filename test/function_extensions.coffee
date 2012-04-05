@@ -22,7 +22,7 @@ test "#before and #after", ->
   ok calledAfter, "Called after"
 
 test "#once", ->
-
+  onc
 
 test "#returning", ->
   x = 0
