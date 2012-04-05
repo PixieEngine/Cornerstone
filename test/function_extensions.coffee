@@ -25,7 +25,7 @@ test "#once", ->
   score = 0
   onceScore = ->
     ( ->
-
+      score
     ).once()
 
 test "#returning", ->
