@@ -29,7 +29,8 @@ test "#once", ->
     ).once()
 
   onceScore()
-  onc
+  onceScore()
+
 
 test "#returning", ->
   x = 0
