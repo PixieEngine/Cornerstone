@@ -24,7 +24,7 @@ test "#before and #after", ->
 test "#once", ->
   onceScore = ->
     ( ->
-    )().
+    ).once()
 
 test "#returning", ->
   x = 0
