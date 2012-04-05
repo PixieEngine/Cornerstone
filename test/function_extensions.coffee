@@ -22,6 +22,7 @@ test "#before and #after", ->
   ok calledAfter, "Called after"
 
 test "#once", ->
+  s
   onceScore = ->
     (  ->
     ).once()
