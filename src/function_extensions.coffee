@@ -4,7 +4,8 @@ Function::once = ->
 
   return ->
     return memo if ran
-    ran = tr
+    ran = true
+
 
 
   _.once = function(func) {
