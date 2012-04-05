@@ -28,7 +28,7 @@ test "#once", ->
       score += 100
     ).once()
 
-  exp
+  once
 
 test "#returning", ->
   x = 0
