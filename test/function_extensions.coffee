@@ -27,7 +27,7 @@ test "#once", ->
   addScore = ->
     score += 100
 
-  onceScore = score.once()
+  onceScore = addScore.once()
 
   onceScore()
   onceScore()
