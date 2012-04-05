@@ -31,7 +31,7 @@ test "#once", ->
   onceScore()
   onceScore()
 
-  equals soc
+  equals score, 100
 
 test "#returning", ->
   x = 0
