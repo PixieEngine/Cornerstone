@@ -2,7 +2,7 @@ Function::once = ->
   ran = false
   memo = undefined
 
-  return
+  return ->
 
   _.once = function(func) {
     var ran = false, memo;
