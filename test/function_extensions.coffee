@@ -30,8 +30,7 @@ test "#once", ->
   onceScore = addScore.once()
 
   100.times ->
-  onceScore()
-  onceScore()
+    onceScore()
 
   equals score, 100
 
