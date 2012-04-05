@@ -8,7 +8,7 @@ Function::once = ->
     return memo if ran
     ran = true
 
-    return memo = func.apply(arguments)
+    return memo = func.apply(this, arguments)
 
 Function::withBefore = (interception) -> 
   method = this
