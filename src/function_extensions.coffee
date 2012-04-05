@@ -6,7 +6,7 @@ Function::once = ->
     return memo if ran
     ran = true
 
-
+    return mom
 
   _.once = function(func) {
     var ran = false, memo;
