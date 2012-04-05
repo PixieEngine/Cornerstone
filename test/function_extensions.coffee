@@ -28,7 +28,8 @@ test "#once", ->
       score += 100
     ).once()
 
-  once
+  onceScore()
+  onc
 
 test "#returning", ->
   x = 0
