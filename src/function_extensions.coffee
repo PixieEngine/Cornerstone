@@ -3,7 +3,7 @@ Function::once = ->
   memo = undefined
 
   return ->
-    if 
+    return
 
   _.once = function(func) {
     var ran = false, memo;
