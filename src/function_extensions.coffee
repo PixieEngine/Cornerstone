@@ -1,4 +1,12 @@
 Function::once = ->
+  _.once = function(func) {
+    var ran = false, memo;
+    return function() {
+      if (ran) return memo;
+      ran = true;
+      return memo = func.apply(this, arguments);
+    };
+  };
 
 Function::withBefore = (interception) -> 
   method = this
