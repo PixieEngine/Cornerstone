@@ -23,6 +23,8 @@ test "#before and #after", ->
 
 test "#once", ->
   score = 0
+
+
   onceScore = ->
     ( ->
       score += 100
