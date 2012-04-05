@@ -1,4 +1,6 @@
 Function::once = ->
+  func = this
+
   ran = false
   memo = undefined
 
