@@ -21,7 +21,8 @@ test "#before and #after", ->
   testFn()
   ok calledAfter, "Called after"
 
-test "#once", -  
+test "#once", ->
+
 
 test "#returning", ->
   x = 0
