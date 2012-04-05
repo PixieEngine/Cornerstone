@@ -21,6 +21,8 @@ test "#before and #after", ->
   testFn()
   ok calledAfter, "Called after"
 
+
+
 test "#returning", ->
   x = 0
   sideEffectsAdd = (a) ->
