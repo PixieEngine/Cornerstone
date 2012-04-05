@@ -24,7 +24,8 @@ test "#before and #after", ->
 test "#once", ->
   score = 0
 
-  addScore = 
+  addScore = ->
+
 
   onceScore = ->
     ( ->
