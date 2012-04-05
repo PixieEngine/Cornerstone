@@ -1,6 +1,6 @@
 Function::once = ->
   ran = false
-
+  memo = null
 
   _.once = function(func) {
     var ran = false, memo;
