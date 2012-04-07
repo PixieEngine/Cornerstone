@@ -104,6 +104,10 @@ test "#degrees", ->
 test "#rotations", ->
   equals 1.rotation, Math.TAU
   equals 0.5.rotations, Math.TAU / 2
+  
+test "#rotations", ->
+  equals 1.rotation, Math.TAU
+  equals 0.5.rotations, Math.TAU / 2
 
 module undefined
 
