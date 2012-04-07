@@ -468,7 +468,7 @@ unless 5.rotations
     get: -> 
       this * Math.TAU
 
-unless 1.rotation
+unless 1.turn
   Object.defineProperty Number::, 'rotation',
     get: -> 
       this * Math.TAU
