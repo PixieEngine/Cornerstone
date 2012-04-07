@@ -453,7 +453,7 @@ unless 1.rotation
 Utility method to convert a number to an amount of rotations.
 
 <code><pre>
-0.5.rotations
+0.5.turns
 # => 3.141592653589793
 
 I.rotation = 0.25.rotations
