@@ -463,8 +463,8 @@ I.rotation = 0.25.rotations
 @propertyOf Number#
 @returns {Number} This number as an amount of rotations
 ###
-unless 5.rotations
-  Object.defineProperty Number.prototype, 'rotations',
+unless 5.turns
+  Object.defineProperty Number.prototype, 'turns',
     get: -> 
       this * Math.TAU
 
