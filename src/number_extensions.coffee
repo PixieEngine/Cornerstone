@@ -458,7 +458,7 @@ Utility method to convert a number to an amount of rotations.
 
 I.rotation = 0.25.turns
 
-1.rotation # => Math.TAU (aka 2 * Math.PI)
+1.turn # => Math.TAU (aka 2 * Math.PI)
 </pre></code>
 
 @name turns
