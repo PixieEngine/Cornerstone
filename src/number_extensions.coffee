@@ -450,6 +450,29 @@ unless 1.rotation
       this * Math.TAU
 
 ###*
+Utility method to convert a number to an amount of rotations.
+
+<code><pre>
+0.5.rotations
+# => 3.141592653589793
+
+I.rotation = 0.25.rotations
+</pre></code>
+
+@name rotations
+@propertyOf Number#
+@returns {Number} This number as an amount of rotations
+###
+unless 5.rotations
+  Object.defineProperty Number::, 'rotations',
+    get: -> 
+      this * Math.TAU
+
+unless 1.rotation
+  Object.defineProperty Number::, 'rotation',
+    get: -> 
+      this * Math.TAU
+###*
 Utility method to convert a number to an amount of degrees.
 
 <code><pre>
