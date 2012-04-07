@@ -463,7 +463,7 @@ I.rotation = 0.25.turns
 
 @name turns
 @propertyOf Number#
-@returns {Number} This number as an amount of rotations
+@returns {Number} This number as an amount of rotation. 1 turn is o
 ###
 unless 5.turns
   Object.defineProperty Number.prototype, 'turns',
