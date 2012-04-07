@@ -459,7 +459,7 @@ Utility method to convert a number to an amount of rotations.
 I.rotation = 0.25.rotations
 </pre></code>
 
-@name rotations
+@name turns
 @propertyOf Number#
 @returns {Number} This number as an amount of rotations
 ###
