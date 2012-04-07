@@ -472,6 +472,7 @@ unless 1.rotation
   Object.defineProperty Number::, 'rotation',
     get: -> 
       this * Math.TAU
+      
 ###*
 Utility method to convert a number to an amount of degrees.
 
