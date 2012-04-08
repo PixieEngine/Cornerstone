@@ -153,3 +153,5 @@ Core = (I={}) ->
     include: (modules...) ->
       for Module in modules
         self.extend Module(I, self)
+        
+      return self
