@@ -625,6 +625,8 @@
       sumPoint.add(point)
     .scale(1/points.length)
 
+  Point.random = ->
+    
   ###*
   @name ZERO
   @fieldOf Point
