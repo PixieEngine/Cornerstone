@@ -628,6 +628,7 @@
   ###*
   Generate a random point on the unit circle.
 
+  
   ###
   Point.random = ->
     
