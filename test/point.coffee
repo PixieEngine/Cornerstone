@@ -165,6 +165,8 @@
   test ".random", ->
     p = Point.random()
 
+    ok p
+
   test ".interpolate", ->
     p1 = Point(10, 7)
     p2 = Point(-6, 29)
