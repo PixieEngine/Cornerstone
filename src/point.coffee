@@ -628,7 +628,7 @@
   ###*
   Generate a random point on the unit circle.
 
-  @returns {Point}
+  @returns {Point} A random point 
   ###
   Point.random = ->
     Point.fromAngle(Random.angle())
