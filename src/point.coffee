@@ -50,7 +50,7 @@
       @copy().clamp()
 
     clamp$: (n) ->
-      i
+      if
       
     ###*
     Creates a copy of this point.
