@@ -140,7 +140,7 @@
     ok eval(p.toString()).equal(p)
     
   test "#clamp", ->
-    
+    p
 
   test ".centroid", ->
     centroid = Point.centroid(
