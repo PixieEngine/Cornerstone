@@ -58,5 +58,4 @@ test "#include multiple", ->
   
   equals o.test2, "coolio"
 
-module()
-
+module undefi
