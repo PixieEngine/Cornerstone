@@ -47,7 +47,8 @@
 
     ###
     clamp: ->
-      
+      @copy().clamp()
+
     clamp$: ->
       
     ###*
