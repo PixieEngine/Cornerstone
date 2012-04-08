@@ -141,7 +141,7 @@
     
   test "#clamp", ->
     p = Point(10, 10)
-    p.clamp()
+    p2p.clamp(5)
 
   test ".centroid", ->
     centroid = Point.centroid(
