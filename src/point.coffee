@@ -625,6 +625,7 @@
       sumPoint.add(point)
     .scale(1/points.length)
 
+  ###
   Point.random = ->
     
   ###*
