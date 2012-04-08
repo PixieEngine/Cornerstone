@@ -626,7 +626,7 @@
     .scale(1/points.length)
 
   ###*
-  
+  Generate a random point
   ###
   Point.random = ->
     
