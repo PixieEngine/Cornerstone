@@ -51,7 +51,7 @@
 
     clamp$: (n) ->
       if @magnitude() > n
-        norm
+        @norm$(n)
       
     ###*
     Creates a copy of this point.
