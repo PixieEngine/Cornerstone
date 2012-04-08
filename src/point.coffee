@@ -628,7 +628,7 @@
   ###*
   Generate a random point on the unit circle.
 
-  
+  @returns {Point}
   ###
   Point.random = ->
     
