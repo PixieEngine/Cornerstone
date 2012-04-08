@@ -143,7 +143,7 @@
     p = Point(10, 10)
     p2 = p.clamp(5)
     
-    e
+    equals
 
   test ".centroid", ->
     centroid = Point.centroid(
