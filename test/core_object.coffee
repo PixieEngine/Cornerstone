@@ -51,7 +51,7 @@ test "#include multiple", ->
 
     test2: "cool"
     
-  M2
+  M2 = 
 
   o.include M, M2
 
