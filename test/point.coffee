@@ -138,6 +138,8 @@
   test "#toString", ->
     p = Point(7, 5)
     ok eval(p.toString()).equal(p)
+    
+  test "
 
   test ".centroid", ->
     centroid = Point.centroid(
