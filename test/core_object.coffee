@@ -52,8 +52,6 @@ test "#include multiple", ->
     test2: "cool"
     
   M2 = (I, self) ->
-    self.attrReader "test"
-
     test2: "cool"
 
   o.include M, M2
