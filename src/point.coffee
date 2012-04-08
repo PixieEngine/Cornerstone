@@ -48,7 +48,8 @@
     ###
     clamp: ->
       
-    clamp
+    clamp$: ->
+      
     ###*
     Creates a copy of this point.
 
