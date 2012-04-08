@@ -44,10 +44,10 @@
 
   Point:: =
     ###*
-
+    
     ###
     clamp: (n) ->
-      @copy().clamp*()
+      @copy().clamp$()
 
     clamp$: (n) ->
       if @magnitude() > n
