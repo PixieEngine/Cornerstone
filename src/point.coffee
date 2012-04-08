@@ -44,6 +44,7 @@
 
   Point:: =
     ###*
+
     ###
     ###*
     Creates a copy of this point.
