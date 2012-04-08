@@ -50,9 +50,8 @@
       @copy().clamp()
 
     clamp$: (n) ->
-      if @magnitude() > n
-        @norm$(n)
-      
+      @norm$(n) if @magnitude() > n
+
     ###*
     Creates a copy of this point.
 
