@@ -44,7 +44,8 @@
 
   Point:: =
     ###*
-    @nam
+    @name clamp
+  
     ###
     clamp: (n) ->
       @copy().clamp$()
