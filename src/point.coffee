@@ -626,7 +626,8 @@
     .scale(1/points.length)
 
   ###*
-  Generate a random point
+  Generate a random point on the unit circle.
+
   ###
   Point.random = ->
     
