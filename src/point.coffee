@@ -46,7 +46,7 @@
     ###*
     @name clamp
     @methodOf Point#
-    @param n
+    @param {Number} n V
     @returns {Point} A new point whose magnitude has been clamped to the given value.
     ###
     clamp: (n) ->
