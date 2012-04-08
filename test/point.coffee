@@ -163,7 +163,7 @@
     equals p.y, 1
     
   test ".random", ->
-    
+    p = Point.random
 
   test ".interpolate", ->
     p1 = Point(10, 7)
