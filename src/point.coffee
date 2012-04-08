@@ -46,7 +46,7 @@
     ###*
     @name clamp
     @methodOf Point#
-    @r
+    @returns {Point} A new point 
     ###
     clamp: (n) ->
       @copy().clamp$()
