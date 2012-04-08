@@ -44,7 +44,7 @@
 
   Point:: =
     ###*
-    
+    Constrain the 
 
     @name clamp
     @methodOf Point#
