@@ -51,10 +51,7 @@ test "#include multiple", ->
 
     test2: "cool"
 
-  o.include M
-
-  equals o.test(), "my_val"
-  equals o.test2, "cool"
+  o.include M, M2
 
 module()
 
