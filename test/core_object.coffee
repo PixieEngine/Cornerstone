@@ -43,7 +43,18 @@ test "#include", ->
   equals o.test2, "cool"
   
 test "#include multiple", ->
-  
+    o = Core
+    test: "my_val"
+
+  M = (I, self) ->
+    self.attrReader "test"
+
+    test2: "cool"
+
+  o.include M
+
+  equals o.test(), "my_val"
+  equals o.test2, "cool"
 
 module()
 
