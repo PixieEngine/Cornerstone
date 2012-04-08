@@ -631,7 +631,7 @@
   @returns {Point}
   ###
   Point.random = ->
-    Point.fromAngle
+    Point.fromAngle()
   ###*
   @name ZERO
   @fieldOf Point
