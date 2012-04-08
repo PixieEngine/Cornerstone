@@ -39,7 +39,7 @@ test "#include", ->
 
   ret = o.include M
   
-  equals ret, 
+  equals ret, o
 
   equals o.test(), "my_val"
   equals o.test2, "cool"
