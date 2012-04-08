@@ -44,7 +44,7 @@
 
   Point:: =
     ###*
-    Constrain the magnitude of a 
+    Constrain the magnitude of a vector.
 
     @name clamp
     @methodOf Point#
