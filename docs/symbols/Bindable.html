@@ -5,7 +5,7 @@
     <meta name="generator" content="JsDoc Toolkit" />
     
     <title>JsDoc Reference - Bindable</title>
-    <link href="/stylesheets/docs.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/assets/docs.css" type="text/css" rel="stylesheet" media="all" />
   </head>
 
   <body>
@@ -245,12 +245,12 @@ player.bind "update", ->
 
                 <div class="description">
                   The bind method adds a function as an event listener.
-
+    
     <code><pre>
     # this will call coolEventHandler after
     # yourObject.trigger "someCustomEvent" is called.
     yourObject.bind "someCustomEvent", coolEventHandler
-
+    
     #or
     yourObject.bind "anotherCustomEvent", ->
       doSomething()
@@ -294,7 +294,7 @@ player.bind "update", ->
 
                 <div class="description">
                   The trigger method calls all listeners attached to the specified event.
-
+    
     <code><pre>
     # calls each event handler bound to "someCustomEvent"
     yourObject.trigger "someCustomEvent"
@@ -338,12 +338,12 @@ player.bind "update", ->
                 <div class="description">
                   The unbind method removes a specific event listener, or all event listeners if
     no specific listener is given.
-
+    
     <code><pre>
     #  removes the handler coolEventHandler from the event
     # "someCustomEvent" while leaving the other events intact.
     yourObject.unbind "someCustomEvent", coolEventHandler
-
+    
     # removes all handlers attached to "anotherCustomEvent" 
     yourObject.unbind "anotherCustomEvent"
     </pre></code>
