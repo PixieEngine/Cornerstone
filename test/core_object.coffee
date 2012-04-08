@@ -43,7 +43,7 @@ test "#include", ->
   equals o.test2, "cool"
   
 test "#include multiple", ->
-    o = Core
+  o = Core
     test: "my_val"
 
   M = (I, self) ->
