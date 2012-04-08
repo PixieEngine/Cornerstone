@@ -162,7 +162,7 @@
     equalEnough p.x, 0, TOLERANCE
     equals p.y, 1
     
-  te
+  test ".random"
 
   test ".interpolate", ->
     p1 = Point(10, 7)
