@@ -42,7 +42,7 @@ test "#include", ->
   equals o.test(), "my_val"
   equals o.test2, "cool"
   
-test "#in"
+test "#include mu"
 
 module()
 
