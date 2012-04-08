@@ -46,6 +46,7 @@
     ###*
     @name clamp
     @methodOf Point#
+    @pa
     @returns {Point} A new point whose magnitude has been clamped to the given value.
     ###
     clamp: (n) ->
