@@ -46,7 +46,7 @@
     ###*
     @name clamp
     @methodOf Point#
-    @param {Number} n Maximum value for magnitude
+    @param {Number} n Maximum value for magnitude.
     @returns {Point} A new point whose magnitude has been clamped to the given value.
     ###
     clamp: (n) ->
