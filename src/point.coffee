@@ -44,6 +44,8 @@
 
   Point:: =
     ###*
+    
+
     @name clamp
     @methodOf Point#
     @param {Number} n Maximum value for magnitude.
