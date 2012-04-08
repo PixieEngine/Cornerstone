@@ -46,7 +46,7 @@
     ###*
     @name clamp
     @methodOf Point#
-    @returns {Point} A new point whose magnitude has been clamped to the given value
+    @returns {Point} A new point whose magnitude has been clamped to the given value.
     ###
     clamp: (n) ->
       @copy().clamp$()
