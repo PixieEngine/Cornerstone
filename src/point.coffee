@@ -49,7 +49,8 @@
     clamp: (n) ->
       @copy().clamp()
 
-    clamp$: () ->
+    clamp$: (n) ->
+      i
       
     ###*
     Creates a copy of this point.
