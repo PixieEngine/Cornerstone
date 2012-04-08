@@ -39,7 +39,7 @@ test "#include", ->
 
   ret = o.include M
 
-  equals ret, o, "Should return lef"
+  equals ret, o, "Should return self"
 
   equals o.test(), "my_val"
   equals o.test2, "cool"
