@@ -44,7 +44,7 @@
 
   Point:: =
     ###*
-    Constrain the m
+    Constrain the magnitude 
 
     @name clamp
     @methodOf Point#
