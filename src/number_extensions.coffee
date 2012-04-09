@@ -72,7 +72,8 @@ Returns this number rounded to the nearest integer.
 ###
 Number::round = ->
   Math.round(this)
-  
+
+##
 Number::circularPoints = (n, block) ->
   n.times (i) ->
     block(Point.fromAngle((i/n).turns))
