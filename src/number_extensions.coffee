@@ -77,6 +77,8 @@ Number::round = ->
 
 <code><pre>
 4.circularPoints (p) ->
+
+# p get
 </pre></code>
 
 @name circularPoint
