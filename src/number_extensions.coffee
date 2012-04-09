@@ -75,7 +75,7 @@ Number::round = ->
 
 ###*
 @name circularPoint
-@method
+@methodOf Number
 ###
 Number::circularPoints = (block) ->
   n = this
