@@ -111,7 +111,7 @@ test "#turns", ->
   
 test "#circularPoints", ->
   points = [
-    Point
+    Point()
   ]
   4.circularPoints (p) ->
     
