@@ -74,6 +74,7 @@ Number::round = ->
   Math.round(this)
 
 ###*
+Get a bunch o
 
 <code><pre>
 4.circularPoints (p) ->
