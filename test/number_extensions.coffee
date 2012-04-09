@@ -122,7 +122,7 @@ test "#circularPoints", ->
   ]
 
   4.circularPoints (p, i) ->
-    equalEnough p.x, points[i].x, 000 "#{p.x} == #{points[i].x}"
-    equalEnough p.y, points[i].y, "#{p.y} == #{points[i].y}"
+    equalEnough p.x, points[i].x, 0.001 "#{p.x} == #{points[i].x}"
+    equalEnough p.y, points[i].y, 00"#{p.y} == #{points[i].y}"
 
 module undefined
