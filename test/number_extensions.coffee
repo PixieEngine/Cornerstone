@@ -114,6 +114,6 @@ test "#circularPoints", ->
     Point()
   ]
   4.circularPoints (p, i) ->
-    
+    points[i]
 
 module undefined
