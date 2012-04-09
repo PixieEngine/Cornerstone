@@ -73,7 +73,7 @@ Returns this number rounded to the nearest integer.
 Number::round = ->
   Math.round(this)
   
-Number::circularPoints = (n, ) ->
+Number::circularPoints = (n, block) ->
   n.times
 
 ###*
