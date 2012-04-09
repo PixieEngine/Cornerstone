@@ -108,5 +108,7 @@ test "#rotations", ->
 test "#turns", ->
   equals 1.turn, Math.TAU
   equals 0.5.turns, Math.TAU / 2
+  
+test "circul"
 
 module undefined
