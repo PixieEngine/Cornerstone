@@ -112,7 +112,8 @@ test "#turns", ->
 test "#circularPoints", ->
   points = [
     Point(1, 0)
-    P
+    Point(0, 1)
+    Point(-1)
   ]
   4.circularPoints (p, i) ->
     ok p.equals(points[i])
