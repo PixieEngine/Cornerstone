@@ -75,7 +75,7 @@ Number::round = ->
   
 Number::circularPoints = (n, block) ->
   n.times (i) ->
-    block(Point.fromAngle((i/n)))
+    block(Point.fromAngle((i/n).turns))
 
 ###*
 Returns a number whose value is limited to the given range.
