@@ -74,6 +74,7 @@ Number::round = ->
   Math.round(this)
 
 ###*
+
 ###
 Number::circularPoints = (n, block) ->
   n.times (i) ->
