@@ -12,4 +12,8 @@ test "Global rand", ->
   f = rand();
   ok(f <= 1 || f >= 0, "rand() gives numbers between 0 and 1")
 
+test ".angleBetween", ->
+  ok Random.angleBetween
+
+  Random.angleBetween 0.25
 module()

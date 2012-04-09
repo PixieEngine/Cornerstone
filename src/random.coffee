@@ -15,6 +15,16 @@
       rand() * Math.TAU
 
     ###*
+    Returns a random angle between the given angles.
+
+    @name angleBetween
+    @methodOf Random
+    @returns {Number} A random angle between the angles given.
+    ###
+    angleBetween: (min, max) ->
+      rand() * (max - min) + min
+
+    ###*
     Returns a random color.
 
     @name color
