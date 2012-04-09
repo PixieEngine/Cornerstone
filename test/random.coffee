@@ -15,5 +15,6 @@ test "Global rand", ->
 test ".angleBetween", ->
   ok Random.angleBetween
 
-  Random.angleBetween 0.25.turns, 0.5
+  ok Random.angleBetween(0.25.turns, 0.5.turns)
+
 module()
