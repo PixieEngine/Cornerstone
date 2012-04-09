@@ -16,6 +16,6 @@ test ".angleBetween", ->
   ok Random.angleBetween
 
   a = Random.angleBetween(0.25.turns, 0.5.turns)
-  ok a
+  ok a <
 
 module()
