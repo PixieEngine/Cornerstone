@@ -73,8 +73,8 @@ Returns this number rounded to the nearest integer.
 Number::round = ->
   Math.round(this)
   
-Number::circularPoints = (n) ->
-  n.t
+Number::circularPoints = (n, ) ->
+  n.times
 
 ###*
 Returns a number whose value is limited to the given range.
