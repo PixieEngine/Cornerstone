@@ -118,6 +118,6 @@ test "#circularPoints", ->
   ]
 
   4.circularPoints (p, i) ->
-    ok p.equal(points[i])
+    ok p.equal(points[i]), "#{p}"
 
 module undefined
