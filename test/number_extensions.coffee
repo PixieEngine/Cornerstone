@@ -1,3 +1,5 @@
+
+
 module "Number"
 
 test "#abs", ->
