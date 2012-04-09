@@ -73,7 +73,7 @@ Returns this number rounded to the nearest integer.
 Number::round = ->
   Math.round(this)
   
-Number::circ
+Number::circularPoin
 
 ###*
 Returns a number whose value is limited to the given range.
