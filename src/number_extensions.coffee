@@ -76,7 +76,7 @@ Number::round = ->
 ###*
 
 <code><pre>
-4.circularPoints
+4.circularPoints ->
 </pre></code>
 
 @name circularPoint
