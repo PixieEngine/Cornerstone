@@ -74,7 +74,7 @@ Number::round = ->
   Math.round(this)
 
 ###*
-Get a bunch of points equally spaced 
+Get a bunch of points equally spaced around the un
 
 <code><pre>
 4.circularPoints (p) ->
