@@ -1,4 +1,6 @@
-
+  equalEnough = (expected, actual, tolerance, message) ->
+    message ||= "" + expected + " within " + tolerance + " of " + actual
+    ok(expected + tolerance >= actual && expected - tolerance <= actual, message)
 
 module "Number"
 
