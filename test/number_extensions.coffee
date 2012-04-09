@@ -110,7 +110,7 @@ test "#turns", ->
   equals 0.5.turns, Math.TAU / 2
   
 test "#circularPoints", ->
-  p
+  points = []
   4.circularPoints (p) ->
     
 
