@@ -75,6 +75,13 @@ Number::round = ->
 
 ###*
 
+<code><pre>
+4.5.round()
+# => 5
+
+4.4.round()
+# => 4
+</pre></code>
 
 @name circularPoint
 @methodOf Number#
