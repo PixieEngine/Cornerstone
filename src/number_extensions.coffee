@@ -90,7 +90,7 @@ Number::circularPoints = (block) ->
   n = this
 
   n.times (i) ->
-    block(Point.fromAngle((i/n).turns))
+    block(Point.fromAngle((i/n).turns), i)
 
 ###*
 Returns a number whose value is limited to the given range.
