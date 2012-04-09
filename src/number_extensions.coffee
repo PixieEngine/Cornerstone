@@ -72,6 +72,8 @@ Returns this number rounded to the nearest integer.
 ###
 Number::round = ->
   Math.round(this)
+  
+Number
 
 ###*
 Returns a number whose value is limited to the given range.
