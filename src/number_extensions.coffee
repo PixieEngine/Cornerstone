@@ -74,7 +74,7 @@ Number::round = ->
   Math.round(this)
   
 Number::circularPoints = (n) ->
-  
+  n.t
 
 ###*
 Returns a number whose value is limited to the given range.
