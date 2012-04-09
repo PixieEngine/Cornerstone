@@ -118,6 +118,6 @@ test "#circularPoints", ->
   ]
 
   4.circularPoints (p, i) ->
-    equal p.x.toFixed(2) .equal(points[i]), "#{p} == #{points[i]}"
+    equals p.x.toFixed(2) .equal(points[i]), "#{p} == #{points[i]}"
 
 module undefined
