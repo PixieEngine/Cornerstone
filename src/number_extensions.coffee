@@ -77,7 +77,8 @@ Number::round = ->
 @name circularPoint
 ###
 Number::circularPoints = (block) ->
-  n = 
+  n = this
+
   n.times (i) ->
     block(Point.fromAngle((i/n).turns))
 
