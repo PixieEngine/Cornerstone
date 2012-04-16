@@ -969,14 +969,6 @@ setUTCSeconds(<i>secondsValue</i>[, <em>msValue</em>])
 @methodOf Date#
 ###
 ###*
-Deprecated
-
-
-
-@name setYear
-@methodOf Date#
-###
-###*
 Returns the date portion of a Date object in human readable form in American
 English.
 
