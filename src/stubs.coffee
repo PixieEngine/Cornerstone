@@ -986,14 +986,6 @@ Returns a JSON representation of the Date object.
 @methodOf Date#
 ###
 ###*
-Deprecated
-
-
-
-@name toGMTString
-@methodOf Date#
-###
-###*
 Converts a date to a string, returning the "date" portion using the operating
 system's locale's conventions.
 
