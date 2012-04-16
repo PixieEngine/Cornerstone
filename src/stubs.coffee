@@ -1040,13 +1040,3 @@ Converts a date to a string, using the universal time convention.
 @name toUTCString
 @methodOf Date#
 ###
-###*
-Returns the primitive value of a Date object.
-
-<code>
-valueOf()
-</code>
-
-@name valueOf
-@methodOf Date#
-###
