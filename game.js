@@ -3207,12 +3207,6 @@ String.prototype.parseHex = function() {
 };
 ;
 /**
-Non-standard
-
-@name toSource
-@methodOf Boolean#
-*/
-/**
 Returns a string representing the specified Boolean object.
 
 <code><em>bool</em>.toString()</code>
@@ -3261,12 +3255,6 @@ Returns a string representing the Number object to the specified precision.
 <code><em>number</em>.toPrecision( [ <em>precision</em> ] )</code>
 @param precision An integer specifying the number of significant digits.
 @name toPrecision
-@methodOf Number#
-*/
-/**
-Non-standard
-
-@name toSource
 @methodOf Number#
 */
 /**
@@ -3354,14 +3342,6 @@ expression.
 @param regexp A regular expression object. If a non-RegExp object obj is passed,
 it is implicitly converted to a RegExp by using new RegExp(obj).
 @name match
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name quote
 @methodOf String#
 */
 /**
@@ -3470,14 +3450,6 @@ Returns the calling string value converted to lowercase.
 @methodOf String#
 */
 /**
-Non-standard
-
-
-
-@name toSource
-@methodOf String#
-*/
-/**
 Returns a string representing the specified object.
 
 <code><em>string</em>.toString()</code>
@@ -3502,131 +3474,11 @@ Removes whitespace from both ends of the string.
 @methodOf String#
 */
 /**
-Non-standard
-
-
-
-@name trimLeft
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name trimRight
-@methodOf String#
-*/
-/**
 Returns the primitive value of a String object.
 
 <code><em>string</em>.valueOf()</code>
 
 @name valueOf
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name anchor
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name big
-@methodOf String#
-*/
-/**
-Non-standard
-
-<code>BLINK</code>
-
-@name blink
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name bold
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name fixed
-@methodOf String#
-*/
-/**
-Non-standard
-
-<code>&lt;FONT COLOR="<i>color</i>"&gt;</code>
-
-@name fontcolor
-@methodOf String#
-*/
-/**
-Non-standard
-
-<code>&lt;FONT SIZE="<i>size</i>"&gt;</code>
-
-@name fontsize
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name italics
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name link
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name small
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name strike
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name sub
-@methodOf String#
-*/
-/**
-Non-standard
-
-
-
-@name sup
 @methodOf String#
 */
 /**
@@ -3735,14 +3587,6 @@ offset from the end of the sequence. slice(2,-1) extracts the third element
 through the second-to-last element in the sequence.If end is omitted, slice
 extracts to the end of the sequence.
 @name slice
-@methodOf Array#
-*/
-/**
-Non-standard
-
-
-
-@name toSource
 @methodOf Array#
 */
 /**
@@ -3905,14 +3749,6 @@ executes.
 @methodOf Function#
 */
 /**
-Non-standard
-
-
-
-@name toSource
-@methodOf Function#
-*/
-/**
 Returns a string representing the source code of the function.
 
 <code><em>function</em>.toString(<em>indentation</em>)</code>
@@ -3942,14 +3778,6 @@ string. Returns true or false.
 a literal.
 @param str  The string against which to match the regular expression.
 @name test
-@methodOf RegExp#
-*/
-/**
-Non-standard
-
-
-
-@name toSource
 @methodOf RegExp#
 */
 /**
@@ -4149,14 +3977,6 @@ getUTCSeconds()
 @methodOf Date#
 */
 /**
-Deprecated
-
-
-
-@name getYear
-@methodOf Date#
-*/
-/**
 Sets the day of the month for a specified date according to local time.
 
 <code> setDate(<em>dayValue</em>) </code>
@@ -4349,14 +4169,6 @@ setUTCSeconds(<i>secondsValue</i>[, <em>msValue</em>])
 @methodOf Date#
 */
 /**
-Deprecated
-
-
-
-@name setYear
-@methodOf Date#
-*/
-/**
 Returns the date portion of a Date object in human readable form in American
 English.
 
@@ -4374,14 +4186,6 @@ Returns a JSON representation of the Date object.
 @methodOf Date#
 */
 /**
-Deprecated
-
-
-
-@name toGMTString
-@methodOf Date#
-*/
-/**
 Converts a date to a string, returning the "date" portion using the operating
 system's locale's conventions.
 
@@ -4390,14 +4194,6 @@ toLocaleDateString()
 </code>
 
 @name toLocaleDateString
-@methodOf Date#
-*/
-/**
-Non-standard
-
-
-
-@name toLocaleFormat
 @methodOf Date#
 */
 /**
@@ -4417,14 +4213,6 @@ locale's conventions.
 <code> toLocaleTimeString() </code>
 
 @name toLocaleTimeString
-@methodOf Date#
-*/
-/**
-Non-standard
-
-
-
-@name toSource
 @methodOf Date#
 */
 /**
@@ -4450,16 +4238,6 @@ Converts a date to a string, using the universal time convention.
 <code> toUTCString() </code>
 
 @name toUTCString
-@methodOf Date#
-*/
-/**
-Returns the primitive value of a Date object.
-
-<code>
-valueOf()
-</code>
-
-@name valueOf
 @methodOf Date#
 */
 
