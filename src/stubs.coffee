@@ -385,14 +385,7 @@ extracts to the end of the sequence.
 @name slice
 @methodOf Array#
 ###
-###*
-Non-standard
 
-
-
-@name toSource
-@methodOf Array#
-###
 ###*
 Returns a string representing the specified array and its elements.
 
