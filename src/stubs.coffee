@@ -997,14 +997,6 @@ toLocaleDateString()
 @methodOf Date#
 ###
 ###*
-Non-standard
-
-
-
-@name toLocaleFormat
-@methodOf Date#
-###
-###*
 Converts a date to a string, using the operating system's locale's conventions.
 
 <code>
