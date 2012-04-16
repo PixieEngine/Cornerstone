@@ -545,14 +545,7 @@ executes.
 @name call
 @methodOf Function#
 ###
-###*
-Non-standard
 
-
-
-@name toSource
-@methodOf Function#
-###
 ###*
 Returns a string representing the source code of the function.
 
