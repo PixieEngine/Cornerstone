@@ -578,14 +578,7 @@ a literal.
 @name test
 @methodOf RegExp#
 ###
-###*
-Non-standard
 
-
-
-@name toSource
-@methodOf RegExp#
-###
 ###*
 Returns a string representing the specified object.
 
