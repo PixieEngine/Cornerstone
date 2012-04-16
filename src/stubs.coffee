@@ -49,12 +49,7 @@ Returns a string representing the Number object to the specified precision.
 @name toPrecision
 @methodOf Number#
 ###
-###*
-Non-standard
 
-@name toSource
-@methodOf Number#
-###
 ###*
 Returns a string representing the specified Number object
 
