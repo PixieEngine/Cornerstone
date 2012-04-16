@@ -282,22 +282,6 @@ Non-standard
 
 
 
-@name italics
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
-@name link
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
 @name small
 @methodOf String#
 ###
