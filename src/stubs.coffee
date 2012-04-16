@@ -1,10 +1,4 @@
 ###*
-Non-standard
-
-@name toSource
-@methodOf Boolean#
-###
-###*
 Returns a string representing the specified Boolean object.
 
 <code><em>bool</em>.toString()</code>
