@@ -268,22 +268,7 @@ Removes whitespace from both ends of the string.
 @name trim
 @methodOf String#
 ###
-###*
-Non-standard
 
-
-
-@name trimLeft
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
-@name trimRight
-@methodOf String#
-###
 ###*
 Returns the primitive value of a String object.
 
