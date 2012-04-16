@@ -280,14 +280,6 @@ Returns the primitive value of a String object.
 ###*
 Non-standard
 
-<code>BLINK</code>
-
-@name blink
-@methodOf String#
-###
-###*
-Non-standard
-
 
 
 @name bold
