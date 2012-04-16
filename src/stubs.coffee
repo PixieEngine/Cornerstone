@@ -280,14 +280,6 @@ Returns the primitive value of a String object.
 ###*
 Non-standard
 
-<code>&lt;FONT SIZE="<i>size</i>"&gt;</code>
-
-@name fontsize
-@methodOf String#
-###
-###*
-Non-standard
-
 
 
 @name italics
