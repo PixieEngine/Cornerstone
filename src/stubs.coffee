@@ -278,22 +278,6 @@ Returns the primitive value of a String object.
 @methodOf String#
 ###
 ###*
-Non-standard
-
-
-
-@name sub
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
-@name sup
-@methodOf String#
-###
-###*
 Removes the last element from an array and returns that element.
 
 <code>
