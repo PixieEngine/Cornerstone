@@ -243,14 +243,7 @@ Returns the calling string value converted to lowercase.
 @name toLowerCase
 @methodOf String#
 ###
-###*
-Non-standard
 
-
-
-@name toSource
-@methodOf String#
-###
 ###*
 Returns a string representing the specified object.
 
