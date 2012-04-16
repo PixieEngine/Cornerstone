@@ -1016,14 +1016,6 @@ locale's conventions.
 @methodOf Date#
 ###
 ###*
-Non-standard
-
-
-
-@name toSource
-@methodOf Date#
-###
-###*
 Returns a string representing the specified Date object.
 
 <code> toString() </code>
