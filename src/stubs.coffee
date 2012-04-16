@@ -282,22 +282,6 @@ Non-standard
 
 
 
-@name small
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
-@name strike
-@methodOf String#
-###
-###*
-Non-standard
-
-
-
 @name sub
 @methodOf String#
 ###
