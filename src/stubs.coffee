@@ -137,14 +137,7 @@ it is implicitly converted to a RegExp by using new RegExp(obj).
 @name match
 @methodOf String#
 ###
-###*
-Non-standard
 
-
-
-@name quote
-@methodOf String#
-###
 ###*
 Returns a new string with some or all matches of a pattern replaced by a
 replacement.  The pattern can be a string or a RegExp, and the replacement can
