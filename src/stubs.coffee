@@ -775,14 +775,7 @@ getUTCSeconds()
 @name getUTCSeconds
 @methodOf Date#
 ###
-###*
-Deprecated
 
-
-
-@name getYear
-@methodOf Date#
-###
 ###*
 Sets the day of the month for a specified date according to local time.
 
