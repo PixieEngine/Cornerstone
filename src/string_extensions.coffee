@@ -130,8 +130,8 @@ String::parse = () ->
     JSON.parse(this.toString())
   catch e
     this.toString()
-    
-String::startsWith
+
+String::startsWith = () ->
 
 ###*
 Returns a new string in Title Case.
