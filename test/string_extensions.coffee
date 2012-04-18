@@ -32,8 +32,8 @@ test "#parse", ->
   ok ''.parse() == '', "Empty string parses to exactly the empty string"
 
 test "#startsWith", ->
-  ok "cool".startsWit
-  
+  ok "cool".startsWith("coo")
+
 test "#titleize", ->
   equals "man from the boondocks".titleize(), "Man From The Boondocks"
   equals "x-men: the last stand".titleize(), "X Men: The Last Stand"
