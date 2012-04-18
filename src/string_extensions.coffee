@@ -132,7 +132,7 @@ String::parse = () ->
     this.toString()
 
 String::startsWith = (str) ->
-  this.lastIndexOf(str, 0) is 0
+  @lastIndexOf(str, 0) is 0
 
 ###*
 Returns a new string in Title Case.
