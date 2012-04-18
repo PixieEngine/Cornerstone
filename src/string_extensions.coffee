@@ -132,7 +132,7 @@ String::parse = () ->
     this.toString()
 
 ###*
-Returns true if this string starts with the passed in string
+Returns true if this string starts with the given string
 ###
 String::startsWith = (str) ->
   @lastIndexOf(str, 0) is 0
