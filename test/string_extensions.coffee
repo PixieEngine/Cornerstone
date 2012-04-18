@@ -32,7 +32,7 @@ test "#parse", ->
   ok ''.parse() == '', "Empty string parses to exactly the empty string"
 
 test "#startsWith", ->
-  eq
+  ok "cool".startsWit
   
 test "#titleize", ->
   equals "man from the boondocks".titleize(), "Man From The Boondocks"
