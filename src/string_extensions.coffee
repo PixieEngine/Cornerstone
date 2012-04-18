@@ -136,7 +136,7 @@ Returns true if this string starts with the given string.
 
 @name startsWith
 @methodOf String#
-@returns
+@returns {Boolean}
 ###
 String::startsWith = (str) ->
   @lastIndexOf(str, 0) is 0
