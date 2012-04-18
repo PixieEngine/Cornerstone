@@ -33,7 +33,7 @@ test "#parse", ->
 
 test "#startsWith", ->
   ok "cool".startsWith("coo")
-  equals "cool".startsWith(), false
+  equals "cool".startsWith("oo"), false
 
 test "#titleize", ->
   equals "man from the boondocks".titleize(), "Man From The Boondocks"
