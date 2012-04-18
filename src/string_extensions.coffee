@@ -131,6 +131,9 @@ String::parse = () ->
   catch e
     this.toString()
 
+###*
+
+###
 String::startsWith = (str) ->
   @lastIndexOf(str, 0) is 0
 
