@@ -3103,6 +3103,20 @@ String.prototype.parse = function() {
 };
 
 /**
+Returns true if this string starts with the given string.
+
+@name startsWith
+@methodOf String#
+@param {String} str The string to check.
+
+@returns {Boolean} True if this string starts with the given string, false otherwise.
+*/
+
+String.prototype.startsWith = function(str) {
+  return this.lastIndexOf(str, 0) === 0;
+};
+
+/**
 Returns a new string in Title Case.
 
 <code><pre>
