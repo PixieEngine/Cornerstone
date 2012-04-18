@@ -132,7 +132,7 @@ String::parse = () ->
     this.toString()
 
 ###*
-
+Returns true if this string starts with th
 ###
 String::startsWith = (str) ->
   @lastIndexOf(str, 0) is 0
