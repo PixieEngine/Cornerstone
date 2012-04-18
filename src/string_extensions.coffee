@@ -131,8 +131,8 @@ String::parse = () ->
   catch e
     this.toString()
 
-String::startsWith = () ->
-  
+String::startsWith = (str) ->
+  this.lastIndexOf(str, 0) is 0
 
 ###*
 Returns a new string in Title Case.
