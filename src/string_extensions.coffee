@@ -132,6 +132,7 @@ String::parse = () ->
     this.toString()
 
 String::startsWith = () ->
+  
 
 ###*
 Returns a new string in Title Case.
