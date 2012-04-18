@@ -136,7 +136,7 @@ Returns true if this string starts with the given string.
 
 @name startsWith
 @methodOf String#
-@param {String} s
+@param {String} str The string to che
 
 @returns {Boolean} True if this string starts with the given string, false otherwise.
 ###
