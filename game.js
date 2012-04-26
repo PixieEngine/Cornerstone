@@ -1536,7 +1536,15 @@ Returns a number whose value is limited to the given range.
 */
 
 Number.prototype.clamp = function(min, max) {
-  return Math.min(Math.max(this, min), max);
+  if ((min != null) && (max != null)) {
+    return Math.min(Math.max(this, min), max);
+  } else if (min != null) {
+    return Math.max(this, min);
+  } else if (max != null) {
+    return Math.min(this, max);
+  } else {
+    return this;
+  }
 };
 
 /**
