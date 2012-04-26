@@ -18,8 +18,8 @@ test "#ceil", ->
   
 test "#clamp", ->
   equals 5.clamp(0, 3), 3
-  equals 5.clamp(0, 0), 0
-  equals 
+  equals 5.clamp(-1, 0), 0
+  equals -5.clamp(0)
 
 test "#floor", ->
   equals 4.9.floor(), 4, "(4.9).floor() equals 4"
