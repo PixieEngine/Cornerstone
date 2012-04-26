@@ -15,6 +15,8 @@ test "#ceil", ->
   equals 4.2.ceil(), 5, "(4.2).ceil() equals 5"
   equals (-1.2).ceil(), -1, "(-1.2).ceil() equals -1"
   equals 3.ceil(), 3, "(3).ceil() equals 3"
+  
+test "#clamp"
 
 test "#floor", ->
   equals 4.9.floor(), 4, "(4.9).floor() equals 4"
