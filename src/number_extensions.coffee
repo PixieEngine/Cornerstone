@@ -111,7 +111,8 @@ Number::clamp = (min, max) ->
   if min? and max?
     Math.min(Math.max(this, min), max)
   else if min?
-  e
+      
+  else if max?
 
 ###*
 A mod method useful for array wrapping. The range of the function is
