@@ -21,7 +21,7 @@ test "#clamp", ->
   equals 5.clamp(-1, 0), 0
   equals -5.clamp(0, 1), 0
   equals 1.clamp(0, null), 1
-  equals 
+  equals (-1).clamp
 
 test "#floor", ->
   equals 4.9.floor(), 4, "(4.9).floor() equals 4"
