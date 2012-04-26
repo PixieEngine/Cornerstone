@@ -108,6 +108,7 @@ Returns a number whose value is limited to the given range.
 @returns {Number} A number in the range [min, max]
 ###
 Number::clamp = (min, max) ->
+  if min? and max?
   Math.min(Math.max(this, min), max)
 
 ###*
