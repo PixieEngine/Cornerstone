@@ -111,7 +111,7 @@ Number::clamp = (min, max) ->
   if min? and max?
     Math.min(Math.max(this, min), max)
   else if min?
-    Math.min()
+    Math.min(this, min)
   else if max?
 
 ###*
