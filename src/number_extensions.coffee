@@ -110,7 +110,8 @@ Returns a number whose value is limited to the given range.
 Number::clamp = (min, max) ->
   if min? and max?
     Math.min(Math.max(this, min), max)
-  else 
+  else if min?
+  e
 
 ###*
 A mod method useful for array wrapping. The range of the function is
