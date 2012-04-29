@@ -49,7 +49,7 @@ Bindable = ->
     eventCallbacks[event].push(callback)
 
   ###*
-  The unbind method removes a specific event listener, or all event listeners if
+  Removes a specific event listener, or all event listeners if
   no specific listener is given.
 
   <code><pre>
