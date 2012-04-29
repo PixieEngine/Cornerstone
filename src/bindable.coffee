@@ -75,7 +75,7 @@ Bindable = ->
       eventCallbacks[event] = []
 
   ###*
-  The trigger method calls all listeners attached to the specified event.
+  Calls all listeners attached to the specified event.
 
   <code><pre>
   # calls each event handler bound to "someCustomEvent"
