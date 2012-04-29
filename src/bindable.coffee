@@ -25,7 +25,7 @@ Bindable = ->
   eventCallbacks = {}
 
   ###*
-  The bind method adds a function as an event listener.
+  Adds a function as an event listener.
 
   <code><pre>
   # this will call coolEventHandler after
