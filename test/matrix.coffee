@@ -80,7 +80,9 @@
     equals(transformedPoint.x, p.x, "Point should remain the same")
     equals(transformedPoint.y, p.y, "Point should remain the same")
 
-  test "#skew,"
+  test "#skew", ->
+    matrix = Matrix()
+    matrix.skew()
     
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
