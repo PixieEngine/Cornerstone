@@ -82,7 +82,7 @@
 
   test "#skew", ->
     matrix = Matrix()
-    matrix.skew()
+    matrix.skew(0.125.)
     
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
