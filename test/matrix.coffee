@@ -84,9 +84,9 @@
     matrix = Matrix()
 
     matrix.skew(0.125.turns, 0)
-    
-    p = Point()
-    
+
+    p = Point(10, 10)
+
     equals(matrix.transformPoint(p))
 
   test ".rotation", ->
