@@ -271,7 +271,7 @@
   ###*
   Returns a matrix that corresponds to a skew of skewX, skewY.
   @see Matrix#skew
-  @param {Number} tx The amount to translate in the x direction.
+  @param {Number} sk The amount to translate in the x direction.
   @param {Number} ty The amount to translate in the y direction.
   @return {Matrix} A matrix transformation representing a translation by tx and ty.
   ###
