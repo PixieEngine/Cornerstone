@@ -84,6 +84,8 @@
     matrix = Matrix()
 
     matrix.skew(0.125.turns, 0)
+    
+    equals(tran)
 
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
