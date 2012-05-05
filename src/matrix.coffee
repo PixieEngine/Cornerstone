@@ -269,7 +269,7 @@
     return scaleMatrix
 
   ###*
-  Returns a matrix that corresponds to a skew of skew.
+  Returns a matrix that corresponds to a skew of skewX, skewY.
   @see Matrix#translate
   @param {Number} tx The amount to translate in the x direction.
   @param {Number} ty The amount to translate in the y direction.
