@@ -272,7 +272,7 @@
   Returns a matrix that corresponds to a skew of skewX, skewY.
   @see Matrix#skew
   @param {Number} skewX The angle of skew in the x dimension.
-  @param {Number} skewY The amount to translate in the y dimension.
+  @param {Number} skewY The angle of  in the y dimension.
   @return {Matrix} A matrix transformation representing a translation by tx and ty.
   ###
   Matrix.skew = (skewX, skewY) ->
