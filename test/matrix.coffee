@@ -87,7 +87,7 @@
 
     p = Point(10, 10)
 
-    equals(matrix.transformPoint(p))
+    ok 
 
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
