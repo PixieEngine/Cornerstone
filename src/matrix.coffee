@@ -275,7 +275,6 @@
   @param {Number} ty The amount to translate in the y direction.
   @return {Matrix} A matrix transformation representing a translation by tx and ty.
   ###
-  ###
   Matrix.skew = (skewX, skewY) ->
     Matrix(0, Math.tan(skewY), Math.tan(skewX), 0)
 
