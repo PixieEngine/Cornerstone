@@ -268,6 +268,9 @@
 
     return scaleMatrix
 
+  ###*
+  
+  ###
   Matrix.skew = (skewX, skewY) ->
     Matrix(0, Math.tan(skewY), Math.tan(skewX), 0)
 
