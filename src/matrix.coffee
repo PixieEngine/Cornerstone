@@ -186,8 +186,8 @@
     @name skew
     @methodOf Matrix#
     @see Matrix.skew
-    @param {Number} skewX
-    @param {Number}
+    @param {Number} skewX 
+    @param {Number} skewY
     ###
     skew: (skewX, skewY) ->
       @concat(Matrix.skew(skewX, skewY))
