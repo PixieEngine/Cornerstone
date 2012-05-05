@@ -180,7 +180,12 @@
       @concat(Matrix.scale(sx, sy, aboutPoint))
 
     ###*
-    
+    Returns a new matrix that corresponds this matrix multiplied by a
+    a scaling matrix.
+    @name scale
+    @methodOf Matrix#
+    @see Matrix.skew
+    @param {Number} sx
     ###
     skew: (skewX, skewY) ->
       @concat(Matrix.skew(skewX, skewY))
