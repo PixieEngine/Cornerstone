@@ -85,7 +85,7 @@
 
     matrix.skew(0.125.turns, 0)
 
-    equals m
+    equals matrix.b, Math.tan(0.125)
 
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
