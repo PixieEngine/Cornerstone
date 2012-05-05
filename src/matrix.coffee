@@ -268,6 +268,8 @@
 
     return scaleMatrix
 
+  Matrix.skew = ()
+  
   ###*
   Returns a matrix that corresponds to a translation of tx, ty.
   @see Matrix#translate
