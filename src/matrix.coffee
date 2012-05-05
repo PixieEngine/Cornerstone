@@ -179,8 +179,8 @@
     scale: (sx, sy, aboutPoint) ->
       @concat(Matrix.scale(sx, sy, aboutPoint))
       
-    skew: () ->
-
+    skew: (skewX, skewY) ->
+      @concat(Matrix.scale(sx, sy, aboutPoint))
     ###*
     Returns a string representation of this matrix.
 
