@@ -181,8 +181,8 @@
 
     ###*
     Returns a new matrix that corresponds this matrix multiplied by a
-    a scaling matrix.
-    @name scale
+    a skew matrix.
+    @name skew
     @methodOf Matrix#
     @see Matrix.skew
     @param {Number} sx
