@@ -186,7 +186,7 @@
     @name skew
     @methodOf Matrix#
     @see Matrix.skew
-    @param {Number} skewX 
+    @param {Number} skewX The angle of skew in the x
     @param {Number} skewY
     ###
     skew: (skewX, skewY) ->
