@@ -181,7 +181,8 @@
 
     ###*
     Returns a new matrix that corresponds this matrix multiplied by a
-    a skew matrix.
+    a skewing matrix.
+
     @name skew
     @methodOf Matrix#
     @see Matrix.skew
