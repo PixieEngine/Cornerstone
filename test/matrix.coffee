@@ -85,7 +85,7 @@
 
     matrix.skew(0.125.turns, 0)
     
-    
+    p = Point()
     
     equals(matrix.transformPoint(p))
 
