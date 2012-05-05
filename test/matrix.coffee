@@ -83,9 +83,9 @@
   test "#skew", ->
     matrix = Matrix()
 
-    matrix.skew(0.125.turns, 0)
+    matrix = matrix.skew(0.125.turns, 0)
 
-    equals matrix.b, Math.tan(0.125)
+    equals matrix.b, Math.tan(0.125.turns)
 
   test ".rotation", ->
     matrix = Matrix.rotation(Math.PI / 2)
