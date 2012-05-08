@@ -44,7 +44,7 @@ Bindable = ->
   is triggered.
   ###
   bind: (events, callback) ->
-    events.s
+    events.split(" ")
     eventCallbacks[event] = eventCallbacks[event] || []
 
     eventCallbacks[event].push(callback)
