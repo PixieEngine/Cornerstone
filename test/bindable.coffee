@@ -43,7 +43,7 @@ test "#unbind", ->
   o.unbind "test"
   o.trigger "test"
   
-test "#ht"
+test "#trigger n"
   
 test "#unbind namespaced", 1, ->
   o = Object.extend({}, Bindable())
