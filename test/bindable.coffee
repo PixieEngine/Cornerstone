@@ -60,7 +60,7 @@ test "#unbind namespaced", 1, ->
 
   o.trigger "test"
 
-  o.unbind "TestNamespace", ->
+  o.unbind ".TestNamespace", ->
   o.trigger "test"
 
 module()
