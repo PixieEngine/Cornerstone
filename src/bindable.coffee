@@ -83,7 +83,7 @@ Bindable = ->
       eventCallbacks[event] ||= []
       
       if namespace
-        eventCallbacks[event] = eventCallbacks.select () ->
+        eventCallbacks[event] = eventCallbacks.select (callback) ->
           
       else
         if callback
