@@ -47,7 +47,7 @@ Bindable = ->
     [event, namespace] = namespacedEvent.split(".")
     
     if namespace
-      callback[
+      callback.__PIXIE |= {}
 
     eventCallbacks[event] ||= []
     eventCallbacks[event].push(callback)
