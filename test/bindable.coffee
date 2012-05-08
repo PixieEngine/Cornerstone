@@ -44,7 +44,13 @@ test "#unbind", ->
   o.trigger "test"
   
 test "#trigger namespace", 1, ->
-  
+  o.bind "test.TestNamespace", ->
+    ok true
+
+  o.trigger "test"
+
+  o.unbind "TestNamespace", ->
+  o.trigger "test"
   
 test "#unbind namespaced", 1, ->
   o = Object.extend({}, Bindable())
