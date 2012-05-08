@@ -81,6 +81,9 @@ Bindable = ->
 
     if event
       eventCallbacks[event] ||= []
+      
+      if namespace
+      else
   
       if callback
         eventCallbacks[event].remove(callback)
