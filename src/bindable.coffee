@@ -93,7 +93,8 @@ Bindable = ->
         else
           eventCallbacks[event] = []
     else if namespace
-       
+      # No event 
+      # Select only the callbacks that do not have this namespace metadata
       for key, callbacks of eventCallbacks
         eventCallbacks[key] = callbacks.select (callback) ->
           !callback.__PIXIE?[namespace]?
