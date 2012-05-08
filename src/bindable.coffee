@@ -81,6 +81,7 @@ Bindable = ->
           eventCallbacks[event].remove(callback)
         else
           eventCallbacks[event] = []
+      else
 
   ###*
   Calls all listeners attached to the specified event.
