@@ -45,9 +45,10 @@ Bindable = ->
   ###
   bind: (events, callback) ->
     events.split(" ").each (namespacedEvent) ->
-    eventCallbacks[event] = eventCallbacks[event] || []
-
-    eventCallbacks[event].push(callback)
+      event = namespacedEvent.sprit
+      eventCallbacks[event] = eventCallbacks[event] || []
+  
+      eventCallbacks[event].push(callback)
 
   ###*
   Removes a specific event listener, or all event listeners if
