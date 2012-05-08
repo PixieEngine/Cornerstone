@@ -75,12 +75,12 @@ Bindable = ->
       [event, namespaces...] = namespacedEvent.split(".")
 
       if event
-      eventCallbacks[event] = eventCallbacks[event] || []
-  
-      if callback
-        eventCallbacks[event].remove(callback)
-      else
-        eventCallbacks[event] = []
+        eventCallbacks[event] = eventCallbacks[event] || []
+    
+        if callback
+          eventCallbacks[event].remove(callback)
+        else
+          eventCallbacks[event] = []
 
   ###*
   Calls all listeners attached to the specified event.
