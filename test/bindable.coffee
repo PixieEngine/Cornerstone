@@ -42,6 +42,7 @@ test "#unbind", ->
   o.trigger "test"
   
 test "#unbind namespaced", ->
+  
 
 module()
 
