@@ -82,6 +82,8 @@ Bindable = ->
     else if namespace
       ;
 
+    return this
+
   ###*
   Calls all listeners attached to the specified event.
 
