@@ -47,7 +47,7 @@ test "#unbind namespaced", ->
   o = Object.extend({}, Bindable())
   
   o.bind "test.TestNamespace", ->
-    
+    ok true
 
 module()
 
