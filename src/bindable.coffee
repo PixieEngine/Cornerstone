@@ -82,7 +82,7 @@ Bindable = ->
         else
           eventCallbacks[event] = []
       else if namespace
-        
+        ;
 
   ###*
   Calls all listeners attached to the specified event.
