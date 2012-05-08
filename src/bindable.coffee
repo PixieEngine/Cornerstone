@@ -43,7 +43,7 @@ Bindable = ->
   @param {Function} callback The function to be called when the specified event
   is triggered.
   ###
-  bind: (events, callback) ->
+  bind: (namespa, callback) ->
     events.split(" ").each (namespacedEvent) ->
       [event, namespace] = namespacedEvent.split(".")
 
