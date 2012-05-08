@@ -71,18 +71,17 @@ Bindable = ->
   @param {Function} [callback] The listener to remove.
   ###
   unbind: (events, callback) ->
-    events.split(" ").each (namespacedEvent) ->
-      [event, namespace] = namespacedEvent.split(".")
+    [event, namespace] = namespacedEvent.split(".")
 
-      if event
-        eventCallbacks[event] ||= []
-    
-        if callback
-          eventCallbacks[event].remove(callback)
-        else
-          eventCallbacks[event] = []
-      else if namespace
-        ;
+    if event
+      eventCallbacks[event] ||= []
+  
+      if callback
+        eventCallbacks[event].remove(callback)
+      else
+        eventCallbacks[event] = []
+    else if namespace
+      ;
 
   ###*
   Calls all listeners attached to the specified event.
