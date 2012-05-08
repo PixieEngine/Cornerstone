@@ -93,6 +93,7 @@ Bindable = ->
         else
           eventCallbacks[event] = []
     else if namespace
+       
       for key, callbacks of eventCallbacks
         eventCallbacks[key] = callbacks.select (callback) ->
           !callback.__PIXIE?[namespace]?
