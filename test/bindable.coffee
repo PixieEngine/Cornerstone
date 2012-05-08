@@ -55,12 +55,12 @@ test "#trigger namespace", 2, ->
 test "#unbind namespaced", 1, ->
   o = Object.extend({}, Bindable())
   
-  o.bind "TestNamespace.test", ->
+  o.bind "test.TestNamespace", ->
     ok true
 
   o.trigger "test"
 
-  o.unbind "TestNamespace.", ->
+  o.unbind "TestNamespace", ->
   o.trigger "test"
 
 module()
