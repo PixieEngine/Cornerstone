@@ -38,6 +38,7 @@ test "#unbind", ->
   o.trigger "test"
 
   o.bind "test", callback
+  # Unbind all events
   o.unbind "test"
   o.trigger "test"
   
