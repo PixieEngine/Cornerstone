@@ -75,7 +75,7 @@ Bindable = ->
       [event, namespace] = namespacedEvent.split(".")
 
       if event
-        eventCallbacks[event] = eventCallbacks[event] || []
+        eventCallbacks[event] ||= []
     
         if callback
           eventCallbacks[event].remove(callback)
