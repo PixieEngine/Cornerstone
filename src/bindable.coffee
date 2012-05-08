@@ -49,6 +49,8 @@ Bindable = ->
 
       eventCallbacks[event] = eventCallbacks[event] || []
       eventCallbacks[event].push(callback)
+      
+    return this
 
   ###*
   Removes a specific event listener, or all event listeners if
