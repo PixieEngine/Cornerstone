@@ -42,16 +42,6 @@ test "#unbind", ->
   # Unbind all events
   o.unbind "test"
   o.trigger "test"
-
-test "#trigger namespace", 1, ->
-  o = Object.extend({}, Bindable())
-  o.bind "test.TestNamespace", ->
-    ok true
-
-  o.trigger ".TestNamespace"
-
-  o.unbind ".TestNamespace"
-  o.trigger ".TestNamespace"
   
 test "#trigger namespace", 1, ->
   o = Object.extend({}, Bindable())
