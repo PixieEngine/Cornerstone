@@ -61,7 +61,7 @@ test "#trigger namespace 2", 1, ->
   o.trigger "test"
 
   o.unbind ".TestNamespace"
-  o.trigger ".TestNamespace"
+  o.trigger "test"
   
 test "#unbind namespaced", 1, ->
   o = Object.extend({}, Bindable())
