@@ -53,7 +53,7 @@ test "#trigger namespace", 1, ->
   o.unbind ".TestNamespace"
   o.trigger ".TestNamespace"
   
-test "#trigger namespace 2", 1, ->
+test "#trigger namespace", 1, ->
   o = Object.extend({}, Bindable())
   o.bind "test.TestNamespace", ->
     ok true
