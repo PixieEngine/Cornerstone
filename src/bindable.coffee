@@ -84,7 +84,7 @@ Bindable = ->
       
       if namespace
         eventCallbacks[event] = eventCallbacks.select (callback) ->
-          callback
+          callback.__PIXIE
       else
         if callback
           eventCallbacks[event].remove(callback)
