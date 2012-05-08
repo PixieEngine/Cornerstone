@@ -45,10 +45,11 @@ Bindable = ->
   ###
   bind: (namespacedEvent, callback) ->
     [event, namespace] = namespacedEvent.split(".")
-    
+
+    #
     if namespace
       callback.__PIXIE ||= {}
-      callback.__PIXIE[namespace]
+      callback.__PIXIE[namespace] = true
 
     eventCallbacks[event] ||= []
     eventCallbacks[event].push(callback)
