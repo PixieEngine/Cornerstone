@@ -58,7 +58,7 @@ test "#trigger namespace 2", 1, ->
   o.bind "test.TestNamespace", ->
     ok true
 
-  o.trigger ".TestNamespace"
+  o.trigger "test"
 
   o.unbind ".TestNamespace"
   o.trigger ".TestNamespace"
