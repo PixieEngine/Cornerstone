@@ -46,7 +46,7 @@ test "#unbind", ->
 test "#unbind namespaced", ->
   o = Object.extend({}, Bindable())
   
-  o.bind "test.Movable", ->
+  o.bind "test.TestName", ->
 
 module()
 
