@@ -45,7 +45,7 @@ Bindable = ->
   ###
   bind: (events, callback) ->
     events.split(" ").each (namespacedEvent) ->
-      [event = 
+      [event, namespaces] = namespacedEvent.split()
       eventCallbacks[event] = eventCallbacks[event] || []
   
       eventCallbacks[event].push(callback)
