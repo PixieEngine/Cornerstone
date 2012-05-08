@@ -48,6 +48,7 @@ test "#unbind namespaced", ->
   
   o.bind "test.TestNamespace", ->
     ok true
+  o.trigger ""
 
 module()
 
