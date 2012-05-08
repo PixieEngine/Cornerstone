@@ -40,6 +40,8 @@ test "#unbind", ->
   o.bind "test", callback
   o.unbind "test"
   o.trigger "test"
+  
+test ""
 
 module()
 
