@@ -43,13 +43,12 @@ Bindable = ->
   @param {Function} callback The function to be called when the specified event
   is triggered.
   ###
-  bind: (namespa, callback) ->
-    events.split(" ").each (namespacedEvent) ->
-      [event, namespace] = namespacedEvent.split(".")
+  bind: (namespacedEvent, callback) ->
+    [event, namespace] = namespacedEvent.split(".")
 
-      eventCallbacks[event] ||= []
-      eventCallbacks[event].push(callback)
-      
+    eventCallbacks[event] ||= []
+    eventCallbacks[event].push(callback)
+
     return this
 
   ###*
