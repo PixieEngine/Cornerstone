@@ -42,7 +42,7 @@ test "#unbind", ->
   # Unbind all events
   o.unbind "test"
   o.trigger "test"
-  
+
 test "#trigger namespace", 2, ->
   o.bind "test.TestNamespace", ->
     ok true
