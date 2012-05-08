@@ -51,7 +51,7 @@ test "#unbind namespaced", 1, ->
 
   o.trigger "test"
   
-  o.
+  o.unbind ""
 
 module()
 
