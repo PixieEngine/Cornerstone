@@ -48,7 +48,7 @@ Bindable = ->
 
     # HACK: Here we annotate the callback function with namespace metadata
     # This will probably lead to some strange edge cases, but should work fine
-    # for simp
+    # for simple cases.
     if namespace
       callback.__PIXIE ||= {}
       callback.__PIXIE[namespace] = true
