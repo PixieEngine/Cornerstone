@@ -73,7 +73,7 @@ Bindable = ->
   unbind: (events, callback) ->
     events.split(" ").each (namespacedEvent) ->
       [event, namespaces...] = namespacedEvent.split(".")
-      
+
       eventCallbacks[event] = eventCallbacks[event] || []
   
       if callback
