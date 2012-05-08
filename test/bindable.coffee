@@ -50,7 +50,7 @@ test "#trigger namespace", 1, ->
 
   o.trigger ".TestNamespace"
 
-  o.unbind ".TestNamespace", ->
+  o.unbind ".TestNamespace"
   o.trigger ".TestNamespace"
   
 test "#unbind namespaced", 1, ->
