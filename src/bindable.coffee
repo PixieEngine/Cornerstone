@@ -46,7 +46,7 @@ Bindable = ->
   bind: (namespacedEvent, callback) ->
     [event, namespace] = namespacedEvent.split(".")
 
-    # HACK: Here we annotate the callback 
+    # HACK: Here we annotate the callback function with namespace metadata
     if namespace
       callback.__PIXIE ||= {}
       callback.__PIXIE[namespace] = true
