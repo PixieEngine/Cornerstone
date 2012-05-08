@@ -45,6 +45,8 @@ Bindable = ->
   ###
   bind: (namespacedEvent, callback) ->
     [event, namespace] = namespacedEvent.split(".")
+    
+    if namespace
 
     eventCallbacks[event] ||= []
     eventCallbacks[event].push(callback)
