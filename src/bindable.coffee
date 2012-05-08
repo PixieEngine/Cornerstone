@@ -43,8 +43,8 @@ Bindable = ->
   @param {Function} callback The function to be called when the specified event
   is triggered.
   ###
-  bind: (event, callback) ->
-    
+  bind: (events, callback) ->
+    events.s
     eventCallbacks[event] = eventCallbacks[event] || []
 
     eventCallbacks[event].push(callback)
