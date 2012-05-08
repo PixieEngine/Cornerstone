@@ -34,6 +34,7 @@ test "#unbind", ->
     ok false
 
   o.bind "test", callback
+  # Unbind specific event
   o.unbind "test", callback
   o.trigger "test"
 
