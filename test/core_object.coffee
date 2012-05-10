@@ -70,5 +70,5 @@ test "#include string", ->
     test: "my_val"
 
   o.include "TestM"
-  
+
 module undefined
