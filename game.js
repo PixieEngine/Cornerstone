@@ -1051,7 +1051,7 @@ Core = function(I) {
       for (_i = 0, _len = modules.length; _i < _len; _i++) {
         Module = modules[_i];
         if (typeof Module.isString === "function" ? Module.isString() : void 0) {
-          Module = Module;
+          Module = Module.constantize();
         }
         self.extend(Module(I, self));
       }
