@@ -75,6 +75,8 @@ String::constantize = ->
   target = exports ? window
 
   target = target[item] for item in this.split '.'
+    
+  return targe
 
 ###*
 Returns a new string that is a more human readable version.
