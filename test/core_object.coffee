@@ -60,6 +60,7 @@ test "#include multiple", ->
   
   equals o.test2, "coolio"
   
-test "#include"
+test "#include string", ->
+  
 
 module undefined
