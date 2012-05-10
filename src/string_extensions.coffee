@@ -74,11 +74,7 @@ Return the class or constant named in this string.
 String::constantize = ->
   target = exports ? window
 
-  if this.match /[A-Z][A-Za-z0-9]*/
-    eval("var that = #{this}")
-    that
-  else
-    throw "String#constantize: '#{this}' is not a valid constant name."
+  
 
 ###*
 Returns a new string that is a more human readable version.
