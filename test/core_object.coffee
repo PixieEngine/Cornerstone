@@ -70,5 +70,7 @@ test "#include string", ->
     test: "my_val"
 
   o.include "TestM"
+  
+  equals o.test(), "my_val"
 
 module undefined
