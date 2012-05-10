@@ -13,6 +13,7 @@ test "#constantize", ->
   equals "String".constantize(), String, "look up a constant"
   equals "Math".constantize(), Math, "look up a constant"
   equals "Number".constantize(), Number, "look up a constant"
+  equals "Math.TAU".constantize(), Math.TAU, ""
 
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
