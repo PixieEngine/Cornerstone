@@ -74,7 +74,7 @@ Return the class or constant named in this string.
 String::constantize = ->
   target = exports ? window
 
-  
+  target = target[item] for item in this.split '.'
 
 ###*
 Returns a new string that is a more human readable version.
