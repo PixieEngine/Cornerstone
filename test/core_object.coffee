@@ -69,5 +69,6 @@ test "#include string", ->
   o = Core
     test: "my_val"
 
-  o
+  o.include "TestM"
+  
 module undefined
