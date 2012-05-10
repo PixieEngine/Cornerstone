@@ -57,6 +57,7 @@ Returns a new string with the first letter capitalized and the rest lower cased.
 String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
 
+
 ###*
 Return the class or constant named in this string.
 
