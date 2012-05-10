@@ -61,6 +61,9 @@ test "#include multiple", ->
   equals o.test2, "coolio"
   
 test "#include string", ->
-  window.TestM = 
+  window.TestM = (I, self) ->
+    self.attrReader "test"
+
+    test2: "cool"
 
 module undefined
