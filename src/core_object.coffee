@@ -151,7 +151,7 @@ Core = (I={}) ->
     ###
     include: (modules...) ->
       for Module in modules
-        Module = Module
+        Module = Module if Module.isString
         self.extend Module(I, self)
       
       return self
