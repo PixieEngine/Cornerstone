@@ -72,7 +72,7 @@ Return the class or constant named in this string.
 @returns {Object} The class or constant named in this string.
 ###
 String::constantize = ->
-  target
+  target = exports ? 
   if this.match /[A-Z][A-Za-z0-9]*/
     eval("var that = #{this}")
     that
