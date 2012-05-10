@@ -66,5 +66,8 @@ test "#include string", ->
 
     test2: "cool"
 
-  
+  o = Core
+    test: "my_val"
+
+  o
 module undefined
