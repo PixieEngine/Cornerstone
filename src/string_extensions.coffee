@@ -58,7 +58,7 @@ String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
 
 ( ->
-    
+root = e
 ###*
 Return the class or constant named in this string.
 
