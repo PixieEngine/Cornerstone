@@ -57,8 +57,7 @@ Returns a new string with the first letter capitalized and the rest lower cased.
 String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
 
-( ->
-root = exports ? this
+
 ###*
 Return the class or constant named in this string.
 
@@ -79,7 +78,7 @@ String::constantize = ->
     that
   else
     throw "String#constantize: '#{this}' is not a valid constant name."
-)()
+
 ###*
 Returns a new string that is a more human readable version.
 
