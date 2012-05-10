@@ -57,7 +57,6 @@ Returns a new string with the first letter capitalized and the rest lower cased.
 String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
 
-
 ###*
 Return the class or constant named in this string.
 
@@ -73,6 +72,7 @@ Return the class or constant named in this string.
 @returns {Object} The class or constant named in this string.
 ###
 String::constantize = ->
+  target
   if this.match /[A-Z][A-Za-z0-9]*/
     eval("var that = #{this}")
     that
