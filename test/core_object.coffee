@@ -61,6 +61,6 @@ test "#include multiple", ->
   equals o.test2, "coolio"
   
 test "#include string", ->
-  
+  window
 
 module undefined
