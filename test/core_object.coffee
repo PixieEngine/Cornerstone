@@ -59,5 +59,7 @@ test "#include multiple", ->
   o.include M, M2
   
   equals o.test2, "coolio"
+  
+test "#include"
 
 module undefined
