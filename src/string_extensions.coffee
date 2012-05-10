@@ -58,6 +58,7 @@ String::capitalize = ->
   this.charAt(0).toUpperCase() + this.substring(1).toLowerCase()
 
 ( ->
+    
 ###*
 Return the class or constant named in this string.
 
@@ -78,7 +79,7 @@ String::constantize = ->
     that
   else
     throw "String#constantize: '#{this}' is not a valid constant name."
-
+)()
 ###*
 Returns a new string that is a more human readable version.
 
