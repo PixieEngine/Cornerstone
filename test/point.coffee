@@ -12,7 +12,7 @@
     
     p2 = Point(p)
     
-    equal
+    equals p2.x
 
   test "#add", ->
     p1 = Point(5, 6)
