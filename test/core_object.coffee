@@ -78,7 +78,7 @@ test "#send", ->
     test: true
 
   o.send("attrReader", "test")
-  
+
   ok(o.test())
 
 module undefined
