@@ -153,7 +153,7 @@ Core = (I={}) ->
       for Module in modules
         Module = Module.constantize() if Module.isString?()
         self.extend Module(I, self)
-      
+
       return self
 
     send: (name, args...) ->
