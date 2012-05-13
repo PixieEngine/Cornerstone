@@ -74,11 +74,11 @@ test "#include string", ->
   equals o.test(), "my_val"
   
 test "#send", ->
-  o = Core()
+  o = Core
     test: true
 
-  # o.send("attrAccessor", "test")
+  o.send("attrAccessor", "test")
 
-  # ok(o.test())
+  ok(o.test())
 
 module undefined
