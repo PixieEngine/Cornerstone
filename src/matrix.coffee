@@ -50,8 +50,8 @@
   ###
   Matrix = (a, b, c, d, tx, ty) ->
     if Object.isObject(a)
-      {a, b, c, d, tx, } = a
-    
+      {a, b, c, d, tx, ty} = a
+
     __proto__: Matrix::
     ###*
     @name a
