@@ -75,7 +75,10 @@ test "#include string", ->
   
 test "#send", ->
   o = Core()
-  
+    test: true
+
   o.send("attrReader", "test")
+  
+  ok()
 
 module undefined
