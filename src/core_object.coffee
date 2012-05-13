@@ -156,4 +156,4 @@ Core = (I={}) ->
       
       return self
     
-    send: ->
+    send: (name) ->
