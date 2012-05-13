@@ -156,3 +156,4 @@ Core = (I={}) ->
       
       return self
     
+    send: ->
