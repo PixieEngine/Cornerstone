@@ -27,7 +27,7 @@
   @constructor
   ###
   Point = (x, y) ->
-    Object.isObject()
+    Object.isObject(x)
       {x, y} = x
 
     __proto__: Point::
