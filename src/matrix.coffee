@@ -49,6 +49,9 @@
   @constructor
   ###
   Matrix = (a, b, c, d, tx, ty) ->
+    if Object.isObject(a)
+      {x, y} = a
+    
     __proto__: Matrix::
     ###*
     @name a
