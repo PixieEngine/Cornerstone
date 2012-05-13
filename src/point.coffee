@@ -29,7 +29,6 @@
   Point = (x, y) ->
     if typeof x is "object"
       
-    else
       
     __proto__: Point::
 
