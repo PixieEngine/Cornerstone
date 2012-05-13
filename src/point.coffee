@@ -27,6 +27,7 @@
   @constructor
   ###
   Point = (x, y) ->
+    if
     __proto__: Point::
 
     ###*
