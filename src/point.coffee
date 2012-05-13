@@ -28,7 +28,7 @@
   ###
   Point = (x, y) ->
     if typeof x is "object"
-      {x, y} = ob
+      {x, y} = x
 
     __proto__: Point::
 
