@@ -19,8 +19,9 @@
    matrix = Matrix(1, 0, 0, 1, 10, 12)
 
    matrix2 = Matrix(matrix)
-        
-   equals(matrix2, matrix1)
+
+   
+   matrixEqual(matrix2, matrix)
       
   test "Matrix() (Identity)", ->
     matrix = Matrix()
