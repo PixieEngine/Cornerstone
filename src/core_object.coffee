@@ -157,4 +157,5 @@ Core = (I={}) ->
       return self
     
     send: (name, args...) ->
+      debugger
       self[name](args...)
