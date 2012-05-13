@@ -16,7 +16,9 @@
     equalEnough(m1.ty, m2.ty, TOLERANCE)
 
   test "copy constructor", ->
-    
+   matrix = Matrix(1)
+      
+      
   test "Matrix() (Identity)", ->
     matrix = Matrix()
 
