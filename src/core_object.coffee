@@ -157,4 +157,4 @@ Core = (I={}) ->
       return self
     
     send: (name, args...) ->
-      sel
+      self[name](args...)
