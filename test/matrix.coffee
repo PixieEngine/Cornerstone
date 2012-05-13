@@ -20,9 +20,9 @@
 
    matrix2 = Matrix(matrix)
 
-   qmatrix
+   ok matrix != matrix2
    matrixEqual(matrix2, matrix)
-      
+
   test "Matrix() (Identity)", ->
     matrix = Matrix()
 
