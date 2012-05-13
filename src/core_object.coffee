@@ -155,6 +155,6 @@ Core = (I={}) ->
         self.extend Module(I, self)
       
       return self
-    
+
     send: (name, args...) ->
       self[name](args...)
