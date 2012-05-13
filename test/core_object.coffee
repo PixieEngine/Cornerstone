@@ -76,6 +76,6 @@ test "#include string", ->
 test "#send", ->
   o = Core()
   
-  o.
+  o.send()
 
 module undefined
