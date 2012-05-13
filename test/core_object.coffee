@@ -77,7 +77,7 @@ test "#send", ->
   o = Core()
     test: true
 
-  o.send("attrReader", "test")
+  o.send("attrAccessor", "test")
 
   ok(o.test())
 
