@@ -20,7 +20,7 @@
 
    matrix2 = Matrix(matrix)
         
-   equals(matrix2, )
+   equals(matrix2, matrix1)
       
   test "Matrix() (Identity)", ->
     matrix = Matrix()
