@@ -74,6 +74,8 @@ test "#include string", ->
   equals o.test(), "my_val"
   
 test "#send", ->
+  o = Core()
   
+  o.
 
 module undefined
