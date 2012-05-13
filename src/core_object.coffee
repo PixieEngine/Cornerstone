@@ -156,4 +156,5 @@ Core = (I={}) ->
       
       return self
     
-    send: (name, args..) ->
+    send: (name, args...) ->
+      sel
