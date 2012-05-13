@@ -10,7 +10,9 @@
   test "copy constructor", ->
     p = Point(3, 7)
     
-    p2 = Point
+    p2 = Point(p)
+    
+    equal
 
   test "#add", ->
     p1 = Point(5, 6)
