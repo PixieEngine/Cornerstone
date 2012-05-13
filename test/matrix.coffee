@@ -20,7 +20,7 @@
 
    matrix2 = Matrix(matrix)
 
-   
+   qmatrix
    matrixEqual(matrix2, matrix)
       
   test "Matrix() (Identity)", ->
