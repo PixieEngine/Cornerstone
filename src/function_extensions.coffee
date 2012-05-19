@@ -31,10 +31,8 @@ the input has stopped arriving. For example: rendering a preview of a
 Markdown comment, recalculating a layout after the window has stopped 
 being resized...
 
-<code><pre>
-lazyLayout = calculateLayout.debounce(300)
-$(window).resize(lazyLayout)
-</pre></code>
+    lazyLayout = calculateLayout.debounce(300)
+    $(window).resize(lazyLayout)
 
 @name debounce
 @methodOf Function#

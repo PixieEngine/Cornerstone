@@ -15,25 +15,23 @@ Core = (I={}) ->
     External access to instance variables. Use of this property should be avoided
     in general, but can come in handy from time to time.
 
-    <code><pre>
-    I =
-      r: 255
-      g: 0
-      b: 100
-
-    myObject = Core(I)
-
-    # a bad idea most of the time, but it's 
-    # pretty convenient to have available.
-    myObject.I.r
-    # => 255
-
-    myObject.I.g
-    # => 0
-
-    myObject.I.b
-    # => 100
-    </pre></code>
+        I =
+          r: 255
+          g: 0
+          b: 100
+    
+        myObject = Core(I)
+    
+        # a bad idea most of the time, but it's 
+        # pretty convenient to have available.
+        myObject.I.r
+        # => 255
+    
+        myObject.I.g
+        # => 0
+    
+        myObject.I.b
+        # => 100
 
     @name I
     @fieldOf Core#
@@ -44,19 +42,17 @@ Core = (I={}) ->
     Generates a public jQuery style getter / setter method for each 
     String argument.
 
-    <code><pre>
-    myObject = Core
-      r: 255
-      g: 0
-      b: 100
-
-    myObject.attrAccessor "r", "g", "b"
-
-    myObject.r(254)
-    myObject.r()
-
-    => 254
-    </pre></code>
+        myObject = Core
+          r: 255
+          g: 0
+          b: 100
+    
+        myObject.attrAccessor "r", "g", "b"
+    
+        myObject.r(254)
+        myObject.r()
+    
+        => 254
 
     @name attrAccessor
     @methodOf Core#
@@ -73,23 +69,21 @@ Core = (I={}) ->
     ###*
     Generates a public jQuery style getter method for each String argument.
 
-    <code><pre>
-    myObject = Core
-      r: 255
-      g: 0
-      b: 100
-
-    myObject.attrReader "r", "g", "b"
-
-    myObject.r()
-    => 255
-
-    myObject.g()
-    => 0
-
-    myObject.b()
-    => 100
-    </pre></code>
+        myObject = Core
+          r: 255
+          g: 0
+          b: 100
+    
+        myObject.attrReader "r", "g", "b"
+    
+        myObject.r()
+        => 255
+    
+        myObject.g()
+        => 0
+    
+        myObject.b()
+        => 100
 
     @name attrReader
     @methodOf Core#
@@ -102,26 +96,24 @@ Core = (I={}) ->
     ###*
     Extends this object with methods from the passed in object. A shortcut for Object.extend(self, methods)
 
-    <code><pre>
-    I =
-      x: 30
-      y: 40
-      maxSpeed: 5
-
-    # we are using extend to give player
-    # additional methods that Core doesn't have
-    player = Core(I).extend
-      increaseSpeed: ->
-        I.maxSpeed += 1
-
-    player.I.maxSpeed
-    => 5
-
-    player.increaseSpeed()
-
-    player.I.maxSpeed
-    => 6
-    </pre></code>
+        I =
+          x: 30
+          y: 40
+          maxSpeed: 5
+    
+        # we are using extend to give player
+        # additional methods that Core doesn't have
+        player = Core(I).extend
+          increaseSpeed: ->
+            I.maxSpeed += 1
+    
+        player.I.maxSpeed
+        => 5
+    
+        player.increaseSpeed()
+    
+        player.I.maxSpeed
+        => 6
 
     @name extend
     @methodOf Core#
@@ -136,14 +128,12 @@ Core = (I={}) ->
     ###*
     Includes a module in this object.
 
-    <code><pre>
-    myObject = Core()
-    myObject.include(Bindable)
-
-    # now you can bind handlers to functions
-    myObject.bind "someEvent", ->
-      alert("wow. that was easy.")
-    </pre></code>
+        myObject = Core()
+        myObject.include(Bindable)
+    
+        # now you can bind handlers to functions
+        myObject.bind "someEvent", ->
+          alert("wow. that was easy.")
 
     @name include
     @methodOf Core#

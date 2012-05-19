@@ -2,10 +2,8 @@
 Calculate the average value of an array. Returns undefined if some elements
 are not numbers.
 
-<code><pre>
-[1, 3, 5, 7].average()
-# => 4
-</pre></code>
+    [1, 3, 5, 7].average()
+    # => 4
 
 @name average
 @methodOf Array#
@@ -17,10 +15,8 @@ Array::average = ->
 ###*
 Returns a copy of the array without null and undefined values.
 
-<code><pre>
-[null, undefined, 3, 3, undefined, 5].compact()
-# => [3, 3, 5]
-</pre></code>
+    [null, undefined, 3, 3, undefined, 5].compact()
+    # => [3, 3, 5]
 
 @name compact
 @methodOf Array#
@@ -34,18 +30,16 @@ Array::compact = ->
 Creates and returns a copy of the array. The copy contains
 the same objects.
 
-<code><pre>
-a = ["a", "b", "c"]
-b = a.copy()
-
-# their elements are equal
-a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
-# => true
-
-# but they aren't the same object in memory
-a === b
-# => false
-</pre></code>
+    a = ["a", "b", "c"]
+    b = a.copy()
+    
+    # their elements are equal
+    a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+    # => true
+    
+    # but they aren't the same object in memory
+    a === b
+    # => false
 
 @name copy
 @methodOf Array#
@@ -57,12 +51,10 @@ Array::copy = ->
 ###*
 Empties the array of its contents. It is modified in place.
 
-<code><pre>
-fullArray = [1, 2, 3]
-fullArray.clear()
-fullArray
-# => []
-</pre></code>
+    fullArray = [1, 2, 3]
+    fullArray.clear()
+    fullArray
+    # => []
 
 @name clear
 @methodOf Array#
@@ -76,15 +68,13 @@ Array::clear = ->
 ###*
 Flatten out an array of arrays into a single array of elements.
 
-<code><pre>
-[[1, 2], [3, 4], 5].flatten()
-# => [1, 2, 3, 4, 5]
-
-# won't flatten twice nested arrays. call
-# flatten twice if that is what you want
-[[1, 2], [3, [4, 5]], 6].flatten()
-# => [1, 2, 3, [4, 5], 6]
-</pre></code>
+    [[1, 2], [3, 4], 5].flatten()
+    # => [1, 2, 3, 4, 5]
+    
+    # won't flatten twice nested arrays. call
+    # flatten twice if that is what you want
+    [[1, 2], [3, [4, 5]], 6].flatten()
+    # => [1, 2, 3, [4, 5], 6]
 
 @name flatten
 @methodOf Array#
@@ -98,13 +88,11 @@ Array::flatten = ->
 Invoke the named method on each element in the array
 and return a new array containing the results of the invocation.
 
-<code><pre>
-[1.1, 2.2, 3.3, 4.4].invoke("floor")
-# => [1, 2, 3, 4]
-
-['hello', 'world', 'cool!'].invoke('substring', 0, 3)
-# => ['hel', 'wor', 'coo']
-</pre></code>
+    [1.1, 2.2, 3.3, 4.4].invoke("floor")
+    # => [1, 2, 3, 4]
+    
+    ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
+    # => ['hel', 'wor', 'coo']
 
 @param {String} method The name of the method to invoke.
 @param [arg...] Optional arguments to pass to the method being invoked.
@@ -119,10 +107,8 @@ Array::invoke = (method, args...) ->
 ###*
 Randomly select an element from the array.
 
-<code><pre>
-[1, 2, 3].rand()
-# => 2
-</pre></code>
+    [1, 2, 3].rand()
+    # => 2
 
 @name rand
 @methodOf Array#
@@ -135,14 +121,12 @@ Array::rand = ->
 Remove the first occurrence of the given object from the array if it is
 present. The array is modified in place.
 
-<code><pre>
-a = [1, 1, "a", "b"]
-a.remove(1)
-# => 1
-
-a
-# => [1, "a", "b"]
-</pre></code>
+    a = [1, 1, "a", "b"]
+    a.remove(1)
+    # => 1
+    
+    a
+    # => [1, "a", "b"]
 
 @name remove
 @methodOf Array#
@@ -160,13 +144,11 @@ Array::remove = (object) ->
 ###*
 Returns true if the element is present in the array.
 
-<code><pre>
-["a", "b", "c"].include("c")
-# => true
-
-[40, "a"].include(700)
-# => false
-</pre></code>
+    ["a", "b", "c"].include("c")
+    # => true
+    
+    [40, "a"].include(700)
+    # => false
 
 @name include
 @methodOf Array#
@@ -182,21 +164,19 @@ passing in the element as the first argument, the index of
 the element as the second argument, and <code>this</code> array as the
 third argument.
 
-<code><pre>
-word = ""
-indices = []
-["r", "a", "d"].each (letter, index) ->
-  word += letter
-  indices.push(index)
-
-# => ["r", "a", "d"]
-
-word
-# => "rad"
-
-indices
-# => [0, 1, 2]
-</pre></code>
+    word = ""
+    indices = []
+    ["r", "a", "d"].each (letter, index) ->
+      word += letter
+      indices.push(index)
+    
+    # => ["r", "a", "d"]
+    
+    word
+    # => "rad"
+    
+    indices
+    # => [0, 1, 2]
 
 @name each
 @methodOf Array#
@@ -219,11 +199,9 @@ passing in the element as the first argument, the index of
 the element as the second argument, and `this` array as the
 third argument.
 
-<code><pre>
-[1, 2, 3].map (number) ->
-  number * number
-# => [1, 4, 9]
-</pre></code>
+    [1, 2, 3].map (number) ->
+      number * number
+    # => [1, 4, 9]
 
 @name map
 @methodOf Array#
@@ -242,15 +220,13 @@ Array::map ||= (iterator, context) ->
 ###*
 Call the given iterator once for each pair of objects in the array.
 
-<code><pre>
-[1, 2, 3, 4].eachPair (a, b) ->
-  # 1, 2
-  # 1, 3
-  # 1, 4
-  # 2, 3
-  # 2, 4
-  # 3, 4
-</pre></code>
+    [1, 2, 3, 4].eachPair (a, b) ->
+      # 1, 2
+      # 1, 3
+      # 1, 4
+      # 2, 3
+      # 2, 4
+      # 3, 4
 
 @name eachPair
 @methodOf Array#
@@ -296,15 +272,13 @@ Call the given iterator once for each group of elements in the array,
 passing in the elements in groups of n. Additional argumens are
 passed as in each.
 
-<code><pre>
-results = []
-[1, 2, 3, 4].eachSlice 2, (slice) ->
-  results.push(slice)
-# => [1, 2, 3, 4]
-
-results
-# => [[1, 2], [3, 4]]
-</pre></code>
+    results = []
+    [1, 2, 3, 4].eachSlice 2, (slice) ->
+      results.push(slice)
+    # => [1, 2, 3, 4]
+    
+    results
+    # => [[1, 2], [3, 4]]
 
 @see Array#each
 @name eachSlice
@@ -346,14 +320,12 @@ Array::pipeline = (input) ->
 ###*
 Returns a new array with the elements all shuffled up.
 
-<code><pre>
-a = [1, 2, 3]
-
-a.shuffle()
-# => [2, 3, 1]
-
-a # => [1, 2, 3]
-</pre></code>
+    a = [1, 2, 3]
+    
+    a.shuffle()
+    # => [2, 3, 1]
+    
+    a # => [1, 2, 3]
 
 @name shuffle
 @methodOf Array#
@@ -370,10 +342,8 @@ Array::shuffle = ->
 ###*
 Returns the first element of the array, undefined if the array is empty.
 
-<code><pre>
-["first", "second", "third"].first()
-# => "first"
-</pre></code>
+    ["first", "second", "third"].first()
+    # => "first"
 
 @name first
 @methodOf Array#
@@ -385,10 +355,8 @@ Array::first = ->
 ###*
 Returns the last element of the array, undefined if the array is empty.
 
-<code><pre>
-["first", "second", "third"].last()
-# => "third"
-</pre></code>
+    ["first", "second", "third"].last()
+    # => "third"
 
 @name last
 @methodOf Array#
@@ -400,10 +368,8 @@ Array::last = ->
 ###*
 Returns an object containing the extremes of this array.
 
-<code><pre>
-[-1, 3, 0].extremes()
-# => {min: -1, max: 3}
-</pre></code>
+    [-1, 3, 0].extremes()
+    # => {min: -1, max: 3}
 
 @name extremes
 @methodOf Array#
@@ -443,16 +409,14 @@ Pretend the array is a circle and grab a new array containing length elements.
 If length is not given return the element at start, again assuming the array 
 is a circle.
 
-<code><pre>
-[1, 2, 3].wrap(-1)
-# => 3
-
-[1, 2, 3].wrap(6)
-# => 1
-
-["l", "o", "o", "p"].wrap(0, 16)
-# => ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
-</pre></code>
+    [1, 2, 3].wrap(-1)
+    # => 3
+    
+    [1, 2, 3].wrap(6)
+    # => 1
+    
+    ["l", "o", "o", "p"].wrap(0, 16)
+    # => ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
 
 @name wrap
 @methodOf Array#
@@ -476,16 +440,14 @@ Array::wrap = (start, length) ->
 Partitions the elements into two groups: those for which the iterator returns
 true, and those for which it returns false.
 
-<code><pre>
-[evens, odds] = [1, 2, 3, 4].partition (n) ->
-  n.even()
-
-evens
-# => [2, 4]
-
-odds
-# => [1, 3]
-</pre></code>
+    [evens, odds] = [1, 2, 3, 4].partition (n) ->
+      n.even()
+    
+    evens
+    # => [2, 4]
+    
+    odds
+    # => [1, 3]
 
 @name partition
 @methodOf Array#
@@ -520,10 +482,8 @@ Array::select = (iterator, context) ->
 ###*
 Return the group of elements that are not in the passed in set.
 
-<code><pre>
-[1, 2, 3, 4].without ([2, 3])
-# => [1, 4]
-</pre></code>
+    [1, 2, 3, 4].without ([2, 3])
+    # => [1, 4]
 
 @name without
 @methodOf Array#
@@ -564,10 +524,8 @@ Array::inject = (initial, iterator) ->
 ###*
 Add all the elements in the array.
 
-<code><pre>
-[1, 2, 3, 4].sum()
-# => 10
-</pre></code>
+    [1, 2, 3, 4].sum()
+    # => 10
 
 @name sum
 @methodOf Array#
@@ -580,10 +538,8 @@ Array::sum = ->
 ###*
 Multiply all the elements in the array.
 
-<code><pre>
-[1, 2, 3, 4].product()
-# => 24
-</pre></code>
+    [1, 2, 3, 4].product()
+    # => 24
 
 @name product
 @methodOf Array#
@@ -596,10 +552,8 @@ Array::product = ->
 ###*
 Merges together the values of each of the arrays with the values at the corresponding position.
 
-<code><pre>
-['a', 'b', 'c'].zip([1, 2, 3])
-# => [['a', 1], ['b', 2], ['c', 3]]
-</pre></code>
+    ['a', 'b', 'c'].zip([1, 2, 3])
+    # => [['a', 1], ['b', 2], ['c', 3]]
 
 @name zip
 @methodOf Array#

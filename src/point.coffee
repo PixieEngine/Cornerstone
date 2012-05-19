@@ -3,23 +3,21 @@
   Create a new point with given x and y coordinates. If no arguments are given
   defaults to (0, 0).
 
-  <code><pre>
-  point = Point()
-
-  p.x
-  # => 0
-
-  p.y
-  # => 0
-
-  point = Point(-2, 5)
-
-  p.x
-  # => -2
-
-  p.y
-  # => 5
-  </pre></code>
+      point = Point()
+    
+      p.x
+      # => 0
+    
+      p.y
+      # => 0
+    
+      point = Point(-2, 5)
+    
+      p.x
+      # => -2
+    
+      p.y
+      # => 5
 
   @name Point
   @param {Number} [x]
@@ -70,16 +68,14 @@
     @methodOf Point#
     @returns {Point} A new point with the same x and y value as this point.
 
-    <code><pre>
-    point = Point(1, 1)
-    pointCopy = point.copy()
-
-    point.equal(pointCopy)
-    # => true
-
-    point == pointCopy
-    # => false     
-    </pre></code>
+        point = Point(1, 1)
+        pointCopy = point.copy()
+    
+        point.equal(pointCopy)
+        # => true
+    
+        point == pointCopy
+        # => false     
     ###
     copy: ->
       Point(@x, @y)
@@ -89,23 +85,21 @@
     also use a two argument call like <code>point.add(x, y)</code>
     to add x and y values without a second point object.
 
-    <code><pre>
-    point = Point(2, 3).add(Point(3, 4))
-
-    point.x
-    # => 5
-
-    point.y
-    # => 7
-
-    anotherPoint = Point(2, 3).add(3, 4)
-
-    anotherPoint.x
-    # => 5
-
-    anotherPoint.y
-    # => 7
-    </pre></code>
+        point = Point(2, 3).add(Point(3, 4))
+    
+        point.x
+        # => 5
+    
+        point.y
+        # => 7
+    
+        anotherPoint = Point(2, 3).add(3, 4)
+    
+        anotherPoint.x
+        # => 5
+    
+        anotherPoint.y
+        # => 7
 
     @name add
     @methodOf Point#
@@ -120,32 +114,30 @@
     also use a two argument call like <code>point.add(x, y)</code>
     to add x and y values without a second point object.
 
-    <code><pre>
-    point = Point(2, 3)
-
-    point.x
-    # => 2
-
-    point.y
-    # => 3
-
-    point.add$(Point(3, 4))
-
-    point.x
-    # => 5
-
-    point.y
-    # => 7
-
-    anotherPoint = Point(2, 3)
-    anotherPoint.add$(3, 4)
-
-    anotherPoint.x
-    # => 5
-
-    anotherPoint.y
-    # => 7
-    </pre></code>
+        point = Point(2, 3)
+    
+        point.x
+        # => 2
+    
+        point.y
+        # => 3
+    
+        point.add$(Point(3, 4))
+    
+        point.x
+        # => 5
+    
+        point.y
+        # => 7
+    
+        anotherPoint = Point(2, 3)
+        anotherPoint.add$(3, 4)
+    
+        anotherPoint.x
+        # => 5
+    
+        anotherPoint.y
+        # => 7
 
     @name add$
     @methodOf Point#
@@ -165,23 +157,21 @@
     ###*
     Subtracts a point to this one and returns the new point.
 
-    <code><pre>
-    point = Point(1, 2).subtract(Point(2, 0))
-
-    point.x
-    # => -1
-
-    point.y
-    # => 2
-
-    anotherPoint = Point(1, 2).subtract(2, 0)
-
-    anotherPoint.x
-    # => -1
-
-    anotherPoint.y
-    # => 2
-    </pre></code>
+        point = Point(1, 2).subtract(Point(2, 0))
+    
+        point.x
+        # => -1
+    
+        point.y
+        # => 2
+    
+        anotherPoint = Point(1, 2).subtract(2, 0)
+    
+        anotherPoint.x
+        # => -1
+    
+        anotherPoint.y
+        # => 2
 
     @name subtract
     @methodOf Point#
@@ -194,32 +184,30 @@
     ###*
     Subtracts a point to this one and returns the new point.
 
-    <code><pre>
-    point = Point(1, 2)
-
-    point.x
-    # => 1
-
-    point.y
-    # => 2
-
-    point.subtract$(Point(2, 0))
-
-    point.x
-    # => -1
-
-    point.y
-    # => 2
-
-    anotherPoint = Point(1, 2)
-    anotherPoint.subtract$(2, 0)
-
-    anotherPoint.x
-    # => -1
-
-    anotherPoint.y
-    # => 2
-    </pre></code>
+        point = Point(1, 2)
+    
+        point.x
+        # => 1
+    
+        point.y
+        # => 2
+    
+        point.subtract$(Point(2, 0))
+    
+        point.x
+        # => -1
+    
+        point.y
+        # => 2
+    
+        anotherPoint = Point(1, 2)
+        anotherPoint.subtract$(2, 0)
+    
+        anotherPoint.x
+        # => -1
+    
+        anotherPoint.y
+        # => 2
 
     @name subtract$
     @methodOf Point#
@@ -239,15 +227,13 @@
     ###*
     Scale this Point (Vector) by a constant amount.
 
-    <code><pre>
-    point = Point(5, 6).scale(2)
-
-    point.x
-    # => 10
-
-    point.y
-    # => 12
-    </pre></code>
+        point = Point(5, 6).scale(2)
+    
+        point.x
+        # => 10
+    
+        point.y
+        # => 12
 
     @name scale
     @methodOf Point#
@@ -260,23 +246,21 @@
     ###*
     Scale this Point (Vector) by a constant amount. Modifies the point in place.
 
-    <code><pre>
-    point = Point(5, 6)
-
-    point.x
-    # => 5
-
-    point.y
-    # => 6
-
-    point.scale$(2)
-
-    point.x
-    # => 10
-
-    point.y
-    # => 12
-    </pre></code>
+        point = Point(5, 6)
+    
+        point.x
+        # => 5
+    
+        point.y
+        # => 6
+    
+        point.scale$(2)
+    
+        point.x
+        # => 10
+    
+        point.y
+        # => 12
 
     @name scale$
     @methodOf Point#
@@ -293,23 +277,21 @@
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y).
 
-    <code><pre>
-    point = Point(2, 3).norm()
-
-    point.x
-    # => 0.5547001962252291
-
-    point.y  
-    # => 0.8320502943378437
-
-    anotherPoint = Point(2, 3).norm(2)
-
-    anotherPoint.x
-    # => 1.1094003924504583
-
-    anotherPoint.y   
-    # => 1.6641005886756874    
-    </pre></code>
+        point = Point(2, 3).norm()
+    
+        point.x
+        # => 0.5547001962252291
+    
+        point.y  
+        # => 0.8320502943378437
+    
+        anotherPoint = Point(2, 3).norm(2)
+    
+        anotherPoint.x
+        # => 1.1094003924504583
+    
+        anotherPoint.y   
+        # => 1.6641005886756874    
 
     @name norm
     @methodOf Point#
@@ -322,23 +304,21 @@
     The norm of a vector is the unit vector pointing in the same direction. This method
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
 
-    <code><pre>
-    point = Point(2, 3).norm$()
-
-    point.x
-    # => 0.5547001962252291
-
-    point.y  
-    # => 0.8320502943378437
-
-    anotherPoint = Point(2, 3).norm$(2)
-
-    anotherPoint.x
-    # => 1.1094003924504583
-
-    anotherPoint.y   
-    # => 1.6641005886756874    
-    </pre></code>
+        point = Point(2, 3).norm$()
+    
+        point.x
+        # => 0.5547001962252291
+    
+        point.y  
+        # => 0.8320502943378437
+    
+        anotherPoint = Point(2, 3).norm$(2)
+    
+        anotherPoint.x
+        # => 1.1094003924504583
+    
+        anotherPoint.y   
+        # => 1.6641005886756874    
 
     @name norm$
     @methodOf Point#
@@ -353,15 +333,13 @@
     ###*
     Floor the x and y values, returning a new point.
 
-    <code><pre>
-    point = Point(3.4, 5.8).floor()
-
-    point.x
-    # => 3
-
-    point.y
-    # => 5
-    </pre></code>
+        point = Point(3.4, 5.8).floor()
+    
+        point.x
+        # => 3
+    
+        point.y
+        # => 5
 
     @name floor
     @methodOf Point#
@@ -373,16 +351,14 @@
     ###*
     Floor the x and y values, returning a modified point.
 
-    <code><pre>
-    point = Point(3.4, 5.8)
-    point.floor$()
-
-    point.x
-    # => 3
-
-    point.y
-    # => 5
-    </pre></code>
+        point = Point(3.4, 5.8)
+        point.floor$()
+    
+        point.x
+        # => 3
+    
+        point.y
+        # => 5
 
     @name floor$
     @methodOf Point#
@@ -397,17 +373,15 @@
     ###*
     Determine whether this point is equal to another point.
 
-    <code><pre>
-    pointA = Point(2, 3)
-    pointB = Point(2, 3)
-    pointC = Point(4, 5)
-
-    pointA.equal(pointB)
-    # => true
-
-    pointA.equal(pointC)
-    # => false
-    </pre></code>
+        pointA = Point(2, 3)
+        pointB = Point(2, 3)
+        pointC = Point(4, 5)
+    
+        pointA.equal(pointB)
+        # => true
+    
+        pointA.equal(pointC)
+        # => false
 
     @name equal
     @methodOf Point#
@@ -420,12 +394,10 @@
     ###*
     Computed the length of this point as though it were a vector from (0,0) to (x,y).
 
-    <code><pre>
-    point = Point(5, 7)
-
-    point.length()
-    # => 8.602325267042627
-    </pre></code>
+        point = Point(5, 7)
+    
+        point.length()
+        # => 8.602325267042627
 
     @name length
     @methodOf Point#
@@ -437,12 +409,10 @@
     ###*
     Calculate the magnitude of this Point (Vector).
 
-    <code><pre>
-    point = Point(5, 7)
-
-    point.magnitude()
-    # => 8.602325267042627
-    </pre></code>
+        point = Point(5, 7)
+    
+        point.magnitude()
+        # => 8.602325267042627
 
     @name magnitude
     @methodOf Point#
@@ -454,12 +424,10 @@
     ###*
     Returns the direction in radians of this point from the origin.
 
-    <code><pre>
-    point = Point(0, 1)
-
-    point.direction()
-    # => 1.5707963267948966 # Math.PI / 2
-    </pre></code>
+        point = Point(0, 1)
+    
+        point.direction()
+        # => 1.5707963267948966 # Math.PI / 2
 
     @name direction
     @methodOf Point#
@@ -496,13 +464,11 @@
     ###*
     Compute the Euclidean distance between this point and another point.
 
-    <code><pre>
-    pointA = Point(2, 3)
-    pointB = Point(9, 2)
-
-    pointA.distance(pointB)
-    # => 7.0710678118654755 # Math.sqrt(50)
-    </pre></code>
+        pointA = Point(2, 3)
+        pointB = Point(9, 2)
+    
+        pointA.distance(pointB)
+        # => 7.0710678118654755 # Math.sqrt(50)
 
     @name distance
     @methodOf Point#
@@ -523,13 +489,11 @@
   ###*
   Compute the Euclidean distance between two points.
 
-  <code><pre>
-  pointA = Point(2, 3)
-  pointB = Point(9, 2)
-
-  Point.distance(pointA, pointB)
-  # => 7.0710678118654755 # Math.sqrt(50)
-  </pre></code>
+      pointA = Point(2, 3)
+      pointB = Point(9, 2)
+    
+      Point.distance(pointA, pointB)
+      # => 7.0710678118654755 # Math.sqrt(50)
 
   @name distance
   @fieldOf Point
@@ -541,13 +505,11 @@
     Math.sqrt(Point.distanceSquared(p1, p2))
 
   ###*
-  <code><pre>
-  pointA = Point(2, 3)
-  pointB = Point(9, 2)
-
-  Point.distanceSquared(pointA, pointB)
-  # => 50
-  </pre></code>
+      pointA = Point(2, 3)
+      pointB = Point(9, 2)
+    
+      Point.distanceSquared(pointA, pointB)
+      # => 50
 
   @name distanceSquared
   @fieldOf Point
@@ -573,15 +535,13 @@
   ###*
   Construct a point on the unit circle for the given angle.
 
-  <code><pre>
-  point = Point.fromAngle(Math.PI / 2)
-
-  point.x
-  # => 0
-
-  point.y
-  # => 1
-  </pre></code>
+      point = Point.fromAngle(Math.PI / 2)
+    
+      point.x
+      # => 0
+    
+      point.y
+      # => 1
 
   @name fromAngle
   @fieldOf Point
@@ -596,13 +556,11 @@
   standing at point p2, then this method will return the direction
   that the dude standing at p1 will need to face to look at p2.
 
-  <code><pre>
-  p1 = Point(0, 0)
-  p2 = Point(7, 3)
-
-  Point.direction(p1, p2)
-  # => 0.40489178628508343
-  </pre></code>
+      p1 = Point(0, 0)
+      p2 = Point(7, 3)
+    
+      Point.direction(p1, p2)
+      # => 0.40489178628508343
 
   @name direction
   @fieldOf Point

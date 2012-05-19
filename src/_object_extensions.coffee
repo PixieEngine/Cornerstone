@@ -1,13 +1,11 @@
 ###*
 Checks whether an object is an array.
 
-<code><pre>
-Object.isArray([1, 2, 4])
-# => true
-
-Object.isArray({key: "value"})
-# => false
-</pre></code>
+    Object.isArray([1, 2, 4])
+    # => true
+    
+    Object.isArray({key: "value"})
+    # => false
 
 @name isArray
 @methodOf Object
@@ -20,16 +18,14 @@ Object.isArray = (object) ->
 ###*
 Checks whether an object is a string.
 
-<code><pre>
-Object.isString("a string")
-# => true
-
-Object.isString([1, 2, 4])
-# => false
-
-Object.isString({key: "value"})
-# => false
-</pre></code>
+    Object.isString("a string")
+    # => true
+    
+    Object.isString([1, 2, 4])
+    # => false
+    
+    Object.isString({key: "value"})
+    # => false
 
 @name isString
 @methodOf Object
@@ -43,18 +39,16 @@ Object.isString = (object) ->
 Merges properties from objects into target without overiding.
 First come, first served.
 
-<code><pre>
-  I =
-    a: 1
-    b: 2
-    c: 3
-
-  Object.reverseMerge I,
-    c: 6
-    d: 4   
-
-  I # => {a: 1, b:2, c:3, d: 4}
-</pre></code>
+      I =
+        a: 1
+        b: 2
+        c: 3
+    
+      Object.reverseMerge I,
+        c: 6
+        d: 4   
+    
+      I # => {a: 1, b:2, c:3, d: 4}
 
 @name reverseMerge
 @methodOf Object
@@ -73,18 +67,16 @@ Object.reverseMerge = (target, objects...) ->
 Merges properties from sources into target with overiding.
 Last in covers earlier properties.
 
-<code><pre>
-  I =
-    a: 1
-    b: 2
-    c: 3
-
-  Object.extend I,
-    c: 6
-    d: 4
-
-  I # => {a: 1, b:2, c:6, d: 4}
-</pre></code>
+      I =
+        a: 1
+        b: 2
+        c: 3
+    
+      Object.extend I,
+        c: 6
+        d: 4
+    
+      I # => {a: 1, b:2, c:6, d: 4}
 
 @name extend
 @methodOf Object
@@ -101,12 +93,10 @@ Object.extend = (target, sources...) ->
 ###*
 Helper method that tells you if something is an object.
 
-<code><pre>
-object = {a: 1}
-
-Object.isObject(object)
-# => true
-</pre></code>
+    object = {a: 1}
+    
+    Object.isObject(object)
+    # => true
 
 @name isObject
 @methodOf Object

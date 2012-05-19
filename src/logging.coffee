@@ -4,12 +4,10 @@
 
 Gives you some convenience methods for outputting data while developing. 
 
-<code><pre>
-  log "Testing123"
-  info "Hey, this is happening"
-  warn "Be careful, this might be a problem"
-  error "Kaboom!"
-</pre></code>
+      log "Testing123"
+      info "Hey, this is happening"
+      warn "Be careful, this might be a problem"
+      error "Kaboom!"
 ###
 
 ["log", "info", "warn", "error"].each (name) ->

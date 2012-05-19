@@ -1,16 +1,14 @@
 ###*
 Returns true if this string only contains whitespace characters.
 
-<code><pre>
-"".blank()
-# => true
-
-"hello".blank()
-# => false
-
-"   ".blank()
-# => true
-</pre></code>
+    "".blank()
+    # => true
+    
+    "hello".blank()
+    # => false
+    
+    "   ".blank()
+    # => true
 
 @name blank
 @methodOf String#
@@ -22,13 +20,11 @@ String::blank = ->
 ###*
 Returns a new string that is a camelCase version.
 
-<code><pre>
-"camel_case".camelize()
-"camel-case".camelize()
-"camel case".camelize()
-
-# => "camelCase"
-</pre></code>
+    "camel_case".camelize()
+    "camel-case".camelize()
+    "camel case".camelize()
+    
+    # => "camelCase"
 
 @name camelize
 @methodOf String#
@@ -41,14 +37,12 @@ String::camelize = ->
 ###*
 Returns a new string with the first letter capitalized and the rest lower cased.
 
-<code><pre>
-"capital".capitalize()
-"cAPITAL".capitalize()
-"cApItAl".capitalize()
-"CAPITAL".capitalize()
-
-# => "Capital"
-</pre></code>
+    "capital".capitalize()
+    "cAPITAL".capitalize()
+    "cApItAl".capitalize()
+    "CAPITAL".capitalize()
+    
+    # => "Capital"
 
 @name capitalize
 @methodOf String#
@@ -60,12 +54,10 @@ String::capitalize = ->
 ###*
 Return the class or constant named in this string.
 
-<code><pre>
-
-"Constant".constantize()
-# => Constant
-# notice this isn't a string. Useful for calling methods on class with the same name as `this`.
-</pre></code>
+    
+    "Constant".constantize()
+    # => Constant
+    # notice this isn't a string. Useful for calling methods on class with the same name as `this`.
 
 @name constantize
 @methodOf String#
@@ -81,13 +73,11 @@ String::constantize = ->
 ###*
 Returns a new string that is a more human readable version.
 
-<code><pre>
-"player_id".humanize()
-# => "Player"
-
-"player_ammo".humanize()
-# => "Player ammo"
-</pre></code>
+    "player_id".humanize()
+    # => "Player"
+    
+    "player_ammo".humanize()
+    # => "Player ammo"
 
 @name humanize
 @methodOf String#
@@ -110,16 +100,14 @@ String::isString = ->
 Parse this string as though it is JSON and return the object it represents. If it
 is not valid JSON returns the string itself.
 
-<code><pre>
-# this is valid json, so an object is returned
-'{"a": 3}'.parse()
-# => {a: 3}
-
-# double quoting instead isn't valid JSON so a string is returned
-"{'a': 3}".parse()
-# => "{'a': 3}"
-
-</pre></code>
+    # this is valid json, so an object is returned
+    '{"a": 3}'.parse()
+    # => {a: 3}
+    
+    # double quoting instead isn't valid JSON so a string is returned
+    "{'a': 3}".parse()
+    # => "{'a': 3}"
+    
 
 @name parse
 @methodOf String#
@@ -146,13 +134,11 @@ String::startsWith = (str) ->
 ###*
 Returns a new string in Title Case.
 
-<code><pre>
-"title-case".titleize()
-# => "Title Case"
-
-"title case".titleize()
-# => "Title Case"
-</pre></code>
+    "title-case".titleize()
+    # => "Title Case"
+    
+    "title case".titleize()
+    # => "Title Case"
 
 @name titleize
 @methodOf String#
@@ -166,16 +152,14 @@ String::titleize = ->
 ###*
 Underscore a word, changing camelCased with under_scored.
 
-<code><pre>
-"UNDERScore".underscore()
-# => "under_score"
-
-"UNDER-SCORE".underscore()
-# => "under_score"
-
-"UnDEr-SCorE".underscore()
-# => "un_d_er_s_cor_e"
-</pre></code>
+    "UNDERScore".underscore()
+    # => "under_score"
+    
+    "UNDER-SCORE".underscore()
+    # => "under_score"
+    
+    "UnDEr-SCorE".underscore()
+    # => "un_d_er_s_cor_e"
 
 @name underscore
 @methodOf String#
@@ -191,10 +175,8 @@ String::underscore = ->
 Assumes the string is something like a file name and returns the 
 contents of the string without the extension.
 
-<code><pre>
-"neat.png".witouthExtension() 
-# => "neat"
-</pre></code>
+    "neat.png".witouthExtension() 
+    # => "neat"
 
 @name withoutExtension
 @methodOf String#

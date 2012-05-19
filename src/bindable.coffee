@@ -1,21 +1,19 @@
 ###*
 Bindable module.
 
-<code><pre>
-player = Core
-  x: 5
-  y: 10
-
-player.bind "update", ->
-  updatePlayer()
-# => Uncaught TypeError: Object has no method 'bind'
-
-player.include(Bindable)
-
-player.bind "update", ->
-  updatePlayer()
-# => this will call updatePlayer each time through the main loop
-</pre></code>
+    player = Core
+      x: 5
+      y: 10
+    
+    player.bind "update", ->
+      updatePlayer()
+    # => Uncaught TypeError: Object has no method 'bind'
+    
+    player.include(Bindable)
+    
+    player.bind "update", ->
+      updatePlayer()
+    # => this will call updatePlayer each time through the main loop
 
 @name Bindable
 @module
@@ -27,15 +25,13 @@ Bindable = ->
   ###*
   Adds a function as an event listener.
 
-  <code><pre>
-  # this will call coolEventHandler after
-  # yourObject.trigger "someCustomEvent" is called.
-  yourObject.bind "someCustomEvent", coolEventHandler
-
-  #or
-  yourObject.bind "anotherCustomEvent", ->
-    doSomething()
-  </pre></code>
+      # this will call coolEventHandler after
+      # yourObject.trigger "someCustomEvent" is called.
+      yourObject.bind "someCustomEvent", coolEventHandler
+    
+      #or
+      yourObject.bind "anotherCustomEvent", ->
+        doSomething()
 
   @name bind
   @methodOf Bindable#
@@ -62,14 +58,12 @@ Bindable = ->
   Removes a specific event listener, or all event listeners if
   no specific listener is given.
 
-  <code><pre>
-  #  removes the handler coolEventHandler from the event
-  # "someCustomEvent" while leaving the other events intact.
-  yourObject.unbind "someCustomEvent", coolEventHandler
-
-  # removes all handlers attached to "anotherCustomEvent" 
-  yourObject.unbind "anotherCustomEvent"
-  </pre></code>
+      #  removes the handler coolEventHandler from the event
+      # "someCustomEvent" while leaving the other events intact.
+      yourObject.unbind "someCustomEvent", coolEventHandler
+    
+      # removes all handlers attached to "anotherCustomEvent" 
+      yourObject.unbind "anotherCustomEvent"
 
   @name unbind
   @methodOf Bindable#
@@ -105,10 +99,8 @@ Bindable = ->
   ###*
   Calls all listeners attached to the specified event.
 
-  <code><pre>
-  # calls each event handler bound to "someCustomEvent"
-  yourObject.trigger "someCustomEvent"
-  </pre></code>
+      # calls each event handler bound to "someCustomEvent"
+      yourObject.trigger "someCustomEvent"
 
   @name trigger
   @methodOf Bindable#

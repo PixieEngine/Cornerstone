@@ -1,10 +1,8 @@
 ###* 
 Returns the absolute value of this number.
 
-<code><pre>
-(-4).abs()
-# => 4
-</pre></code>
+    (-4).abs()
+    # => 4
 
 @name abs
 @methodOf Number#
@@ -16,16 +14,14 @@ Number::abs = () ->
 ###*
 Returns the mathematical ceiling of this number.
 
-<code><pre>
-4.9.ceil() 
-# => 5
-
-4.2.ceil()
-# => 5
-
-(-1.2).ceil()
-# => -1
-</pre></code>
+    4.9.ceil() 
+    # => 5
+    
+    4.2.ceil()
+    # => 5
+    
+    (-1.2).ceil()
+    # => -1
 
 @name ceil
 @methodOf Number#
@@ -37,16 +33,14 @@ Number::ceil = ->
 ###*
 Returns the mathematical floor of this number.
 
-<code><pre>
-4.9.floor()
-# => 4
-
-4.2.floor()
-# => 4
-
-(-1.2).floor()
-# => -2
-</pre></code>
+    4.9.floor()
+    # => 4
+    
+    4.2.floor()
+    # => 4
+    
+    (-1.2).floor()
+    # => -2
 
 @name floor
 @methodOf Number#
@@ -58,13 +52,11 @@ Number::floor = ->
 ###*
 Returns this number rounded to the nearest integer.
 
-<code><pre>
-4.5.round()
-# => 5
-
-4.4.round()
-# => 4
-</pre></code>
+    4.5.round()
+    # => 5
+    
+    4.4.round()
+    # => 4
 
 @name round
 @methodOf Number#
@@ -76,11 +68,9 @@ Number::round = ->
 ###*
 Get a bunch of points equally spaced around the unit circle.
 
-<code><pre>
-4.circularPoints (p) ->
-
-# p gets Point(1, 0), Point(0, 1), Point(-1, 0), Point(0, -1)
-</pre></code>
+    4.circularPoints (p) ->
+    
+    # p gets Point(1, 0), Point(0, 1), Point(-1, 0), Point(0, -1)
 
 @name circularPoint
 @methodOf Number#
@@ -95,11 +85,9 @@ Number::circularPoints = (block) ->
 ###*
 Returns a number whose value is limited to the given range.
 
-<code><pre>
-# limit the output of this computation to between 0 and 255
-(2 * 255).clamp(0, 255)
-# => 255
-</pre></code>
+    # limit the output of this computation to between 0 and 255
+    (2 * 255).clamp(0, 255)
+    # => 255
 
 @name clamp
 @methodOf Number#
@@ -121,10 +109,8 @@ Number::clamp = (min, max) ->
 A mod method useful for array wrapping. The range of the function is
 constrained to remain in bounds of array indices.
 
-<code><pre>
-(-1).mod(5)
-# => 4
-</pre></code>
+    (-1).mod(5)
+    # => 4
 
 @name mod
 @methodOf Number#
@@ -142,16 +128,14 @@ Number::mod = (base) ->
 ###*
 Get the sign of this number as an integer (1, -1, or 0).
 
-<code><pre>
-(-5).sign()
-# => -1
-
-0.sign()
-# => 0
-
-5.sign()
-# => 1
-</pre></code>
+    (-5).sign()
+    # => -1
+    
+    0.sign()
+    # => 0
+    
+    5.sign()
+    # => 1
 
 @name sign
 @methodOf Number#
@@ -168,16 +152,14 @@ Number::sign = ->
 ###*
 Returns true if this number is even (evenly divisible by 2).
 
-<code><pre>
-2.even()
-# => true
-
-3.even()
-# => false
-
-0.even()
-# => true      
-</pre></code>
+    2.even()
+    # => true
+    
+    3.even()
+    # => false
+    
+    0.even()
+    # => true      
 
 @name even
 @methodOf Number#
@@ -189,16 +171,14 @@ Number::even = ->
 ###*
 Returns true if this number is odd (has remainder of 1 when divided by 2).
 
-<code><pre>
-2.odd()
-# => false
-
-3.odd()
-# => true
-
-0.odd()
-# => false     
-</pre></code>
+    2.odd()
+    # => false
+    
+    3.odd()
+    # => true
+    
+    0.odd()
+    # => false     
 
 @name odd
 @methodOf Number#
@@ -214,15 +194,13 @@ Number::odd = ->
 Calls iterator the specified number of times, passing in the number of the 
 current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
 
-<code><pre>
-output = []
-
-5.times (n) ->
-  output.push(n)
-
-output
-# => [0, 1, 2, 3, 4]
-</pre></code>
+    output = []
+    
+    5.times (n) ->
+      output.push(n)
+    
+    output
+    # => [0, 1, 2, 3, 4]
 
 @name times
 @methodOf Number#
@@ -241,16 +219,14 @@ Number::times = (iterator, context) ->
 ###*
 Returns the the nearest grid resolution less than or equal to the number. 
 
-<code><pre>
-7.snap(8) 
-# => 0
-
-4.snap(8) 
-# => 0
-
-12.snap(8) 
-# => 8
-</pre></code>
+    7.snap(8) 
+    # => 0
+    
+    4.snap(8) 
+    # => 0
+    
+    12.snap(8) 
+    # => 8
 
 @name snap
 @methodOf Number#
@@ -268,13 +244,11 @@ which when multiplied together equal the original integer.
 
 Floors the number for purposes of factorization.
 
-<code><pre>
-60.primeFactors()
-# => [2, 2, 3, 5]
-
-37.primeFactors()
-# => [37]
-</pre></code>
+    60.primeFactors()
+    # => [2, 2, 3, 5]
+    
+    37.primeFactors()
+    # => [37]
 
 @name primeFactors
 @methodOf Number#
@@ -312,16 +286,14 @@ Number::primeFactors = ->
 Returns the two character hexidecimal 
 representation of numbers 0 through 255.
 
-<code><pre>
-255.toColorPart()
-# => "ff"
-
-0.toColorPart()
-# => "00"
-
-200.toColorPart()
-# => "c8"
-</pre></code>
+    255.toColorPart()
+    # => "ff"
+    
+    0.toColorPart()
+    # => "00"
+    
+    200.toColorPart()
+    # => "c8"
 
 @name toColorPart
 @methodOf Number#
@@ -338,13 +310,11 @@ Number::toColorPart = ->
 ###*
 Returns a number that is maxDelta closer to target.
 
-<code><pre>
-255.approach(0, 5)
-# => 250
-
-5.approach(0, 10)
-# => 0
-</pre></code>
+    255.approach(0, 5)
+    # => 250
+    
+    5.approach(0, 10)
+    # => 0
 
 @name approach
 @methodOf Number#
@@ -356,10 +326,8 @@ Number::approach = (target, maxDelta) ->
 ###*
 Returns a number that is closer to the target by the ratio.
 
-<code><pre>
-255.approachByRatio(0, 0.1)
-# => 229.5
-</pre></code>
+    255.approachByRatio(0, 0.1)
+    # => 229.5
 
 @name approachByRatio
 @methodOf Number#
@@ -371,10 +339,8 @@ Number::approachByRatio = (target, ratio) ->
 ###*
 Returns a number that is closer to the target angle by the delta.
 
-<code><pre>
-Math.PI.approachRotation(0, Math.PI/4)
-# => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
-</pre></code>
+    Math.PI.approachRotation(0, Math.PI/4)
+    # => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
 
 @name approachRotation
 @methodOf Number#
@@ -392,10 +358,8 @@ Number::approachRotation = (target, maxDelta) ->
 ###*
 Constrains a rotation to between -PI and PI.
 
-<code><pre>
-(9/4 * Math.PI).constrainRotation() 
-# => 0.7853981633974483 # this is (1/4) * Math.PI
-</pre></code>
+    (9/4 * Math.PI).constrainRotation() 
+    # => 0.7853981633974483 # this is (1/4) * Math.PI
 
 @name constrainRotation
 @methodOf Number#
@@ -430,12 +394,10 @@ Number::d = (sides) ->
 ###*
 Utility method to convert a number to a duration of seconds.
 
-<code><pre>
-3.seconds
-# => 3000
-
-setTimout doSometing, 3.seconds
-</pre></code>
+    3.seconds
+    # => 3000
+    
+    setTimout doSometing, 3.seconds
 
 @name seconds
 @propertyOf Number#
@@ -454,12 +416,10 @@ unless 1.second
 ###*
 Utility method to convert a number to an amount of rotations.
 
-<code><pre>
-0.5.rotations
-# => 3.141592653589793
-
-I.rotation = 0.25.rotations
-</pre></code>
+    0.5.rotations
+    # => 3.141592653589793
+    
+    I.rotation = 0.25.rotations
 
 @name rotations
 @propertyOf Number#
@@ -478,14 +438,12 @@ unless 1.rotation
 ###*
 Utility method to convert a number to an amount of rotations.
 
-<code><pre>
-0.5.turns
-# => 3.141592653589793
-
-I.rotation = 0.25.turns
-
-1.turn # => Math.TAU (aka 2 * Math.PI)
-</pre></code>
+    0.5.turns
+    # => 3.141592653589793
+    
+    I.rotation = 0.25.turns
+    
+    1.turn # => Math.TAU (aka 2 * Math.PI)
 
 @name turns
 @propertyOf Number#
@@ -505,12 +463,10 @@ unless 1.turn
 ###*
 Utility method to convert a number to an amount of degrees.
 
-<code><pre>
-180.degrees
-# => 3.141592653589793
-
-I.rotation = 90.degrees
-</pre></code>
+    180.degrees
+    # => 3.141592653589793
+    
+    I.rotation = 90.degrees
 
 @name degrees
 @propertyOf Number#
