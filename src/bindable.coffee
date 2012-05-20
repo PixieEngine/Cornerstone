@@ -21,11 +21,11 @@ Bindable module.
 ###
 Bindable = (I={}, self) -> 
   eventCallbacks = {}
-  
+
   bind: ->
     self.on.apply(arguments)
   unbind: ->
-    self.off.apply(argumen)
+    self.off.apply(arguments)
 
   ###*
   Adds a function as an event listener.
