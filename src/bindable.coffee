@@ -70,7 +70,7 @@ Bindable = (I={}, self) ->
   @param {String} event The event to remove the listener from.
   @param {Function} [callback] The listener to remove.
   ###
-  unbind: (namespacedEvent, callback) ->
+  off: (namespacedEvent, callback) ->
     [event, namespace] = namespacedEvent.split(".")
 
     if event
