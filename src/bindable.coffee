@@ -60,7 +60,7 @@ Bindable = (I={}, self) ->
 
       #  removes the handler coolEventHandler from the event
       # "someCustomEvent" while leaving the other events intact.
-      yourObject.unbind "someCustomEvent", coolEventHandler
+      yourObject.off "someCustomEvent", coolEventHandler
     
       # removes all handlers attached to "anotherCustomEvent" 
       yourObject.unbind "anotherCustomEvent"
