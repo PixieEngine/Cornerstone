@@ -22,7 +22,7 @@ Bindable module.
 Bindable = (I={}, self) -> 
   eventCallbacks = {}
 
-  bind: ->
+  bind: ()->
     self.on.apply(arguments)
 
   unbind: ->
