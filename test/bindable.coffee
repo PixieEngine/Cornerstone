@@ -54,7 +54,7 @@ test "#trigger namespace", 1, ->
   o.trigger "test"
   
 test "#unbind namespaced", 1, ->
-  o = Object.extend({}, Bindable())
+  o = Core().include("Bindable")
   
   o.bind "test.TestNamespace", ->
     ok true
