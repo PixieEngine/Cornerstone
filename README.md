@@ -1,7 +1,7 @@
-Corelib.coffee
+Cornerstone.coffee
 =======
 
-Corelib.coffee is a JavaScript extension library that gives you the core classes that you've always wanted. Corelib is fully tested and fully documented and runs in any JavaScript environment, from the browser to the server, even on Xbox Live.
+Cornerstone.coffee is a JavaScript extension library that gives you the core classes that you've always wanted. Cornerstone is fully tested and fully documented and runs in any JavaScript environment, from the browser to the server, even on Xbox Live.
 
 Array Extensions
 ----------------
@@ -11,7 +11,7 @@ The array extensions are inspired by Ruby's core library. Simple things like `ea
 Number Extensions
 -----------------
 
-JavaScript has a language feature that allows for `Number` to provide many useful methods, but leaves us hanging. Corelib extends Number.prototype with the ever-popular `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. But that's just the beginning, there are many more including `primeFactors`.
+JavaScript has a language feature that allows for `Number` to provide many useful methods, but leaves us hanging. Cornerstone extends Number.prototype with the ever-popular `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. But that's just the beginning, there are many more including `primeFactors`.
 
 String Extensions
 -----------------
