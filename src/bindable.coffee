@@ -25,7 +25,7 @@ Bindable = (I={}, self) ->
   bind: (args...) ->
     self.on(args...)
 
-  unbind: () ->
+  unbind: (args...) ->
     self.off(args...)
 
   ###*
