@@ -23,6 +23,7 @@ Bindable = (I={}, self) ->
   eventCallbacks = {}
   
   bind: ->
+    self.on()
 
   ###*
   Adds a function as an event listener.
