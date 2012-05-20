@@ -63,7 +63,7 @@ Bindable = (I={}, self) ->
       yourObject.off "someCustomEvent", coolEventHandler
     
       # removes all handlers attached to "anotherCustomEvent" 
-      yourObject.unbind "anotherCustomEvent"
+      yourObject.off "anotherCustomEvent"
 
   @name off
   @methodOf Bindable#
