@@ -25,8 +25,8 @@ Bindable = (I={}, self) ->
   bind: (args...) ->
     self.on(args...)
 
-  unbind: ->
-    self.off(arguments)
+  unbind: () ->
+    self.off(args...)
 
   ###*
   Adds a function as an event listener.
