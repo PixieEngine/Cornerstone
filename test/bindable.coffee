@@ -8,7 +8,7 @@ test "#bind and #trigger", 1, ->
   o.trigger("test")
 
 test "Multiple bindings", 2, ->
-  o = Object.extend({}, Bindable())
+  o = Core().include(Bindable)
 
   o.bind("test", -> ok true)
   o.bind("test", -> ok true)
@@ -16,7 +16,7 @@ test "Multiple bindings", 2, ->
   o.trigger("test")
 
 test "#trigger arguments", ->
-  o = Object.extend({}, Bindable())
+  o = Core().include(Bindable)
 
   param1 = "the message"
   param2 = 3
