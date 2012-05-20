@@ -1,7 +1,7 @@
 module "Bindable"
 
 test "#bind and #trigger", 1, ->
-  o = Object.extend({}, Bindable())
+  o = Cor.extend({}, Bindable())
 
   o.bind("test", -> ok true)
 
