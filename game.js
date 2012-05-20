@@ -1141,26 +1141,6 @@ Function.prototype.once = function() {
   };
 };
 
-Function.prototype.withBefore = function(interception) {
-  var method;
-  method = this;
-  return function() {
-    interception.apply(this, arguments);
-    return method.apply(this, arguments);
-  };
-};
-
-Function.prototype.withAfter = function(interception) {
-  var method;
-  method = this;
-  return function() {
-    var result;
-    result = method.apply(this, arguments);
-    interception.apply(this, arguments);
-    return result;
-  };
-};
-
 /**
 Calling a debounced function will postpone its execution until after 
 wait milliseconds have elapsed since the last time the function was 
