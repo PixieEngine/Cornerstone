@@ -65,7 +65,7 @@ Bindable = (I={}, self) ->
       # removes all handlers attached to "anotherCustomEvent" 
       yourObject.unbind "anotherCustomEvent"
 
-  @name unbind
+  @name off
   @methodOf Bindable#
   @param {String} event The event to remove the listener from.
   @param {Function} [callback] The listener to remove.
