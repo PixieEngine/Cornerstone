@@ -23,7 +23,7 @@ Bindable = (I={}, self) ->
   eventCallbacks = {}
 
   bind: (args...) ->
-    self.on.apply(arguments)
+    self.on(args...)
 
   unbind: ->
     self.off.apply(arguments)
