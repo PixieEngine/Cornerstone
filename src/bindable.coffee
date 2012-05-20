@@ -19,7 +19,7 @@ Bindable module.
 @module
 @constructor
 ###
-Bindable = (I) -> 
+Bindable = (I={}, se) -> 
   eventCallbacks = {}
 
   ###*
