@@ -2,11 +2,6 @@ module "Bindable"
 
 test "#bind and #trigger", 1, ->
   o = Core()
-  o.include("Bindable")
-
-  o.bind("test", -> ok true)
-
-  o.trigger("test")
 
 test "Multiple bindings", 2, ->
   o = Core().include(Bindable)
