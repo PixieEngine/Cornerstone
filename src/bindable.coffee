@@ -24,6 +24,7 @@ Bindable = (I={}, self) ->
 
   bind: ->
     self.on.apply(arguments)
+
   unbind: ->
     self.off.apply(arguments)
 
