@@ -28,7 +28,7 @@ test "#trigger arguments", ->
   o.trigger "test", param1, param2
 
 test "#unbind", ->
-  o = Object.extend({}, Bindable())
+  o = Core().include("Bindable")
 
   callback = ->
     ok false
@@ -44,7 +44,7 @@ test "#unbind", ->
   o.trigger "test"
   
 test "#trigger namespace", 1, ->
-  o = Object.extend({}, Bindable())
+  o = Core().include("Bindable")
   o.bind "test.TestNamespace", ->
     ok true
 
