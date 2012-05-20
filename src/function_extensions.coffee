@@ -10,19 +10,6 @@ Function::once = ->
 
     return memo = func.apply(this, arguments)
 
-Function::withBefore = (interception) -> 
-  method = this
-  () ->
-    interception.apply this, arguments
-    method.apply this, arguments
-
-Function::withAfter = (interception) -> 
-  method = this
-  () ->
-    result = method.apply this, arguments
-    interception.apply this, arguments
-    return result
-
 ###*
 Calling a debounced function will postpone its execution until after 
 wait milliseconds have elapsed since the last time the function was 
