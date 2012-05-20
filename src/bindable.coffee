@@ -27,7 +27,7 @@ Bindable = (I={}, self) ->
 
       # this will call coolEventHandler after
       # yourObject.trigger "someCustomEvent" is called.
-      yourObject.bind "someCustomEvent", coolEventHandler
+      yourObject.on "someCustomEvent", coolEventHandler
     
       #or
       yourObject.on "anotherCustomEvent", ->
