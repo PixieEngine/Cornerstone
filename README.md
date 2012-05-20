@@ -11,7 +11,7 @@ The array extensions are inspired by Ruby's core library. Simple things like `ea
 Number Extensions
 -----------------
 
-JavaScript has a language feature that allows for `Number` to provide many useful methods, but leaves us hanging. Cornerstone extends Number.prototype with the ever-popular `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. But that's just the beginning, there are many more including `primeFactors`.
+JavaScript is a language that allows for `Number` to provide many useful methods, but leaves us hanging. Cornerstone extends Number.prototype with the ever-popular `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. But that's just the beginning, there are many more including `primeFactors`.
 
 String Extensions
 -----------------
