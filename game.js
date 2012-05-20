@@ -813,28 +813,39 @@ Bindable module.
 var Bindable,
   __slice = Array.prototype.slice;
 
-Bindable = function() {
+Bindable = function(I, self) {
   var eventCallbacks;
+  if (I == null) I = {};
   eventCallbacks = {};
   return {
+    bind: function() {
+      var args;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      return self.on.apply(self, args);
+    },
+    unbind: function() {
+      var args;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      return self.off.apply(self, args);
+    },
     /**
     Adds a function as an event listener.
     
         # this will call coolEventHandler after
         # yourObject.trigger "someCustomEvent" is called.
-        yourObject.bind "someCustomEvent", coolEventHandler
+        yourObject.on "someCustomEvent", coolEventHandler
       
         #or
-        yourObject.bind "anotherCustomEvent", ->
+        yourObject.on "anotherCustomEvent", ->
           doSomething()
     
-    @name bind
+    @name on
     @methodOf Bindable#
     @param {String} event The event to listen to.
     @param {Function} callback The function to be called when the specified event
     is triggered.
     */
-    bind: function(namespacedEvent, callback) {
+    on: function(namespacedEvent, callback) {
       var event, namespace, _ref;
       _ref = namespacedEvent.split("."), event = _ref[0], namespace = _ref[1];
       if (namespace) {
@@ -851,17 +862,17 @@ Bindable = function() {
     
         #  removes the handler coolEventHandler from the event
         # "someCustomEvent" while leaving the other events intact.
-        yourObject.unbind "someCustomEvent", coolEventHandler
+        yourObject.off "someCustomEvent", coolEventHandler
       
         # removes all handlers attached to "anotherCustomEvent" 
-        yourObject.unbind "anotherCustomEvent"
+        yourObject.off "anotherCustomEvent"
     
-    @name unbind
+    @name off
     @methodOf Bindable#
     @param {String} event The event to remove the listener from.
     @param {Function} [callback] The listener to remove.
     */
-    unbind: function(namespacedEvent, callback) {
+    off: function(namespacedEvent, callback) {
       var callbacks, event, key, namespace, _ref;
       _ref = namespacedEvent.split("."), event = _ref[0], namespace = _ref[1];
       if (event) {
@@ -901,7 +912,7 @@ Bindable = function() {
     @param {Array} [parameters] Additional parameters to pass to the event listener.
     */
     trigger: function() {
-      var callbacks, event, parameters, self;
+      var callbacks, event, parameters;
       event = arguments[0], parameters = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
       callbacks = eventCallbacks[event];
       if (callbacks && callbacks.length) {
