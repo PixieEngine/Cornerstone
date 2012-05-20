@@ -33,7 +33,7 @@ Bindable = (I={}, self) ->
       yourObject.bind "anotherCustomEvent", ->
         doSomething()
 
-  @name bind
+  @name on
   @methodOf Bindable#
   @param {String} event The event to listen to.
   @param {Function} callback The function to be called when the specified event
