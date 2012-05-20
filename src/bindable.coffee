@@ -21,6 +21,8 @@ Bindable module.
 ###
 Bindable = (I={}, self) -> 
   eventCallbacks = {}
+  
+  bind: ->
 
   ###*
   Adds a function as an event listener.
