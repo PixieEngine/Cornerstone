@@ -30,7 +30,7 @@ Bindable = (I={}, self) ->
       yourObject.bind "someCustomEvent", coolEventHandler
     
       #or
-      yourObject.bind "anotherCustomEvent", ->
+      yourObject.on "anotherCustomEvent", ->
         doSomething()
 
   @name on
@@ -39,7 +39,7 @@ Bindable = (I={}, self) ->
   @param {Function} callback The function to be called when the specified event
   is triggered.
   ###
-  bind: (namespacedEvent, callback) ->
+  on: (namespacedEvent, callback) ->
     [event, namespace] = namespacedEvent.split(".")
 
     # HACK: Here we annotate the callback function with namespace metadata
