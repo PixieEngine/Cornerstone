@@ -148,7 +148,7 @@ Core = (I={}) ->
           Module = Module.constantize()
         else
           
-        self.extend Module(I, self) unless I.included_modules.include
+        self.extend Module(I, self) unless I.included_modules.include moduleName
 
       return self
 
