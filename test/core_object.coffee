@@ -50,7 +50,9 @@ test "#include same module twice", 1, ->
     
     test: true
     
-  o = Core
+  o = Core()
+  
+  o.include()
   
 test "#include multiple", ->
   o = Core
