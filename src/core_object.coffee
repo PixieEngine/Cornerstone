@@ -148,6 +148,7 @@ Core = (I={}) ->
           Module = Module.constantize()
         else
           for key, value of root
+            if
 
         unless I.included_modules.include moduleName
           I.included_modules.push moduleName
