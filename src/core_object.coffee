@@ -170,8 +170,8 @@ methods.
 
       send: (name, args...) ->
         self[name](args...)
-        
-    # Include B
+
+    # Include Bindable by default
     self.include "Bindable"
 
     # Initial module inclue, for reconstructing objects from JSON
