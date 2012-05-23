@@ -144,10 +144,10 @@ Core = (I={}) ->
     include: (modules...) ->
       for Module in modules
         if Module.isString?()
-          moduleName = 
+          moduleName = Module
           Module = Module.constantize()
-
         else
+          
           
         self.extend Module(I, self)
 
