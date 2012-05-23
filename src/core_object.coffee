@@ -147,10 +147,10 @@ Core = (I={}) ->
           moduleName = Module
           Module = Module.constantize()
         else
-          # Attempt to discover module name
+          
 
         unless I.included_modules.include moduleName
-          I.included_modules.push module
+          I.included_modules.push moduleName
           self.extend Module(I, self)
 
       return self
