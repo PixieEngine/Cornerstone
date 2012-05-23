@@ -173,7 +173,7 @@ methods.
         
     # Initial module inclue, for reconstructing objects from JSON
     for moduleName in I.includedModules
-      Module = Module.constantize()
+      Module = moduleName.constantize()
       self.extend Module(I, self)
 
     return self
