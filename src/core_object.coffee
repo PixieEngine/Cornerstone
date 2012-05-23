@@ -11,8 +11,8 @@ methods.
 
 ( ->
   root = exports ? this
-  
-  Core = (I={}) ->
+
+  root.Core = (I={}) ->
     self =
       ###*
       External access to instance variables. Use of this property should be avoided
