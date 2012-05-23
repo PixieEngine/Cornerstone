@@ -44,8 +44,6 @@ methods.
       ###
       I: I
   
-      includedModules: []
-  
       ###*
       Generates a public jQuery style getter / setter method for each 
       String argument.
