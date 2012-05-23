@@ -145,7 +145,7 @@ Core = (I={}) ->
       for Module in modules
         if Module.isString?()
           
-          Module = Module.constantize() 
+          Module = Module.constantize()
         self.extend Module(I, self)
 
       return self
