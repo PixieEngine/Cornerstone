@@ -170,7 +170,7 @@ methods.
 
       send: (name, args...) ->
         self[name](args...)
-        
+
     # Initial module inclue, for reconstructing objects from JSON
     for moduleName in I.includedModules
       Module = moduleName.constantize()
