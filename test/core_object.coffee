@@ -51,7 +51,7 @@ test "#include same module twice", 1, ->
     test: true
     
   o = Core()
-  
+
   o.include(M)
   o.include(M)
 
