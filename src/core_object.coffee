@@ -169,4 +169,4 @@ methods.
   
       send: (name, args...) ->
         self[name](args...)
-{
+)()
