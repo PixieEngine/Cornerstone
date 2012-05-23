@@ -160,7 +160,7 @@ methods.
   
           if moduleName
             unless I.includedModules.include moduleName
-              I.included_modules.push moduleName
+              I.includedModules.push moduleName
               self.extend Module(I, self)
           else
             warn "Unable to discover name for module: ", Module
