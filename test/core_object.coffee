@@ -47,6 +47,9 @@ test "#include", ->
 test "#include same module twice", 1, ->
   window.M = (I, self) ->
     ok(true)
+    
+    test: true
+    
   
 test "#include multiple", ->
   o = Core
