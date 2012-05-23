@@ -146,7 +146,7 @@ Core = (I={}) ->
         if Module.isString?()
           moduleName = Module
           Module = Module.constantize()
-        else if moduleName =
+        else if moduleName = Module.name
         else
           # Attempt to look up module in global namespace
           for key, value of root
