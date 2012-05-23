@@ -143,7 +143,8 @@ Core = (I={}) ->
     ###
     include: (modules...) ->
       for Module in modules
-        Module = Module.constantize() if Module.isString?()
+        if Module.isString?()
+        Module = Module.constantize() 
         self.extend Module(I, self)
 
       return self
