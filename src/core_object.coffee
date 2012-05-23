@@ -149,7 +149,8 @@ Core = (I={}) ->
         else
           # Attempt to discover module name
 
-        self.extend Module(I, self) unless I.included_modules.include moduleName
+        unless I.included_modules.include moduleName
+          self.extend Module(I, self) 
 
       return self
 
