@@ -53,7 +53,8 @@ test "#include same module twice", 1, ->
   o = Core()
   
   o.include(M)
-  
+  o.include(M)
+
 test "#include multiple", ->
   o = Core
     test: "my_val"
