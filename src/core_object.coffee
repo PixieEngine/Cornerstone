@@ -172,7 +172,8 @@ methods.
         self[name](args...)
         
     # Initial module inclue, for reconstructing objects from JSON
-    for moduleName is 
+    for moduleName is I.includedModules
+      
 
     return self
 )()
