@@ -146,8 +146,6 @@ Core = (I={}) ->
         if Module.isString?()
           moduleName = Module
           Module = Module.constantize()
-        else
-          # Attempt to discover module name
 
         unless I.included_modules.include moduleName
           self.extend Module(I, self)
