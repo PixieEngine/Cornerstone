@@ -158,6 +158,7 @@ Core = (I={}) ->
             self.extend Module(I, self)
         else
           
+          self.extend Module(I, self)
 
       return self
 
