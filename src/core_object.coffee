@@ -156,7 +156,7 @@ methods.
             # Attempt to look up module in global namespace
             for key, value of root
               if value is Module
-                Module._name = moduleName = key # Cache
+                Module._name = moduleName = key # Cache module name
   
           if moduleName
             unless I.includedModules.include moduleName
