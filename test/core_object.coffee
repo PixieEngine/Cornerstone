@@ -44,6 +44,8 @@ test "#include", ->
   equals o.test(), "my_val"
   equals o.test2, "cool"
   
+test ""
+  
 test "#include multiple", ->
   o = Core
     test: "my_val"
