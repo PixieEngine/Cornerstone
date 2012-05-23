@@ -150,6 +150,7 @@ Core = (I={}) ->
           # Attempt to discover module name
 
         unless I.included_modules.include moduleName
+          I.in
           self.extend Module(I, self)
 
       return self
