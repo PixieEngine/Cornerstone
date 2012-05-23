@@ -9,7 +9,8 @@ methods.
 @param {Object} I Instance variables
 ###
 
-
+( ->
+  root = exports ? this
 
 Core = (I={}) ->
   self =
