@@ -52,7 +52,7 @@ test "#include same module twice", 1, ->
     
   o = Core()
   
-  o.include()
+  o.include(M)
   
 test "#include multiple", ->
   o = Core
