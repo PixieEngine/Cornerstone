@@ -45,7 +45,7 @@ test "#include", ->
   equals o.test2, "cool"
   
 test "#include same module twice", 1, ->
-  
+  M = ()
   
 test "#include multiple", ->
   o = Core
