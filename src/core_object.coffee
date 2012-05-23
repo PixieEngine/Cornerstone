@@ -159,7 +159,7 @@ methods.
                 moduleName = key
   
           if moduleName
-            unless I.included_modules.include moduleName
+            unless I.includedModules.include moduleName
               I.included_modules.push moduleName
               self.extend Module(I, self)
           else
