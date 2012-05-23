@@ -147,7 +147,7 @@ Core = (I={}) ->
           moduleName = Module
           Module = Module.constantize()
         else
-          
+          for key
 
         unless I.included_modules.include moduleName
           I.included_modules.push moduleName
