@@ -144,6 +144,7 @@ Core = (I={}) ->
     include: (modules...) ->
       for Module in modules
         if Module.isString?()
+          moduleName = 
           Module = Module.constantize()
 
         else
