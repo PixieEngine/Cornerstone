@@ -163,7 +163,7 @@ methods.
               I.includedModules.push moduleName
               self.extend Module(I, self)
           else
-            warn "Unable to discover name for module: ", Module, "\nSerialization issues may occur"
+            warn "Unable to discover name for module: ", Module, "\nSerialization issues may occur."
             self.extend Module(I, self)
   
         return self
@@ -172,5 +172,4 @@ methods.
         self[name](args...)
 
     return self
-
 )()
