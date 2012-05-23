@@ -171,7 +171,8 @@ methods.
       send: (name, args...) ->
         self[name](args...)
         
-    self.include "Bi"
+    # Include B
+    self.include "Bindable"
 
     # Initial module inclue, for reconstructing objects from JSON
     for moduleName in I.includedModules
