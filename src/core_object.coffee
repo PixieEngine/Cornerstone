@@ -129,43 +129,7 @@ methods.
         Object.extend self, options
   
         return self
-  
-      ###*
-      Includes a module in this object.
-  
-          myObject = Core()
-          myObject.include(Bindable)
-      
-          # now you can bind handlers to functions
-          myObject.bind "someEvent", ->
-            alert("wow. that was easy.")
-  
-      @name include
-      @methodOf Core#
-      @param {String} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
-      ###
-      include: (modules...) ->
-        for Module in modules
-          if Module.isString?()
-            moduleName = Module
-            Module = Module.constantize()
-          else if moduleName = Module._name
-            # Nothing, captured name in if condition
-          else
-            # Attempt to look up module in global namespace
-            for key, value of root
-              if value is Module
-                moduleName = key
-  
-          if moduleName
-            unless I.included_modules.include moduleName
-              I.included_modules.push moduleName
-              self.extend Module(I, self)
-          else
-            warn "Unable to discover name for module: ", Module
-            self.extend Module(I, self)
-  
-        return self
+
   
       send: (name, args...) ->
         self[name](args...)
