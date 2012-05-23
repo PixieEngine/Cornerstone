@@ -147,11 +147,10 @@ Core = (I={}) ->
           moduleName = Module
           Module = Module.constantize()
         else
-          # Attempt to look up module in global 
+          # Attempt to look up module in global namespace
           for key, value of root
             if value is Module
               moduleName = key
-
         
         unless I.included_modules.include moduleName
           I.included_modules.push moduleName
