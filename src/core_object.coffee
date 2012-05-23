@@ -173,7 +173,8 @@ methods.
         
     # Initial module inclue, for reconstructing objects from JSON
     for moduleName is I.includedModules
-      
+      Module 
+      self.extend Module(I, self)
 
     return self
 )()
