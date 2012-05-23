@@ -172,7 +172,7 @@ methods.
         self[name](args...)
         
     # Initial module inclue, for reconstructing objects from JSON
-    for
+    for moduleName of
 
     return self
 )()
