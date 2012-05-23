@@ -147,6 +147,7 @@ Core = (I={}) ->
           Module = Module.constantize()
 
         else
+          
         self.extend Module(I, self)
 
       return self
