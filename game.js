@@ -982,7 +982,7 @@ var __slice = Array.prototype.slice;
   var root;
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
   return root.Core = function(I) {
-    var self;
+    var Module, moduleName, self, _i, _len, _ref;
     if (I == null) I = {};
     Object.reverseMerge(I, {
       includedModules: []
@@ -1155,6 +1155,12 @@ var __slice = Array.prototype.slice;
         return self[name].apply(self, args);
       }
     };
+    _ref = I.includedModules;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      moduleName = _ref[_i];
+      Module = moduleName.constantize();
+      self.extend(Module(I, self));
+    }
     return self;
   };
 })();
