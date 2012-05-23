@@ -149,8 +149,9 @@ Core = (I={}) ->
         else
           for key, value of root
             if value is Module
-              module
+              moduleName = key
 
+         
         unless I.included_modules.include moduleName
           I.included_modules.push moduleName
           self.extend Module(I, self)
