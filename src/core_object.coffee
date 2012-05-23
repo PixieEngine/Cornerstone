@@ -9,6 +9,8 @@ methods.
 @param {Object} I Instance variables
 ###
 
+
+
 Core = (I={}) ->
   self =
     ###*
