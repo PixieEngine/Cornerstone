@@ -147,6 +147,7 @@ Core = (I={}) ->
           moduleName = Module
           Module = Module.constantize()
         else
+          #
           for key, value of root
             if value is Module
               moduleName = key
