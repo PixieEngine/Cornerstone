@@ -170,4 +170,6 @@ methods.
       send: (name, args...) ->
         self[name](args...)
 
+    return self
+
 )()
