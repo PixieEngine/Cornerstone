@@ -171,7 +171,7 @@ methods.
       send: (name, args...) ->
         self[name](args...)
         
-    # Initial module inclue, for 
+    # Initial module inclue, for reconst
 
     return self
 )()
