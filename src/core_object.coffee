@@ -157,7 +157,7 @@ methods.
             for key, value of root
               if value is Module
                 Module._name = moduleName = key # Cache module name
-  
+
           if moduleName
             unless I.includedModules.include moduleName
               I.includedModules.push moduleName
