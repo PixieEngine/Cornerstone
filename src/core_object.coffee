@@ -157,7 +157,7 @@ Core = (I={}) ->
             I.included_modules.push moduleName
             self.extend Module(I, self)
         else
-          warn "Unable to discover name fo"
+          warn "Unable to discover name for "
           self.extend Module(I, self)
 
       return self
