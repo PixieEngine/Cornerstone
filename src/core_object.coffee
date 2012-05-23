@@ -157,7 +157,7 @@ Core = (I={}) ->
             I.included_modules.push moduleName
             self.extend Module(I, self)
         else
-          
+          warn "Unable to"
           self.extend Module(I, self)
 
       return self
