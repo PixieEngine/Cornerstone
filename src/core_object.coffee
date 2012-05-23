@@ -144,6 +144,7 @@ Core = (I={}) ->
     include: (modules...) ->
       for Module in modules
         if Module.isString?()
+          
           Module = Module.constantize() 
         self.extend Module(I, self)
 
