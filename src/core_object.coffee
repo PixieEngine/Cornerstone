@@ -147,7 +147,7 @@ Core = (I={}) ->
           moduleName = Module
           Module = Module.constantize()
         else if moduleName = Module._name
-          # Nothing, capu
+          # Nothing, captured name in if condition
         else
           # Attempt to look up module in global namespace
           for key, value of root
