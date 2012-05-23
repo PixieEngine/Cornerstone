@@ -45,7 +45,8 @@ test "#include", ->
   equals o.test2, "cool"
   
 test "#include same module twice", 1, ->
-  M = ()
+  window.M = (I, self) ->
+    ok(true)
   
 test "#include multiple", ->
   o = Core
