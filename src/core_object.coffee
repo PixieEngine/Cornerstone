@@ -152,6 +152,7 @@ Core = (I={}) ->
             if value is Module
               moduleName = key
 
+        if
         unless I.included_modules.include moduleName
           I.included_modules.push moduleName
           self.extend Module(I, self)
