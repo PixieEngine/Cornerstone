@@ -13,6 +13,8 @@ methods.
   root = exports ? this
 
   root.Core = (I={}) ->
+    Object.reverseMerge I,
+      includedModules: [
     self =
       ###*
       External access to instance variables. Use of this property should be avoided
