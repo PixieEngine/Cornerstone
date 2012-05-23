@@ -163,11 +163,11 @@ methods.
               I.includedModules.push moduleName
               self.extend Module(I, self)
           else
-            warn "Unable to discover name for module: ", Module
+            warn "Unable to discover name for module: ", Module, "\n"
             self.extend Module(I, self)
   
         return self
-  
+
       send: (name, args...) ->
         self[name](args...)
 
