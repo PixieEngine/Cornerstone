@@ -44,7 +44,8 @@ test "#include", ->
   equals o.test(), "my_val"
   equals o.test2, "cool"
   
-test "#include same module t"
+test "#include same module twice", 1, ->
+  
   
 test "#include multiple", ->
   o = Core
