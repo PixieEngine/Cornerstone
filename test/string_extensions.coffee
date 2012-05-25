@@ -17,8 +17,9 @@ test "#constantize", ->
   
 test "#extension", ->
   equals "README".extension(), ""
+  equals "README.md".extension(), "md"
   
-  
+  equals "README.md".extension(), "md"
 
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
