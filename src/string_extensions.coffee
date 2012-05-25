@@ -71,9 +71,11 @@ String::constantize = ->
   return target
 
 ###*
+
+
 @name extension
 @methodOf String#
-@returns {String} 
+@returns {String} File extension
 ###
 String::extension = ->
   return this.match(/\.([^\.]*)$/, '').last() || '';
