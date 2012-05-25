@@ -70,7 +70,7 @@ String::constantize = ->
 
   return target
 
-String::constantize
+String::constantize = ->
 return this.match(/\.([^\.]*)$/, '').last() || '';
 
 ###*
