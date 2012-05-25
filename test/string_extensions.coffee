@@ -16,7 +16,7 @@ test "#constantize", ->
   equals "Math.TAU".constantize(), Math.TAU, "namespaced constants work too"
   
 test "#extension", ->
-  equals "README", ""
+  equals "README".extension(), ""
 
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
