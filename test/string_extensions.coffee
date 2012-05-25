@@ -21,7 +21,7 @@ test "#extension", ->
   
   equals "jquery.min.js".extension(), "js"
   
-  equals ""
+  equals "src/bouse."
 
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
