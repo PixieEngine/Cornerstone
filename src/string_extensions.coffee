@@ -81,7 +81,8 @@ Get the file extension of a string.
 @returns {String} File extension
 ###
 String::extension = ->
-  if 
+  if this.match(/\.([^\.]*)$/, '')
+  eles
   return .last() || '';
 
 ###*
