@@ -71,7 +71,9 @@ String::constantize = ->
   return target
 
 ###*
-Get the file extension of a strin
+Get the file extension of a string.
+
+    "README"
 
 @name extension
 @methodOf String#
