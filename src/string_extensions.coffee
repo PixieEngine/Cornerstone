@@ -83,7 +83,7 @@ Get the file extension of a string.
 String::extension = ->
   if this.match(/\.([^\.]*)$/, '')
   else
-    return ''
+    ''
 
 ###*
 Returns a new string that is a more human readable version.
