@@ -2968,6 +2968,26 @@ String.prototype.constantize = function() {
 };
 
 /**
+Get the file extension of a string.
+
+    "README.md".extension() # => "md"
+    "README".extension() # => ""
+
+@name extension
+@methodOf String#
+@returns {String} File extension
+*/
+
+String.prototype.extension = function() {
+  var extension, _ref;
+  if (extension = (_ref = this.match(/\.([^\.]*)$/, '')) != null ? _ref.last() : void 0) {
+    return extension;
+  } else {
+    return '';
+  }
+};
+
+/**
 Returns a new string that is a more human readable version.
 
     "player_id".humanize()
