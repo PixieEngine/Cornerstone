@@ -19,7 +19,7 @@ test "#extension", ->
   equals "README".extension(), ""
   equals "README.md".extension(), "md"
   equals "jquery.min.js".extension(), "js"
-  equals "src/bouse.js.coffee".extension() "coffee"
+  equals "src/bouse.js.coffee".extension(), "coffee"
 
 test "#humanize", ->
   equals "employee_salary".humanize(), "Employee salary"
