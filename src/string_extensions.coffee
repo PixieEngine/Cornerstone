@@ -71,7 +71,7 @@ String::constantize = ->
   return target
 
 String::constantize = ->
-return this.match(/\.([^\.]*)$/, '').last() || '';
+  return this.match(/\.([^\.]*)$/, '').last() || '';
 
 ###*
 Returns a new string that is a more human readable version.
