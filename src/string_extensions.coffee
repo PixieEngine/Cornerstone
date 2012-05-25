@@ -71,6 +71,7 @@ String::constantize = ->
   return target
 
 ###*
+@name extension
 
 ###
 String::extension = ->
