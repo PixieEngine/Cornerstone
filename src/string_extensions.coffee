@@ -74,7 +74,7 @@ String::constantize = ->
 Get the file extension of a string.
 
     "README.md".extension() # => "md"
-    "README".extension
+    "README".extension() # =
 
 @name extension
 @methodOf String#
