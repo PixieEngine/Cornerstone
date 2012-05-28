@@ -1,5 +1,8 @@
-require "Cornerstone/version"
+require "cornerstone/version"
+
+# Sneaky require for Rails engine environment
+require "cornerstone/engine" if defined?(Rails)
 
 module Cornerstone
-  # Your code goes here...
+
 end
