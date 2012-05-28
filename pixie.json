@@ -1,1 +1,12 @@
-{"author":"STRd6","main":null,"name":"corelib","library":true,"directories":{"lib":"lib","source":"src","test":"test"},"autosave":true}
+{
+  "author":"PixieEngine",
+  "main":null,
+  "name":"Cornerstone",
+  "library":true,
+  "directories": {
+    "lib":"vendor/assets/javascripts",
+    "source":"lib/assets/javascripts/_cornerstone",
+    "test":"test"
+  },
+  "autosave":true
+}

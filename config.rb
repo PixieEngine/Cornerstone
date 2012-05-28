@@ -12,24 +12,7 @@
 # end
 
 ###
-# Haml
-###
-
-activate :directory_indexes
-
-# CodeRay syntax highlighting in Haml
-# First: gem install haml-coderay
-# require 'haml-coderay'
-
-# CoffeeScript filters in Haml
-# First: gem install coffee-filter
-require 'coffee-filter'
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-###
-# Page command
+# Page options, layouts, aliases and proxies
 ###
 
 # Per-page layout changes:
@@ -54,6 +37,9 @@ require 'coffee-filter'
 # Helpers
 ###
 
+# Automatic image dimensions on image_tag helper
+# activate :automatic_image_sizes
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -61,25 +47,22 @@ require 'coffee-filter'
 #   end
 # end
 
-# Change the CSS directory
-# set :css_dir, "alternative_css_directory"
+set :css_dir, 'assets/stylesheets'
 
-# Change the JS directory
-# set :js_dir, "alternative_js_directory"
+set :js_dir, 'assets/javascripts'
 
-# Change the images directory
-# set :images_dir, "alternative_image_directory"
+set :images_dir, 'assets/images'
 
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  activate :minify_css
+  # activate :minify_css
 
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
 
   # Enable cache buster
-  activate :cache_buster
+  # activate :cache_buster
 
   # Use relative URLs
   # activate :relative_assets
