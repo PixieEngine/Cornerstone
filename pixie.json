@@ -1,12 +1,12 @@
 {
-  "author":"PixieEngine",
-  "main":null,
-  "name":"Cornerstone",
-  "library":true,
+  "author": "PixieEngine",
+  "main": null,
+  "name": "Cornerstone",
+  "library": true,
   "directories": {
-    "lib":"vendor/assets/javascripts",
-    "source":"source/assets/javascripts/_cornerstone",
-    "test":"test"
+    "lib": "vendor/assets/javascripts",
+    "source": "source",
+    "test": "test"
   },
-  "autosave":true
+  "autosave": true
 }
