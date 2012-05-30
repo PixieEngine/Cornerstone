@@ -15,7 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Cornerstone::VERSION
 
+  gem.add_development_dependency "jasmine"
   gem.add_development_dependency "middleman", "~>3.0.0.beta.3"
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "rb-inotify"
   gem.add_development_dependency "therubyracer"
 end
