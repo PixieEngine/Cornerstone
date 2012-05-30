@@ -17,5 +17,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "middleman", "~>3.0.0.beta.3"
   gem.add_development_dependency "rb-inotify"
+  gem.add_development_dependency "sass"
   gem.add_development_dependency "therubyracer"
 end
