@@ -1,5 +1,5 @@
 module Cornerstone
-  class Engine < Rails::Engine
+  class Rails < Rails::Engine
     # auto wire assets
   end
 end
