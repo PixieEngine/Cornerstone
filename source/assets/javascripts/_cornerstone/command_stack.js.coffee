@@ -33,3 +33,4 @@ CommandStack = ->
   canRedo: ->
     stack[index]?
 
+(exports ? this)["CommandStack"] = CommandStack
