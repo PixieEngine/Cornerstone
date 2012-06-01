@@ -965,6 +965,8 @@ CommandStack = function() {
     }
   };
 };
+
+(typeof exports !== "undefined" && exports !== null ? exports : this)["CommandStack"] = CommandStack;
 ;
 /**
 The Core class is used to add extended functionality to objects without
@@ -4287,7 +4289,4 @@ Generate a random uuid.
     }).toUpperCase();
   };
 })();;
-
-
-;
 ;
