@@ -12,6 +12,8 @@ coverage
 doc/
 docs/
 lib/bundler/man
+lib/assets/test.html
+lib/assets/cornerstone_tests.js
 pkg
 rdoc
 spec/reports
