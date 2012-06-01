@@ -1,20 +1,19 @@
 Cornerstone.coffee
 =======
 
-Cornerstone.coffee is a JavaScript extension library that gives you the core classes that you've always wanted. Cornerstone is fully tested and fully documented and runs in any JavaScript environment, from the browser to the server, even on Xbox Live.
+Cornerstone is a JavaScript extension library that gives you the core classes you've always wanted. Fully tested and fully documented, Cornerstone runs in any JavaScript environment, from the browser to the server, or even on Xbox Live.
 
 Array Extensions
 ----------------
 
-The array extensions are inspired by Ruby's core library. Simple things like `each`, `remove`, `select`, and `include` are the staples. Fancier methods such as `partition`, `rand`, and `extremes` often come in handy during game programming.
+Ruby's core library inspired the Cornerstone `Array` extensions. Staple methods include `each`, `remove`, `select`, and `include`. Fancier methods such as `partition`, `rand`, and `extremes` come in handy during game programming or web application development.
 
 Number Extensions
 -----------------
 
-JavaScript is a language that allows for `Number` to provide many useful methods, but leaves us hanging. Cornerstone extends Number.prototype with the ever-popular `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. But that's just the beginning, there are many more including `primeFactors`.
+JavaScript's `Number` class provides many useful methods, but sometimes leaves us hanging. Cornerstone extends `Number.prototype` with `clamp`, `times`, and `abs`. It also provides the classic utilities `floor`, `ceil`, and `round`. For a little spice, try `primeFactors`, `toColorPart`, or a host of other great methods for approaching and modifying numbers, and see where your imagination takes you.
 
 String Extensions
 -----------------
 
-String is one of the classes that default JavaScript does the most with, but why stop there. Inspired by the Rails inflector, there are many methods provided to alter strings such as `titleize`, `underscore`, and `humanize`. Some especially powerful methods like `parse` and `constantize` will no doubt come in handy.
-
+Default JavaScript does a lot with `String`, but Cornerstone goes even further. Inspired by the Rails inflector, there are many methods to alter strings, such as `titleize`, `underscore`, and `humanize`. Methods like `parse` and `constantize` are especially powerful for metaprogramming.
