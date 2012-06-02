@@ -13,7 +13,7 @@ doc/
 docs/
 lib/bundler/man
 lib/assets/test.html
-lib/assets/cornerstone_tests.js
+lib/assets/javascripts/cornerstone_tests.js
 pkg
 rdoc
 spec/reports
