@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/cornerstone/version', __FILE__)
+require File.expand_path('../lib/cornerstone-source/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Matt Diebolt", "Daniel X. Moore"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "cornerstone-source"
   gem.require_paths = ["lib"]
-  gem.version       = Cornerstone::VERSION
+  gem.version       = Cornerstone::Source::VERSION
 
   gem.add_development_dependency "middleman", "~>3.0.0.beta.3"
   gem.add_development_dependency "rb-inotify"
