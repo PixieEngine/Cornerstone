@@ -6,7 +6,7 @@
   "directories": {
     "lib": "vendor/assets/javascripts",
     "source": "_cornerstone",
-    "test": "_test"
+    "test": "source/javascripts/_test"
   },
   "autosave": true
 }
