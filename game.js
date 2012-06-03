@@ -1,5 +1,5 @@
-;
-;
+
+
 /**
 Checks whether an object is an array.
 
@@ -125,7 +125,7 @@ Helper method that tells you if something is an object.
 Object.isObject = function(object) {
   return Object.prototype.toString.call(object) === '[object Object]';
 };
-;
+
 /**
 Calculate the average value of an array. Returns undefined if some elements
 are not numbers.
@@ -788,7 +788,7 @@ Array.prototype.zip = function() {
     return output;
   });
 };
-;
+
 /**
 Bindable module.
 
@@ -926,7 +926,7 @@ Bindable = function(I, self) {
 };
 
 (typeof exports !== "undefined" && exports !== null ? exports : this)["Bindable"] = Bindable;
-;
+
 var CommandStack;
 
 CommandStack = function() {
@@ -967,7 +967,7 @@ CommandStack = function() {
 };
 
 (typeof exports !== "undefined" && exports !== null ? exports : this)["CommandStack"] = CommandStack;
-;
+
 /**
 The Core class is used to add extended functionality to objects without
 extending the object class directly. Inherit from Core to gain its utility
@@ -1167,7 +1167,7 @@ var __slice = Array.prototype.slice;
     return self;
   };
 })();
-;
+
 var __slice = Array.prototype.slice;
 
 Function.prototype.once = function() {
@@ -1238,7 +1238,7 @@ Function.prototype.defer = function() {
   args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
   return this.delay.apply(this, [1].concat(args));
 };
-;
+
 /**
 @name Logging
 @namespace
@@ -1263,7 +1263,7 @@ var __slice = Array.prototype.slice;
     return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function() {};
   }
 });
-;
+
 /**
 * Matrix.js v1.3.0pre
 * 
@@ -1560,7 +1560,7 @@ var __slice = Array.prototype.slice;
   }
   return (typeof exports !== "undefined" && exports !== null ? exports : this)["Matrix"] = Matrix;
 })();
-;
+
 /** 
 Returns the absolute value of this number.
 
@@ -2113,7 +2113,7 @@ The mathematical circle constant of 1 turn.
 */
 
 Math.TAU = 2 * Math.PI;
-;
+
 var __slice = Array.prototype.slice;
 
 (function() {
@@ -2755,7 +2755,7 @@ var __slice = Array.prototype.slice;
   }
   return (typeof exports !== "undefined" && exports !== null ? exports : this)["Point"] = Point;
 })();
-;
+
 
 (function() {
   /**
@@ -2844,7 +2844,7 @@ var __slice = Array.prototype.slice;
     }
   };
 })();
-;
+
 
 (function() {
   var Rectangle;
@@ -2881,7 +2881,7 @@ var __slice = Array.prototype.slice;
   });
   return (typeof exports !== "undefined" && exports !== null ? exports : this)["Rectangle"] = Rectangle;
 })();
-;
+
 /**
 Returns true if this string only contains whitespace characters.
 
@@ -3156,7 +3156,7 @@ String.prototype.parseHex = function() {
       return rgb;
   }
 };
-;
+
 /**
 Returns a string representing the specified Boolean object.
 
@@ -4192,7 +4192,7 @@ Converts a date to a string, using the universal time convention.
 @methodOf Date#
 */
 
-;
+
 /*!
 Math.uuid.js (v1.4)
 http://www.broofa.com
@@ -4288,5 +4288,5 @@ Generate a random uuid.
       return v.toString(16);
     }).toUpperCase();
   };
-})();;
-;
+})();
+
