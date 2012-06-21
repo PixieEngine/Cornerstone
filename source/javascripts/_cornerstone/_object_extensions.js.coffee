@@ -3,14 +3,14 @@ Checks whether an object is an array.
 
     Object.isArray([1, 2, 4])
     # => true
-    
+
     Object.isArray({key: "value"})
     # => false
 
 @name isArray
 @methodOf Object
 @param {Object} object The object to check for array-ness.
-@returns {Boolean} A boolean expressing whether the object is an instance of Array 
+@returns {Boolean} A boolean expressing whether the object is an instance of Array
 ###
 Object.isArray = (object) ->
   Object::toString.call(object) == "[object Array]"
@@ -20,17 +20,17 @@ Checks whether an object is a string.
 
     Object.isString("a string")
     # => true
-    
+
     Object.isString([1, 2, 4])
     # => false
-    
+
     Object.isString({key: "value"})
     # => false
 
 @name isString
 @methodOf Object
 @param {Object} object The object to check for string-ness.
-@returns {Boolean} A boolean expressing whether the object is an instance of String 
+@returns {Boolean} A boolean expressing whether the object is an instance of String
 ###
 Object.isString = (object) ->
   Object::toString.call(object) == "[object String]"
@@ -43,11 +43,11 @@ First come, first served.
         a: 1
         b: 2
         c: 3
-    
+
       Object.reverseMerge I,
         c: 6
-        d: 4   
-    
+        d: 4
+
       I # => {a: 1, b:2, c:3, d: 4}
 
 @name reverseMerge
@@ -55,7 +55,7 @@ First come, first served.
 @param {Object} target The object to merge the properties into.
 @returns {Object} target
 ###
-Object.reverseMerge = (target, objects...) ->
+Object.defaults = Object.reverseMerge = (target, objects...) ->
   for object in objects
     for name of object
       unless target.hasOwnProperty(name)
@@ -71,11 +71,11 @@ Last in covers earlier properties.
         a: 1
         b: 2
         c: 3
-    
+
       Object.extend I,
         c: 6
         d: 4
-    
+
       I # => {a: 1, b:2, c:6, d: 4}
 
 @name extend
@@ -94,7 +94,7 @@ Object.extend = (target, sources...) ->
 Helper method that tells you if something is an object.
 
     object = {a: 1}
-    
+
     Object.isObject(object)
     # => true
 
