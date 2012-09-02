@@ -5,7 +5,7 @@ Checks whether an object is an array.
 
     Object.isArray([1, 2, 4])
     # => true
-    
+
     Object.isArray({key: "value"})
     # => false
 
@@ -25,10 +25,10 @@ Checks whether an object is a string.
 
     Object.isString("a string")
     # => true
-    
+
     Object.isString([1, 2, 4])
     # => false
-    
+
     Object.isString({key: "value"})
     # => false
 
@@ -50,11 +50,11 @@ First come, first served.
         a: 1
         b: 2
         c: 3
-    
+
       Object.reverseMerge I,
         c: 6
-        d: 4   
-    
+        d: 4
+
       I # => {a: 1, b:2, c:3, d: 4}
 
 @name reverseMerge
@@ -63,7 +63,7 @@ First come, first served.
 @returns {Object} target
 */
 
-Object.reverseMerge = function() {
+Object.defaults = Object.reverseMerge = function() {
   var name, object, objects, target, _i, _len;
   target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
   for (_i = 0, _len = objects.length; _i < _len; _i++) {
@@ -83,11 +83,11 @@ Last in covers earlier properties.
         a: 1
         b: 2
         c: 3
-    
+
       Object.extend I,
         c: 6
         d: 4
-    
+
       I # => {a: 1, b:2, c:6, d: 4}
 
 @name extend
@@ -112,7 +112,7 @@ Object.extend = function() {
 Helper method that tells you if something is an object.
 
     object = {a: 1}
-    
+
     Object.isObject(object)
     # => true
 
@@ -956,6 +956,9 @@ CommandStack = function() {
         index += 1;
         return command;
       }
+    },
+    current: function() {
+      return stack[index - 1];
     },
     canUndo: function() {
       return index > 0;
