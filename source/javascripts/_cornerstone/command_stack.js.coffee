@@ -27,6 +27,9 @@ CommandStack = ->
 
       return command
 
+  current: ->
+    stack[index-1]
+
   canUndo: ->
     index > 0
 
