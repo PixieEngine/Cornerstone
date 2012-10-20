@@ -55,7 +55,7 @@ test "#toInt", ->
 
   equals "F".toInt(16), 15
   
-  equals "-1."
+  equals "-1.02".toInt()
 
 test "#underscore", ->
   equals "Pro-tip".underscore(), "pro_tip"
