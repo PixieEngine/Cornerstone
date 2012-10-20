@@ -49,6 +49,9 @@ test "#titleize", ->
 test "#toInt", ->
   equals "31.3".toInt(), 31
   equals "31.".toInt(), 31
+  
+  
+  equals "031.3".toInt(), 31
 
 test "#underscore", ->
   equals "Pro-tip".underscore(), "pro_tip"
