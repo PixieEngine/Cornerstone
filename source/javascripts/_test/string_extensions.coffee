@@ -51,7 +51,7 @@ test "#toInt", ->
   equals "31.".toInt(), 31
   
   
-  equals "09".toInt(), 31
+  equals "009".toInt(), 9
 
 test "#underscore", ->
   equals "Pro-tip".underscore(), "pro_tip"
