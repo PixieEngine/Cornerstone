@@ -201,7 +201,8 @@ contents of the string without the extension.
 String::withoutExtension = ->
   this.replace(/\.[^\.]*$/, '')
 
-String::toInt = ( ->
+String::toInt = ->
+  
 
 String::parseHex = ->
   hexString = @replace(/#/, '')
