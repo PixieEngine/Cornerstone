@@ -202,7 +202,7 @@ String::withoutExtension = ->
   this.replace(/\.[^\.]*$/, '')
 
 String::toInt = ->
-  
+  parseInt(this, 10)
 
 String::parseHex = ->
   hexString = @replace(/#/, '')
