@@ -49,8 +49,9 @@ test "#titleize", ->
 test "#toInt", ->
   equals "31.3".toInt(), 31
   equals "31.".toInt(), 31
-    
+  
   equals "009".toInt(), 9
+  equals "0109".toInt(), 9
 
 
 
