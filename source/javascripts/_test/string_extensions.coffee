@@ -53,6 +53,8 @@ test "#toInt", ->
   
   equals "009".toInt(), 9
 
+
+
 test "#underscore", ->
   equals "Pro-tip".underscore(), "pro_tip"
   equals "Bullet".underscore(), "bullet"
