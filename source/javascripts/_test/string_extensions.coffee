@@ -47,7 +47,7 @@ test "#titleize", ->
   equals "x-men: the last stand".titleize(), "X Men: The Last Stand"
 
 test "#toInt", ->
-  equals "31."
+  equals "31.3".toInt(), 
 
 test "#underscore", ->
   equals "Pro-tip".underscore(), "pro_tip"
