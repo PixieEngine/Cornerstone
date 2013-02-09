@@ -430,7 +430,7 @@ Array::wrap = (start, length) ->
     i = start
     result = []
 
-
+    while i < end
     result.push(this[i.mod(this.length)]) while i++ < end
 
     return result
