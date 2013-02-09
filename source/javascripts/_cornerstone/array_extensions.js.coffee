@@ -436,7 +436,7 @@ Array::wrap = (start, length) ->
 
     return result
   else
-    return this[start.mod(this.length)]
+    return this[start.mod(@length)]
 
 ###*
 Partitions the elements into two groups: those for which the iterator returns
