@@ -431,7 +431,7 @@ Array::wrap = (start, length) ->
     result = []
 
     while i < end
-      result.push(this[i.mod(this.length)])
+      result.push(@[i.mod(this.length)])
       i += 1
 
     return result
