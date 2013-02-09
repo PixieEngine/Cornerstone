@@ -32,11 +32,11 @@ the same objects.
 
     a = ["a", "b", "c"]
     b = a.copy()
-    
+
     # their elements are equal
     a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
     # => true
-    
+
     # but they aren't the same object in memory
     a === b
     # => false
@@ -70,7 +70,7 @@ Flatten out an array of arrays into a single array of elements.
 
     [[1, 2], [3, 4], 5].flatten()
     # => [1, 2, 3, 4, 5]
-    
+
     # won't flatten twice nested arrays. call
     # flatten twice if that is what you want
     [[1, 2], [3, [4, 5]], 6].flatten()
@@ -90,7 +90,7 @@ and return a new array containing the results of the invocation.
 
     [1.1, 2.2, 3.3, 4.4].invoke("floor")
     # => [1, 2, 3, 4]
-    
+
     ['hello', 'world', 'cool!'].invoke('substring', 0, 3)
     # => ['hel', 'wor', 'coo']
 
@@ -124,7 +124,7 @@ present. The array is modified in place.
     a = [1, 1, "a", "b"]
     a.remove(1)
     # => 1
-    
+
     a
     # => [1, "a", "b"]
 
@@ -146,7 +146,7 @@ Returns true if the element is present in the array.
 
     ["a", "b", "c"].include("c")
     # => true
-    
+
     [40, "a"].include(700)
     # => false
 
@@ -160,7 +160,7 @@ Array::include = (element) ->
 
 ###*
 Call the given iterator once for each element in the array,
-passing in the element as the first argument, the index of 
+passing in the element as the first argument, the index of
 the element as the second argument, and <code>this</code> array as the
 third argument.
 
@@ -169,12 +169,12 @@ third argument.
     ["r", "a", "d"].each (letter, index) ->
       word += letter
       indices.push(index)
-    
+
     # => ["r", "a", "d"]
-    
+
     word
     # => "rad"
-    
+
     indices
     # => [0, 1, 2]
 
@@ -194,8 +194,8 @@ Array::each = (iterator, context) ->
   return this
 
 ###*
-Call the given iterator once for each element in the array, 
-passing in the element as the first argument, the index of 
+Call the given iterator once for each element in the array,
+passing in the element as the first argument, the index of
 the element as the second argument, and `this` array as the
 third argument.
 
@@ -276,7 +276,7 @@ passed as in each.
     [1, 2, 3, 4].eachSlice 2, (slice) ->
       results.push(slice)
     # => [1, 2, 3, 4]
-    
+
     results
     # => [[1, 2], [3, 4]]
 
@@ -321,10 +321,10 @@ Array::pipeline = (input) ->
 Returns a new array with the elements all shuffled up.
 
     a = [1, 2, 3]
-    
+
     a.shuffle()
     # => [2, 3, 1]
-    
+
     a # => [1, 2, 3]
 
 @name shuffle
@@ -375,7 +375,7 @@ Returns an object containing the extremes of this array.
 @methodOf Array#
 @param {Function} [fn] An optional funtion used to evaluate each element to calculate its value for determining extremes.
 @returns {Object} {min: minElement, max: maxElement}
-### 
+###
 Array::extremes = (fn) ->
   fn ||= (n) -> n
 
@@ -405,16 +405,16 @@ Array::extremes = (fn) ->
   max: max
 
 ###*
-Pretend the array is a circle and grab a new array containing length elements. 
-If length is not given return the element at start, again assuming the array 
+Pretend the array is a circle and grab a new array containing length elements.
+If length is not given return the element at start, again assuming the array
 is a circle.
 
     [1, 2, 3].wrap(-1)
     # => 3
-    
+
     [1, 2, 3].wrap(6)
     # => 1
-    
+
     ["l", "o", "o", "p"].wrap(0, 16)
     # => ["l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p", "l", "o", "o", "p"]
 
@@ -430,6 +430,7 @@ Array::wrap = (start, length) ->
     i = start
     result = []
 
+
     result.push(this[i.mod(this.length)]) while i++ < end
 
     return result
@@ -442,10 +443,10 @@ true, and those for which it returns false.
 
     [evens, odds] = [1, 2, 3, 4].partition (n) ->
       n.even()
-    
+
     evens
     # => [2, 4]
-    
+
     odds
     # => [1, 3]
 
@@ -508,7 +509,7 @@ Array::reject = (iterator, context) ->
 
 ###*
 Combines all elements of the array by applying a binary operation.
-for each element in the arra the iterator is passed an accumulator 
+for each element in the arra the iterator is passed an accumulator
 value (memo) and the element.
 
 @name inject
@@ -560,7 +561,7 @@ Merges together the values of each of the arrays with the values at the correspo
 @returns {Array} Array groupings whose values are arranged by their positions in the original input arrays.
 ###
 Array::zip = (args...) ->
-  this.map (element, index) ->   
+  this.map (element, index) ->
     output = args.map (arr) ->
       arr[index]
 
