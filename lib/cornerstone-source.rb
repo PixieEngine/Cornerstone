@@ -1,5 +1,3 @@
-require "cornerstone-source/version"
-
 module Cornerstone
   module Source
     if defined? ::Rails::Engine
@@ -8,7 +6,7 @@ module Cornerstone
     elsif defined? ::Sprockets
       root_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
 
-      ::Sprockets.append_path File.join(root_dir, "source")
+      ::Sprockets.append_path File.join(root_dir, "lib", "assets", "javascripts")
     end
   end
 end
