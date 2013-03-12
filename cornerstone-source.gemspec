@@ -2,17 +2,17 @@
 require File.expand_path('../lib/cornerstone-source/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.name          = "cornerstone-source"
+  gem.version       = Cornerstone::Source::VERSION
   gem.authors       = ["Matt Diebolt", "Daniel X. Moore"]
   gem.email         = ["pixie@pixieengine.com"]
-  gem.description   = %q{Cornerstone provides a solid foundation for working with JavaScript. It aggressively shivs many of the core classes.}
-  gem.summary       = %q{A solid foundation for JavaScript}
   gem.homepage      = "https://github.com/PixieEngine/Cornerstone"
+  gem.summary       = %q{A solid foundation for JavaScript}
+  gem.description   = %q{Cornerstone provides a solid foundation for working with JavaScript. It aggressively shivs many of the core classes.}
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "cornerstone-source"
+  gem.files         = `git ls-files`.split("\n")
   gem.require_paths = ["lib"]
-  gem.version       = Cornerstone::Source::VERSION
 
+
+  gem.add_dependency "sprockets"
 end

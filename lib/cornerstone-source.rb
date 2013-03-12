@@ -1,13 +1,9 @@
-require "cornerstone-source/version"
-
-# Sneaky require for Rails engine environment
-if defined? ::Rails::Engine
-  require "cornerstone-source/rails"
-elsif defined? ::Sprockets
-  require "cornerstone-source/sprockets"
-end
+require 'sprockets'
 
 module Cornerstone
   module Source
+    root_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
+
+    ::Sprockets.append_path File.join(root_dir, "source")
   end
 end
