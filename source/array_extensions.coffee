@@ -376,9 +376,7 @@ Returns an object containing the extremes of this array.
 @param {Function} [fn] An optional funtion used to evaluate each element to calculate its value for determining extremes.
 @returns {Object} {min: minElement, max: maxElement}
 ###
-Array::extremes = (fn) ->
-  fn ||= (n) -> n
-
+Array::extremes = (fn=Function.identity) ->
   min = max = undefined
   minResult = maxResult = undefined
 
@@ -403,6 +401,31 @@ Array::extremes = (fn) ->
 
   min: min
   max: max
+
+Array::maxima = (fn=Function.identity) ->
+  @inject([-Infinity, []], (memo, item) ->
+    value = fn(item)
+    [maxValue, maxItems] = memo
+
+    if value > maxValue
+      [value, [item]]
+    else if value is maxValue
+      [value, maxItems.concat(item)]
+    else
+      memo
+  ).last()
+
+Array::maximum = (fn) ->
+  @maxima().first()
+
+Array::minima = (fn=Function.identity) ->
+  inverseFn = (x) ->
+    -x
+
+  @maxima(inverseFn)
+
+Array::minimum = (fn) ->
+  @minima().first()
 
 ###*
 Pretend the array is a circle and grab a new array containing length elements.
