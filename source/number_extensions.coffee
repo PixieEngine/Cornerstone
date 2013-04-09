@@ -376,6 +376,7 @@ Number::constrainRotation = ->
 
   return target
 
+# TODO Test and document
 Number::truncate = ->
   if this > 0
     Math.floor(this)
