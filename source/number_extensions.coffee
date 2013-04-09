@@ -1,4 +1,4 @@
-###* 
+###*
 Returns the absolute value of this number.
 
     (-4).abs()
@@ -14,12 +14,12 @@ Number::abs = () ->
 ###*
 Returns the mathematical ceiling of this number.
 
-    4.9.ceil() 
+    4.9.ceil()
     # => 5
-    
+
     4.2.ceil()
     # => 5
-    
+
     (-1.2).ceil()
     # => -1
 
@@ -35,10 +35,10 @@ Returns the mathematical floor of this number.
 
     4.9.floor()
     # => 4
-    
+
     4.2.floor()
     # => 4
-    
+
     (-1.2).floor()
     # => -2
 
@@ -54,7 +54,7 @@ Returns this number rounded to the nearest integer.
 
     4.5.round()
     # => 5
-    
+
     4.4.round()
     # => 4
 
@@ -69,7 +69,7 @@ Number::round = ->
 Get a bunch of points equally spaced around the unit circle.
 
     4.circularPoints (p) ->
-    
+
     # p gets Point(1, 0), Point(0, 1), Point(-1, 0), Point(0, -1)
 
 @name circularPoint
@@ -130,10 +130,10 @@ Get the sign of this number as an integer (1, -1, or 0).
 
     (-5).sign()
     # => -1
-    
+
     0.sign()
     # => 0
-    
+
     5.sign()
     # => 1
 
@@ -146,7 +146,7 @@ Number::sign = ->
     1
   else if this < 0
     -1
-  else 
+  else
     0
 
 ###*
@@ -154,12 +154,12 @@ Returns true if this number is even (evenly divisible by 2).
 
     2.even()
     # => true
-    
+
     3.even()
     # => false
-    
+
     0.even()
-    # => true      
+    # => true
 
 @name even
 @methodOf Number#
@@ -173,12 +173,12 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 
     2.odd()
     # => false
-    
+
     3.odd()
     # => true
-    
+
     0.odd()
-    # => false     
+    # => false
 
 @name odd
 @methodOf Number#
@@ -191,14 +191,14 @@ Number::odd = ->
     this % 2 == -1
 
 ###*
-Calls iterator the specified number of times, passing in the number of the 
-current iteration as a parameter: 0 on first call, 1 on the second call, etc. 
+Calls iterator the specified number of times, passing in the number of the
+current iteration as a parameter: 0 on first call, 1 on the second call, etc.
 
     output = []
-    
+
     5.times (n) ->
       output.push(n)
-    
+
     output
     # => [0, 1, 2, 3, 4]
 
@@ -217,15 +217,15 @@ Number::times = (iterator, context) ->
   return i
 
 ###*
-Returns the the nearest grid resolution less than or equal to the number. 
+Returns the the nearest grid resolution less than or equal to the number.
 
-    7.snap(8) 
+    7.snap(8)
     # => 0
-    
-    4.snap(8) 
+
+    4.snap(8)
     # => 0
-    
-    12.snap(8) 
+
+    12.snap(8)
     # => 8
 
 @name snap
@@ -246,7 +246,7 @@ Floors the number for purposes of factorization.
 
     60.primeFactors()
     # => [2, 2, 3, 5]
-    
+
     37.primeFactors()
     # => [37]
 
@@ -283,15 +283,15 @@ Number::primeFactors = ->
   return factors
 
 ###*
-Returns the two character hexidecimal 
+Returns the two character hexidecimal
 representation of numbers 0 through 255.
 
     255.toColorPart()
     # => "ff"
-    
+
     0.toColorPart()
     # => "00"
-    
+
     200.toColorPart()
     # => "c8"
 
@@ -312,14 +312,14 @@ Returns a number that is maxDelta closer to target.
 
     255.approach(0, 5)
     # => 250
-    
+
     5.approach(0, 10)
     # => 0
 
 @name approach
 @methodOf Number#
 @returns {Number} A number maxDelta toward target
-###    
+###
 Number::approach = (target, maxDelta) ->
   (target - this).clamp(-maxDelta, maxDelta) + this
 
@@ -332,7 +332,7 @@ Returns a number that is closer to the target by the ratio.
 @name approachByRatio
 @methodOf Number#
 @returns {Number} A number toward target by the ratio
-### 
+###
 Number::approachByRatio = (target, ratio) ->
   this.approach(target, this * ratio)
 
@@ -345,7 +345,7 @@ Returns a number that is closer to the target angle by the delta.
 @name approachRotation
 @methodOf Number#
 @returns {Number} A number toward the target angle by maxDelta
-### 
+###
 Number::approachRotation = (target, maxDelta) ->
   while target > this + Math.PI
     target -= Math.TAU
@@ -358,7 +358,7 @@ Number::approachRotation = (target, maxDelta) ->
 ###*
 Constrains a rotation to between -PI and PI.
 
-    (9/4 * Math.PI).constrainRotation() 
+    (9/4 * Math.PI).constrainRotation()
     # => 0.7853981633974483 # this is (1/4) * Math.PI
 
 @name constrainRotation
@@ -375,6 +375,14 @@ Number::constrainRotation = ->
     target += Math.TAU
 
   return target
+
+Number::truncate = ->
+  if this > 0
+    Math.floor(this)
+  else if this < 0
+    Math.ceil(this)
+  else
+    this
 
 ###*
 The mathematical d operator. Useful for simulating dice rolls.
@@ -396,7 +404,7 @@ Utility method to convert a number to a duration of seconds.
 
     3.seconds
     # => 3000
-    
+
     setTimout doSometing, 3.seconds
 
 @name seconds
@@ -405,12 +413,12 @@ Utility method to convert a number to a duration of seconds.
 ###
 unless 5.seconds
   Object.defineProperty Number::, 'seconds',
-    get: -> 
+    get: ->
       this * 1000
 
 unless 1.second
   Object.defineProperty Number::, 'second',
-    get: -> 
+    get: ->
       this * 1000
 
 ###*
@@ -418,7 +426,7 @@ Utility method to convert a number to an amount of rotations.
 
     0.5.rotations
     # => 3.141592653589793
-    
+
     I.rotation = 0.25.rotations
 
 @name rotations
@@ -427,12 +435,12 @@ Utility method to convert a number to an amount of rotations.
 ###
 unless 5.rotations
   Object.defineProperty Number::, 'rotations',
-    get: -> 
+    get: ->
       this * Math.TAU
 
 unless 1.rotation
   Object.defineProperty Number::, 'rotation',
-    get: -> 
+    get: ->
       this * Math.TAU
 
 ###*
@@ -440,9 +448,9 @@ Utility method to convert a number to an amount of rotations.
 
     0.5.turns
     # => 3.141592653589793
-    
+
     I.rotation = 0.25.turns
-    
+
     1.turn # => Math.TAU (aka 2 * Math.PI)
 
 @name turns
@@ -452,12 +460,12 @@ Utility method to convert a number to an amount of rotations.
 ###
 unless 5.turns
   Object.defineProperty Number.prototype, 'turns',
-    get: -> 
+    get: ->
       this * Math.TAU
 
 unless 1.turn
   Object.defineProperty Number.prototype, 'turn',
-    get: -> 
+    get: ->
       this * Math.TAU
 
 ###*
@@ -465,7 +473,7 @@ Utility method to convert a number to an amount of degrees.
 
     180.degrees
     # => 3.141592653589793
-    
+
     I.rotation = 90.degrees
 
 @name degrees
@@ -474,15 +482,15 @@ Utility method to convert a number to an amount of degrees.
 ###
 unless 2.degrees
   Object.defineProperty Number::, 'degrees',
-    get: -> 
+    get: ->
       this * Math.TAU / 360
 
 unless 1.degree
   Object.defineProperty Number::, 'degree',
-    get: -> 
+    get: ->
       this * Math.TAU / 360
 
-###* 
+###*
 The mathematical circle constant of 1 turn.
 
 @name TAU
