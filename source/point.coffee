@@ -4,18 +4,18 @@
   defaults to (0, 0).
 
       point = Point()
-    
+
       p.x
       # => 0
-    
+
       p.y
       # => 0
-    
+
       point = Point(-2, 5)
-    
+
       p.x
       # => -2
-    
+
       p.y
       # => 5
 
@@ -70,12 +70,12 @@
 
         point = Point(1, 1)
         pointCopy = point.copy()
-    
+
         point.equal(pointCopy)
         # => true
-    
+
         point == pointCopy
-        # => false     
+        # => false
     ###
     copy: ->
       Point(@x, @y)
@@ -86,18 +86,18 @@
     to add x and y values without a second point object.
 
         point = Point(2, 3).add(Point(3, 4))
-    
+
         point.x
         # => 5
-    
+
         point.y
         # => 7
-    
+
         anotherPoint = Point(2, 3).add(3, 4)
-    
+
         anotherPoint.x
         # => 5
-    
+
         anotherPoint.y
         # => 7
 
@@ -115,27 +115,27 @@
     to add x and y values without a second point object.
 
         point = Point(2, 3)
-    
+
         point.x
         # => 2
-    
+
         point.y
         # => 3
-    
+
         point.add$(Point(3, 4))
-    
+
         point.x
         # => 5
-    
+
         point.y
         # => 7
-    
+
         anotherPoint = Point(2, 3)
         anotherPoint.add$(3, 4)
-    
+
         anotherPoint.x
         # => 5
-    
+
         anotherPoint.y
         # => 7
 
@@ -158,18 +158,18 @@
     Subtracts a point to this one and returns the new point.
 
         point = Point(1, 2).subtract(Point(2, 0))
-    
+
         point.x
         # => -1
-    
+
         point.y
         # => 2
-    
+
         anotherPoint = Point(1, 2).subtract(2, 0)
-    
+
         anotherPoint.x
         # => -1
-    
+
         anotherPoint.y
         # => 2
 
@@ -185,27 +185,27 @@
     Subtracts a point to this one and returns the new point.
 
         point = Point(1, 2)
-    
+
         point.x
         # => 1
-    
+
         point.y
         # => 2
-    
+
         point.subtract$(Point(2, 0))
-    
+
         point.x
         # => -1
-    
+
         point.y
         # => 2
-    
+
         anotherPoint = Point(1, 2)
         anotherPoint.subtract$(2, 0)
-    
+
         anotherPoint.x
         # => -1
-    
+
         anotherPoint.y
         # => 2
 
@@ -228,10 +228,10 @@
     Scale this Point (Vector) by a constant amount.
 
         point = Point(5, 6).scale(2)
-    
+
         point.x
         # => 10
-    
+
         point.y
         # => 12
 
@@ -247,18 +247,18 @@
     Scale this Point (Vector) by a constant amount. Modifies the point in place.
 
         point = Point(5, 6)
-    
+
         point.x
         # => 5
-    
+
         point.y
         # => 6
-    
+
         point.scale$(2)
-    
+
         point.x
         # => 10
-    
+
         point.y
         # => 12
 
@@ -278,20 +278,20 @@
     treats the point as though it is a vector from the origin to (x, y).
 
         point = Point(2, 3).norm()
-    
+
         point.x
         # => 0.5547001962252291
-    
-        point.y  
+
+        point.y
         # => 0.8320502943378437
-    
+
         anotherPoint = Point(2, 3).norm(2)
-    
+
         anotherPoint.x
         # => 1.1094003924504583
-    
-        anotherPoint.y   
-        # => 1.6641005886756874    
+
+        anotherPoint.y
+        # => 1.6641005886756874
 
     @name norm
     @methodOf Point#
@@ -305,20 +305,20 @@
     treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
 
         point = Point(2, 3).norm$()
-    
+
         point.x
         # => 0.5547001962252291
-    
-        point.y  
+
+        point.y
         # => 0.8320502943378437
-    
+
         anotherPoint = Point(2, 3).norm$(2)
-    
+
         anotherPoint.x
         # => 1.1094003924504583
-    
-        anotherPoint.y   
-        # => 1.6641005886756874    
+
+        anotherPoint.y
+        # => 1.6641005886756874
 
     @name norm$
     @methodOf Point#
@@ -334,10 +334,10 @@
     Floor the x and y values, returning a new point.
 
         point = Point(3.4, 5.8).floor()
-    
+
         point.x
         # => 3
-    
+
         point.y
         # => 5
 
@@ -353,10 +353,10 @@
 
         point = Point(3.4, 5.8)
         point.floor$()
-    
+
         point.x
         # => 3
-    
+
         point.y
         # => 5
 
@@ -376,10 +376,10 @@
         pointA = Point(2, 3)
         pointB = Point(2, 3)
         pointC = Point(4, 5)
-    
+
         pointA.equal(pointB)
         # => true
-    
+
         pointA.equal(pointC)
         # => false
 
@@ -395,7 +395,7 @@
     Computed the length of this point as though it were a vector from (0,0) to (x,y).
 
         point = Point(5, 7)
-    
+
         point.length()
         # => 8.602325267042627
 
@@ -410,7 +410,7 @@
     Calculate the magnitude of this Point (Vector).
 
         point = Point(5, 7)
-    
+
         point.magnitude()
         # => 8.602325267042627
 
@@ -425,7 +425,7 @@
     Returns the direction in radians of this point from the origin.
 
         point = Point(0, 1)
-    
+
         point.direction()
         # => 1.5707963267948966 # Math.PI / 2
 
@@ -447,9 +447,9 @@
       @x * other.x + @y * other.y
 
     ###*
-    Calculate the cross product of this point and another point (Vector). 
+    Calculate the cross product of this point and another point (Vector).
     Usually cross products are thought of as only applying to three dimensional vectors,
-    but z can be treated as zero. The result of this method is interpreted as the magnitude 
+    but z can be treated as zero. The result of this method is interpreted as the magnitude
     of the vector result of the cross product between [x1, y1, 0] x [x2, y2, 0]
     perpendicular to the xy plane.
 
@@ -466,7 +466,7 @@
 
         pointA = Point(2, 3)
         pointB = Point(9, 2)
-    
+
         pointA.distance(pointB)
         # => 7.0710678118654755 # Math.sqrt(50)
 
@@ -486,12 +486,26 @@
     toString: ->
       "Point(#{@x}, #{@y})"
 
+    # TODO: Extract as list of math methods to map onto point
+    abs: ->
+      Point
+        x: @x.abs()
+        y: @y.abs()
+
+    snap: (n) ->
+      Point
+        x: @x.snap(n)
+        y: @y.snap(n)
+
+    angle: ->
+      Math.atan2(@y, @x)
+
   ###*
   Compute the Euclidean distance between two points.
 
       pointA = Point(2, 3)
       pointB = Point(9, 2)
-    
+
       Point.distance(pointA, pointB)
       # => 7.0710678118654755 # Math.sqrt(50)
 
@@ -507,7 +521,7 @@
   ###*
       pointA = Point(2, 3)
       pointB = Point(9, 2)
-    
+
       Point.distanceSquared(pointA, pointB)
       # => 50
 
@@ -536,10 +550,10 @@
   Construct a point on the unit circle for the given angle.
 
       point = Point.fromAngle(Math.PI / 2)
-    
+
       point.x
       # => 0
-    
+
       point.y
       # => 1
 
@@ -558,7 +572,7 @@
 
       p1 = Point(0, 0)
       p2 = Point(7, 3)
-    
+
       Point.direction(p1, p2)
       # => 0.40489178628508343
 
