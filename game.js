@@ -596,11 +596,11 @@ Array.prototype.extremes = function(fn) {
   };
 };
 
-Array.prototype.maxima = function(fn) {
-  if (fn == null) fn = Function.identity;
+Array.prototype.maxima = function(valueFunction) {
+  if (valueFunction == null) valueFunction = Function.identity;
   return this.inject([-Infinity, []], function(memo, item) {
     var maxItems, maxValue, value;
-    value = fn(item);
+    value = valueFunction(item);
     maxValue = memo[0], maxItems = memo[1];
     if (value > maxValue) {
       return [value, [item]];
@@ -612,21 +612,21 @@ Array.prototype.maxima = function(fn) {
   }).last();
 };
 
-Array.prototype.maximum = function(fn) {
-  return this.maxima(fn).first();
+Array.prototype.maximum = function(valueFunction) {
+  return this.maxima(valueFunction).first();
 };
 
-Array.prototype.minima = function(fn) {
+Array.prototype.minima = function(valueFunction) {
   var inverseFn;
-  if (fn == null) fn = Function.identity;
+  if (valueFunction == null) valueFunction = Function.identity;
   inverseFn = function(x) {
-    return -x;
+    return -valueFunction(x);
   };
   return this.maxima(inverseFn);
 };
 
-Array.prototype.minimum = function(fn) {
-  return this.minima(fn).first();
+Array.prototype.minimum = function(valueFunction) {
+  return this.minima(valueFunction).first();
 };
 
 /**
