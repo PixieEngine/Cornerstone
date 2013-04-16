@@ -402,9 +402,9 @@ Array::extremes = (fn=Function.identity) ->
   min: min
   max: max
 
-Array::maxima = (fn=Function.identity) ->
+Array::maxima = (valueFunction=Function.identity) ->
   @inject([-Infinity, []], (memo, item) ->
-    value = fn(item)
+    value = valueFunction(item)
     [maxValue, maxItems] = memo
 
     if value > maxValue
@@ -415,17 +415,17 @@ Array::maxima = (fn=Function.identity) ->
       memo
   ).last()
 
-Array::maximum = (fn) ->
-  @maxima(fn).first()
+Array::maximum = (valueFunction) ->
+  @maxima(valueFunction).first()
 
-Array::minima = (fn=Function.identity) ->
+Array::minima = (valueFunction=Function.identity) ->
   inverseFn = (x) ->
-    -x
+    -valueFunction(x)
 
   @maxima(inverseFn)
 
-Array::minimum = (fn) ->
-  @minima(fn).first()
+Array::minimum = (valueFunction) ->
+  @minima(valueFunction).first()
 
 ###*
 Pretend the array is a circle and grab a new array containing length elements.
