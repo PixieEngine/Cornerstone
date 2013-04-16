@@ -613,7 +613,7 @@ Array.prototype.maxima = function(fn) {
 };
 
 Array.prototype.maximum = function(fn) {
-  return this.maxima().first();
+  return this.maxima(fn).first();
 };
 
 Array.prototype.minima = function(fn) {
@@ -626,7 +626,7 @@ Array.prototype.minima = function(fn) {
 };
 
 Array.prototype.minimum = function(fn) {
-  return this.minima().first();
+  return this.minima(fn).first();
 };
 
 /**
