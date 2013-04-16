@@ -124,8 +124,9 @@ test "#maximum", ->
   equals [-345, 38, 8347].maximum(), 8347
 
 test "#maximum with function", ->
-  equals 3, [3, 4, 5].maximum (n) ->
+  equals [3, 4, 5].maximum((n) ->
     n % 4
+  ), 3
 
 test "#minima", ->
   minima = [-52, 0, 78].minima()
