@@ -416,7 +416,7 @@ Array::maxima = (fn=Function.identity) ->
   ).last()
 
 Array::maximum = (fn) ->
-  @maxima().first()
+  @maxima(fn).first()
 
 Array::minima = (fn=Function.identity) ->
   inverseFn = (x) ->
@@ -425,7 +425,7 @@ Array::minima = (fn=Function.identity) ->
   @maxima(inverseFn)
 
 Array::minimum = (fn) ->
-  @minima().first()
+  @minima(fn).first()
 
 ###*
 Pretend the array is a circle and grab a new array containing length elements.
