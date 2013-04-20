@@ -107,6 +107,43 @@ test "#last", ->
   equals [1, 2, 3].last(), 3
   equals [].first(), undefined
 
+test "#maxima", ->
+  maxima = [-52, 0, 78].maxima()
+
+  maxima.each (n) ->
+    equals n, 78
+
+  maxima = [0, 0, 1, 0, 1, 0, 1, 0].maxima()
+
+  equals 3, maxima.length
+
+  maxima.each (n) ->
+    equals n, 1
+
+test "#maximum", ->
+  equals [-345, 38, 8347].maximum(), 8347
+
+test "#maximum with function", ->
+  equals [3, 4, 5].maximum((n) ->
+    n % 4
+  ), 3
+
+test "#minima", ->
+  minima = [-52, 0, 78].minima()
+
+  minima.each (n) ->
+    equals n, -52
+
+  minima = [0, 0, 1, 0, 1, 0, 1, 0].minima()
+
+  equals 5, minima.length
+
+  minima.each (n) ->
+    equals n, 0
+
+test "#minimum", ->
+  equals [-345, 38, 8347].minimum(), -345
+
 test "#extremes", ->
   array = [-7, 1, 11, 94]
 

@@ -13,6 +13,12 @@ test "#once", ->
 
   equals score, 100
 
+test ".identity", ->
+  I = Function.identity
+
+  [0, 1, true, false, null, undefined].each (x) ->
+    equals I(x), x
+
 test "#returning", ->
   x = 0
   sideEffectsAdd = (a) ->
@@ -40,7 +46,7 @@ asyncTest "#delay", 2, ->
   fn.delay 25, 3, "testy"
 
 asyncTest "#defer", 1, ->
-  fn = (x) -> 
+  fn = (x) ->
     equals x, 3
     start()
 

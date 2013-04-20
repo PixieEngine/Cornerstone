@@ -1,0 +1,13 @@
+{
+  "author": "STRd6",
+  "main": null,
+  "name": "Cornerstone",
+  "library": true,
+  "libs": { },
+  "directories": {
+    "lib": "lib",
+    "source": "source",
+    "test": "test"
+  },
+  "autosave": false
+}
