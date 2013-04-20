@@ -8,8 +8,6 @@ Returns the absolute value of this number.
 @methodOf Number#
 @returns {Number} The absolute value of the number.
 ###
-Number::abs = () ->
-  Math.abs(this)
 
 ###*
 Returns the mathematical ceiling of this number.
@@ -27,8 +25,6 @@ Returns the mathematical ceiling of this number.
 @methodOf Number#
 @returns {Number} The number truncated to the nearest integer of greater than or equal value.
 ###
-Number::ceil = ->
-  Math.ceil(this)
 
 ###*
 Returns the mathematical floor of this number.
@@ -46,8 +42,6 @@ Returns the mathematical floor of this number.
 @methodOf Number#
 @returns {Number} The number truncated to the nearest integer of less than or equal value.
 ###
-Number::floor = ->
-  Math.floor(this)
 
 ###*
 Returns this number rounded to the nearest integer.
@@ -62,8 +56,10 @@ Returns this number rounded to the nearest integer.
 @methodOf Number#
 @returns {Number} The number rounded to the nearest integer.
 ###
-Number::round = ->
-  Math.round(this)
+
+["abs", "ceil", "floor", "round"].each (method) ->
+  Number::[method] = ->
+    Math[method](this)
 
 ###*
 Get a bunch of points equally spaced around the unit circle.
@@ -166,7 +162,7 @@ Returns true if this number is even (evenly divisible by 2).
 @returns {Boolean} true if this number is an even integer, false otherwise.
 ###
 Number::even = ->
-  this % 2 == 0
+  @mod(2) is 0
 
 ###*
 Returns true if this number is odd (has remainder of 1 when divided by 2).
@@ -185,10 +181,7 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 @returns {Boolean} true if this number is an odd integer, false otherwise.
 ###
 Number::odd = ->
-  if this > 0
-    this % 2 == 1
-  else
-    this % 2 == -1
+  not @even()
 
 ###*
 Calls iterator the specified number of times, passing in the number of the
@@ -257,7 +250,7 @@ Floors the number for purposes of factorization.
 Number::primeFactors = ->
   factors = []
 
-  n = Math.floor(this)
+  n = @floor()
 
   if n == 0
     return undefined
@@ -300,7 +293,7 @@ representation of numbers 0 through 255.
 @returns {String} Hexidecimal representation of the number
 ###
 Number::toColorPart = ->
-  s = parseInt(this.clamp(0, 255), 10).toString(16)
+  s = parseInt(@clamp(0, 255), 10).toString(16)
 
   if s.length == 1
     s = '0' + s
@@ -334,7 +327,7 @@ Returns a number that is closer to the target by the ratio.
 @returns {Number} A number toward target by the ratio
 ###
 Number::approachByRatio = (target, ratio) ->
-  this.approach(target, this * ratio)
+  @approach(target, this * ratio)
 
 ###*
 Returns a number that is closer to the target angle by the delta.
@@ -379,9 +372,9 @@ Number::constrainRotation = ->
 # TODO Test and document
 Number::truncate = ->
   if this > 0
-    Math.floor(this)
+    @floor()
   else if this < 0
-    Math.ceil(this)
+    @ceil()
   else
     this
 
@@ -395,7 +388,7 @@ The mathematical d operator. Useful for simulating dice rolls.
 Number::d = (sides) ->
   sum = 0
 
-  this.times ->
+  @times ->
     sum += rand(sides) + 1
 
   return sum
