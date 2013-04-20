@@ -181,7 +181,7 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 @returns {Boolean} true if this number is an odd integer, false otherwise.
 ###
 Number::odd = ->
-  not @even()
+  @mod(2) is 1
 
 ###*
 Calls iterator the specified number of times, passing in the number of the
