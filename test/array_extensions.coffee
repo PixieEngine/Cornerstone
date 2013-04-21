@@ -144,6 +144,14 @@ test "#minima", ->
 test "#minimum", ->
   equals [-345, 38, 8347].minimum(), -345
 
+test "#pipeline", ->
+  pipe = [
+    (x) -> x * x
+    (x) -> x - 10
+  ]
+
+  equals pipe.pipeline(5), 15
+
 test "#extremes", ->
   array = [-7, 1, 11, 94]
 

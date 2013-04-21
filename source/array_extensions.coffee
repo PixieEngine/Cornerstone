@@ -23,7 +23,7 @@ Returns a copy of the array without null and undefined values.
 @returns {Array} A new array that contains only the non-null values.
 ###
 Array::compact = ->
-  this.select (element) ->
+  @select (element) ->
     element?
 
 ###*
@@ -46,7 +46,7 @@ the same objects.
 @returns {Array} A new array that is a copy of the array
 ###
 Array::copy = ->
-  this.concat()
+  @concat()
 
 ###*
 Empties the array of its contents. It is modified in place.
@@ -61,7 +61,7 @@ Empties the array of its contents. It is modified in place.
 @returns {Array} this, now emptied.
 ###
 Array::clear = ->
-  this.length = 0
+  @length = 0
 
   return this
 
@@ -81,7 +81,7 @@ Flatten out an array of arrays into a single array of elements.
 @returns {Array} A new array with all the sub-arrays flattened to the top.
 ###
 Array::flatten = ->
-  this.inject [], (a, b) ->
+  @inject [], (a, b) ->
     a.concat b
 
 ###*
@@ -101,7 +101,7 @@ and return a new array containing the results of the invocation.
 @returns {Array} A new array containing the results of invoking the named method on each element.
 ###
 Array::invoke = (method, args...) ->
-  this.map (element) ->
+  @map (element) ->
     element[method].apply(element, args)
 
 ###*
@@ -115,7 +115,7 @@ Randomly select an element from the array.
 @returns {Object} A random element from an array
 ###
 Array::rand = ->
-  this[rand(this.length)]
+  this[rand(@length)]
 
 ###*
 Remove the first occurrence of the given object from the array if it is
@@ -134,10 +134,10 @@ present. The array is modified in place.
 @returns {Object} The removed object if present otherwise undefined.
 ###
 Array::remove = (object) ->
-  index = this.indexOf(object)
+  index = @indexOf(object)
 
   if index >= 0
-    this.splice(index, 1)[0]
+    @splice(index, 1)[0]
   else
     undefined
 
@@ -156,7 +156,7 @@ Returns true if the element is present in the array.
 @returns {Boolean} true if the element is in the array, false otherwise.
 ###
 Array::include = (element) ->
-  this.indexOf(element) != -1
+  @indexOf(element) != -1
 
 ###*
 Call the given iterator once for each element in the array,
@@ -185,8 +185,8 @@ third argument.
 @returns {Array} this to enable method chaining.
 ###
 Array::each = (iterator, context) ->
-  if this.forEach
-    this.forEach iterator, context
+  if @forEach
+    @forEach iterator, context
   else
     for element, i in this
       iterator.call context, element, i, this
@@ -234,7 +234,7 @@ Call the given iterator once for each pair of objects in the array.
 @param {Object} [context] Optional context parameter to be used as `this` when calling the iterator function.
 ###
 Array::eachPair = (iterator, context) ->
-  length = this.length
+  length = @length
   i = 0
   while i < length
     a = this[i]
@@ -262,7 +262,7 @@ as the second argument. Additional arguments are passed similar to
 @returns {Array} this
 ###
 Array::eachWithObject = (object, iterator, context) ->
-  this.each (element, i, self) ->
+  @each (element, i, self) ->
     iterator.call context, element, object, i, self
 
   return object
@@ -290,11 +290,11 @@ passed as in each.
 ###
 Array::eachSlice = (n, iterator, context) ->
   if n > 0
-    len = (this.length / n).floor()
+    len = (@length / n).floor()
     i = -1
 
     while ++i < len
-      iterator.call(context, this.slice(i*n, (i+1)*n), i*n, this)
+      iterator.call(context, @slice(i*n, (i+1)*n), i*n, this)
 
   return this
 
@@ -312,10 +312,8 @@ is fed to the input of the second and so on until the final processed output is 
 @returns {Object} The result of processing the input by each function in the array.
 ###
 Array::pipeline = (input) ->
-  for fn in this
-    input = fn(input)
-
-  return input
+  @inject input, (input, fn) ->
+    fn(input)
 
 ###*
 Returns a new array with the elements all shuffled up.
@@ -334,7 +332,7 @@ Returns a new array with the elements all shuffled up.
 Array::shuffle = ->
   shuffledArray = []
 
-  this.each (element) ->
+  @each (element) ->
     shuffledArray.splice(rand(shuffledArray.length + 1), 0, element)
 
   return shuffledArray
@@ -363,7 +361,7 @@ Returns the last element of the array, undefined if the array is empty.
 @returns {Object} The last element, or undefined if the array is empty.
 ###
 Array::last = ->
-  this[this.length - 1]
+  this[@length - 1]
 
 ###*
 Returns an object containing the extremes of this array.
@@ -380,7 +378,7 @@ Array::extremes = (fn=Function.identity) ->
   min = max = undefined
   minResult = maxResult = undefined
 
-  this.each (object) ->
+  @each (object) ->
     result = fn(object)
 
     if min?
@@ -484,7 +482,7 @@ Array::partition = (iterator, context) ->
   trueCollection = []
   falseCollection = []
 
-  this.each (element) ->
+  @each (element) ->
     if iterator.call(context, element)
       trueCollection.push element
     else
@@ -502,7 +500,7 @@ Return the group of elements for which the return value of the iterator is true.
 @returns {Array} An array containing the elements for which the iterator returned true.
 ###
 Array::select = (iterator, context) ->
-  return this.partition(iterator, context)[0]
+  return @partition(iterator, context)[0]
 
 ###*
 Return the group of elements that are not in the passed in set.
@@ -516,7 +514,7 @@ Return the group of elements that are not in the passed in set.
 @returns {Array} An array containing the elements that are not passed in.
 ###
 Array::without = (values) ->
-  this.reject (element) ->
+  @reject (element) ->
     values.include(element)
 
 ###*
@@ -529,7 +527,7 @@ Return the group of elements for which the return value of the iterator is false
 @returns {Array} An array containing the elements for which the iterator returned false.
 ###
 Array::reject = (iterator, context) ->
-  this.partition(iterator, context)[1]
+  @partition(iterator, context)[1]
 
 ###*
 Combines all elements of the array by applying a binary operation.
@@ -541,7 +539,7 @@ value (memo) and the element.
 @returns {Object} The result of a
 ###
 Array::inject = (initial, iterator) ->
-  this.each (element) ->
+  @each (element) ->
     initial = iterator(initial, element)
 
   return initial
@@ -557,7 +555,7 @@ Add all the elements in the array.
 @returns {Number} The sum of the elements in the array.
 ###
 Array::sum = ->
-  this.inject 0, (sum, n) ->
+  @inject 0, (sum, n) ->
     sum + n
 
 ###*
@@ -571,7 +569,7 @@ Multiply all the elements in the array.
 @returns {Number} The product of the elements in the array.
 ###
 Array::product = ->
-  this.inject 1, (product, n) ->
+  @inject 1, (product, n) ->
     product * n
 
 ###*
@@ -585,7 +583,7 @@ Merges together the values of each of the arrays with the values at the correspo
 @returns {Array} Array groupings whose values are arranged by their positions in the original input arrays.
 ###
 Array::zip = (args...) ->
-  this.map (element, index) ->
+  @map (element, index) ->
     output = args.map (arr) ->
       arr[index]
 
