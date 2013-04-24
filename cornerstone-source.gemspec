@@ -13,6 +13,6 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split("\n")
   gem.require_paths = ["lib"]
 
-
+  gem.add_dependency "coffee-script"
   gem.add_dependency "sprockets"
 end
