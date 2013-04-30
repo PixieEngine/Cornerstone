@@ -345,30 +345,6 @@
     @methodOf Point#
     @returns {Point} A new point, with x and y values each floored to the largest previous integer.
     ###
-    floor: ->
-      @copy().floor$()
-
-    ###*
-    Floor the x and y values, returning a modified point.
-
-        point = Point(3.4, 5.8)
-        point.floor$()
-
-        point.x
-        # => 3
-
-        point.y
-        # => 5
-
-    @name floor$
-    @methodOf Point#
-    @returns {Point} A modified point, with x and y values each floored to the largest previous integer.
-    ###
-    floor$: ->
-      @x = @x.floor()
-      @y = @y.floor()
-
-      return this
 
     ###*
     Determine whether this point is equal to another point.
@@ -486,12 +462,6 @@
     toString: ->
       "Point(#{@x}, #{@y})"
 
-    # TODO: Extract as list of math methods to map onto point
-    abs: ->
-      Point
-        x: @x.abs()
-        y: @y.abs()
-
     snap: (n) ->
       Point
         x: @x.snap(n)
@@ -499,6 +469,17 @@
 
     angle: ->
       Math.atan2(@y, @x)
+
+  """
+    abs
+    ceil
+    floor
+    truncate
+  """.split("\n").each (method) ->
+    Point::[method] = ->
+      Point
+        x: @x[method]()
+        y: @y[method]()
 
   ###*
   Compute the Euclidean distance between two points.
@@ -652,4 +633,3 @@
 
   (exports ? this)["Point"] = Point
 )()
-
