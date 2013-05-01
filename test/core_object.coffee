@@ -32,12 +32,12 @@ test "#include", ->
   o = Core
     test: "my_val"
 
-  M = (I, self) ->
+  (global ? window).M = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"
 
-  ret = o.include M
+  ret = o.include "M"
 
   equals ret, o, "Should return self"
 
@@ -52,22 +52,22 @@ test "#include same module twice", ->
 
   o = Core()
 
-  o.include(M)
-  o.include(M)
+  o.include("M")
+  o.include("M")
 
 test "#include multiple", ->
   o = Core
     test: "my_val"
 
-  M = (I, self) ->
+  (global ? window).M = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"
 
-  M2 = (I, self) ->
+  (global ? window).M2 = (I, self) ->
     test2: "coolio"
 
-  o.include M, M2
+  o.include "M", "M2"
 
   equals o.test2, "coolio"
 
