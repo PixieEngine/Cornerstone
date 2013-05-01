@@ -3,7 +3,7 @@
   @name Random
   @namespace Some useful methods for generating random things.
   ###
-  (exports ? this)["Random"] =
+  (this)["Random"] =
     ###*
     Returns a random angle, uniformly distributed, between 0 and 2pi.
 
@@ -59,9 +59,9 @@
   @name rand
   @methodOf window
   @param {Number} n
-  @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1. 
+  @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1.
   ###
-  (exports ? this)["rand"] = (n) -> 
+  (this)["rand"] = (n) ->
     if n
       Math.floor(n * Math.random())
     else
@@ -74,9 +74,9 @@
   @name signedRand
   @methodOf window
   @param {Number} n
-  @returns {Number} A random float from -n / 2 to n / 2 if n is given. If n is not given, a random float between -0.5 and 0.5. 
+  @returns {Number} A random float from -n / 2 to n / 2 if n is given. If n is not given, a random float between -0.5 and 0.5.
   ###
-  (exports ? this)["signedRand"] = (n) ->
+  (this)["signedRand"] = (n) ->
     if n
       (n * Math.random()) - (n / 2)
     else

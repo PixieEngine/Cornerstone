@@ -1,5 +1,3 @@
-require("../source/array_extensions.coffee")
-
 suite "Array"
 
 test "#average", ->

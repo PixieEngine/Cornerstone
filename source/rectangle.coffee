@@ -9,7 +9,7 @@
 
       width: width || 0
       height: height || 0
-    } 
+    }
 
   Rectangle:: =
     center: ->
@@ -31,5 +31,5 @@
   Rectangle::__defineGetter__ 'bottom', ->
     @y + @height
 
-  (exports ? this)["Rectangle"] = Rectangle
+  (this)["Rectangle"] = Rectangle
 )()

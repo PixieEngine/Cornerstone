@@ -1,6 +1,6 @@
 ###*
 * Matrix.js v1.3.0pre
-* 
+*
 * Copyright (c) 2010 STRd6
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -92,7 +92,7 @@
   Matrix:: =
     ###*
     Returns the result of this matrix multiplied by another matrix
-    combining the geometric effects of the two. In mathematical terms, 
+    combining the geometric effects of the two. In mathematical terms,
     concatenating two matrixes is the same as combining them using matrix multiplication.
     If this matrix is A and the matrix passed in is B, the resulting matrix is A x B
     http://mathworld.wolfram.com/MatrixMultiplication.html
@@ -121,9 +121,9 @@
       Matrix(@a, @b, @c, @d, @tx, @ty)
 
     ###*
-    Given a point in the pretransform coordinate space, returns the coordinates of 
-    that point after the transformation occurs. Unlike the standard transformation 
-    applied using the transformPoint() method, the deltaTransformPoint() method 
+    Given a point in the pretransform coordinate space, returns the coordinates of
+    that point after the transformation occurs. Unlike the standard transformation
+    applied using the transformPoint() method, the deltaTransformPoint() method
     does not consider the translation parameters tx and ty.
     @name deltaTransformPoint
     @methodOf Matrix#
@@ -206,7 +206,7 @@
       "Matrix(#{@a}, #{@b}, #{@c}, #{@d}, #{@tx}, #{@ty})"
 
     ###*
-    Returns the result of applying the geometric transformation represented by the 
+    Returns the result of applying the geometric transformation represented by the
     Matrix object to the specified point.
     @name transformPoint
     @methodOf Matrix#
@@ -332,6 +332,6 @@
     Object.freeze Matrix.VERTICAL_FLIP
 
   # Export to window
-  (exports ? this)["Matrix"] = Matrix
+  (this)["Matrix"] = Matrix
 )()
 
