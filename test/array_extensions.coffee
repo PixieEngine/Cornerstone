@@ -1,4 +1,6 @@
-module "Array"
+require("../source/array_extensions.coffee")
+
+suite "Array"
 
 test "#average", ->
   equals [1, 3, 5, 7].average(), 4
@@ -215,4 +217,4 @@ test "#zip", ->
 
   equals output[2][2], undefined
 
-module undefined
+suite undefined

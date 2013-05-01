@@ -1,4 +1,4 @@
-module "String"
+suite "String"
 
 test "#blank", ->
   equals "  ".blank(), true, "A string containing only whitespace should be blank"
@@ -9,12 +9,12 @@ test "#blank", ->
 test "#camelize", ->
   equals "active_record".camelize(), "activeRecord"
 
-test "#constantize", ->  
+test "#constantize", ->
   equals "String".constantize(), String, "look up a constant"
   equals "Math".constantize(), Math, "look up a constant"
   equals "Number".constantize(), Number, "look up a constant"
   equals "Math.TAU".constantize(), Math.TAU, "namespaced constants work too"
-  
+
 test "#extension", ->
   equals "README".extension(), ""
   equals "README.md".extension(), "md"
@@ -50,7 +50,7 @@ test "#toInt", ->
   equals "31.3".toInt(), 31
   equals "31.".toInt(), 31
   equals "-1.02".toInt(), -1
-  
+
   equals "009".toInt(), 9
   equals "0109".toInt(), 109
 
@@ -65,5 +65,5 @@ test "#withoutExtension", ->
   equals "neat.png".withoutExtension(), "neat"
   equals "not a file".withoutExtension(), "not a file"
 
-module()
+suite()
 

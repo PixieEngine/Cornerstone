@@ -1,7 +1,7 @@
-module "Logging"
+suite "Logging"
 
 test "log exists", ->
   ok(log)
 
-module()
+suite()
 

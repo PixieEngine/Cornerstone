@@ -1,5 +1,5 @@
 ( ->
-  module "Point"
+  suite "Point"
 
   TOLERANCE = 0.00001
 
@@ -83,7 +83,7 @@
     normal = p.norm()
     equals normal.x, 1
 
-    normal = p.norm(5)    
+    normal = p.norm(5)
     equals normal.x, 5
 
     p = Point(0, 0)
@@ -146,11 +146,11 @@
   test "#toString", ->
     p = Point(7, 5)
     ok eval(p.toString()).equal(p)
-    
+
   test "#clamp", ->
     p = Point(10, 10)
     p2 = p.clamp(5)
-    
+
     equals p2.length(), 5
 
   test ".centroid", ->
@@ -169,7 +169,7 @@
 
     equalEnough p.x, 0, TOLERANCE
     equals p.y, 1
-    
+
   test ".random", ->
     p = Point.random()
 
@@ -191,6 +191,6 @@
     equals zero.x, 0
     equals zero.y, 0
 
-  module undefined
+  suite undefined
 )()
 

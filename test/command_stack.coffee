@@ -1,4 +1,4 @@
-module "CommandStack"
+suite "CommandStack"
 
 test "undo on an empty stack returns undefined", ->
   commandStack = CommandStack()
@@ -96,4 +96,4 @@ test "cannot redo an obsolete future", ->
 
   equals commandStack.canRedo(), false
 
-module()
+suite()
