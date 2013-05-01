@@ -10,7 +10,7 @@ methods.
 ###
 
 ( ->
-  root = this
+  root = global ? window
 
   root.Core = (I={}) ->
     Object.reverseMerge I,

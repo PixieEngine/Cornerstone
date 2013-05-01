@@ -3,10 +3,10 @@ Returns true if this string only contains whitespace characters.
 
     "".blank()
     # => true
-    
+
     "hello".blank()
     # => false
-    
+
     "   ".blank()
     # => true
 
@@ -23,12 +23,12 @@ Returns a new string that is a camelCase version.
     "camel_case".camelize()
     "camel-case".camelize()
     "camel case".camelize()
-    
+
     # => "camelCase"
 
 @name camelize
 @methodOf String#
-@returns {String} A new string. camelCase version of `this`. 
+@returns {String} A new string. camelCase version of `this`.
 ###
 String::camelize = ->
   this.trim().replace /(\-|_|\s)+(.)?/g, (match, separator, chr) ->
@@ -41,7 +41,7 @@ Returns a new string with the first letter capitalized and the rest lower cased.
     "cAPITAL".capitalize()
     "cApItAl".capitalize()
     "CAPITAL".capitalize()
-    
+
     # => "Capital"
 
 @name capitalize
@@ -54,7 +54,7 @@ String::capitalize = ->
 ###*
 Return the class or constant named in this string.
 
-    
+
     "Constant".constantize()
     # => Constant
     # notice this isn't a string. Useful for calling methods on class with the same name as `this`.
@@ -64,7 +64,7 @@ Return the class or constant named in this string.
 @returns {Object} The class or constant named in this string.
 ###
 String::constantize = ->
-  target = exports ? window
+  target = (global ? window)
 
   target = target[item] for item in this.split '.'
 
@@ -91,7 +91,7 @@ Returns a new string that is a more human readable version.
 
     "player_id".humanize()
     # => "Player"
-    
+
     "player_ammo".humanize()
     # => "Player ammo"
 
@@ -119,11 +119,11 @@ is not valid JSON returns the string itself.
     # this is valid json, so an object is returned
     '{"a": 3}'.parse()
     # => {a: 3}
-    
+
     # double quoting instead isn't valid JSON so a string is returned
     "{'a': 3}".parse()
     # => "{'a': 3}"
-    
+
 
 @name parse
 @methodOf String#
@@ -152,7 +152,7 @@ Returns a new string in Title Case.
 
     "title-case".titleize()
     # => "Title Case"
-    
+
     "title case".titleize()
     # => "Title Case"
 
@@ -170,10 +170,10 @@ Underscore a word, changing camelCased with under_scored.
 
     "UNDERScore".underscore()
     # => "under_score"
-    
+
     "UNDER-SCORE".underscore()
     # => "under_score"
-    
+
     "UnDEr-SCorE".underscore()
     # => "un_d_er_s_cor_e"
 
@@ -188,10 +188,10 @@ String::underscore = ->
     .toLowerCase()
 
 ###*
-Assumes the string is something like a file name and returns the 
+Assumes the string is something like a file name and returns the
 contents of the string without the extension.
 
-    "neat.png".witouthExtension() 
+    "neat.png".witouthExtension()
     # => "neat"
 
 @name withoutExtension
@@ -214,8 +214,8 @@ String::parseHex = ->
       else
         alpha = 1
 
-      rgb = (parseInt(hexString.substr(i, 1), 16) * 0x11 for i in [0..2])      
-      rgb.push(alpha)    
+      rgb = (parseInt(hexString.substr(i, 1), 16) * 0x11 for i in [0..2])
+      rgb.push(alpha)
 
       return rgb
 
@@ -225,7 +225,7 @@ String::parseHex = ->
       else
         alpha = 1
 
-      rgb = (parseInt(hexString.substr(2 * i, 2), 16) for i in [0..2])          
+      rgb = (parseInt(hexString.substr(2 * i, 2), 16) for i in [0..2])
       rgb.push(alpha)
 
       return rgb

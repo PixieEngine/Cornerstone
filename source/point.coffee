@@ -631,5 +631,5 @@
     Object.freeze Point.UP
     Object.freeze Point.DOWN
 
-  (this)["Point"] = Point
+  (global ? this)["Point"] = Point
 )()

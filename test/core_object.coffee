@@ -44,8 +44,8 @@ test "#include", ->
   equals o.test(), "my_val"
   equals o.test2, "cool"
 
-test "#include same suite twice", 1, ->
-  window.M = (I, self) ->
+test "#include same module twice", ->
+  (global ? window).M = (I, self) ->
     ok(true)
 
     test: true
@@ -72,7 +72,7 @@ test "#include multiple", ->
   equals o.test2, "coolio"
 
 test "#include string", ->
-  window.TestM = (I, self) ->
+  (global ? window).TestM = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"

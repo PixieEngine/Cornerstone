@@ -36,4 +36,4 @@ CommandStack = ->
   canRedo: ->
     stack[index]?
 
-(exports ? this)["CommandStack"] = CommandStack
+(global ? this)["CommandStack"] = CommandStack

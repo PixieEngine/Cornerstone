@@ -4,13 +4,13 @@ Bindable module.
     player = Core
       x: 5
       y: 10
-    
+
     player.bind "update", ->
       updatePlayer()
     # => Uncaught TypeError: Object has no method 'bind'
-    
+
     player.include(Bindable)
-    
+
     player.bind "update", ->
       updatePlayer()
     # => this will call updatePlayer each time through the main loop
@@ -19,7 +19,7 @@ Bindable module.
 @module
 @constructor
 ###
-Bindable = (I={}, self) -> 
+Bindable = (I={}, self) ->
   eventCallbacks = {}
 
   bind: (args...) ->
@@ -34,7 +34,7 @@ Bindable = (I={}, self) ->
       # this will call coolEventHandler after
       # yourObject.trigger "someCustomEvent" is called.
       yourObject.on "someCustomEvent", coolEventHandler
-    
+
       #or
       yourObject.on "anotherCustomEvent", ->
         doSomething()
@@ -67,8 +67,8 @@ Bindable = (I={}, self) ->
       #  removes the handler coolEventHandler from the event
       # "someCustomEvent" while leaving the other events intact.
       yourObject.off "someCustomEvent", coolEventHandler
-    
-      # removes all handlers attached to "anotherCustomEvent" 
+
+      # removes all handlers attached to "anotherCustomEvent"
       yourObject.off "anotherCustomEvent"
 
   @name off
@@ -81,7 +81,7 @@ Bindable = (I={}, self) ->
 
     if event
       eventCallbacks[event] ||= []
-      
+
       if namespace
         # Select only the callbacks that do not have this namespace metadata
         eventCallbacks[event] = eventCallbacks.select (callback) ->
@@ -122,4 +122,4 @@ Bindable = (I={}, self) ->
       callbacks.each (callback) ->
         callback.apply(self, parameters)
 
-(exports ? this)["Bindable"] = Bindable
+(global ? this)["Bindable"] = Bindable
