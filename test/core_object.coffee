@@ -1,4 +1,4 @@
-module "Core"
+suite "Core"
 
 test "#extend", ->
   o = Core()
@@ -32,47 +32,47 @@ test "#include", ->
   o = Core
     test: "my_val"
 
-  M = (I, self) ->
+  (global ? window).M = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"
 
-  ret = o.include M
+  ret = o.include "M"
 
   equals ret, o, "Should return self"
 
   equals o.test(), "my_val"
   equals o.test2, "cool"
-  
-test "#include same module twice", 1, ->
-  window.M = (I, self) ->
+
+test "#include same module twice", ->
+  (global ? window).M = (I, self) ->
     ok(true)
-    
+
     test: true
-    
+
   o = Core()
 
-  o.include(M)
-  o.include(M)
+  o.include("M")
+  o.include("M")
 
 test "#include multiple", ->
   o = Core
     test: "my_val"
 
-  M = (I, self) ->
+  (global ? window).M = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"
-    
-  M2 = (I, self) ->
+
+  (global ? window).M2 = (I, self) ->
     test2: "coolio"
 
-  o.include M, M2
-  
+  o.include "M", "M2"
+
   equals o.test2, "coolio"
-  
+
 test "#include string", ->
-  window.TestM = (I, self) ->
+  (global ? window).TestM = (I, self) ->
     self.attrReader "test"
 
     test2: "cool"
@@ -83,7 +83,7 @@ test "#include string", ->
   o.include "TestM"
 
   equals o.test(), "my_val"
-  
+
 test "#send", ->
   o = Core
     test: true
@@ -92,4 +92,4 @@ test "#send", ->
 
   ok(o.test())
 
-module undefined
+suite undefined

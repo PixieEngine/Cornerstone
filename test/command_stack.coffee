@@ -1,4 +1,4 @@
-module "CommandStack"
+suite "CommandStack"
 
 test "undo on an empty stack returns undefined", ->
   commandStack = CommandStack()
@@ -10,7 +10,7 @@ test "redo on an empty stack returns undefined", ->
 
   equals commandStack.redo(), undefined
 
-test "executes commands", 1, ->
+test "executes commands", ->
   command =
     execute: ->
       ok true, "command executed"
@@ -19,7 +19,7 @@ test "executes commands", 1, ->
 
   commandStack.execute command
 
-test "can undo", 1, ->
+test "can undo", ->
   command =
     execute: ->
     undo: ->
@@ -30,7 +30,7 @@ test "can undo", 1, ->
 
   commandStack.undo()
 
-test "can redo", 2, ->
+test "can redo", ->
   command =
     execute: ->
       ok true, "command executed"
@@ -42,7 +42,7 @@ test "can redo", 2, ->
   commandStack.undo()
   commandStack.redo()
 
-test "executes redone command once on redo", 4, ->
+test "executes redone command once on redo", ->
   command =
     execute: ->
       ok true, "command executed"
@@ -96,4 +96,4 @@ test "cannot redo an obsolete future", ->
 
   equals commandStack.canRedo(), false
 
-module()
+suite()

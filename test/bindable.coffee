@@ -1,13 +1,13 @@
-module "Bindable"
+suite "Bindable"
 
-test "#bind and #trigger", 1, ->
+test "#bind and #trigger", ->
   o = Core().include("Bindable")
 
   o.bind("test", -> ok true)
 
   o.trigger("test")
 
-test "Multiple bindings", 2, ->
+test "Multiple bindings", ->
   o = Core().include(Bindable)
 
   o.bind("test", -> ok true)
@@ -42,8 +42,8 @@ test "#unbind", ->
   # Unbind all events
   o.unbind "test"
   o.trigger "test"
-  
-test "#trigger namespace", 1, ->
+
+test "#trigger namespace", ->
   o = Core().include("Bindable")
   o.bind "test.TestNamespace", ->
     ok true
@@ -52,10 +52,10 @@ test "#trigger namespace", 1, ->
 
   o.unbind ".TestNamespace"
   o.trigger "test"
-  
-test "#unbind namespaced", 1, ->
+
+test "#unbind namespaced", ->
   o = Core().include("Bindable")
-  
+
   o.bind "test.TestNamespace", ->
     ok true
 
@@ -64,5 +64,5 @@ test "#unbind namespaced", 1, ->
   o.unbind ".TestNamespace", ->
   o.trigger "test"
 
-module()
+suite()
 

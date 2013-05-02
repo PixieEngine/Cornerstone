@@ -1,4 +1,4 @@
-module "Function"
+suite "Function"
 
 test "#once", ->
   score = 0
@@ -29,28 +29,28 @@ test "#returning", ->
   equals x, 4
   equals returnValue, -1
 
-asyncTest "#debounce", 1, ->
-  fn = (-> ok true; start()).debounce(50)
+test "#debounce", (done) ->
+  fn = (-> ok true; done()).debounce(50)
 
   # Though called multiple times the function is only triggered once
   fn()
   fn()
   fn()
 
-asyncTest "#delay", 2, ->
+test "#delay", (done) ->
   fn = (x, y) ->
     equals x, 3
     equals y, "testy"
-    start()
+    done()
 
   fn.delay 25, 3, "testy"
 
-asyncTest "#defer", 1, ->
+test "#defer", (done) ->
   fn = (x) ->
     equals x, 3
-    start()
+    done()
 
   fn.defer 3
 
-module()
+suite()
 

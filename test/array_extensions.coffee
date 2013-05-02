@@ -1,4 +1,4 @@
-module "Array"
+suite "Array"
 
 test "#average", ->
   equals [1, 3, 5, 7].average(), 4
@@ -171,7 +171,7 @@ test "#sum", ->
   equals [2].sum(), 2, "[2] sums to 2"
   equals [1, 2, 3, 4, 5].sum(), 15, "[1, 2, 3, 4, 5] sums to 15"
 
-test "#eachSlice", 6, ->
+test "#eachSlice", ->
   [1, 2, 3, 4, 5, 6].eachSlice 2, (array) ->
     equals array[0] % 2, 1
     equals array[1] % 2, 0
@@ -215,4 +215,4 @@ test "#zip", ->
 
   equals output[2][2], undefined
 
-module undefined
+suite undefined
