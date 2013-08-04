@@ -1,4 +1,4 @@
-suite "Function"
+module "Function"
 
 test "#once", ->
   score = 0
@@ -52,5 +52,5 @@ test "#defer", (done) ->
 
   fn.defer 3
 
-suite()
+module()
 

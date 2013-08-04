@@ -1,4 +1,4 @@
-suite "Bindable"
+module "Bindable"
 
 test "#bind and #trigger", ->
   o = Core().include("Bindable")
@@ -64,5 +64,5 @@ test "#unbind namespaced", ->
   o.unbind ".TestNamespace", ->
   o.trigger "test"
 
-suite()
+module()
 

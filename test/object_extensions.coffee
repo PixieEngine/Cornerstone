@@ -1,4 +1,4 @@
-suite "Object"
+module "Object"
 
 test "isArray", ->
   array = [1,2,3]
@@ -49,5 +49,5 @@ test "isObject", ->
 
   equals Object.isObject(object), true
 
-suite()
+module()
 

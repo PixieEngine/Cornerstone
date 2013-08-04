@@ -1,4 +1,4 @@
-suite "Core"
+module "Core"
 
 test "#extend", ->
   o = Core()
@@ -92,4 +92,4 @@ test "#send", ->
 
   ok(o.test())
 
-suite undefined
+module undefined

@@ -1,4 +1,4 @@
-suite "Random"
+module "Random"
 
 test "methods", ->
   ok(Random.angle)
@@ -19,4 +19,4 @@ test ".angleBetween", ->
   ok a < 0.5.turns
   ok a > 0.25.turns
 
-suite()
+module()

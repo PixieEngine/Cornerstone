@@ -1,5 +1,5 @@
 ( ->
-  suite "Matrix"
+  module "Matrix"
 
   TOLERANCE = 0.00001
 
@@ -169,6 +169,6 @@
 
     equals identity.a, 1
 
-  suite undefined
+  module undefined
 )()
 

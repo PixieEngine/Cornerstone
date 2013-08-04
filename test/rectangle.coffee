@@ -1,4 +1,4 @@
-suite "Rectangle"
+module "Rectangle"
 
 test "getter for left calculates correctly", ->
   rect = Rectangle
@@ -67,4 +67,4 @@ test "#equal", ->
   ok !rect1.equal(rect2)
   ok rect1.equal(rect3)
 
-suite()
+module()

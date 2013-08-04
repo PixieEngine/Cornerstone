@@ -1,5 +1,5 @@
 ( ->
-  suite "Point"
+  module "Point"
 
   TOLERANCE = 0.00001
 
@@ -184,6 +184,6 @@
     equals zero.x, 0
     equals zero.y, 0
 
-  suite undefined
+  module undefined
 )()
 

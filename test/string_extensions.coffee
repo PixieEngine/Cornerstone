@@ -1,4 +1,4 @@
-suite "String"
+module "String"
 
 test "#blank", ->
   equals "  ".blank(), true, "A string containing only whitespace should be blank"
@@ -65,5 +65,5 @@ test "#withoutExtension", ->
   equals "neat.png".withoutExtension(), "neat"
   equals "not a file".withoutExtension(), "not a file"
 
-suite()
+module()
 

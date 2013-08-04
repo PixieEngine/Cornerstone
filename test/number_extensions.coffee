@@ -2,7 +2,7 @@ equalEnough = (expected, actual, tolerance, message) ->
   message ||= "" + expected + " within " + tolerance + " of " + actual
   ok(expected + tolerance >= actual && expected - tolerance <= actual, message)
 
-suite "Number"
+module "Number"
 
 test "#abs", ->
   equals 5.abs(), 5, "(5).abs() equals 5"
@@ -135,4 +135,4 @@ test "#circularPoints", ->
     equalEnough p.x, points[i].x, 0.001
     equalEnough p.y, points[i].y, 0.001
 
-suite undefined
+module undefined

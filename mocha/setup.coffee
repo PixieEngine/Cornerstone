@@ -1,6 +1,6 @@
-ok = (expression, message) ->
-  throw new Error(mesage) unless expression
+assert = require('assert')
 
-equal = equals = (a, b, message) ->
-  throw new Error(message) unless a is b
-
+# Alias some things to be more qunity for running in the browser
+ok = assert
+equal = equals = assert.equal
+module = suite
