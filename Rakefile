@@ -11,7 +11,8 @@ end
 namespace :npm do
   desc "Compile source folder to build"
   task :build do
-    sh "./node_modules/.bin/coffee -cj dist/cornerstone.js source/"
+    sh "./node_modules/.bin/coffee -cj dist/raw.js source/"
+    sh "./node_modules/.bin/uglifyjs dist/raw.js > dist/cornerstone.js && rm dist/raw.js"
   end
 
   desc "Publish for npm"

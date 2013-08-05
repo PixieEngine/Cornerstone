@@ -4,7 +4,8 @@
   "description": "Cornerstone provides a solid foundation for working with JavaScript. It aggressively shivs many of the core classes",
   "devDependencies": {
     "coffee-script": "~1.6.3",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "uglify-js": "~2.3.6"
   },
   "repository": {
     "type": "git",
