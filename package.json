@@ -1,0 +1,17 @@
+{
+  "name": "cornerstone-js",
+  "version": "0.1.14",
+  "description": "Cornerstone provides a solid foundation for working with JavaScript. It aggressively shivs many of the core classes",
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "mocha": "~1.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PixieEngine/Cornerstone.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/cornerstone.js"
+}

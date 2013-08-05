@@ -9,11 +9,13 @@ Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
+dist/
 doc/
 docs/
 lib/bundler/man
 lib/assets/test.html
 lib/assets/javascripts/cornerstone_tests.js
+node_modules/
 pkg
 rdoc
 spec/reports
