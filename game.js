@@ -489,12 +489,9 @@ is fed to the input of the second and so on until the final processed output is 
 */
 
 Array.prototype.pipeline = function(input) {
-  var fn, _i, _len;
-  for (_i = 0, _len = this.length; _i < _len; _i++) {
-    fn = this[_i];
-    input = fn(input);
-  }
-  return input;
+  return this.inject(input, function(input, fn) {
+    return fn(input);
+  });
 };
 
 /**
@@ -827,13 +824,13 @@ Bindable module.
     player = Core
       x: 5
       y: 10
-    
+
     player.bind "update", ->
       updatePlayer()
     # => Uncaught TypeError: Object has no method 'bind'
-    
+
     player.include(Bindable)
-    
+
     player.bind "update", ->
       updatePlayer()
     # => this will call updatePlayer each time through the main loop
@@ -866,7 +863,7 @@ Bindable = function(I, self) {
         # this will call coolEventHandler after
         # yourObject.trigger "someCustomEvent" is called.
         yourObject.on "someCustomEvent", coolEventHandler
-      
+    
         #or
         yourObject.on "anotherCustomEvent", ->
           doSomething()
@@ -895,8 +892,8 @@ Bindable = function(I, self) {
         #  removes the handler coolEventHandler from the event
         # "someCustomEvent" while leaving the other events intact.
         yourObject.off "someCustomEvent", coolEventHandler
-      
-        # removes all handlers attached to "anotherCustomEvent" 
+    
+        # removes all handlers attached to "anotherCustomEvent"
         yourObject.off "anotherCustomEvent"
     
     @name off
@@ -957,7 +954,7 @@ Bindable = function(I, self) {
   };
 };
 
-(typeof exports !== "undefined" && exports !== null ? exports : this)["Bindable"] = Bindable;
+(typeof global !== "undefined" && global !== null ? global : this)["Bindable"] = Bindable;
 
 var CommandStack;
 
@@ -1001,7 +998,7 @@ CommandStack = function() {
   };
 };
 
-(typeof exports !== "undefined" && exports !== null ? exports : this)["CommandStack"] = CommandStack;
+(typeof global !== "undefined" && global !== null ? global : this)["CommandStack"] = CommandStack;
 
 /**
 The Core class is used to add extended functionality to objects without
@@ -1017,7 +1014,7 @@ var __slice = Array.prototype.slice;
 
 (function() {
   var root;
-  root = typeof exports !== "undefined" && exports !== null ? exports : this;
+  root = typeof global !== "undefined" && global !== null ? global : window;
   return root.Core = function(I) {
     var Module, moduleName, self, _i, _len, _ref;
     if (I == null) I = {};
@@ -1028,7 +1025,7 @@ var __slice = Array.prototype.slice;
       /**
       External access to instance variables. Use of this property should be avoided
       in general, but can come in handy from time to time.
-        
+      
           I =
             r: 255
             g: 0
@@ -1036,7 +1033,7 @@ var __slice = Array.prototype.slice;
       
           myObject = Core(I)
       
-          # a bad idea most of the time, but it's 
+          # a bad idea most of the time, but it's
           # pretty convenient to have available.
           myObject.I.r
           # => 255
@@ -1046,15 +1043,15 @@ var __slice = Array.prototype.slice;
       
           myObject.I.b
           # => 100
-        
+      
       @name I
       @fieldOf Core#
       */
       I: I,
       /**
-      Generates a public jQuery style getter / setter method for each 
+      Generates a public jQuery style getter / setter method for each
       String argument.
-        
+      
           myObject = Core
             r: 255
             g: 0
@@ -1066,7 +1063,7 @@ var __slice = Array.prototype.slice;
           myObject.r()
       
           => 254
-        
+      
       @name attrAccessor
       @methodOf Core#
       */
@@ -1086,7 +1083,7 @@ var __slice = Array.prototype.slice;
       },
       /**
       Generates a public jQuery style getter method for each String argument.
-        
+      
           myObject = Core
             r: 255
             g: 0
@@ -1102,7 +1099,7 @@ var __slice = Array.prototype.slice;
       
           myObject.b()
           => 100
-        
+      
       @name attrReader
       @methodOf Core#
       */
@@ -1117,7 +1114,7 @@ var __slice = Array.prototype.slice;
       },
       /**
       Extends this object with methods from the passed in object. A shortcut for Object.extend(self, methods)
-        
+      
           I =
             x: 30
             y: 40
@@ -1136,7 +1133,7 @@ var __slice = Array.prototype.slice;
       
           player.I.maxSpeed
           => 6
-        
+      
       @name extend
       @methodOf Core#
       @see Object.extend
@@ -1148,14 +1145,14 @@ var __slice = Array.prototype.slice;
       },
       /**
       Includes a module in this object.
-        
+      
           myObject = Core()
           myObject.include(Bindable)
       
           # now you can bind handlers to functions
           myObject.bind "someEvent", ->
             alert("wow. that was easy.")
-        
+      
       @name include
       @methodOf Core#
       @param {String} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
@@ -1288,7 +1285,7 @@ Object.extend(Function, {
 @name Logging
 @namespace
 
-Gives you some convenience methods for outputting data while developing. 
+Gives you some convenience methods for outputting data while developing.
 
       log "Testing123"
       info "Hey, this is happening"
@@ -1299,19 +1296,19 @@ var __slice = Array.prototype.slice;
 
 ["log", "info", "warn", "error"].each(function(name) {
   if (typeof console !== "undefined") {
-    return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function() {
+    return (typeof global !== "undefined" && global !== null ? global : this)[name] = function() {
       var args;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       if (console[name]) return console[name].apply(console, args);
     };
   } else {
-    return (typeof exports !== "undefined" && exports !== null ? exports : this)[name] = function() {};
+    return (typeof global !== "undefined" && global !== null ? global : this)[name] = function() {};
   }
 });
 
 /**
 * Matrix.js v1.3.0pre
-* 
+*
 * Copyright (c) 2010 STRd6
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1402,7 +1399,7 @@ var __slice = Array.prototype.slice;
   Matrix.prototype = {
     /**
     Returns the result of this matrix multiplied by another matrix
-    combining the geometric effects of the two. In mathematical terms, 
+    combining the geometric effects of the two. In mathematical terms,
     concatenating two matrixes is the same as combining them using matrix multiplication.
     If this matrix is A and the matrix passed in is B, the resulting matrix is A x B
     http://mathworld.wolfram.com/MatrixMultiplication.html
@@ -1424,9 +1421,9 @@ var __slice = Array.prototype.slice;
       return Matrix(this.a, this.b, this.c, this.d, this.tx, this.ty);
     },
     /**
-    Given a point in the pretransform coordinate space, returns the coordinates of 
-    that point after the transformation occurs. Unlike the standard transformation 
-    applied using the transformPoint() method, the deltaTransformPoint() method 
+    Given a point in the pretransform coordinate space, returns the coordinates of
+    that point after the transformation occurs. Unlike the standard transformation
+    applied using the transformPoint() method, the deltaTransformPoint() method
     does not consider the translation parameters tx and ty.
     @name deltaTransformPoint
     @methodOf Matrix#
@@ -1499,7 +1496,7 @@ var __slice = Array.prototype.slice;
       return "Matrix(" + this.a + ", " + this.b + ", " + this.c + ", " + this.d + ", " + this.tx + ", " + this.ty + ")";
     },
     /**
-    Returns the result of applying the geometric transformation represented by the 
+    Returns the result of applying the geometric transformation represented by the
     Matrix object to the specified point.
     @name transformPoint
     @methodOf Matrix#
@@ -1603,7 +1600,7 @@ var __slice = Array.prototype.slice;
     Object.freeze(Matrix.HORIZONTAL_FLIP);
     Object.freeze(Matrix.VERTICAL_FLIP);
   }
-  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Matrix"] = Matrix;
+  return this["Matrix"] = Matrix;
 })();
 
 /**
@@ -1616,10 +1613,6 @@ Returns the absolute value of this number.
 @methodOf Number#
 @returns {Number} The absolute value of the number.
 */
-Number.prototype.abs = function() {
-  return Math.abs(this);
-};
-
 /**
 Returns the mathematical ceiling of this number.
 
@@ -1636,11 +1629,6 @@ Returns the mathematical ceiling of this number.
 @methodOf Number#
 @returns {Number} The number truncated to the nearest integer of greater than or equal value.
 */
-
-Number.prototype.ceil = function() {
-  return Math.ceil(this);
-};
-
 /**
 Returns the mathematical floor of this number.
 
@@ -1657,11 +1645,6 @@ Returns the mathematical floor of this number.
 @methodOf Number#
 @returns {Number} The number truncated to the nearest integer of less than or equal value.
 */
-
-Number.prototype.floor = function() {
-  return Math.floor(this);
-};
-
 /**
 Returns this number rounded to the nearest integer.
 
@@ -1675,10 +1658,11 @@ Returns this number rounded to the nearest integer.
 @methodOf Number#
 @returns {Number} The number rounded to the nearest integer.
 */
-
-Number.prototype.round = function() {
-  return Math.round(this);
-};
+["abs", "ceil", "floor", "round"].each(function(method) {
+  return Number.prototype[method] = function() {
+    return Math[method](this);
+  };
+});
 
 /**
 Get a bunch of points equally spaced around the unit circle.
@@ -1790,7 +1774,7 @@ Returns true if this number is even (evenly divisible by 2).
 */
 
 Number.prototype.even = function() {
-  return this % 2 === 0;
+  return this.mod(2) === 0;
 };
 
 /**
@@ -1811,11 +1795,7 @@ Returns true if this number is odd (has remainder of 1 when divided by 2).
 */
 
 Number.prototype.odd = function() {
-  if (this > 0) {
-    return this % 2 === 1;
-  } else {
-    return this % 2 === -1;
-  }
+  return this.mod(2) === 1;
 };
 
 /**
@@ -1892,7 +1872,7 @@ Floors the number for purposes of factorization.
 Number.prototype.primeFactors = function() {
   var factors, i, iSquared, n;
   factors = [];
-  n = Math.floor(this);
+  n = this.floor();
   if (n === 0) return;
   if (n < 0) {
     factors.push(-1);
@@ -2016,9 +1996,9 @@ Number.prototype.constrainRotation = function() {
 
 Number.prototype.truncate = function() {
   if (this > 0) {
-    return Math.floor(this);
+    return this.floor();
   } else if (this < 0) {
-    return Math.ceil(this);
+    return this.ceil();
   } else {
     return this;
   }
@@ -2523,30 +2503,6 @@ var __slice = Array.prototype.slice;
     @methodOf Point#
     @returns {Point} A new point, with x and y values each floored to the largest previous integer.
     */
-    floor: function() {
-      return this.copy().floor$();
-    },
-    /**
-    Floor the x and y values, returning a modified point.
-    
-        point = Point(3.4, 5.8)
-        point.floor$()
-    
-        point.x
-        # => 3
-    
-        point.y
-        # => 5
-    
-    @name floor$
-    @methodOf Point#
-    @returns {Point} A modified point, with x and y values each floored to the largest previous integer.
-    */
-    floor$: function() {
-      this.x = this.x.floor();
-      this.y = this.y.floor();
-      return this;
-    },
     /**
     Determine whether this point is equal to another point.
     
@@ -2663,12 +2619,6 @@ var __slice = Array.prototype.slice;
     toString: function() {
       return "Point(" + this.x + ", " + this.y + ")";
     },
-    abs: function() {
-      return Point({
-        x: this.x.abs(),
-        y: this.y.abs()
-      });
-    },
     snap: function(n) {
       return Point({
         x: this.x.snap(n),
@@ -2679,6 +2629,14 @@ var __slice = Array.prototype.slice;
       return Math.atan2(this.y, this.x);
     }
   };
+  "abs\nceil\nfloor\ntruncate".split("\n").each(function(method) {
+    return Point.prototype[method] = function() {
+      return Point({
+        x: this.x[method](),
+        y: this.y[method]()
+      });
+    };
+  });
   /**
   Compute the Euclidean distance between two points.
   
@@ -2823,7 +2781,7 @@ var __slice = Array.prototype.slice;
     Object.freeze(Point.UP);
     Object.freeze(Point.DOWN);
   }
-  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Point"] = Point;
+  return (typeof global !== "undefined" && global !== null ? global : this)["Point"] = Point;
 })();
 
 
@@ -2831,7 +2789,7 @@ var __slice = Array.prototype.slice;
   /**
   @name Random
   @namespace Some useful methods for generating random things.
-  */  (typeof exports !== "undefined" && exports !== null ? exports : this)["Random"] = {
+  */  this["Random"] = {
     /**
     Returns a random angle, uniformly distributed, between 0 and 2pi.
     
@@ -2890,7 +2848,7 @@ var __slice = Array.prototype.slice;
   @param {Number} n
   @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1.
   */
-  (typeof exports !== "undefined" && exports !== null ? exports : this)["rand"] = function(n) {
+  this["rand"] = function(n) {
     if (n) {
       return Math.floor(n * Math.random());
     } else {
@@ -2906,7 +2864,7 @@ var __slice = Array.prototype.slice;
   @param {Number} n
   @returns {Number} A random float from -n / 2 to n / 2 if n is given. If n is not given, a random float between -0.5 and 0.5.
   */
-  return (typeof exports !== "undefined" && exports !== null ? exports : this)["signedRand"] = function(n) {
+  return this["signedRand"] = function(n) {
     if (n) {
       return (n * Math.random()) - (n / 2);
     } else {
@@ -2949,7 +2907,7 @@ var __slice = Array.prototype.slice;
   Rectangle.prototype.__defineGetter__('bottom', function() {
     return this.y + this.height;
   });
-  return (typeof exports !== "undefined" && exports !== null ? exports : this)["Rectangle"] = Rectangle;
+  return this["Rectangle"] = Rectangle;
 })();
 
 /**
@@ -2957,10 +2915,10 @@ Returns true if this string only contains whitespace characters.
 
     "".blank()
     # => true
-    
+
     "hello".blank()
     # => false
-    
+
     "   ".blank()
     # => true
 
@@ -2978,7 +2936,7 @@ Returns a new string that is a camelCase version.
     "camel_case".camelize()
     "camel-case".camelize()
     "camel case".camelize()
-    
+
     # => "camelCase"
 
 @name camelize
@@ -3003,7 +2961,7 @@ Returns a new string with the first letter capitalized and the rest lower cased.
     "cAPITAL".capitalize()
     "cApItAl".capitalize()
     "CAPITAL".capitalize()
-    
+
     # => "Capital"
 
 @name capitalize
@@ -3018,7 +2976,7 @@ String.prototype.capitalize = function() {
 /**
 Return the class or constant named in this string.
 
-    
+
     "Constant".constantize()
     # => Constant
     # notice this isn't a string. Useful for calling methods on class with the same name as `this`.
@@ -3030,7 +2988,7 @@ Return the class or constant named in this string.
 
 String.prototype.constantize = function() {
   var item, target, _i, _len, _ref;
-  target = typeof exports !== "undefined" && exports !== null ? exports : window;
+  target = typeof global !== "undefined" && global !== null ? global : window;
   _ref = this.split('.');
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     item = _ref[_i];
@@ -3064,7 +3022,7 @@ Returns a new string that is a more human readable version.
 
     "player_id".humanize()
     # => "Player"
-    
+
     "player_ammo".humanize()
     # => "Player ammo"
 
@@ -3096,11 +3054,11 @@ is not valid JSON returns the string itself.
     # this is valid json, so an object is returned
     '{"a": 3}'.parse()
     # => {a: 3}
-    
+
     # double quoting instead isn't valid JSON so a string is returned
     "{'a': 3}".parse()
     # => "{'a': 3}"
-    
+
 
 @name parse
 @methodOf String#
@@ -3134,7 +3092,7 @@ Returns a new string in Title Case.
 
     "title-case".titleize()
     # => "Title Case"
-    
+
     "title case".titleize()
     # => "Title Case"
 
@@ -3154,10 +3112,10 @@ Underscore a word, changing camelCased with under_scored.
 
     "UNDERScore".underscore()
     # => "under_score"
-    
+
     "UNDER-SCORE".underscore()
     # => "under_score"
-    
+
     "UnDEr-SCorE".underscore()
     # => "un_d_er_s_cor_e"
 
@@ -3171,10 +3129,10 @@ String.prototype.underscore = function() {
 };
 
 /**
-Assumes the string is something like a file name and returns the 
+Assumes the string is something like a file name and returns the
 contents of the string without the extension.
 
-    "neat.png".witouthExtension() 
+    "neat.png".witouthExtension()
     # => "neat"
 
 @name withoutExtension
