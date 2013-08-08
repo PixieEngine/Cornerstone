@@ -1,9 +1,11 @@
 ( ->
+  root = global ? window
+
   ###*
   @name Random
   @namespace Some useful methods for generating random things.
   ###
-  (this)["Random"] =
+  root["Random"] =
     ###*
     Returns a random angle, uniformly distributed, between 0 and 2pi.
 
@@ -34,24 +36,6 @@
     color: ->
       Color.random()
 
-    ###*
-    Happens often.
-
-    @name often
-    @methodOf Random
-    ###
-    often: ->
-      return rand(3)
-
-    ###*
-    Happens sometimes.
-
-    @name sometimes
-    @methodOf Random
-    ###
-    sometimes: ->
-      !rand(3)
-
   ###*
   Returns random integers from [0, n) if n is given.
   Otherwise returns random float between 0 and 1.
@@ -61,7 +45,7 @@
   @param {Number} n
   @returns {Number} A random integer from 0 to n - 1 if n is given. If n is not given, a random float between 0 and 1.
   ###
-  (this)["rand"] = (n) ->
+  root["rand"] = (n) ->
     if n
       Math.floor(n * Math.random())
     else
@@ -76,11 +60,10 @@
   @param {Number} n
   @returns {Number} A random float from -n / 2 to n / 2 if n is given. If n is not given, a random float between -0.5 and 0.5.
   ###
-  (this)["signedRand"] = (n) ->
+  root["signedRand"] = (n) ->
     if n
       (n * Math.random()) - (n / 2)
     else
       Math.random() - 0.5
 
 )()
-

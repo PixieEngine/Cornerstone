@@ -2,8 +2,6 @@ module "Random"
 
 test "methods", ->
   ok(Random.angle)
-  ok(Random.often)
-  ok(Random.sometimes)
 
 test "Global rand", ->
   n = rand(2)
