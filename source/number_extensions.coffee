@@ -61,337 +61,338 @@ Returns this number rounded to the nearest integer.
   Number::[method] = ->
     Math[method](this)
 
-###*
-Get a bunch of points equally spaced around the unit circle.
+Object.extend Number.prototype,
+  ###*
+  Get a bunch of points equally spaced around the unit circle.
 
-    4.circularPoints (p) ->
+      4.circularPoints (p) ->
 
-    # p gets Point(1, 0), Point(0, 1), Point(-1, 0), Point(0, -1)
+      # p gets Point(1, 0), Point(0, 1), Point(-1, 0), Point(0, -1)
 
-@name circularPoint
-@methodOf Number#
+  @name circularPoint
+  @methodOf Number#
 
-###
-Number::circularPoints = (block) ->
-  n = this
+  ###
+  circularPoints: (block) ->
+    n = this
 
-  n.times (i) ->
-    block(Point.fromAngle((i/n).turns), i)
+    n.times (i) ->
+      block(Point.fromAngle((i/n).turns), i)
 
-###*
-Returns a number whose value is limited to the given range.
+  ###*
+  Returns a number whose value is limited to the given range.
 
-    # limit the output of this computation to between 0 and 255
-    (2 * 255).clamp(0, 255)
-    # => 255
+      # limit the output of this computation to between 0 and 255
+      (2 * 255).clamp(0, 255)
+      # => 255
 
-@name clamp
-@methodOf Number#
-@param {Number} min The lower boundary of the output range
-@param {Number} max The upper boundary of the output range
-@returns {Number} A number in the range [min, max]
-###
-Number::clamp = (min, max) ->
-  if min? and max?
-    Math.min(Math.max(this, min), max)
-  else if min?
-    Math.max(this, min)
-  else if max?
-    Math.min(this, max)
-  else
-    this
+  @name clamp
+  @methodOf Number#
+  @param {Number} min The lower boundary of the output range
+  @param {Number} max The upper boundary of the output range
+  @returns {Number} A number in the range [min, max]
+  ###
+  clamp: (min, max) ->
+    if min? and max?
+      Math.min(Math.max(this, min), max)
+    else if min?
+      Math.max(this, min)
+    else if max?
+      Math.min(this, max)
+    else
+      this
 
-###*
-A mod method useful for array wrapping. The range of the function is
-constrained to remain in bounds of array indices.
+  ###*
+  A mod method useful for array wrapping. The range of the function is
+  constrained to remain in bounds of array indices.
 
-    (-1).mod(5)
-    # => 4
+      (-1).mod(5)
+      # => 4
 
-@name mod
-@methodOf Number#
-@param {Number} base
-@returns {Number} An integer between 0 and (base - 1) if base is positive.
-###
-Number::mod = (base) ->
-  result = this % base;
+  @name mod
+  @methodOf Number#
+  @param {Number} base
+  @returns {Number} An integer between 0 and (base - 1) if base is positive.
+  ###
+  mod: (base) ->
+    result = this % base;
 
-  if result < 0 && base > 0
-    result += base
+    if result < 0 && base > 0
+      result += base
 
-  return result
+    return result
 
-###*
-Get the sign of this number as an integer (1, -1, or 0).
+  ###*
+  Get the sign of this number as an integer (1, -1, or 0).
 
-    (-5).sign()
-    # => -1
+      (-5).sign()
+      # => -1
 
-    0.sign()
-    # => 0
+      0.sign()
+      # => 0
 
-    5.sign()
-    # => 1
+      5.sign()
+      # => 1
 
-@name sign
-@methodOf Number#
-@returns {Number} The sign of this number, 0 if the number is 0.
-###
-Number::sign = ->
-  if this > 0
-    1
-  else if this < 0
-    -1
-  else
-    0
+  @name sign
+  @methodOf Number#
+  @returns {Number} The sign of this number, 0 if the number is 0.
+  ###
+  sign: ->
+    if this > 0
+      1
+    else if this < 0
+      -1
+    else
+      0
 
-###*
-Returns true if this number is even (evenly divisible by 2).
+  ###*
+  Returns true if this number is even (evenly divisible by 2).
 
-    2.even()
-    # => true
+      2.even()
+      # => true
 
-    3.even()
-    # => false
+      3.even()
+      # => false
 
-    0.even()
-    # => true
+      0.even()
+      # => true
 
-@name even
-@methodOf Number#
-@returns {Boolean} true if this number is an even integer, false otherwise.
-###
-Number::even = ->
-  @mod(2) is 0
+  @name even
+  @methodOf Number#
+  @returns {Boolean} true if this number is an even integer, false otherwise.
+  ###
+  even: ->
+    @mod(2) is 0
 
-###*
-Returns true if this number is odd (has remainder of 1 when divided by 2).
+  ###*
+  Returns true if this number is odd (has remainder of 1 when divided by 2).
 
-    2.odd()
-    # => false
+      2.odd()
+      # => false
 
-    3.odd()
-    # => true
+      3.odd()
+      # => true
 
-    0.odd()
-    # => false
+      0.odd()
+      # => false
 
-@name odd
-@methodOf Number#
-@returns {Boolean} true if this number is an odd integer, false otherwise.
-###
-Number::odd = ->
-  @mod(2) is 1
+  @name odd
+  @methodOf Number#
+  @returns {Boolean} true if this number is an odd integer, false otherwise.
+  ###
+  odd: ->
+    @mod(2) is 1
 
-###*
-Calls iterator the specified number of times, passing in the number of the
-current iteration as a parameter: 0 on first call, 1 on the second call, etc.
+  ###*
+  Calls iterator the specified number of times, passing in the number of the
+  current iteration as a parameter: 0 on first call, 1 on the second call, etc.
 
-    output = []
+      output = []
 
-    5.times (n) ->
-      output.push(n)
+      5.times (n) ->
+        output.push(n)
 
-    output
-    # => [0, 1, 2, 3, 4]
+      output
+      # => [0, 1, 2, 3, 4]
 
-@name times
-@methodOf Number#
-@param {Function} iterator The iterator takes a single parameter, the number of the current iteration.
-@param {Object} [context] The optional context parameter specifies an object to treat as <code>this</code> in the iterator block.
-@returns {Number} The number of times the iterator was called.
-###
-Number::times = (iterator, context) ->
-  i = -1
+  @name times
+  @methodOf Number#
+  @param {Function} iterator The iterator takes a single parameter, the number of the current iteration.
+  @param {Object} [context] The optional context parameter specifies an object to treat as <code>this</code> in the iterator block.
+  @returns {Number} The number of times the iterator was called.
+  ###
+  times: (iterator, context) ->
+    i = -1
 
-  while ++i < this
-    iterator.call context, i
+    while ++i < this
+      iterator.call context, i
 
-  return i
+    return i
 
-###*
-Returns the the nearest grid resolution less than or equal to the number.
+  ###*
+  Returns the the nearest grid resolution less than or equal to the number.
 
-    7.snap(8)
-    # => 0
+      7.snap(8)
+      # => 0
 
-    4.snap(8)
-    # => 0
+      4.snap(8)
+      # => 0
 
-    12.snap(8)
-    # => 8
+      12.snap(8)
+      # => 8
 
-@name snap
-@methodOf Number#
-@param {Number} resolution The grid resolution to snap to.
-@returns {Number} The nearest multiple of resolution lower than the number.
-###
-Number::snap = (resolution) ->
-  n = this / resolution; 1/1; # This is to fix broken regex in doc parser
-  n.floor() * resolution
+  @name snap
+  @methodOf Number#
+  @param {Number} resolution The grid resolution to snap to.
+  @returns {Number} The nearest multiple of resolution lower than the number.
+  ###
+  snap: (resolution) ->
+    n = this / resolution; 1/1; # This is to fix broken regex in doc parser
+    n.floor() * resolution
 
-###*
-In number theory, integer factorization or prime factorization is the
-breaking down of a composite number into smaller non-trivial divisors,
-which when multiplied together equal the original integer.
+  ###*
+  In number theory, integer factorization or prime factorization is the
+  breaking down of a composite number into smaller non-trivial divisors,
+  which when multiplied together equal the original integer.
 
-Floors the number for purposes of factorization.
+  Floors the number for purposes of factorization.
 
-    60.primeFactors()
-    # => [2, 2, 3, 5]
+      60.primeFactors()
+      # => [2, 2, 3, 5]
 
-    37.primeFactors()
-    # => [37]
+      37.primeFactors()
+      # => [37]
 
-@name primeFactors
-@methodOf Number#
-@returns {Array} An array containing the factorization of this number.
-###
-Number::primeFactors = ->
-  factors = []
+  @name primeFactors
+  @methodOf Number#
+  @returns {Array} An array containing the factorization of this number.
+  ###
+  primeFactors: ->
+    factors = []
 
-  n = @floor()
+    n = @floor()
 
-  if n == 0
-    return undefined
+    if n == 0
+      return undefined
 
-  if n < 0
-    factors.push(-1)
-    n /= -1
+    if n < 0
+      factors.push(-1)
+      n /= -1
 
-  i = 2
-  iSquared = i * i
-
-  while iSquared < n
-    while (n % i) == 0
-        factors.push i
-        n /= i
-
-    i += 1
+    i = 2
     iSquared = i * i
 
-  if n != 1
-    factors.push n
+    while iSquared < n
+      while (n % i) == 0
+          factors.push i
+          n /= i
 
-  return factors
+      i += 1
+      iSquared = i * i
 
-###*
-Returns the two character hexidecimal
-representation of numbers 0 through 255.
+    if n != 1
+      factors.push n
 
-    255.toColorPart()
-    # => "ff"
+    return factors
 
-    0.toColorPart()
-    # => "00"
+  ###*
+  Returns the two character hexidecimal
+  representation of numbers 0 through 255.
 
-    200.toColorPart()
-    # => "c8"
+      255.toColorPart()
+      # => "ff"
 
-@name toColorPart
-@methodOf Number#
-@returns {String} Hexidecimal representation of the number
-###
-Number::toColorPart = ->
-  s = parseInt(@clamp(0, 255), 10).toString(16)
+      0.toColorPart()
+      # => "00"
 
-  if s.length == 1
-    s = '0' + s
+      200.toColorPart()
+      # => "c8"
 
-  return s
+  @name toColorPart
+  @methodOf Number#
+  @returns {String} Hexidecimal representation of the number
+  ###
+  toColorPart: ->
+    s = parseInt(@clamp(0, 255), 10).toString(16)
 
-###*
-Returns a number that is maxDelta closer to target.
+    if s.length == 1
+      s = '0' + s
 
-    255.approach(0, 5)
-    # => 250
+    return s
 
-    5.approach(0, 10)
-    # => 0
+  ###*
+  Returns a number that is maxDelta closer to target.
 
-@name approach
-@methodOf Number#
-@returns {Number} A number maxDelta toward target
-###
-Number::approach = (target, maxDelta) ->
-  (target - this).clamp(-maxDelta, maxDelta) + this
+      255.approach(0, 5)
+      # => 250
 
-###*
-Returns a number that is closer to the target by the ratio.
+      5.approach(0, 10)
+      # => 0
 
-    255.approachByRatio(0, 0.1)
-    # => 229.5
+  @name approach
+  @methodOf Number#
+  @returns {Number} A number maxDelta toward target
+  ###
+  approach: (target, maxDelta) ->
+    (target - this).clamp(-maxDelta, maxDelta) + this
 
-@name approachByRatio
-@methodOf Number#
-@returns {Number} A number toward target by the ratio
-###
-Number::approachByRatio = (target, ratio) ->
-  @approach(target, this * ratio)
+  ###*
+  Returns a number that is closer to the target by the ratio.
 
-###*
-Returns a number that is closer to the target angle by the delta.
+      255.approachByRatio(0, 0.1)
+      # => 229.5
 
-    Math.PI.approachRotation(0, Math.PI/4)
-    # => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
+  @name approachByRatio
+  @methodOf Number#
+  @returns {Number} A number toward target by the ratio
+  ###
+  approachByRatio: (target, ratio) ->
+    @approach(target, this * ratio)
 
-@name approachRotation
-@methodOf Number#
-@returns {Number} A number toward the target angle by maxDelta
-###
-Number::approachRotation = (target, maxDelta) ->
-  while target > this + Math.PI
-    target -= Math.TAU
+  ###*
+  Returns a number that is closer to the target angle by the delta.
 
-  while target < this - Math.PI
-    target += Math.TAU
+      Math.PI.approachRotation(0, Math.PI/4)
+      # => 2.356194490192345 # this is (3/4) * Math.PI, which is (1/4) * Math.PI closer to 0 from Math.PI
 
-  return (target - this).clamp(-maxDelta, maxDelta) + this
+  @name approachRotation
+  @methodOf Number#
+  @returns {Number} A number toward the target angle by maxDelta
+  ###
+  approachRotation: (target, maxDelta) ->
+    while target > this + Math.PI
+      target -= Math.TAU
 
-###*
-Constrains a rotation to between -PI and PI.
+    while target < this - Math.PI
+      target += Math.TAU
 
-    (9/4 * Math.PI).constrainRotation()
-    # => 0.7853981633974483 # this is (1/4) * Math.PI
+    return (target - this).clamp(-maxDelta, maxDelta) + this
 
-@name constrainRotation
-@methodOf Number#
-@returns {Number} This number constrained between -PI and PI.
-###
-Number::constrainRotation = ->
-  target = this
+  ###*
+  Constrains a rotation to between -PI and PI.
 
-  while target > Math.PI
-    target -= Math.TAU
+      (9/4 * Math.PI).constrainRotation()
+      # => 0.7853981633974483 # this is (1/4) * Math.PI
 
-  while target < -Math.PI
-    target += Math.TAU
+  @name constrainRotation
+  @methodOf Number#
+  @returns {Number} This number constrained between -PI and PI.
+  ###
+  constrainRotation: ->
+    target = this
 
-  return target
+    while target > Math.PI
+      target -= Math.TAU
 
-# TODO Test and document
-Number::truncate = ->
-  if this > 0
-    @floor()
-  else if this < 0
-    @ceil()
-  else
-    this
+    while target < -Math.PI
+      target += Math.TAU
 
-###*
-The mathematical d operator. Useful for simulating dice rolls.
+    return target
 
-@name d
-@methodOf Number#
-@returns {Number} The sum of rolling <code>this</code> many <code>sides</code>-sided dice
-###
-Number::d = (sides) ->
-  sum = 0
+  # TODO Test and document
+  truncate: ->
+    if this > 0
+      @floor()
+    else if this < 0
+      @ceil()
+    else
+      this
 
-  @times ->
-    sum += rand(sides) + 1
+  ###*
+  The mathematical d operator. Useful for simulating dice rolls.
 
-  return sum
+  @name d
+  @methodOf Number#
+  @returns {Number} The sum of rolling <code>this</code> many <code>sides</code>-sided dice
+  ###
+  d: (sides) ->
+    sum = 0
+
+    @times ->
+      sum += rand(sides) + 1
+
+    return sum
 
 ###*
 Utility method to convert a number to a duration of seconds.
