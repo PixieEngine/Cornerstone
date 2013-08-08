@@ -30,7 +30,7 @@ test "#returning", ->
   equals returnValue, -1
 
 test "#debounce", (done) ->
-  fn = (-> ok true; done()).debounce(50)
+  fn = (-> ok true; done()).debounce(1)
 
   # Though called multiple times the function is only triggered once
   fn()
