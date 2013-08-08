@@ -19,16 +19,6 @@ test ".identity", ->
   [0, 1, true, false, null, undefined].each (x) ->
     equals I(x), x
 
-test "#returning", ->
-  x = 0
-  sideEffectsAdd = (a) ->
-    x += a
-
-  returnValue = sideEffectsAdd.returning(-1)(4)
-
-  equals x, 4
-  equals returnValue, -1
-
 test "#debounce", (done) ->
   fn = (-> ok true; done()).debounce(1)
 

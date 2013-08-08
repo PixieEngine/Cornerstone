@@ -41,14 +41,6 @@ Object.extend Function.prototype,
       clearTimeout(timeout)
       timeout = setTimeout(later, wait)
 
-  # Not sure about the future of this, but trying it out
-  returning: (x) ->
-    func = this
-
-    ->
-      func.apply(this, arguments)
-      return x
-
   delay: (wait, args...) ->
     func = this
 
