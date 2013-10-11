@@ -32,64 +32,35 @@ test "#include", ->
   o = Core
     test: "my_val"
 
-  (global ? window).M = (I, self) ->
+  M = (I, self) ->
     self.attrReader "test"
 
-    test2: "cool"
+    self.extend
+      test2: "cool"
 
-  ret = o.include "M"
+  ret = o.include M
 
   equals ret, o, "Should return self"
 
   equals o.test(), "my_val"
   equals o.test2, "cool"
 
-test "#include same module twice", ->
-  (global ? window).M = (I, self) ->
-    ok(true)
-
-    test: true
-
-  o = Core()
-
-  o.include("M")
-  o.include("M")
-
 test "#include multiple", ->
   o = Core
     test: "my_val"
 
-  (global ? window).M = (I, self) ->
+  M = (I, self) ->
     self.attrReader "test"
 
-    test2: "cool"
+    self.extend
+      test2: "cool"
 
-  (global ? window).M2 = (I, self) ->
-    test2: "coolio"
+  M2 = (I, self) ->
+    self.extend
+      test2: "coolio"
 
-  o.include "M", "M2"
+  o.include M, M2
 
   equals o.test2, "coolio"
-
-test "#include string", ->
-  (global ? window).TestM = (I, self) ->
-    self.attrReader "test"
-
-    test2: "cool"
-
-  o = Core
-    test: "my_val"
-
-  o.include "TestM"
-
-  equals o.test(), "my_val"
-
-test "#send", ->
-  o = Core
-    test: true
-
-  o.send("attrAccessor", "test")
-
-  ok(o.test())
 
 module undefined

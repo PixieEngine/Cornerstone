@@ -47,18 +47,13 @@
     equals result.x, point.x + x
     equals result.y, point.y + y
 
-  test "#add$", ->
+  test "#add existing", ->
     p = Point(0, 0)
 
-    p.add$(Point(3, 5))
+    p.add(Point(3, 5))
 
-    equals p.x, 3
-    equals p.y, 5
-
-    p.add$(2, 1)
-
-    equals p.x, 5
-    equals p.y, 6
+    equals p.x, 0
+    equals p.y, 0
 
   test "#subtract", ->
     p1 = Point(5, 6)
@@ -69,13 +64,13 @@
     equals result.x, p1.x - p2.x
     equals result.y, p1.y - p2.y
 
-  test "#subtract$", ->
+  test "#subtract existing", ->
     p = Point(8, 6)
 
-    p.subtract$(3, 4)
+    p.subtract(3, 4)
 
-    equals p.x, 5
-    equals p.y, 2
+    equals p.x, 8
+    equals p.y, 6
 
   test "#norm", ->
     p = Point(2, 0)
@@ -92,13 +87,13 @@
     equals normal.x, 0, "x value of norm of point(0,0) is 0"
     equals normal.y, 0, "y value of norm of point(0,0) is 0"
 
-  test "#norm$", ->
+  test "#norm existing", ->
     p = Point(6, 8)
 
-    p.norm$(5)
+    p.norm(5)
 
-    equals p.x, 3
-    equals p.y, 4
+    equals p.x, 6
+    equals p.y, 8
 
   test "#scale", ->
     p = Point(5, 6)
@@ -112,14 +107,14 @@
     equals p.x, 5
     equals p.y, 6
 
-  test "#scale$", ->
+  test "#scale existing", ->
     p = Point(0, 1)
     scalar = 3
 
-    p.scale$(scalar)
+    p.scale(scalar)
 
     equals p.x, 0
-    equals p.y, 3
+    equals p.y, 1
 
   test "#floor", ->
     p1 = Point(7.2, 6.9)

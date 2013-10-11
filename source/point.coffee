@@ -35,13 +35,13 @@
     @name x
     @fieldOf Point#
     ###
-    x: x || 0
+    x: x ? 0
     ###*
     The y coordinate of this point.
     @name y
     @fieldOf Point#
     ###
-    y: y || 0
+    y: y ? 0
 
   Point:: =
     ###*
@@ -53,13 +53,10 @@
     @returns {Point} A new point whose magnitude has been clamped to the given value.
     ###
     clamp: (n) ->
-      @copy().clamp$(n)
-
-    clamp$: (n) ->
       if @magnitude() > n
-        @norm$(n)
+        @norm(n)
       else
-        this
+        @copy()
 
     ###*
     Creates a copy of this point.
@@ -107,52 +104,16 @@
     @returns {Point} A new point, the sum of both.
     ###
     add: (first, second) ->
-      @copy().add$(first, second)
-
-    ###*
-    Adds a point to this one, returning a modified point. You may
-    also use a two argument call like <code>point.add(x, y)</code>
-    to add x and y values without a second point object.
-
-        point = Point(2, 3)
-
-        point.x
-        # => 2
-
-        point.y
-        # => 3
-
-        point.add$(Point(3, 4))
-
-        point.x
-        # => 5
-
-        point.y
-        # => 7
-
-        anotherPoint = Point(2, 3)
-        anotherPoint.add$(3, 4)
-
-        anotherPoint.x
-        # => 5
-
-        anotherPoint.y
-        # => 7
-
-    @name add$
-    @methodOf Point#
-    @param {Point} other The point to add this point to.
-    @returns {Point} The sum of both points.
-    ###
-    add$: (first, second) ->
       if second?
-        @x += first
-        @y += second
+        Point(
+          @x + first
+          @y + second
+        )
       else
-        @x += first.x
-        @y += first.y
-
-      return this
+        Point(
+          @x + first.x,
+          @y + first.y
+        )
 
     ###*
     Subtracts a point to this one and returns the new point.
@@ -179,50 +140,13 @@
     @returns {Point} A new point, this - other.
     ###
     subtract: (first, second) ->
-      @copy().subtract$(first, second)
-
-    ###*
-    Subtracts a point to this one and returns the new point.
-
-        point = Point(1, 2)
-
-        point.x
-        # => 1
-
-        point.y
-        # => 2
-
-        point.subtract$(Point(2, 0))
-
-        point.x
-        # => -1
-
-        point.y
-        # => 2
-
-        anotherPoint = Point(1, 2)
-        anotherPoint.subtract$(2, 0)
-
-        anotherPoint.x
-        # => -1
-
-        anotherPoint.y
-        # => 2
-
-    @name subtract$
-    @methodOf Point#
-    @param {Point} other The point to subtract from this point.
-    @returns {Point} The difference of the two points.
-    ###
-    subtract$: (first, second) ->
       if second?
-        @x -= first
-        @y -= second
+        Point(
+          @x - first,
+          @y - second
+        )
       else
-        @x -= first.x
-        @y -= first.y
-
-      return this
+        @add(first.scale(-1))
 
     ###*
     Scale this Point (Vector) by a constant amount.
@@ -241,37 +165,10 @@
     @returns {Point} A new point, this * scalar.
     ###
     scale: (scalar) ->
-      @copy().scale$(scalar)
-
-    ###*
-    Scale this Point (Vector) by a constant amount. Modifies the point in place.
-
-        point = Point(5, 6)
-
-        point.x
-        # => 5
-
-        point.y
-        # => 6
-
-        point.scale$(2)
-
-        point.x
-        # => 10
-
-        point.y
-        # => 12
-
-    @name scale$
-    @methodOf Point#
-    @param {Number} scalar The amount to scale this point by.
-    @returns {Point} this * scalar.
-    ###
-    scale$: (scalar) ->
-      @x *= scalar
-      @y *= scalar
-
-      return this
+      Point(
+        @x * scalar,
+        @y * scalar
+      )
 
     ###*
     The norm of a vector is the unit vector pointing in the same direction. This method
@@ -298,53 +195,10 @@
     @returns {Point} The unit vector pointing in the same direction as this vector.
     ###
     norm: (length=1.0) ->
-      @copy().norm$(length)
-
-    ###*
-    The norm of a vector is the unit vector pointing in the same direction. This method
-    treats the point as though it is a vector from the origin to (x, y). Modifies the point in place.
-
-        point = Point(2, 3).norm$()
-
-        point.x
-        # => 0.5547001962252291
-
-        point.y
-        # => 0.8320502943378437
-
-        anotherPoint = Point(2, 3).norm$(2)
-
-        anotherPoint.x
-        # => 1.1094003924504583
-
-        anotherPoint.y
-        # => 1.6641005886756874
-
-    @name norm$
-    @methodOf Point#
-    @returns {Point} The unit vector pointing in the same direction as this vector.
-    ###
-    norm$: (length=1.0) ->
       if m = @length()
-        @scale$(length/m)
+        @scale(length/m)
       else
-        this
-
-    ###*
-    Floor the x and y values, returning a new point.
-
-        point = Point(3.4, 5.8).floor()
-
-        point.x
-        # => 3
-
-        point.y
-        # => 5
-
-    @name floor
-    @methodOf Point#
-    @returns {Point} A new point, with x and y values each floored to the largest previous integer.
-    ###
+        @copy()
 
     ###*
     Determine whether this point is equal to another point.

@@ -550,6 +550,15 @@ Object.extend Array.prototype,
       product * n
 
   ###*
+  Produce a duplicate-free version of the array.
+  ###
+  unique: ->
+    @inject [], (results, element) ->
+      results.push element if results.indexOf(element) is -1
+
+      results
+
+  ###*
   Merges together the values of each of the arrays with the values at the corresponding position.
 
       ['a', 'b', 'c'].zip([1, 2, 3])

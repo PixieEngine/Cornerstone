@@ -1,14 +1,14 @@
 module "Bindable"
 
 test "#bind and #trigger", ->
-  o = Core().include("Bindable")
+  o = Bindable()
 
   o.bind("test", -> ok true)
 
   o.trigger("test")
 
 test "Multiple bindings", ->
-  o = Core().include(Bindable)
+  o = Bindable()
 
   o.bind("test", -> ok true)
   o.bind("test", -> ok true)
@@ -16,7 +16,7 @@ test "Multiple bindings", ->
   o.trigger("test")
 
 test "#trigger arguments", ->
-  o = Core().include(Bindable)
+  o = Bindable()
 
   param1 = "the message"
   param2 = 3
@@ -28,7 +28,7 @@ test "#trigger arguments", ->
   o.trigger "test", param1, param2
 
 test "#unbind", ->
-  o = Core().include("Bindable")
+  o = Bindable()
 
   callback = ->
     ok false
@@ -44,7 +44,7 @@ test "#unbind", ->
   o.trigger "test"
 
 test "#trigger namespace", ->
-  o = Core().include("Bindable")
+  o = Bindable()
   o.bind "test.TestNamespace", ->
     ok true
 
@@ -54,7 +54,7 @@ test "#trigger namespace", ->
   o.trigger "test"
 
 test "#unbind namespaced", ->
-  o = Core().include("Bindable")
+  o = Bindable()
 
   o.bind "test.TestNamespace", ->
     ok true
@@ -65,4 +65,3 @@ test "#unbind namespaced", ->
   o.trigger "test"
 
 module()
-

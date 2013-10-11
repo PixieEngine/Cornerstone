@@ -195,6 +195,13 @@ test "#clear", ->
   equals array.length, 0
   equals array[0], undefined
 
+test "#unique", ->
+  array = [0, 0, 0, 1, 1, 1, 2, 3]
+
+  equals array.unique().first(), 0
+  equals array.unique().last(), 3
+  equals array.unique().length, 4
+
 test "#wrap", ->
   array = [0, 1, 2, 3, 4]
 

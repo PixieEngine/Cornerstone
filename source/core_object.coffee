@@ -13,9 +13,6 @@ methods.
   root = global ? window
 
   root.Core = (I={}) ->
-    Object.reverseMerge I,
-      includedModules: []
-
     self =
       ###*
       External access to instance variables. Use of this property should be avoided
@@ -66,8 +63,9 @@ methods.
       attrAccessor: (attrNames...) ->
         attrNames.each (attrName) ->
           self[attrName] = (newValue) ->
-            if newValue?
+            if arguments.length > 0
               I[attrName] = newValue
+
               return self
             else
               I[attrName]
@@ -126,8 +124,8 @@ methods.
       @see Object.extend
       @returns self
       ###
-      extend: (options) ->
-        Object.extend self, options
+      extend: (object) ->
+        Object.extend self, object
 
         return self
 
@@ -147,37 +145,9 @@ methods.
       ###
       include: (modules...) ->
         for Module in modules
-          if Module.isString?()
-            moduleName = Module
-            Module = Module.constantize()
-          else if moduleName = Module._name
-            # Nothing, captured name in if condition
-          else
-            # Attempt to look up module in global namespace
-            for key, value of root
-              if value is Module
-                Module._name = moduleName = key # Cache module name
-
-          if moduleName
-            unless I.includedModules.include moduleName
-              I.includedModules.push moduleName
-              self.extend Module(I, self)
-          else
-            warn "Unable to discover name for module: ", Module, "\nSerialization issues may occur."
-            self.extend Module(I, self)
+          Module(I, self)
 
         return self
-
-      send: (name, args...) ->
-        self[name](args...)
-
-    # Include Bindable by default
-    self.include "Bindable"
-
-    # Initial module inclue, for reconstructing objects from JSON
-    for moduleName in I.includedModules
-      Module = moduleName.constantize()
-      self.extend Module(I, self)
 
     return self
 )()
