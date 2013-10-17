@@ -1,153 +1,45 @@
-###*
-The Core class is used to add extended functionality to objects without
-extending the object class directly. Inherit from Core to gain its utility
-methods.
+# YO, THIS FILE IS JUST TEMPORARY
+# The real one is at: https://github.com/STRd6/core
 
-@name Core
-@constructor
+Core = (I={}, self={}) ->
+  extend self,
+    I: I
 
-@param {Object} I Instance variables
-###
+    attrAccessor: (attrNames...) ->
+      attrNames.forEach (attrName) ->
+        self[attrName] = (newValue) ->
+          if arguments.length > 0
+            I[attrName] = newValue
 
-( ->
-  root = global ? window
-
-  root.Core = (I={}) ->
-    self =
-      ###*
-      External access to instance variables. Use of this property should be avoided
-      in general, but can come in handy from time to time.
-
-          I =
-            r: 255
-            g: 0
-            b: 100
-
-          myObject = Core(I)
-
-          # a bad idea most of the time, but it's
-          # pretty convenient to have available.
-          myObject.I.r
-          # => 255
-
-          myObject.I.g
-          # => 0
-
-          myObject.I.b
-          # => 100
-
-      @name I
-      @fieldOf Core#
-      ###
-      I: I
-
-      ###*
-      Generates a public jQuery style getter / setter method for each
-      String argument.
-
-          myObject = Core
-            r: 255
-            g: 0
-            b: 100
-
-          myObject.attrAccessor "r", "g", "b"
-
-          myObject.r(254)
-          myObject.r()
-
-          => 254
-
-      @name attrAccessor
-      @methodOf Core#
-      ###
-      attrAccessor: (attrNames...) ->
-        attrNames.each (attrName) ->
-          self[attrName] = (newValue) ->
-            if arguments.length > 0
-              I[attrName] = newValue
-
-              return self
-            else
-              I[attrName]
-
-      ###*
-      Generates a public jQuery style getter method for each String argument.
-
-          myObject = Core
-            r: 255
-            g: 0
-            b: 100
-
-          myObject.attrReader "r", "g", "b"
-
-          myObject.r()
-          => 255
-
-          myObject.g()
-          => 0
-
-          myObject.b()
-          => 100
-
-      @name attrReader
-      @methodOf Core#
-      ###
-      attrReader: (attrNames...) ->
-        attrNames.each (attrName) ->
-          self[attrName] = ->
+            return self
+          else
             I[attrName]
 
-      ###*
-      Extends this object with methods from the passed in object. A shortcut for Object.extend(self, methods)
+      return self
 
-          I =
-            x: 30
-            y: 40
-            maxSpeed: 5
+    attrReader: (attrNames...) ->
+      attrNames.forEach (attrName) ->
+        self[attrName] = ->
+          I[attrName]
 
-          # we are using extend to give player
-          # additional methods that Core doesn't have
-          player = Core(I).extend
-            increaseSpeed: ->
-              I.maxSpeed += 1
+      return self
 
-          player.I.maxSpeed
-          => 5
+    extend: (object) ->
+      extend self, object
 
-          player.increaseSpeed()
+    include: (modules...) ->
+      for Module in modules
+        Module(I, self)
 
-          player.I.maxSpeed
-          => 6
+      return self
 
-      @name extend
-      @methodOf Core#
-      @see Object.extend
-      @returns self
-      ###
-      extend: (object) ->
-        Object.extend self, object
+  return self
 
-        return self
+extend = (target, sources...) ->
+  for source in sources
+    for name of source
+      target[name] = source[name]
 
-      ###*
-      Includes a module in this object.
+  return target
 
-          myObject = Core()
-          myObject.include(Bindable)
-
-          # now you can bind handlers to functions
-          myObject.bind "someEvent", ->
-            alert("wow. that was easy.")
-
-      @name include
-      @methodOf Core#
-      @param {String} Module the module to include. A module is a constructor that takes two parameters, I and self, and returns an object containing the public methods to extend the including object with.
-      ###
-      include: (modules...) ->
-        for Module in modules
-          Module(I, self)
-
-        return self
-
-    return self
-)()
+global.Core = Core

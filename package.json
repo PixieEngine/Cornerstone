@@ -1,6 +1,6 @@
 {
   "name": "cornerstone-js",
-  "version": "0.3.0-alpha.0",
+  "version": "0.3.1",
   "description": "Cornerstone provides a solid foundation for working with JavaScript. It aggressively shivs many of the core classes",
   "devDependencies": {
     "coffee-script": "~1.6.3",
